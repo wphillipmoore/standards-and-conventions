@@ -1,5 +1,11 @@
 # Standards and Conventions - Agent Instructions
 
+## User Overrides (Optional)
+
+If `~/AGENTS.md` exists and is readable, load it and apply it as a
+user-specific overlay for this session. If it cannot be read, say so
+briefly and continue.
+
 This repository is the canonical source of development standards and
 conventions. Treat the documents here as the default baseline for other
 repositories, with local overrides captured elsewhere when needed.
