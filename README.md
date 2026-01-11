@@ -25,8 +25,11 @@ with per-repository overrides captured locally when needed.
 ## Key documents
 - Agent guidance: `AGENTS.md`
 - Markdown standards: `docs/foundation/markdown-standards.md`
+- Architecture standards: `docs/foundation/architecture-standards.md`
+- AI code review guidelines: `docs/foundation/ai-code-review-guidelines.md`
 - Code management overview: `docs/code-management/overview.md`
 - Repository standards overview: `docs/repository/overview.md`
+- Development standards overview: `docs/development/overview.md`
 - Python standards overview: `docs/development/python/overview.md`
 
 ## Status
