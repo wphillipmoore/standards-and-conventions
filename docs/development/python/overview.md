@@ -26,3 +26,4 @@ and long-term survivability across repositories.
 - Type hints: [type-hints.md](type-hints.md)
 - Testing and coverage: [testing-and-coverage.md](testing-and-coverage.md)
 - Dependency management: [dependency-management.md](dependency-management.md)
+- Python version management: [version-management.md](version-management.md)
