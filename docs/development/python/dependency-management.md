@@ -5,7 +5,9 @@
 - [Scope](#scope)
 - [Sources of truth](#sources-of-truth)
 - [Version specification rules](#version-specification-rules)
-- [Patch-cycle upgrade workflow](#patch-cycle-upgrade-workflow)
+- [Upgrade workflow](#upgrade-workflow)
+  - [Patch-level](#patch-level)
+  - [Minor-level](#minor-level)
 - [In-cycle exception rules](#in-cycle-exception-rules)
 - [Handling regressions and non-latest pins](#handling-regressions-and-non-latest-pins)
 - [Locked dependency review](#locked-dependency-review)
@@ -44,7 +46,9 @@ Example pattern for major anchoring (syntax may vary by tooling):
 >=2.4,<3.0
 ```
 
-## Patch-cycle upgrade workflow
+## Upgrade workflow
+
+### Patch-level
 The first action after incrementing the application `PATCH` version is to
 refresh dependencies.
 
@@ -59,6 +63,33 @@ Workflow:
 
 Do not change explicit version constraints in `pyproject.toml` as part of this
 cycle-opening update.
+
+### Minor-level
+When incrementing the application `MINOR` version, perform the patch-level
+workflow and also attempt to move toward the latest available dependency
+releases when constraints have been tightened.
+
+Workflow:
+1. Identify dependencies pinned below the current minor series (for example,
+   constrained to `1.1` when `1.2` exists).
+2. For each dependency, relax the constraint individually and run the full
+   validation and test suite.
+3. If multiple dependencies were relaxed successfully, run the full validation
+   and test suite with all relaxations combined.
+4. Identify dependencies anchored to a major version when a newer major
+   release exists (for example, constrained to `<4` when `5.x` is available).
+5. For each major upgrade candidate, expand the constraint individually and
+   run the full validation and test suite.
+6. If multiple major upgrades are viable, run the full validation and test
+   suite with all major upgrades combined.
+
+The expected steady state is to remain anchored to the latest major version of
+each dependency. If no newer major release exists, there is nothing to test.
+
+If a dependency upgrade fails, determine root cause before deciding to pin or
+defer. A regression in the dependency is a valid reason to stay on the prior
+major version (for example, pinning `pylint` to the latest `3.x` when `4.0.0`
+introduces a blocking bug).
 
 ## In-cycle exception rules
 Dependencies may change during a `PATCH` cycle only when necessary:
