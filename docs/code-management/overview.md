@@ -18,5 +18,7 @@ tool-specific requirements belong in development standards.
 - Branching and deployment: [branching-and-deployment.md](branching-and-deployment.md)
 - Hotfix policy: [hotfix-policy.md](hotfix-policy.md)
 - Release and versioning: [release-versioning.md](release-versioning.md)
+- Application versioning scheme: [application-versioning-scheme.md](application-versioning-scheme.md)
+- Library versioning scheme: [library-versioning-scheme.md](library-versioning-scheme.md)
 - Pull request workflow: [pull-request-workflow.md](pull-request-workflow.md)
 - Commit messages and authorship: [commit-messages-and-authorship.md](commit-messages-and-authorship.md)
