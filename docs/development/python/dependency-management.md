@@ -10,6 +10,7 @@
   - [Minor-level](#minor-level)
 - [In-cycle exception rules](#in-cycle-exception-rules)
 - [Handling regressions and non-latest pins](#handling-regressions-and-non-latest-pins)
+- [Anchored dependency documentation](#anchored-dependency-documentation)
 - [Locked dependency review](#locked-dependency-review)
 - [Enforcement](#enforcement)
 - [Examples (TODO)](#examples-todo)
@@ -123,6 +124,35 @@ Every pin must be accompanied by:
 - a clear exit condition and planned removal
 - a review at the next `PATCH` cycle
 
+## Anchored dependency documentation
+When a dependency is anchored below the latest acceptable range, document it in
+two places:
+
+1. `pyproject.toml` comment immediately above the dependency specification,
+   noting the latest version that failed and pointing to the dependency record.
+2. A dependency-specific record in `docs/dependencies/` that captures failure
+   evidence and preserves history across attempts.
+
+Update both records every time an upgrade is tested and fails. Do not replace or
+delete prior failure evidence.
+
+Example `pyproject.toml` comment:
+
+```
+# Anchor: 1.2.5 fails full test suite; see docs/dependencies/example-lib.md
+example-lib = ">=1.1,<2.0"
+```
+
+Dependency record requirements:
+- One file per dependency: `docs/dependencies/<dependency-name>.md`.
+- Record the failing version and a concise description of the failure.
+- Capture failure evidence (test command, error excerpt, and context).
+- Append a new entry for each failed re-test.
+- Keep the latest attempted version in the `pyproject.toml` comment.
+
+See [Dependency anchor records](../../dependencies/overview.md) for the
+required format.
+
 ## Locked dependency review
 At the start of each new `PATCH` cycle, review any pinned or tightly constrained
 dependencies and confirm each pin is still required. Remove unnecessary pins
@@ -135,6 +165,8 @@ CI must fail when:
 - `poetry.lock` is out of sync with `pyproject.toml`
 - a dependency spec uses `*`
 - a dependency is pinned without documented justification
+- a dependency anchor lacks the required `pyproject.toml` comment
+- a dependency anchor lacks a record in `docs/dependencies/`
 - dependency updates occur without the required validation run
 
 ## Examples (TODO)
