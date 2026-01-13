@@ -7,7 +7,7 @@
 - [Version specification rules](#version-specification-rules)
 - [Upgrade workflow](#upgrade-workflow)
   - [Patch-level](#patch-level)
-  - [Minor-level](#minor-level)
+  - [Minor- or major-level](#minor--or-major-level)
 - [In-cycle exception rules](#in-cycle-exception-rules)
 - [Handling regressions and non-latest pins](#handling-regressions-and-non-latest-pins)
 - [Anchored dependency documentation](#anchored-dependency-documentation)
@@ -65,8 +65,8 @@ Workflow:
 Do not change explicit version constraints in `pyproject.toml` as part of this
 cycle-opening update.
 
-### Minor-level
-When incrementing the application `MINOR` version, perform the patch-level
+### Minor- or major-level
+When incrementing the application `MINOR` or `MAJOR` version, perform the patch-level
 workflow and also attempt to move toward the latest available dependency
 releases when constraints have been tightened.
 
