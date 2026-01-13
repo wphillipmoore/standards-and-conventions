@@ -84,6 +84,8 @@ Rollbacks are operational decisions, not code changes.
 - deploying unreleased code
 - publishing artifacts that never ran in test
 
+Violations are fatal exceptions that block merges, releases, and deployments.
+
 ---
 
 ## 8. Guiding Principle
