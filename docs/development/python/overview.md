@@ -25,3 +25,4 @@ and long-term survivability across repositories.
 - Import-time side effects: [import-time-side-effects.md](import-time-side-effects.md)
 - Type hints: [type-hints.md](type-hints.md)
 - Testing and coverage: [testing-and-coverage.md](testing-and-coverage.md)
+- Dependency management: [dependency-management.md](dependency-management.md)
