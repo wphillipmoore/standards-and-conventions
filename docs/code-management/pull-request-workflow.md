@@ -3,6 +3,7 @@
 ## Table of Contents
 - [Purpose](#purpose)
 - [Docs-Only Exception](#docs-only-exception)
+- [Issue linkage](#issue-linkage)
 - [Pre-Submission Requirements](#pre-submission-requirements)
 - [Pre-Submission Checklist](#pre-submission-checklist)
 - [What to Do When Checks Fail](#what-to-do-when-checks-fail)
@@ -24,6 +25,13 @@ top-level `README.md` and `CHANGELOG.md`).
 
 When using this exception, explicitly state `Docs-only: tests skipped` in the
 PR description and list the files changed.
+
+## Issue linkage
+When a pull request resolves a tracked issue, include a closing keyword in the
+PR description so the issue auto-closes on merge (for example, `Fixes #123`).
+If auto-close is not possible, the PR must still reference the issue and the
+issue must be closed manually after merge. Work is not complete until the
+issue is closed.
 
 ## Pre-Submission Requirements
 Before creating a pull request, all of the following must be met unless the
