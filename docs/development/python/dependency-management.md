@@ -12,6 +12,7 @@
 - [Handling regressions and non-latest pins](#handling-regressions-and-non-latest-pins)
 - [Anchored dependency documentation](#anchored-dependency-documentation)
 - [Pre-release dependencies](#pre-release-dependencies)
+- [Security-driven updates](#security-driven-updates)
 - [Locked dependency review](#locked-dependency-review)
 - [Enforcement](#enforcement)
 - [Examples (TODO)](#examples-todo)
@@ -176,6 +177,14 @@ When removing a pre-release dependency:
 - If the issue was created solely to track the dependency, close it.
 - If the issue tracks broader work, add a comment noting the removal.
 
+## Security-driven updates
+If a vulnerability scan fails during a development cycle, update dependencies
+immediately:
+- Update `pyproject.toml` as required.
+- Regenerate `poetry.lock`.
+- Re-export any requirements files derived from the lockfile.
+- Run a dependency audit against the exported requirements before committing.
+
 ## Locked dependency review
 At the start of each upgrade cycle (`PATCH`, `MINOR`, or `MAJOR`), review any
 pinned or tightly constrained dependencies and confirm each pin is still
@@ -193,6 +202,8 @@ CI must fail when:
 - a pre-release dependency lacks an issue link in `pyproject.toml`
 - a pre-release dependency is included in production without a documented
   override
+- dependency updates occur after a vulnerability scan failure without a
+  documented dependency audit
 - dependency updates occur without the required validation run
 
 ## Examples (TODO)
