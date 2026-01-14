@@ -31,20 +31,20 @@ These rules apply to Python library dependencies managed with `pyproject.toml`,
   it.
 
 ## Version specification rules
-- Use the least restrictive spec that still anchors to the current major
-  version of each dependency.
-- Do not use `*` as a default constraint.
+- Default dependency specs in `pyproject.toml` use `*`.
+- Do not anchor to a major or minor series by default (including pre-1.0
+  dependencies).
+- Use constrained specs only when necessary and document them using the
+  anchored dependency workflow.
 - Avoid patch-level pinning in `pyproject.toml` unless an explicit exception
   is approved.
-- For pre-1.0 dependencies, treat minor versions as breaking and constrain to
-  the current minor series.
 - Major version upgrades are explicit, deliberate decisions and require their
   own review procedure (to be defined).
 
-Example pattern for major anchoring (syntax may vary by tooling):
+Example default specification:
 
 ```
->=2.4,<3.0
+example-lib = "*"
 ```
 
 ## Upgrade workflow
@@ -84,8 +84,8 @@ Workflow:
 6. If multiple major upgrades are viable, run the full validation and test
    suite with all major upgrades combined.
 
-The expected steady state is to remain anchored to the latest major version of
-each dependency. If no newer major release exists, there is nothing to test.
+The expected steady state is unconstrained (`*`) unless a documented exception
+requires anchoring. If no newer major release exists, there is nothing to test.
 
 If a dependency upgrade fails, determine root cause before deciding to pin or
 defer. A regression in the dependency is a valid reason to stay on the prior
@@ -154,23 +154,22 @@ See [Dependency anchor records](../../dependencies/overview.md) for the
 required format.
 
 ## Locked dependency review
-At the start of each new `PATCH` cycle, review any pinned or tightly constrained
-dependencies and confirm each pin is still required. Remove unnecessary pins
-before completing the cycle-opening update.
+At the start of each upgrade cycle (`PATCH`, `MINOR`, or `MAJOR`), review any
+pinned or tightly constrained dependencies and confirm each pin is still
+required. Remove unnecessary pins before completing the cycle-opening update.
 
 ## Enforcement
 Violations are fatal exceptions that block merges, releases, and deployments.
 
 CI must fail when:
 - `poetry.lock` is out of sync with `pyproject.toml`
-- a dependency spec uses `*`
-- a dependency is pinned without documented justification
+- a dependency spec is constrained without documented justification
 - a dependency anchor lacks the required `pyproject.toml` comment
 - a dependency anchor lacks a record in `docs/dependencies/`
 - dependency updates occur without the required validation run
 
 ## Examples (TODO)
-- Major-anchored version specifications.
+- Default `*` specifications and constrained exceptions.
 - Patch-cycle update checklist in practice.
 - Justified pinning due to upstream regression.
 - Dependency addition for new functionality.

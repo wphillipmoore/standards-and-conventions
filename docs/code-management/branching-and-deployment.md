@@ -12,6 +12,7 @@
   - [feature/*](#feature)
   - [bugfix/*](#bugfix)
   - [hotfix/*](#hotfix)
+  - [promotion/*](#promotion)
 - [6. Promotion Flow](#6-promotion-flow)
 - [7. Forbidden Operations](#7-forbidden-operations)
 - [8. Guiding Principle](#8-guiding-principle)
@@ -98,6 +99,7 @@ Only the following branch prefixes are allowed:
 - feature/*
 - bugfix/*
 - hotfix/*
+- promotion/*
 
 No other prefixes are permitted. When in doubt, use feature/*.
 
@@ -141,6 +143,20 @@ Rules:
 Creation of a hotfix branch is an explicit admission of upstream process
 failure.
 
+### promotion/*
+Use for:
+- controlled promotion between eternal branches
+- release qualification or production promotion
+
+Rules:
+- branched from the source eternal branch
+- merged only into the target eternal branch
+- deleted immediately after merge
+
+Naming:
+- `promotion/release-<version>-<yyyymmddhhmmss>` for develop to release
+- `promotion/main-<version>-<yyyymmddhhmmss>` for release to main
+
 ---
 
 ## 6. Promotion Flow
@@ -162,7 +178,7 @@ The following are explicitly disallowed:
 - cherry-picking between eternal branches
 - deploying to production without passing through release
 - long-lived non-eternal branches
-- using branch prefixes other than feature/*, bugfix/*, or hotfix/*
+- using branch prefixes other than feature/*, bugfix/*, hotfix/*, or promotion/*
 
 ---
 
