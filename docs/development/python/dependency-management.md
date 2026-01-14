@@ -128,7 +128,8 @@ When a dependency is anchored below the latest acceptable range, document it in
 two places:
 
 1. `pyproject.toml` comment immediately above the dependency specification,
-   noting the latest version that failed and pointing to the dependency record.
+   noting the latest version that failed, pointing to the dependency record,
+   and linking the related GitHub issue.
 2. A dependency-specific record in `docs/dependencies/` that captures failure
    evidence and preserves history across attempts.
 
@@ -138,7 +139,7 @@ delete prior failure evidence.
 Example `pyproject.toml` comment:
 
 ```
-# Anchor: 1.2.5 fails full test suite; see docs/dependencies/example-lib.md
+# Anchor: 1.2.5 fails full test suite; issue https://github.com/<org>/<repo>/issues/123; see docs/dependencies/example-lib.md
 example-lib = ">=1.1,<2.0"
 ```
 
