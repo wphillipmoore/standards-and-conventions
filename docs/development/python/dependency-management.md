@@ -11,6 +11,7 @@
 - [In-cycle exception rules](#in-cycle-exception-rules)
 - [Handling regressions and non-latest pins](#handling-regressions-and-non-latest-pins)
 - [Anchored dependency documentation](#anchored-dependency-documentation)
+- [Pre-release dependencies](#pre-release-dependencies)
 - [Locked dependency review](#locked-dependency-review)
 - [Enforcement](#enforcement)
 - [Examples (TODO)](#examples-todo)
@@ -151,6 +152,29 @@ Dependency record requirements:
 See [Dependency anchor records](../../dependencies/overview.md) for the
 required format.
 
+## Pre-release dependencies
+Pre-release dependencies are allowed only as narrow, explicitly approved
+exceptions.
+
+Rules:
+- Pre-releases are allowed only in non-production environments.
+- Production use requires an explicit, documented override (mechanism TBD).
+- Pre-releases must be specified as exact versions only; no ranges or
+  pre-release wildcard allowances are permitted.
+- A pre-release dependency can only be added or removed with explicit human
+  confirmation.
+- The dependency must be tracked in a GitHub issue. If no issue exists, create
+  one before adding the dependency.
+- `pyproject.toml` must include a comment immediately above the dependency
+  specification that includes the issue URL.
+
+During the start-of-cycle dependency update, always pause to confirm with a
+human owner that any pre-release dependency is still required.
+
+When removing a pre-release dependency:
+- If the issue was created solely to track the dependency, close it.
+- If the issue tracks broader work, add a comment noting the removal.
+
 ## Locked dependency review
 At the start of each upgrade cycle (`PATCH`, `MINOR`, or `MAJOR`), review any
 pinned or tightly constrained dependencies and confirm each pin is still
@@ -164,6 +188,10 @@ CI must fail when:
 - a dependency spec is constrained without documented justification
 - a dependency anchor lacks the required `pyproject.toml` comment
 - a dependency anchor lacks a record in `docs/dependencies/`
+- a pre-release dependency is used without an exact version pin
+- a pre-release dependency lacks an issue link in `pyproject.toml`
+- a pre-release dependency is included in production without a documented
+  override
 - dependency updates occur without the required validation run
 
 ## Examples (TODO)
