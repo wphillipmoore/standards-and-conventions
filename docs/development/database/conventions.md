@@ -1,6 +1,7 @@
 # Database Conventions
 
 ## Table of Contents
+- [Schema design](#schema-design)
 - [Table Naming](#table-naming)
 - [Model File Organization](#model-file-organization)
   - [Rule 1: One File Per Table](#rule-1-one-file-per-table)
@@ -8,6 +9,13 @@
   - [Rule 3: Association Tables](#rule-3-association-tables)
   - [Rule 4: Gray Areas](#rule-4-gray-areas)
   - [Revisiting the Rules](#revisiting-the-rules)
+
+## Schema design
+- Prefer fully normalized schemas with first-class tables and typed columns.
+- JSON/JSONB is acceptable only when the data shape is unstable or evolving
+  fast enough that normalization would churn.
+- Treat JSON storage as provisional; revisit and normalize once the schema
+  stabilizes.
 
 ## Table Naming
 Table names are singular, not plural.
