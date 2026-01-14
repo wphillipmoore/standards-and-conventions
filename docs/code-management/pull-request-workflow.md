@@ -4,6 +4,7 @@
 - [Purpose](#purpose)
 - [Docs-Only Exception](#docs-only-exception)
 - [Issue linkage](#issue-linkage)
+- [Pull request template](#pull-request-template)
 - [Pre-Submission Requirements](#pre-submission-requirements)
 - [Pre-Submission Checklist](#pre-submission-checklist)
 - [What to Do When Checks Fail](#what-to-do-when-checks-fail)
@@ -32,6 +33,33 @@ PR description so the issue auto-closes on merge (for example, `Fixes #123`).
 If auto-close is not possible, the PR must still reference the issue and the
 issue must be closed manually after merge. Work is not complete until the
 issue is closed.
+
+## Pull request template
+Every repository must install a pull request template at
+`.github/pull_request_template.md` and keep it aligned with local workflow.
+
+Minimum required template:
+
+```
+# Pull Request
+
+## Summary
+- 
+
+## Issue Linkage
+- Fixes #
+- Work is not complete until the issue is closed.
+- If no issue exists, state why and open one before merge.
+
+## Testing
+- <canonical validation command>
+
+## Notes
+- 
+```
+
+If the repository defines a canonical local validation command, the template
+must list it in the Testing section.
 
 ## Pre-Submission Requirements
 Before creating a pull request, all of the following must be met unless the
