@@ -38,14 +38,13 @@ Releases are not mutable.
 ---
 
 ## 3. Versioning
-- Semantic Versioning (MAJOR.MINOR.PATCH) is used.
+- Use the applicable versioning scheme for the artifact type.
 - Version numbers are assigned at release time.
 - Version bumps are explicit and reviewed.
 
 Guideline:
-- MAJOR: breaking changes
-- MINOR: backward-compatible features
-- PATCH: bug fixes
+- Libraries: Semantic Versioning (`MAJOR.MINOR.PATCH`).
+- Applications: use the Application Versioning Scheme (`MAJOR.MINOR.PATCH.BUILD`).
 
 ---
 

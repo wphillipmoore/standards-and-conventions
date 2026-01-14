@@ -81,8 +81,8 @@ develop, release, or main are forbidden.
 
 - Changes to develop: create a feature/* or bugfix/* branch, then open a PR to
   develop.
-- Changes to release: create a PR from develop to release.
-- Changes to main: create a PR from release to main.
+- Changes to release: create a PR from a promotion branch to release.
+- Changes to main: create a PR from a promotion branch to main.
 - Exception: hotfix/* branches follow special forward-merge rules (see
   docs/code-management/hotfix-policy.md).
 
@@ -152,6 +152,7 @@ Rules:
 - branched from the source eternal branch
 - merged only into the target eternal branch
 - deleted immediately after merge
+ - required for normal promotions to release and main
 
 Naming:
 - `promotion/release-<version>-<yyyymmddhhmmss>` for develop to release

@@ -38,8 +38,6 @@ These rules apply to Python library dependencies managed with `pyproject.toml`,
   anchored dependency workflow.
 - Avoid patch-level pinning in `pyproject.toml` unless an explicit exception
   is approved.
-- Major version upgrades are explicit, deliberate decisions and require their
-  own review procedure (to be defined).
 
 Example default specification:
 
