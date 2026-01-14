@@ -7,7 +7,7 @@
 - [Commit Authorship](#commit-authorship)
 - [AI Co-Authorship](#ai-co-authorship)
 - [Adding a New AI Service Account](#adding-a-new-ai-service-account)
-- [Repository-Specific AI Identities](#repository-specific-ai-identities)
+- [Project-specific AI identities](#project-specific-ai-identities)
 
 ## Commit Message Format
 Follow Conventional Commits:
@@ -61,12 +61,10 @@ Setup steps:
 3. Enable 2FA and keep the email address private.
 4. Copy the account's GitHub noreply email from Settings -> Emails.
 
-Then update the repository-specific AI co-author list below.
+Then update the repository-specific AI co-author list in
+`docs/standards-and-conventions.md`.
 
-## Repository-Specific AI Identities
-Maintain the approved AI co-author identities here. Use these exact identities
-when adding co-author trailers.
-
-```
-Co-Authored-By: ai-tool <id+ai-tool@users.noreply.github.com>
-```
+## Project-specific AI identities
+Maintain approved AI co-author identities in
+`docs/standards-and-conventions.md` for each repository. Use only the identities
+listed there when adding co-author trailers.
