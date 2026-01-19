@@ -18,6 +18,12 @@ Skill bodies must remain aligned with the canonical documents they reference.
 ## Skill list
 - `summarize` (`skills/summarize/SKILL.md`): multi-mode summarization for
   decisions, operations, and SOC capture.
+- `summarize-decisions` (`skills/summarize-decisions/SKILL.md`): wrapper for
+  decisions summaries (autocomplete-friendly).
+- `summarize-operations` (`skills/summarize-operations/SKILL.md`): wrapper for
+  operations summaries (autocomplete-friendly).
+- `summarize-soc` (`skills/summarize-soc/SKILL.md`): wrapper for SOC capture
+  summaries (autocomplete-friendly).
 - `pr-workflow` (`skills/pr-workflow/SKILL.md`): pull request workflow with
   docs-only exception handling.
 - `dependency-update` (`skills/dependency-update/SKILL.md`): dependency update
