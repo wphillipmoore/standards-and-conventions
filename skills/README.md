@@ -45,8 +45,6 @@ placeholders for the local path to the standards repository.
 Example snippet (replace placeholders):
 ```
 ## Shared skills
-- summarize: <standards-repo-path>/skills/summarize/SKILL.md
-- pr-workflow: <standards-repo-path>/skills/pr-workflow/SKILL.md
-- dependency-update: <standards-repo-path>/skills/dependency-update/SKILL.md
-- deprecation-triage: <standards-repo-path>/skills/deprecation-triage/SKILL.md
+- Load all skills from: <standards-repo-path>/skills/**/SKILL.md
+- Treat every skill found under that directory as available and active.
 ```

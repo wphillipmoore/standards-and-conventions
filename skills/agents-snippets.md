@@ -15,15 +15,10 @@ repository.
 
 ```
 ## Shared skills
-- summarize: <standards-repo-path>/skills/summarize/SKILL.md
-- summarize-decisions: <standards-repo-path>/skills/summarize-decisions/SKILL.md
-- summarize-operations: <standards-repo-path>/skills/summarize-operations/SKILL.md
-- summarize-soc: <standards-repo-path>/skills/summarize-soc/SKILL.md
-- pr-workflow: <standards-repo-path>/skills/pr-workflow/SKILL.md
-- dependency-update: <standards-repo-path>/skills/dependency-update/SKILL.md
-- deprecation-triage: <standards-repo-path>/skills/deprecation-triage/SKILL.md
+- Load all skills from: <standards-repo-path>/skills/**/SKILL.md
+- Treat every skill found under that directory as available and active.
 ```
 
 ## Notes
-- Keep this list in sync with `skills/README.md`.
+- This avoids per-skill updates in downstream `AGENTS.md` files.
 - Do not duplicate skill contents in downstream repositories.
