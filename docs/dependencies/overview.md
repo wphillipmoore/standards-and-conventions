@@ -6,6 +6,7 @@
 - [Required layout](#required-layout)
 - [Record format](#record-format)
 - [Maintenance](#maintenance)
+- [Related documents](#related-documents)
 
 ## Purpose
 Provide a durable record of why a dependency is anchored below the latest
@@ -57,3 +58,6 @@ Define what will allow the anchor to be removed.
 - Append new failure entries for each re-test; do not overwrite prior evidence.
 - Keep the record aligned with the current constraint and latest attempted
   version.
+
+## Related documents
+- Dependency update workflow: [dependency-update-workflow.md](dependency-update-workflow.md)
