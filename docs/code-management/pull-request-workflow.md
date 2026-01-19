@@ -33,12 +33,12 @@ PR description and list the files changed.
 Every pull request must have a primary GitHub issue. If no issue exists,
 create one before creating a branch or changing files.
 
-When a pull request resolves a tracked issue, include a closing keyword in the
-PR description so the issue auto-closes on merge (for example, `Fixes #123`).
-If auto-close is not possible, the PR must still reference the issue and the
-issue must be closed manually after merge. Work is not complete until the
-issue is closed. See [GitHub Issue Standards](github-issues.md) for rules on
-non-closing PRs and sub-issues.
+If the issue has no special acceptance criteria, include a closing keyword in
+the PR description so the issue auto-closes on merge (for example, `Fixes
+#123`). If acceptance criteria exist, use a non-closing reference and close
+the issue only after the criteria are satisfied. See
+[GitHub Issue Standards](github-issues.md) for acceptance criteria rules and
+sub-issue guidance.
 
 ## Pull request template
 Every repository must install a pull request template at
@@ -53,7 +53,8 @@ Minimum required template:
 - 
 
 ## Issue Linkage
-- Fixes #
+- Fixes # (default; use when no acceptance criteria exist)
+- Ref # (use when acceptance criteria exist)
 - Work is not complete until the issue is closed.
 - If no issue exists, open one before any work begins.
 
