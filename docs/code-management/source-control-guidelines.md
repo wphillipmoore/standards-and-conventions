@@ -14,6 +14,7 @@
   - [CI Requirements](#ci-requirements)
   - [Deployment Rule](#deployment-rule)
 - [5. CI/CD Constraints](#5-cicd-constraints)
+  - [CI gates](#ci-gates)
 - [6. Locked vs. Flexible Decisions](#6-locked-vs-flexible-decisions)
   - [Locked at v0.1](#locked-at-v01)
   - [Explicitly Flexible](#explicitly-flexible)
@@ -123,6 +124,16 @@ CI configuration must remain:
 Anti-goal:
 Clever automation that cannot be reasonably expressed outside the current CI
 provider.
+
+### CI gates
+Every CI check must be classified as either a hard gate or a soft gate.
+
+- Hard gate: blocking. A failing check prevents PR submission and merge.
+- Soft gate: warning-only. A failing check does not block merge, but must be
+  surfaced in the PR with rationale and any follow-up tracking.
+
+Each repository must explicitly list its checks and their gate type. If a
+check is not classified, treat it as a hard gate until documented.
 
 ---
 

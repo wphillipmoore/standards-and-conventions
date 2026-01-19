@@ -11,8 +11,10 @@
 - [Pull Request Finalization](#pull-request-finalization)
 
 ## Purpose
-Pull requests must pass all automated checks before submission. CI is a
-backstop, not a substitute for developer diligence.
+Pull requests must pass all hard-gate automated checks before submission. CI
+is a backstop, not a substitute for developer diligence. See
+[CI gates](source-control-guidelines.md#ci-gates) for hard versus soft gate
+definitions.
 
 Submitting failing PRs wastes reviewer time, pollutes history, and undermines
 confidence in the codebase.
@@ -66,7 +68,8 @@ Before creating a pull request, all of the following must be met unless the
 docs-only exception applies:
 1. 100 percent unit test success
 2. Coverage must not decline (lines and branches)
-3. All code quality checks must pass
+3. All hard-gate code quality checks must pass
+4. Soft-gate failures must be disclosed and tracked
 
 Each repository must document its canonical local validation command. If one
 exists, it is the required pre-submission run.
@@ -81,14 +84,17 @@ If no single command exists, run:
 - coverage
 
 Do not run only a subset of tests. Local validation should mirror CI hard
-gates.
+gates. Run soft-gate checks when documented.
 
 ## What to Do When Checks Fail
-If any check fails:
+If any hard-gate check fails:
 1. do not create the PR
 2. fix the failing tests or checks
 3. re-run the full checklist
 4. proceed only when everything passes
+
+If a soft-gate check fails, either fix it immediately or document the failure
+with rationale and follow-up tracking before submission.
 
 Common mistakes to avoid:
 - "I only changed one area, so I only ran those tests"
