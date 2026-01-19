@@ -20,6 +20,9 @@ This file must:
 - document project-specific information and deviations
 - avoid duplicating canonical standards verbatim
 
+If the canonical standards cannot be retrieved, treat it as a fatal exception
+and notify the user.
+
 ## Canonical references
 Include links to the canonical documents that apply to the repository. Use
 GitHub URLs pointing to this repository.
