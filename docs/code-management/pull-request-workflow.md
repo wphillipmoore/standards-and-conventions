@@ -30,11 +30,15 @@ When using this exception, explicitly state `Docs-only: tests skipped` in the
 PR description and list the files changed.
 
 ## Issue linkage
+Every pull request must have a primary GitHub issue. If no issue exists,
+create one before creating a branch or changing files.
+
 When a pull request resolves a tracked issue, include a closing keyword in the
 PR description so the issue auto-closes on merge (for example, `Fixes #123`).
 If auto-close is not possible, the PR must still reference the issue and the
 issue must be closed manually after merge. Work is not complete until the
-issue is closed.
+issue is closed. See [GitHub Issue Standards](github-issues.md) for rules on
+non-closing PRs and sub-issues.
 
 ## Pull request template
 Every repository must install a pull request template at
@@ -51,7 +55,7 @@ Minimum required template:
 ## Issue Linkage
 - Fixes #
 - Work is not complete until the issue is closed.
-- If no issue exists, state why and open one before merge.
+- If no issue exists, open one before any work begins.
 
 ## Testing
 - <canonical validation command>
