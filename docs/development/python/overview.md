@@ -19,6 +19,8 @@ and long-term survivability across repositories.
 - Default linting: ruff.
 - Default type checking: mypy in strict mode.
 - If a repository uses different tools, document the reason and equivalents.
+- Invoke Python as `python3` and use a project-specific environment for all
+  Python commands. See `docs/development/environment-and-tooling.md`.
 
 ## Document Map
 - Naming conventions: [naming-conventions.md](naming-conventions.md)
