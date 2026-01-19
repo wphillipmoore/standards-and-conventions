@@ -6,6 +6,7 @@
 - [Definitions](#definitions)
 - [Core rules](#core-rules)
 - [Acceptance criteria](#acceptance-criteria)
+- [Issue templates](#issue-templates)
 - [Issue creation and linking](#issue-creation-and-linking)
 - [Sub-issues](#sub-issues)
 - [Closing behavior](#closing-behavior)
@@ -39,6 +40,22 @@ Examples:
 - Docs-only issues: satisfied when documentation changes are merged.
 - Bug reports: may require reporter confirmation or verified reproduction and
   resolution steps.
+
+## Issue templates
+Repositories must use GitHub Issue Forms and disable blank issues so all issues
+capture the required structure.
+
+Minimum required fields:
+- Summary
+- Problem or goal
+- Acceptance criteria
+  - include an explicit "criteria are obvious" option
+  - require explicit criteria when not obvious
+- Validation or evidence
+
+Required configuration:
+- `.github/ISSUE_TEMPLATE/issue.yml` (or equivalent form name)
+- `.github/ISSUE_TEMPLATE/config.yml` with `blank_issues_enabled: false`
 
 ## Issue creation and linking
 - If a human already specified an issue, use it as the primary issue.
