@@ -36,6 +36,10 @@ Record project-specific details here, such as:
 Project-specific content must be explicit and scoped. Do not restate canonical
 rules unless a deviation exists.
 
+- AI co-authors:
+  - Co-Authored-By: wphillipmoore-codex <255923655+wphillipmoore-codex@users.noreply.github.com>
+  - Co-Authored-By: wphillipmoore-claude <255925739+wphillipmoore-claude@users.noreply.github.com>
+
 ## Template
 ```
 # <Repository> Standards and Conventions

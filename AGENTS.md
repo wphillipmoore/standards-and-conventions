@@ -10,6 +10,45 @@ This repository is the canonical source of development standards and
 conventions. Treat the documents here as the default baseline for other
 repositories, with local overrides captured elsewhere when needed.
 
+## Start Every Work Session: Create a Feature Branch
+
+**Critical first step**: before making any changes in a new session, you MUST:
+
+1. Check current branch: `git branch --show-current`
+2. If on an eternal branch (`develop`, `release`, `main`), create a feature
+   branch immediately:
+   ```bash
+   git checkout -b feature/<descriptive-name>
+   ```
+3. If already on a short-lived branch, continue work there.
+
+**Guardrail**: re-check the branch before any edit or commit. If you are on an
+eternal branch, stop and create a feature branch before touching files.
+
+Branch naming and rules are defined in `docs/code-management/branching-and-deployment.md`.
+
+## Before You Act: Consult Documentation First
+
+This repository is documentation-first. All required workflow rules are in the
+standards. Always read the relevant documents before acting.
+
+If a required canonical standard cannot be retrieved, treat it as a fatal
+exception: stop and notify the user. Do not proceed with assumptions or
+alternate sources.
+
+### Required Reading Before Common Operations
+
+**Git Operations (commit, push, branch, merge)**
+- MUST READ: `docs/code-management/branching-and-deployment.md`
+- MUST READ: `docs/code-management/commit-messages-and-authorship.md`
+- MUST READ: `docs/standards-and-conventions.md` for approved AI co-author IDs
+
+**Pull Request Operations (create, submit, merge)**
+- MUST READ: `docs/code-management/pull-request-workflow.md`
+
+**Documentation Standards**
+- MUST READ: `docs/foundation/markdown-standards.md`
+
 ## Working Rules
 - Read the relevant standards before editing or adding documentation.
 - Keep guidance generic; remove project-specific names, paths, or tooling.
@@ -24,3 +63,45 @@ explicitly required to explain a standard.
 ## File Layout
 - Core standards live under `docs/`.
 - Follow `docs/foundation/markdown-standards.md` when adding documentation.
+
+## Multi-Line Messages
+When creating multi-line commit messages or pull request bodies, prefer using
+temporary files instead of shell heredocs in command substitution. This avoids
+shell escaping issues and preserves exact formatting.
+
+## The RTFM Principle
+If you find yourself guessing at workflow rules, using trial-and-error, or
+backtracking due to errors, stop and read the relevant documentation before
+proceeding.
+
+## User Confirmation Checkpoints
+
+**Docs-only exception**: If the diff includes only documentation files (anything
+under `docs/` plus top-level `README.md` or `CHANGELOG.md`), skip both
+confirmation checkpoints and proceed directly through PR creation and
+finalization. Local validation is optional per the docs-only rule in
+`docs/code-management/pull-request-workflow.md`.
+
+**Finalize override**: If the user explicitly says "Finalize PR", treat that as
+approval to submit and finalize the PR for the current work without asking for
+"Submit PR?" or "Finalize PR?" again. This permission expires as soon as new
+work is performed (any new commit or file modification).
+
+### Checkpoint: Before Submitting Pull Request
+
+After completing work and committing to your feature branch:
+1. Run the repository's canonical validation command if it is documented.
+2. If no command is documented, ask the user for the required validation.
+3. Ask: "Submit PR?"
+
+Only proceed with PR submission after explicit user approval (or the Finalize
+override above).
+
+### Checkpoint: Before Finalizing Pull Request
+
+After submitting the PR, ask: "Finalize PR?" unless the Finalize override is
+active.
+
+"Finalize" means: merge the PR, delete the remote branch, update the local
+copy of the target branch, and run final validation (skip for docs-only).
+
