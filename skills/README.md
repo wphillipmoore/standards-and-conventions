@@ -35,6 +35,8 @@ Skill bodies must remain aligned with the canonical documents they reference.
 - Keep skills minimal and procedural; defer rationale to the standards.
 - Update skills when the referenced standards change.
 - Do not duplicate standards verbatim; link to canonical docs instead.
+- Autocomplete favors distinct skill names; summarize wrappers exist so teams
+  can select a mode without typing additional arguments.
 
 ## Downstream references
 Add a short reference to these skills in downstream `AGENTS.md` files using
