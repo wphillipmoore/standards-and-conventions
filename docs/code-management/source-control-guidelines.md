@@ -135,6 +135,12 @@ Every CI check must be classified as either a hard gate or a soft gate.
 Each repository must explicitly list its checks and their gate type. If a
 check is not classified, treat it as a hard gate until documented.
 
+Hard gates must be enforced as required status checks on the target branches
+so failing GitHub Actions block PR merges.
+
+Each repository must also document which hard gates apply per branch. Some
+hard gates may be develop-only, while others must run on all eternal branches.
+
 ---
 
 ## 6. Locked vs. Flexible Decisions
