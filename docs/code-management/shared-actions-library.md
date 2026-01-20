@@ -4,6 +4,7 @@
 - [Purpose](#purpose)
 - [Scope](#scope)
 - [Design principles](#design-principles)
+- [Branching model](#branching-model)
 - [Repository structure](#repository-structure)
 - [Action design rules](#action-design-rules)
 - [Versioning and pinning](#versioning-and-pinning)
@@ -26,6 +27,12 @@ release, or pull request workflows.
 - Prefer composite actions over per-repository scripts.
 - Version everything; never consume unpinned defaults.
 - Build actions that are usable across application and library repositories.
+
+## Branching model
+- Default branch is `develop` and is the integration branch.
+- `main` represents the stable release line.
+- Release branches are optional and use `release/<major>.<minor>.x` when needed.
+- All releases are tagged on `main` or a release branch.
 
 ## Repository structure
 A shared actions repository must be organized by responsibility:
@@ -50,7 +57,8 @@ Rules:
 - Avoid tightly coupling actions to a single repository structure.
 
 ## Versioning and pinning
-- Tag stable release lines (for example, `v1`, `v1.2.0`).
+- Version the repository with SemVer tags (for example, `v1`, `v1.2.0`).
+- Tags apply to the entire repository; there is no per-action tagging.
 - Repositories must reference actions by tag or commit SHA.
 - Never reference the default branch.
 
@@ -67,7 +75,7 @@ Rules:
 
 ## Implementation plan
 Phase 0: decisions
-- Choose repository name, visibility, and default branch.
+- Choose repository name, visibility, and default branch (`develop`).
 - Select the initial versioning/tagging policy.
 
 Phase 1: bootstrap
@@ -96,5 +104,6 @@ Phase 6: rollout
 - Keep changes small and reversible.
 
 ## Related documents
+- Automation branching model: [automation-branching-model.md](automation-branching-model.md)
 - Source control guidelines: [source-control-guidelines.md](source-control-guidelines.md)
 - Pull request workflow: [pull-request-workflow.md](pull-request-workflow.md)

@@ -19,6 +19,7 @@ tool-specific requirements belong in development standards.
 - Branching and deployment: [branching-and-deployment.md](branching-and-deployment.md)
 - Library branching and release model: [library-branching-and-release.md](library-branching-and-release.md)
 - Documentation branching model: [documentation-branching-model.md](documentation-branching-model.md)
+- Automation branching model: [automation-branching-model.md](automation-branching-model.md)
 - Shared actions library: [shared-actions-library.md](shared-actions-library.md)
 - Hotfix policy: [hotfix-policy.md](hotfix-policy.md)
 - Release and versioning: [release-versioning.md](release-versioning.md)
