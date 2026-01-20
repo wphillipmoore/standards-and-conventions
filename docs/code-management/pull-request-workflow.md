@@ -8,6 +8,7 @@
 - [Pre-Submission Requirements](#pre-submission-requirements)
 - [Pre-Submission Checklist](#pre-submission-checklist)
 - [What to Do When Checks Fail](#what-to-do-when-checks-fail)
+- [Auto-merge policy](#auto-merge-policy)
 - [Pull Request Finalization](#pull-request-finalization)
 
 ## Purpose
@@ -28,6 +29,9 @@ top-level `README.md` and `CHANGELOG.md`).
 
 When using this exception, explicitly state `Docs-only: tests skipped` in the
 PR description and list the files changed.
+
+Documentation repositories may define "docs-only" as the entire repository and
+keep validation optional unless the repository documents a required check.
 
 ## Issue linkage
 Every pull request must have a primary GitHub issue. If no issue exists,
@@ -105,6 +109,16 @@ Common mistakes to avoid:
 - "I only changed one area, so I only ran those tests"
 - "The test failures are pre-existing"
 - "I will fix it in a follow-up PR"
+
+## Auto-merge policy
+Auto-merge is the default for all pull requests, including docs-only changes.
+
+Opt out when a merge must be scheduled or reviewed by adding the label
+`manual-merge` to the pull request. Do not enable auto-merge while that label
+is present.
+
+If auto-merge is disabled for the repository, follow the manual merge steps and
+wait for all required checks to pass before merging.
 
 ## Pull Request Finalization
 After merge approval, finalize the PR in this order:

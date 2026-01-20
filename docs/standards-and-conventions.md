@@ -32,6 +32,7 @@ Record project-specific details here, such as:
 - approved AI co-author identities for commit trailers
 - local terminology or naming conventions
 - approved deviations from canonical standards
+- repository type and attributes
 
 Project-specific content must be explicit and scoped. Do not restate canonical
 rules unless a deviation exists.
@@ -39,6 +40,12 @@ rules unless a deviation exists.
 - AI co-authors:
   - Co-Authored-By: wphillipmoore-codex <255923655+wphillipmoore-codex@users.noreply.github.com>
   - Co-Authored-By: wphillipmoore-claude <255925739+wphillipmoore-claude@users.noreply.github.com>
+- Repository profile:
+  - repository_type: <application|library|documentation>
+  - versioning_scheme: <application|library|ecosystem-specific|none>
+  - branching_model: <application-promotion|library-release|docs-single-branch>
+  - release_model: <environment-promotion|package-publishing|none>
+  - supported_release_lines: <single|list of MAJOR.MINOR lines|none>
 
 ## Template
 ```
@@ -57,6 +64,12 @@ https://github.com/<org>/<standards-repo>
 ## Project-specific overlay
 - AI co-authors:
   - Co-Authored-By: ai-tool <id+ai-tool@users.noreply.github.com>
+- Repository profile:
+  - repository_type: <application|library|documentation>
+  - versioning_scheme: <application|library|ecosystem-specific|none>
+  - branching_model: <application-promotion|library-release|docs-single-branch>
+  - release_model: <environment-promotion|package-publishing|none>
+  - supported_release_lines: <single|list of MAJOR.MINOR lines|none>
 - Local deviations:
   - <explicit deviation, if any>
 ```
