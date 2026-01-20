@@ -6,6 +6,7 @@
 - [2. Scope](#2-scope)
 - [3. Core invariants](#3-core-invariants)
 - [4. Branch roles](#4-branch-roles)
+  - [develop](#develop)
   - [main](#main)
   - [release branches](#release-branches)
 - [5. Short-lived branches](#5-short-lived-branches)
@@ -32,17 +33,22 @@ Applies to library repositories that publish artifacts to a package registry and
 are not deployed to environment-bound infrastructure.
 
 ## 3. Core invariants
-- `main` is the integration branch.
+- `develop` is the integration branch.
+- `main` represents the current stable release line.
 - Stable releases are tagged and published from `main` or a release branch.
 - Release branches represent supported `MAJOR.MINOR` release lines.
-- Changes land in `main` first; backports are explicit.
+- Changes land in `develop` first; promotions and backports are explicit.
 - Released artifacts are immutable and reproducible from source.
 
 ## 4. Branch roles
 
-### main
+### develop
 - default branch for active development
-- source of new `MAJOR` and `MINOR` releases
+- entry point for all code changes
+
+### main
+- stable release branch for the latest line
+- source of tagged releases
 
 ### release branches
 Long-lived branches for supported release lines.
@@ -53,14 +59,14 @@ Naming:
 Rules:
 - patch-only changes
 - no new features
-- no merges from `main`
+- no merges from `develop` or `main`
 
 Support policy:
 - default target is the current and previous `MAJOR.MINOR` lines
 - repositories may expand or contract support by updating the repository profile
 
 ## 5. Short-lived branches
-All work occurs in short-lived branches that merge into `main` or a release
+All work occurs in short-lived branches that merge into `develop` or a release
 branch.
 
 ### feature/*
@@ -70,8 +76,8 @@ Use for:
 - documentation updates
 
 Rules:
-- branched from `main`
-- merged into `main`
+- branched from `develop`
+- merged into `develop`
 - deleted after merge
 
 ### bugfix/*
@@ -80,7 +86,7 @@ Use for:
 - patch releases on a release branch
 
 Rules:
-- branched from `main` or the target release branch
+- branched from `develop` or the target release branch
 - merged into the branch it was created from
 - deleted after merge
 
@@ -91,11 +97,13 @@ Use for:
 Rules:
 - branched from the affected release branch
 - merged into that release branch
-- backported to `main`
+- backported to `develop`
+- merged into `main` when the fix applies to the latest line
 - deleted after merge
 
 ## 6. Release workflow
-- `MAJOR` and `MINOR` releases are cut from `main`.
+- `MAJOR` and `MINOR` releases are promoted from `develop` to `main`.
+- Tag releases on `main` after the promotion merge.
 - `PATCH` releases are cut from the relevant release branch.
 - Every release is tagged and published as an immutable artifact.
 
@@ -112,7 +120,8 @@ Rules:
 
 ## 9. Forbidden operations
 - direct commits to `main` or release branches
-- merging `main` into release branches
+- direct commits to `develop`
+- merging `develop` into release branches
 - releasing from untagged or dirty source
 - publishing artifacts without a matching source tag
 

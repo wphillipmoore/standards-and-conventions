@@ -38,6 +38,7 @@ snippets only and do not publish deployable artifacts.
 ### main
 - default branch for documentation
 - source of published GitHub content
+- integration and release branch when a single branch is used
 
 ## 5. Short-lived branches
 Use short-lived branches for all changes.
