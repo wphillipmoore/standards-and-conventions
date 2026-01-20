@@ -41,8 +41,12 @@ Follow local overrides (AGENTS or repo-specific standards) when present.
 - Submit the PR only after all required checks pass (unless docs-only
   exception applies).
 - Follow repository-specific confirmation checkpoints if defined in AGENTS.
-- After merge approval, finalize in order:
-  1. Merge the PR and delete the remote branch.
+- Auto-merge is the default unless the PR has a `manual-merge` label or the
+  repository disables auto-merge.
+- If auto-merge is enabled, do not attempt manual merge. Wait for required
+  checks to pass and for the merge to complete.
+- After merge approval or completion, finalize in order:
+  1. Merge the PR and delete the remote branch (or confirm auto-merge completed).
   2. Update the local copy of the target branch.
   3. Synchronize the local environment with dependency specifications.
   4. Delete the local feature branch and prune stale remotes.

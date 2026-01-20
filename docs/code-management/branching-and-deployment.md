@@ -3,27 +3,28 @@
 ## Table of Contents
 - [Status](#status)
 - [1. Purpose](#1-purpose)
-- [2. Core Invariants](#2-core-invariants)
-- [3. Deployment Environments](#3-deployment-environments)
-- [4. Eternal Branches](#4-eternal-branches)
+- [2. Scope](#2-scope)
+- [3. Core Invariants](#3-core-invariants)
+- [4. Deployment Environments](#4-deployment-environments)
+- [5. Eternal Branches](#5-eternal-branches)
   - [Pull Request Requirement](#pull-request-requirement)
-- [5. Short-Lived Branches](#5-short-lived-branches)
+- [6. Short-Lived Branches](#6-short-lived-branches)
   - [Branch Naming Conventions](#branch-naming-conventions)
   - [feature/*](#feature)
   - [bugfix/*](#bugfix)
   - [hotfix/*](#hotfix)
   - [promotion/*](#promotion)
-- [6. Promotion Flow](#6-promotion-flow)
-- [7. Forbidden Operations](#7-forbidden-operations)
-- [8. Guiding Principle](#8-guiding-principle)
+- [7. Promotion Flow](#7-promotion-flow)
+- [8. Forbidden Operations](#8-forbidden-operations)
+- [9. Guiding Principle](#9-guiding-principle)
 
 ## Status
-Frozen v0.1 snapshot
+Active v0.2
 
 ---
 
 ## 1. Purpose
-Define the branching model and deployment semantics for repositories.
+Define the branching model and deployment semantics for application repositories.
 
 Goals:
 - clear, boring, survivable workflows
@@ -33,7 +34,22 @@ Goals:
 
 ---
 
-## 2. Core Invariants
+## 2. Scope
+Applies to application repositories with environment-based deployments and
+linear promotion.
+
+Library repositories follow the library branching model and are not governed by
+this document. See
+[library-branching-and-release.md](library-branching-and-release.md).
+
+Documentation repositories follow the documentation branching model and are not
+governed by this document. See
+[documentation-branching-model.md](documentation-branching-model.md).
+
+Repository type definitions live in
+[repository-types-and-attributes.md](repository-types-and-attributes.md).
+
+## 3. Core Invariants
 1. Each long-lived branch maps to exactly one deployment environment.
 2. Promotion is monotonic: development to test to production.
 3. Humans decide merges; automation performs deployments.
@@ -42,7 +58,7 @@ Goals:
 
 ---
 
-## 3. Deployment Environments
+## 4. Deployment Environments
 There are exactly four environments:
 - sandbox
 - development
@@ -63,7 +79,7 @@ at v0.1.
 
 ---
 
-## 4. Eternal Branches
+## 5. Eternal Branches
 The following branches always exist and are protected:
 - develop
 - release
@@ -91,10 +107,12 @@ corresponding environment where automation exists.
 
 ---
 
-## 5. Short-Lived Branches
+## 6. Short-Lived Branches
 All work occurs in short-lived branches.
 
 ### Branch Naming Conventions
+This prefix list applies to application repositories only.
+
 Only the following branch prefixes are allowed:
 - feature/*
 - bugfix/*
@@ -152,7 +170,7 @@ Rules:
 - branched from the source eternal branch
 - merged only into the target eternal branch
 - deleted immediately after merge
- - required for normal promotions to release and main
+- required for normal promotions to release and main
 
 Naming:
 - `promotion/release-<version>-<yyyymmddhhmmss>` for develop to release
@@ -160,7 +178,7 @@ Naming:
 
 ---
 
-## 6. Promotion Flow
+## 7. Promotion Flow
 Normal flow:
 
 feature/* or bugfix/* -> develop -> release -> main
@@ -171,7 +189,7 @@ Promotion semantics:
 
 ---
 
-## 7. Forbidden Operations
+## 8. Forbidden Operations
 The following are explicitly disallowed:
 - merging feature/* or bugfix/* directly into release or main
 - direct commits to eternal branches
@@ -183,5 +201,5 @@ The following are explicitly disallowed:
 
 ---
 
-## 8. Guiding Principle
+## 9. Guiding Principle
 Boring workflows that never surprise are a competitive advantage.

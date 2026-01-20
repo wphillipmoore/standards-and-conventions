@@ -17,6 +17,9 @@ Define how supporting libraries are versioned, released, and consumed.
 
 ## Scope
 This scheme applies to internal and external libraries used by applications.
+If the target ecosystem mandates a specific versioning format, that format
+supersedes the default scheme below (for example, Python packages follow
+PEP 440).
 
 ## Invariants
 - Every released library artifact maps to a unique version string.
@@ -25,7 +28,7 @@ This scheme applies to internal and external libraries used by applications.
 - Compatibility expectations are explicit and tied to the version number.
 
 ## Version format
-Use Semantic Versioning:
+Default: Semantic Versioning
 
 ```
 MAJOR.MINOR.PATCH
@@ -35,7 +38,9 @@ Rules:
 - Each component is a non-negative integer with no leading zeros (except `0`).
 - Stable releases do not use suffixes or build metadata.
 - Pre-release identifiers are allowed only for pre-release artifacts and must
-  never be promoted to production as-is.
+  never be promoted to stable releases as-is.
+- Additional numeric segments or local metadata are allowed only when required
+  by the ecosystem or explicitly documented.
 
 ## Source of truth
 - The canonical version string lives in a single build or package manifest.
@@ -66,7 +71,7 @@ Rules:
 
 ## Validation and failure modes
 CI must fail when:
-- The version string does not match `MAJOR.MINOR.PATCH`.
+- The version string does not match the required format.
 - A version number is reused or regresses.
 - A release is attempted from untagged or dirty source.
 - A breaking change is detected without a `MAJOR` increment.
@@ -74,5 +79,7 @@ CI must fail when:
 Violations are fatal exceptions that block publishing and consumption.
 
 ## Related documents
+- Repository types and attributes: [repository-types-and-attributes.md](repository-types-and-attributes.md)
+- Library branching and release model: [library-branching-and-release.md](library-branching-and-release.md)
 - Release and versioning policy: [release-versioning.md](release-versioning.md)
 - Application versioning scheme: [application-versioning-scheme.md](application-versioning-scheme.md)

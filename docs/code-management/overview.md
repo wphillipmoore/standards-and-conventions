@@ -15,7 +15,10 @@ tool-specific requirements belong in development standards.
 
 ## Document Map
 - Source control guidelines: [source-control-guidelines.md](source-control-guidelines.md)
+- Repository types and attributes: [repository-types-and-attributes.md](repository-types-and-attributes.md)
 - Branching and deployment: [branching-and-deployment.md](branching-and-deployment.md)
+- Library branching and release model: [library-branching-and-release.md](library-branching-and-release.md)
+- Documentation branching model: [documentation-branching-model.md](documentation-branching-model.md)
 - Hotfix policy: [hotfix-policy.md](hotfix-policy.md)
 - Release and versioning: [release-versioning.md](release-versioning.md)
 - Application versioning scheme: [application-versioning-scheme.md](application-versioning-scheme.md)
