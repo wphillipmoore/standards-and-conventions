@@ -9,6 +9,7 @@
 - [Pre-Submission Checklist](#pre-submission-checklist)
 - [What to Do When Checks Fail](#what-to-do-when-checks-fail)
 - [Auto-merge policy](#auto-merge-policy)
+- [Async finalization guardrail](#async-finalization-guardrail)
 - [Pull Request Finalization](#pull-request-finalization)
 
 ## Purpose
@@ -127,6 +128,19 @@ wait for all required checks to pass before merging.
 Auto-merge is asynchronous. Enabling it is not finalization; you must still
 wait for required checks to complete. If any required check fails, fix the
 issue immediately and re-run the checks before merging.
+
+## Async finalization guardrail
+Async submission requires a follow-up finalize step. To prevent "pending
+finalization" work from being forgotten, apply the following guardrail at the
+start of each work session or before declaring a development cycle complete:
+
+1. Check for open pull requests targeting `develop`.
+2. If any are merged but not finalized, finalize them immediately.
+3. If any are open and awaiting checks, decide to wait or defer before starting
+   new work.
+
+Do not declare a development cycle complete while open PRs remain against
+`develop`.
 
 ## Pull Request Finalization
 Finalization begins only after all required CI gates have completed
