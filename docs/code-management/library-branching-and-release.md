@@ -7,7 +7,6 @@
 - [3. Core invariants](#3-core-invariants)
 - [4. Branch roles](#4-branch-roles)
   - [develop](#develop)
-  - [main](#main)
   - [release branches](#release-branches)
 - [5. Short-lived branches](#5-short-lived-branches)
   - [feature/*](#feature)
@@ -29,13 +28,14 @@ Define a branching model for libraries that supports multiple concurrent
 release lines and predictable publishing.
 
 ## 2. Scope
-Applies to library repositories that publish artifacts to a package registry and
-are not deployed to environment-bound infrastructure.
+Applies to library repositories that publish reusable artifacts (via a package
+registry or tagged automation) and are not deployed to environment-bound
+infrastructure.
 
 ## 3. Core invariants
 - `develop` is the integration branch.
-- `main` represents the current stable release line.
-- Stable releases are tagged and published from `main` or a release branch.
+- `main` is not required for library repositories.
+- Stable releases are tagged and published from release branches.
 - Release branches represent supported `MAJOR.MINOR` release lines.
 - Changes land in `develop` first; promotions and backports are explicit.
 - Released artifacts are immutable and reproducible from source.
@@ -46,10 +46,6 @@ are not deployed to environment-bound infrastructure.
 - default branch for active development
 - entry point for all code changes
 
-### main
-- stable release branch for the latest line
-- source of tagged releases
-
 ### release branches
 Long-lived branches for supported release lines.
 
@@ -59,7 +55,8 @@ Naming:
 Rules:
 - patch-only changes
 - no new features
-- no merges from `develop` or `main`
+- no merges from `develop`
+- no merges from other release branches
 
 Support policy:
 - default target is the current and previous `MAJOR.MINOR` lines
@@ -98,12 +95,12 @@ Rules:
 - branched from the affected release branch
 - merged into that release branch
 - backported to `develop`
-- merged into `main` when the fix applies to the latest line
 - deleted after merge
 
 ## 6. Release workflow
-- `MAJOR` and `MINOR` releases are promoted from `develop` to `main`.
-- Tag releases on `main` after the promotion merge.
+- `MAJOR` and `MINOR` releases are cut from a new release branch created from
+  `develop`.
+- Tag releases on the relevant release branch.
 - `PATCH` releases are cut from the relevant release branch.
 - Every release is tagged and published as an immutable artifact.
 
@@ -119,8 +116,8 @@ Rules:
 - If a change cannot be safely backported, document the rationale.
 
 ## 9. Forbidden operations
-- direct commits to `main` or release branches
 - direct commits to `develop`
+- direct commits to release branches
 - merging `develop` into release branches
 - releasing from untagged or dirty source
 - publishing artifacts without a matching source tag
