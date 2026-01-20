@@ -47,10 +47,14 @@ Branch applicability:
 - release: all hard gates required
 - main: all hard gates required
 
+Docs-only pull requests may skip these jobs when the repository implements the
+docs-only CI skip policy.
+
 ## Document Map
 - Naming conventions: [naming-conventions.md](naming-conventions.md)
 - Import-time side effects: [import-time-side-effects.md](import-time-side-effects.md)
 - Type hints: [type-hints.md](type-hints.md)
 - Testing and coverage: [testing-and-coverage.md](testing-and-coverage.md)
 - Dependency management: [dependency-management.md](dependency-management.md)
+- Local validation scripts: [local-validation-scripts.md](local-validation-scripts.md)
 - Python version management: [version-management.md](version-management.md)

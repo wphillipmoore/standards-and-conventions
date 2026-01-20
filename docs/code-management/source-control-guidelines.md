@@ -15,13 +15,14 @@
   - [Deployment Rule](#deployment-rule)
 - [5. CI/CD Constraints](#5-cicd-constraints)
   - [CI gates](#ci-gates)
+  - [Docs-only CI skip policy](#docs-only-ci-skip-policy)
 - [6. Locked vs. Flexible Decisions](#6-locked-vs-flexible-decisions)
   - [Locked at v0.1](#locked-at-v01)
   - [Explicitly Flexible](#explicitly-flexible)
 - [7. Guiding Principle](#7-guiding-principle)
 
 ## Status
-Frozen v0.1 snapshot
+Active v0.2
 
 ---
 
@@ -143,6 +144,20 @@ so failing GitHub Actions block PR merges.
 
 Each repository must also document which hard gates apply per branch. Some
 hard gates may be develop-only, while others must run on all eternal branches.
+
+### Docs-only CI skip policy
+Repositories must define a docs-only allowlist (for example, `docs/**`,
+`README.md`, and `CHANGELOG.md`). `.github/**` is not docs-only.
+
+CI workflows must include a docs-only detection job that computes
+`docs_only=true|false` based on the PR diff against the allowlist and exposes it
+as a workflow output.
+
+When `docs_only` is `true`, skip test and version-validation jobs by gating
+them with the docs-only output. Dependency audits should still run by default;
+if a repository chooses to skip them, it must document the exception.
+
+Docs-only validation commands, when defined, must still run.
 
 ---
 
