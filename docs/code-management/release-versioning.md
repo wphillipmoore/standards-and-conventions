@@ -43,12 +43,16 @@ Releases are not mutable.
 For application repositories, a release is tied to promotion:
 - merge into the `release` or `main` branch
 - produce a versioned artifact for deployment
+- tag the release base as `vMAJOR.MINOR.PATCH`
 
 ### Library repositories
 For library repositories, a release is tied to publishing:
 - tag a version in source control
 - publish the artifact to the package registry when applicable
 - tagging alone is sufficient when distribution is via source control
+
+For ecosystems with strict versioning (for example, PyPI), use the ecosystem
+format (PEP 440) and never attempt to republish the same version.
 
 ### Documentation repositories
 Documentation repositories do not require formal releases or version numbers.
@@ -58,13 +62,15 @@ Git history and tags (when needed) are the source of truth.
 
 ## 3. Versioning
 - Use the applicable versioning scheme for the artifact type.
-- Version numbers are assigned at release time.
+- Base versions are assigned explicitly; build numbers are derived at build time
+  for applications.
 - Version bumps are explicit and reviewed.
 
 Guideline:
 - Libraries: use the Library Versioning Scheme or the ecosystem's required
   versioning format.
-- Applications: use the Application Versioning Scheme (`MAJOR.MINOR.PATCH.BUILD`).
+- Applications: use the Application Versioning Scheme
+  (`MAJOR.MINOR.PATCH.BUILD`) with a derived `BUILD` value.
 
 ---
 

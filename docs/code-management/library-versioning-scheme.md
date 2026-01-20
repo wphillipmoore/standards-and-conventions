@@ -46,6 +46,8 @@ Rules:
 - The canonical version string lives in a single build or package manifest.
 - All other references must derive from that value; do not duplicate it in code.
 - Runtime reads should use package metadata rather than hard-coded strings.
+- For Python packages, the manifest is `pyproject.toml`; avoid local version
+  segments or build metadata unless the ecosystem requires them.
 
 ## Increment rules
 - `MAJOR` increments for breaking API or behavioral changes.
