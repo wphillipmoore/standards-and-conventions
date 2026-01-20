@@ -46,10 +46,6 @@ Documentation repositories follow the documentation branching model and are not
 governed by this document. See
 [documentation-branching-model.md](documentation-branching-model.md).
 
-Automation repositories follow the automation branching model and are not
-governed by this document. See
-[automation-branching-model.md](automation-branching-model.md).
-
 Repository type definitions live in
 [repository-types-and-attributes.md](repository-types-and-attributes.md).
 

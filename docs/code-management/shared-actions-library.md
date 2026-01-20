@@ -4,7 +4,6 @@
 - [Purpose](#purpose)
 - [Scope](#scope)
 - [Design principles](#design-principles)
-- [Branching model](#branching-model)
 - [Repository structure](#repository-structure)
 - [Action design rules](#action-design-rules)
 - [Versioning and pinning](#versioning-and-pinning)
@@ -27,12 +26,7 @@ release, or pull request workflows.
 - Prefer composite actions over per-repository scripts.
 - Version everything; never consume unpinned defaults.
 - Build actions that are usable across application and library repositories.
-
-## Branching model
-- Default branch is `develop` and is the integration branch.
-- `main` represents the stable release line.
-- Release branches are optional and use `release/<major>.<minor>.x` when needed.
-- All releases are tagged on `main` or a release branch.
+- Shared actions repositories follow the library branching model.
 
 ## Repository structure
 A shared actions repository must be organized by responsibility:
@@ -104,6 +98,6 @@ Phase 6: rollout
 - Keep changes small and reversible.
 
 ## Related documents
-- Automation branching model: [automation-branching-model.md](automation-branching-model.md)
+- Library branching and release model: [library-branching-and-release.md](library-branching-and-release.md)
 - Source control guidelines: [source-control-guidelines.md](source-control-guidelines.md)
 - Pull request workflow: [pull-request-workflow.md](pull-request-workflow.md)

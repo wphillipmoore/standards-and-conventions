@@ -7,7 +7,6 @@
   - [Application repositories](#application-repositories)
   - [Library repositories](#library-repositories)
   - [Documentation repositories](#documentation-repositories)
-  - [Automation repositories](#automation-repositories)
 - [3. Versioning](#3-versioning)
 - [4. Pre-release policy](#4-pre-release-policy)
 - [5. Artifact Properties](#5-artifact-properties)
@@ -48,16 +47,12 @@ For application repositories, a release is tied to promotion:
 ### Library repositories
 For library repositories, a release is tied to publishing:
 - tag a version in source control
-- publish the artifact to the package registry
+- publish the artifact to the package registry when applicable
+- tagging alone is sufficient when distribution is via source control
 
 ### Documentation repositories
 Documentation repositories do not require formal releases or version numbers.
 Git history and tags (when needed) are the source of truth.
-
-### Automation repositories
-Automation repositories release by tagging a versioned automation artifact. If
-the automation is published (for example, via GitHub Actions), the tag is the
-source of truth.
 
 ---
 
@@ -82,7 +77,7 @@ Guideline:
 Released artifacts must be:
 - immutable
 - content-addressable by version
-- installable by the ecosystem's package manager
+- consumable by the ecosystem's distribution mechanism
 - reproducible from source
 
 Artifacts are first-class operational objects.
@@ -91,8 +86,7 @@ Artifacts are first-class operational objects.
 
 ## 6. Relationship to Branches
 - Application branches drive deployment automation.
-- Library releases are cut from `main` or release branches.
-- Automation releases are cut from `main` or release branches.
+- Library releases are cut from release branches.
 - Artifacts provide audit, rollback, and traceability.
 
 Operational truth is anchored in artifacts, not branch pointers.

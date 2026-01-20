@@ -41,11 +41,11 @@ rules unless a deviation exists.
   - Co-Authored-By: wphillipmoore-codex <255923655+wphillipmoore-codex@users.noreply.github.com>
   - Co-Authored-By: wphillipmoore-claude <255925739+wphillipmoore-claude@users.noreply.github.com>
 - Repository profile:
-  - repository_type: <application|library|documentation|automation>
+  - repository_type: <application|library|documentation>
   - versioning_scheme: <application|library|ecosystem-specific|none>
-  - branching_model: <application-promotion|library-release|docs-single-branch|automation-develop-main>
-  - release_model: <environment-promotion|package-publishing|tagged-automation|none>
-  - supported_release_lines: <single|list of MAJOR.MINOR lines|MAJOR lines|none>
+  - branching_model: <application-promotion|library-release|docs-single-branch>
+  - release_model: <environment-promotion|artifact-publishing|none>
+  - supported_release_lines: <single|list of MAJOR.MINOR lines|none>
 
 ## Template
 ```
@@ -65,11 +65,11 @@ https://github.com/<org>/<standards-repo>
 - AI co-authors:
   - Co-Authored-By: ai-tool <id+ai-tool@users.noreply.github.com>
 - Repository profile:
-  - repository_type: <application|library|documentation|automation>
+  - repository_type: <application|library|documentation>
   - versioning_scheme: <application|library|ecosystem-specific|none>
-  - branching_model: <application-promotion|library-release|docs-single-branch|automation-develop-main>
-  - release_model: <environment-promotion|package-publishing|tagged-automation|none>
-  - supported_release_lines: <single|list of MAJOR.MINOR lines|MAJOR lines|none>
+  - branching_model: <application-promotion|library-release|docs-single-branch>
+  - release_model: <environment-promotion|artifact-publishing|none>
+  - supported_release_lines: <single|list of MAJOR.MINOR lines|none>
 - Local deviations:
   - <explicit deviation, if any>
 ```

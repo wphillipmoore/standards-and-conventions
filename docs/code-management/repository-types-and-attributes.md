@@ -8,7 +8,6 @@
   - [Application repositories](#application-repositories)
   - [Library repositories](#library-repositories)
   - [Documentation repositories](#documentation-repositories)
-  - [Automation repositories](#automation-repositories)
 - [Required repository attributes](#required-repository-attributes)
 - [Declaration requirement](#declaration-requirement)
 - [Change control](#change-control)
@@ -41,7 +40,8 @@ Use:
 
 ### Library repositories
 A library repository:
-- produces reusable artifacts published to a package registry
+- produces reusable artifacts published to a package registry or consumed via
+  tagged distribution (for example, GitHub Actions)
 - has no environment-bound infrastructure
 - may support multiple concurrent release lines
 
@@ -58,26 +58,14 @@ A documentation repository:
 Use:
 - Documentation branching model: [documentation-branching-model.md](documentation-branching-model.md)
 
-### Automation repositories
-An automation repository:
-- provides tooling or automation shared across repositories
-- may be consumed as a dependency or referenced by workflows
-- is released as tagged, versioned automation
- - uses repository-level SemVer tags
-
-Use:
-- Automation branching model: [automation-branching-model.md](automation-branching-model.md)
-- Shared actions library: [shared-actions-library.md](shared-actions-library.md)
-
 ## Required repository attributes
 Each repository must declare, at minimum:
-- `repository_type`: `application`, `library`, `documentation`, or `automation`
+- `repository_type`: `application`, `library`, or `documentation`
 - `versioning_scheme`: `application`, `library`, `ecosystem-specific`, or `none`
-- `branching_model`: `application-promotion`, `library-release`, `docs-single-branch`, or `automation-develop-main`
-- `release_model`: `environment-promotion`, `package-publishing`, `tagged-automation`, or `none`
+- `branching_model`: `application-promotion`, `library-release`, or `docs-single-branch`
+- `release_model`: `environment-promotion`, `artifact-publishing`, or `none`
 - `supported_release_lines`: a single active line for applications; one or more
-  `MAJOR.MINOR` lines for libraries; `none` for documentation; one or more
-  `MAJOR` lines for automation
+  `MAJOR.MINOR` lines for libraries; `none` for documentation
 
 ## Declaration requirement
 Record repository type and attributes in the repository's
@@ -92,7 +80,6 @@ references.
 - Branching and deployment model: [branching-and-deployment.md](branching-and-deployment.md)
 - Library branching and release model: [library-branching-and-release.md](library-branching-and-release.md)
 - Documentation branching model: [documentation-branching-model.md](documentation-branching-model.md)
-- Automation branching model: [automation-branching-model.md](automation-branching-model.md)
 - Release and versioning policy: [release-versioning.md](release-versioning.md)
 - Application versioning scheme: [application-versioning-scheme.md](application-versioning-scheme.md)
 - Library versioning scheme: [library-versioning-scheme.md](library-versioning-scheme.md)
