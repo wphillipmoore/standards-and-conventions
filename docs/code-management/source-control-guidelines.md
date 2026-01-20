@@ -121,6 +121,9 @@ CI configuration must remain:
 - minimal
 - replaceable
 
+Prefer a shared actions library for reusable workflow logic and pin action
+references by tag or commit SHA.
+
 Anti-goal:
 Clever automation that cannot be reasonably expressed outside the current CI
 provider.
