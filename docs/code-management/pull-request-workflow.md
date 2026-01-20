@@ -124,9 +124,18 @@ is present.
 If auto-merge is disabled for the repository, follow the manual merge steps and
 wait for all required checks to pass before merging.
 
+Auto-merge is asynchronous. Enabling it is not finalization; you must still
+wait for required checks to complete. If any required check fails, fix the
+issue immediately and re-run the checks before merging.
+
 ## Pull Request Finalization
-After merge approval, finalize the PR in this order:
-1. merge the PR and delete the remote branch
+Finalization begins only after all required CI gates have completed
+successfully and the PR is ready to merge (manually or via auto-merge). If a
+required check fails, resolve it immediately and re-run the checks before
+merging.
+
+Finalize the PR in this order:
+1. merge the PR and delete the remote branch (or wait for auto-merge to do so)
 2. update local copy of the target branch
 3. synchronize the local environment with dependency specifications
 4. delete the local feature branch and prune stale remotes
