@@ -33,6 +33,10 @@ PR description and list the files changed.
 Documentation repositories may define "docs-only" as the entire repository and
 keep validation optional unless the repository documents a required check.
 
+CI workflows must implement the docs-only skip policy in
+[source-control-guidelines.md](source-control-guidelines.md#docs-only-ci-skip-policy).
+If a docs-only validation command exists, run it even when tests are skipped.
+
 ## Issue linkage
 Every pull request must have a primary GitHub issue. If no issue exists,
 create one before creating a branch or changing files.
