@@ -8,6 +8,9 @@
 - [Upgrade workflow](#upgrade-workflow)
   - [Patch-level](#patch-level)
   - [Minor- or major-level](#minor--or-major-level)
+  - [Minor release preview (dual-CI)](#minor-release-preview-dual-ci)
+  - [Cutover criteria](#cutover-criteria)
+  - [Stability tracking](#stability-tracking)
 - [Host decoupling and parity](#host-decoupling-and-parity)
   - [Parity requirements](#parity-requirements)
   - [Decoupling strategies](#decoupling-strategies)
@@ -56,6 +59,38 @@ When incrementing the application `MINOR` or `MAJOR` version:
    beneficial for the next cycle.
 3. If a runtime upgrade is attempted, test each candidate version individually
    before combining with other changes.
+
+### Minor release preview (dual-CI)
+When the next Python minor series transitions from pre-release to bugfix
+(stable) status:
+1. At the start of the next development cycle, add the next minor version to
+   the CI matrix.
+2. Keep the current minor version as the only hard gate. The next minor check
+   is advisory and must not block merges.
+3. Record any failures in the next minor check and track them as issues, but
+   do not block PRs unless the current minor fails.
+
+### Cutover criteria
+Promote the next minor version to current only after it has been stable in CI
+for at least two full development cycles.
+
+At the start of the next development cycle after meeting the stability
+threshold:
+1. Update the canonical Python version to the new minor series.
+2. Make the new minor the required (hard-gate) CI runtime.
+3. Remove the prior minor from required CI or demote it to advisory if needed.
+
+### Stability tracking
+Once dual-CI begins, record stability status at the start of each development
+cycle. Capture:
+- cycle start date
+- current minor version
+- candidate minor version
+- CI status summary and any open issues blocking promotion
+
+Store the stability log in a repository-local doc (for example,
+`docs/development/python/version-stability-log.md`) and keep it updated until
+the cutover is complete.
 
 ## Host decoupling and parity
 

@@ -36,7 +36,7 @@ Soft gate definition:
   surfaced with rationale and follow-up tracking when applicable.
 
 Hard gates (all are required status checks):
-- `test-and-validate (3.14)`
+- `test-and-validate (current)`
 - `integration-tests`
 - `dependency-audit`
 
@@ -50,6 +50,9 @@ Branch applicability:
 
 Docs-only pull requests may skip these jobs when the repository implements the
 docs-only CI skip policy.
+
+When dual-minor testing is active, the next-minor job is advisory and must not
+be configured as a required status check. Only the current minor blocks merges.
 
 ## Document Map
 - Naming conventions: [naming-conventions.md](naming-conventions.md)
