@@ -6,7 +6,7 @@
 - [2. Scope](#2-scope)
 - [3. Core invariants](#3-core-invariants)
 - [4. Branch roles](#4-branch-roles)
-  - [main](#main)
+  - [develop](#develop)
 - [5. Short-lived branches](#5-short-lived-branches)
   - [feature/*](#feature)
   - [bugfix/*](#bugfix)
@@ -28,14 +28,15 @@ Applies to repositories that contain documentation, templates, or example
 snippets only and do not publish deployable artifacts.
 
 ## 3. Core invariants
-- `main` is the single eternal branch.
+- `develop` is the single eternal branch.
+- `main` is not used for documentation repositories.
 - All changes arrive via short-lived branches.
 - There are no release branches or promotion flows.
 - Versioning is optional and not required for publication.
 
 ## 4. Branch roles
 
-### main
+### develop
 - default branch for documentation
 - source of published GitHub content
 - integration and release branch when a single branch is used
@@ -49,8 +50,8 @@ Use for:
 - refactors, reorganizations, or template updates
 
 Rules:
-- branched from `main`
-- merged into `main`
+- branched from `develop`
+- merged into `develop`
 - deleted after merge
 
 ### bugfix/*
@@ -58,8 +59,8 @@ Use for:
 - corrections, clarifications, or small fixes
 
 Rules:
-- branched from `main`
-- merged into `main`
+- branched from `develop`
+- merged into `develop`
 - deleted after merge
 
 ## 6. Validation expectations
@@ -67,8 +68,8 @@ Documentation repositories do not require automated test or release validation.
 Keep validation optional unless a specific repository documents a requirement.
 
 ## 7. Forbidden operations
-- direct commits to `main`
-- long-lived branches other than `main`
+- direct commits to `develop`
+- long-lived branches other than `develop`
 - adding release branches or promotion flows without updating standards
 
 ## 8. Related documents

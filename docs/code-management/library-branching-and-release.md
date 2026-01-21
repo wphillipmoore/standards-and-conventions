@@ -34,7 +34,7 @@ infrastructure.
 
 ## 3. Core invariants
 - `develop` is the integration branch.
-- `main` is not required for library repositories.
+- `main` is not used for library repositories.
 - Stable releases are tagged and published from release branches.
 - Release branches represent supported `MAJOR.MINOR` release lines.
 - Changes land in `develop` first; promotions and backports are explicit.
