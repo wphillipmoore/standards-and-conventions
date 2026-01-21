@@ -18,7 +18,8 @@ and long-term survivability across repositories.
 
 ## Tooling Expectations
 - Default linting: ruff.
-- Default type checking: mypy in strict mode.
+- Default type checking: mypy in strict mode and ty with default settings.
+- Mypy remains authoritative until ty cutover is explicitly approved.
 - If a repository uses different tools, document the reason and equivalents.
 - Invoke Python as `python3` and use a project-specific environment for all
   Python commands. See `docs/development/environment-and-tooling.md`.
@@ -58,3 +59,4 @@ docs-only CI skip policy.
 - Dependency management: [dependency-management.md](dependency-management.md)
 - Local validation scripts: [local-validation-scripts.md](local-validation-scripts.md)
 - Python version management: [version-management.md](version-management.md)
+- Ty migration plan: [ty-migration-plan.md](ty-migration-plan.md)

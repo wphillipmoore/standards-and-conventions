@@ -7,7 +7,7 @@
 
 ## Rule
 All public functions and methods must have complete type hints. Enforce this
-with a static type checker in strict mode.
+with static type checkers: mypy in strict mode and ty with default settings.
 
 ## Rationale
 Type hints are documentation, enable static analysis, and catch bugs during
