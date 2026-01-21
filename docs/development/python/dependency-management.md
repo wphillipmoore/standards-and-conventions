@@ -26,9 +26,10 @@ upgrade risk while keeping dependencies current.
 These rules apply to Python library dependencies managed with `pyproject.toml`,
 `uv.lock`, and requirements exports derived from the lock file.
 
-Poetry is deprecated. Repositories migrating from Poetry may temporarily retain
-`poetry.lock`, but must document the exception in their repository overlay and
-remove Poetry once `uv.lock` is in use.
+Legacy dependency tooling is deprecated. Repositories migrating from non-uv
+tooling may temporarily retain legacy lockfiles, but must document the
+exception in their repository overlay and remove the legacy tooling once
+`uv.lock` is in use.
 
 ## Sources of truth
 - `pyproject.toml` declares allowed dependency ranges.
