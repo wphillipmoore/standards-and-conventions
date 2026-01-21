@@ -51,8 +51,12 @@ Branch applicability:
 Docs-only pull requests may skip these jobs when the repository implements the
 docs-only CI skip policy.
 
-When dual-minor testing is active, the next-minor job is advisory and must not
-be configured as a required status check. Only the current minor blocks merges.
+When dual-minor testing is active, label jobs by role:
+- `test-and-validate (current)` is required.
+- `test-and-validate (next)` is advisory.
+- `test-and-validate (previous)` is advisory when retained for rollback.
+
+Only the `current` minor blocks merges.
 
 ## Document Map
 - Naming conventions: [naming-conventions.md](naming-conventions.md)

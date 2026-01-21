@@ -65,9 +65,10 @@ When the next Python minor series transitions from pre-release to bugfix
 (stable) status:
 1. At the start of the next development cycle, add the next minor version to
    the CI matrix.
-2. Keep the current minor version as the only hard gate. The next minor check
-   is advisory and must not block merges.
-3. Record any failures in the next minor check and track them as issues, but
+2. Label CI jobs by role: `current`, `next`, and (when applicable) `previous`.
+3. Keep the `current` minor version as the only hard gate. The `next` minor
+   check is advisory and must not block merges.
+4. Record any failures in the next minor check and track them as issues, but
    do not block PRs unless the current minor fails.
 
 ### Cutover criteria
@@ -77,15 +78,20 @@ for at least two full development cycles.
 At the start of the next development cycle after meeting the stability
 threshold:
 1. Update the canonical Python version to the new minor series.
-2. Make the new minor the required (hard-gate) CI runtime.
-3. Remove the prior minor from required CI or demote it to advisory if needed.
+2. Make the new minor the required (hard-gate) CI runtime and label it as
+   `current`.
+3. Demote the prior `current` minor to `previous` and keep it advisory to
+   preserve rollback capability.
+4. Keep `previous` advisory until humans explicitly decide to drop it. Do not
+   auto-remove `previous` based on elapsed cycles alone.
 
 ### Stability tracking
 Once dual-CI begins, record stability status at the start of each development
 cycle. Capture:
 - cycle start date
 - current minor version
-- candidate minor version
+- candidate minor version (`next`)
+- prior minor version (`previous`, if retained)
 - CI status summary and any open issues blocking promotion
 
 Store the stability log in a repository-local doc (for example,
