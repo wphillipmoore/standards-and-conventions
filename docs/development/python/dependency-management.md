@@ -24,13 +24,16 @@ upgrade risk while keeping dependencies current.
 
 ## Scope
 These rules apply to Python library dependencies managed with `pyproject.toml`,
-`poetry.lock`, and requirements exports derived from the lock file.
+`uv.lock`, and requirements exports derived from the lock file.
+
+Poetry is deprecated. Repositories migrating from Poetry may temporarily retain
+`poetry.lock`, but must document the exception in their repository overlay and
+remove Poetry once `uv.lock` is in use.
 
 ## Sources of truth
 - `pyproject.toml` declares allowed dependency ranges.
-- `poetry.lock` pins exact versions compiled from those ranges.
-- Requirements files are exported from `poetry.lock` and must never drift from
-  it.
+- `uv.lock` pins exact versions compiled from those ranges.
+- Requirements files are exported from `uv.lock` and must never drift from it.
 
 ## Version specification rules
 - Default dependency specs in `pyproject.toml` use `*`.
@@ -55,8 +58,9 @@ refresh dependencies.
 
 Workflow:
 1. Increment `PATCH` per the application versioning scheme.
-2. Run `poetry update` to refresh `poetry.lock` within the existing constraints.
-3. Export requirements files from `poetry.lock` where required.
+2. Run `uv lock --upgrade` to refresh `uv.lock` within the existing constraints.
+3. Export requirements files from `uv.lock` where required (for example,
+   `uv export --format requirements.txt --output-file requirements.txt`).
 4. Run the full validation and test suite (define the canonical command per
    repository).
 5. If validation passes, the lockfile versions remain fixed for the rest of the
@@ -100,11 +104,11 @@ Dependencies may change during a `PATCH` cycle only when necessary:
 Each exception must:
 - include a written rationale in the pull request
 - minimize the scope of the dependency change
-- update `poetry.lock` and any exported requirements
+- update `uv.lock` and any exported requirements
 - complete the full validation and test suite
 
 ## Handling regressions and non-latest pins
-When a `poetry update` introduces failures:
+When a `uv lock --upgrade` introduces failures:
 - determine root cause before deciding to pin
 - do not assume the dependency is at fault
 - verify whether the application is compliant with the dependency's documented
@@ -181,7 +185,7 @@ When removing a pre-release dependency:
 If a vulnerability scan fails during a development cycle, update dependencies
 immediately:
 - Update `pyproject.toml` as required.
-- Regenerate `poetry.lock`.
+- Regenerate `uv.lock`.
 - Re-export any requirements files derived from the lockfile.
 - Run a dependency audit against the exported requirements before committing.
 
@@ -194,7 +198,7 @@ required. Remove unnecessary pins before completing the cycle-opening update.
 Violations are fatal exceptions that block merges, releases, and deployments.
 
 CI must fail when:
-- `poetry.lock` is out of sync with `pyproject.toml`
+- `uv.lock` is out of sync with `pyproject.toml`
 - a dependency spec is constrained without documented justification
 - a dependency anchor lacks the required `pyproject.toml` comment
 - a dependency anchor lacks a record in `docs/dependencies/`
