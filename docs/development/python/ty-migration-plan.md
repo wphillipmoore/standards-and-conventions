@@ -41,7 +41,7 @@ enough to build confidence, and then retire `mypy` once parity is proven.
 
 ### Phase 0: Baseline decisions
 1. Pin `ty` to the latest available version at adoption time (current target:
-   `0.0.11` from the 2026-01-07 release) and manage it like other dev tools.
+   `0.0.13`, released 2026-01-21) and manage it like other dev tools.
 2. Use community defaults: `ty check` as the canonical command and
    `[tool.ty]` in `pyproject.toml` for configuration.
 3. Define the parity criteria required to remove `mypy` (TBD; data-driven).

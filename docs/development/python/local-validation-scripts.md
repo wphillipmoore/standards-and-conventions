@@ -31,7 +31,7 @@ alternative process in the pull request workflow.
 ## CI parity
 The local validation script must mirror CI hard gates, including:
 - dependency and lockfile validation
-- linting and type checking
+- linting and type checking (run all required checkers, including mypy and ty)
 - tests with the same marker selection and coverage thresholds
 - security or dependency audits required by CI
 
