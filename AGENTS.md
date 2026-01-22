@@ -1,5 +1,7 @@
 # Standards and Conventions - Agent Instructions
 
+#include standards-and-conventions.md
+
 ## User Overrides (Optional)
 
 Always apply this repository's `AGENTS.md` as the baseline. If
