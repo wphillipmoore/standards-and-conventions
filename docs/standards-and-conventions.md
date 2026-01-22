@@ -21,7 +21,7 @@ This file must:
 - make the required canonical references discoverable via a direct list or an
   include chain
 - document project-specific information and deviations inline or via
-  `#include ./repository-standards.md`
+  `docs/repository-standards.md` (included from `AGENTS.md`)
 - include a complete repository profile with concrete values
 - avoid duplicating canonical standards verbatim
 
@@ -98,13 +98,14 @@ Record project-specific details here, such as:
 Project-specific content must be explicit and scoped. Do not restate canonical
 rules unless a deviation exists.
 
-#include ./repository-standards.md
+Project-specific content must live in `docs/repository-standards.md` and be
+included from `AGENTS.md` only. Do not include it here.
 
 ## Template
 ```
 # <Repository> Standards Bootstrap
 
-#include docs/standards-and-conventions.md
+  #include docs/standards-and-conventions.md
 ```
 
 ```
@@ -115,10 +116,10 @@ rules unless a deviation exists.
 - [Project-specific overlay](#project-specific-overlay)
 
 ## Canonical references
-#include ../standards-and-conventions/docs/standards-and-conventions.md
+  #include ../standards-and-conventions/docs/standards-and-conventions.md
 
 ## Project-specific overlay
-#include ./repository-standards.md
+  See `docs/repository-standards.md` (included from `AGENTS.md`).
 ```
 
 ```
