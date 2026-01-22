@@ -27,6 +27,7 @@ Use the following directories by default:
 - `src/`: production source code (when applicable)
 - `tests/`: tests that mirror the source layout
 - `scripts/`: developer tooling and automation
+- `skills/`: repository-local agent skills (when applicable)
 - `.github/`: CI/CD workflows and repository configuration
 
 Additional directories (for example, `infra/` or `deploy/`) are allowed when
@@ -61,6 +62,7 @@ repo/
 ├── tests/
 │   └── <package_or_app>/
 ├── scripts/
+├── skills/
 ├── .github/
 │   └── workflows/
 └── README.md
