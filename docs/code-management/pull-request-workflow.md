@@ -122,6 +122,11 @@ Opt out when a merge must be scheduled or reviewed by adding the label
 `manual-merge` to the pull request. Do not enable auto-merge while that label
 is present.
 
+When asked to submit or finalize a PR, enable auto-merge using
+`gh pr merge --auto --merge --delete-branch` without prompting for a merge
+method unless `manual-merge` is present or auto-merge is disabled for the
+repository.
+
 If auto-merge is disabled for the repository, follow the manual merge steps and
 wait for all required checks to pass before merging.
 
