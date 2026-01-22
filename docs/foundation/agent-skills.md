@@ -6,6 +6,7 @@
 - [Repository-local skills](#repository-local-skills)
 - [Shared skills library](#shared-skills-library)
 - [Registration and loading](#registration-and-loading)
+- [Startup reporting](#startup-reporting)
 
 ## Purpose
 Define how skills are stored, imported, and referenced so repositories avoid
@@ -33,3 +34,10 @@ automation.
   session after adding it.
 - Repositories should assume that skill availability may require a session
   reload and document that expectation in `AGENTS.md`.
+
+## Startup reporting
+When a repository requires visibility into what the agent loads on startup,
+add instructions to `AGENTS.md` to report every file read from the moment
+`AGENTS.md` is opened until the first response is returned. Minimum fields:
+- file path
+- reason for reading
