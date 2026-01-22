@@ -5,6 +5,7 @@
 - [Scope](#scope)
 - [Skill list](#skill-list)
 - [Usage conventions](#usage-conventions)
+- [Dependency policy](#dependency-policy)
 - [Downstream references](#downstream-references)
 
 ## Purpose
@@ -37,6 +38,13 @@ Skill bodies must remain aligned with the canonical documents they reference.
 - Do not duplicate standards verbatim; link to canonical docs instead.
 - Autocomplete favors distinct skill names; summarize wrappers exist so teams
   can select a mode without typing additional arguments.
+
+## Dependency policy
+- Treat this directory as a reference library.
+- Copy shared skills into the target repository’s `skills/` directory before
+  using them.
+- Do not rely on symlinks or external paths for required skills.
+- Skills are not auto-registered; restart the agent session after adding them.
 
 ## Downstream references
 Add a short reference to these skills in downstream `AGENTS.md` files using
