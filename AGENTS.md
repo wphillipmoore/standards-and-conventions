@@ -2,17 +2,31 @@
 
 ## User Overrides (Optional)
 
-If `~/AGENTS.md` exists and is readable, load it and apply it as a
-user-specific overlay for this session. If it cannot be read, say so
-briefly and continue.
+Always apply this repository's `AGENTS.md` as the baseline. If
+`~/AGENTS.md` exists and is readable, load it after and apply it as an
+additive, user-specific overlay. The user-specific overlay may add
+constraints but must not replace or weaken the repository instructions.
+If it cannot be read, say so briefly and continue.
 
 This repository is the canonical source of development standards and
 conventions. Treat the documents here as the default baseline for other
 repositories, with local overrides captured elsewhere when needed.
 
+## Mandatory standards intake (before any other action)
+
+After reading this file and any `~/AGENTS.md` overlay, you MUST load the
+repository-local `docs/standards-and-conventions.md`. Treat it as the required
+entry point for all other standards. If the file cannot be retrieved, stop and
+notify the user.
+
+Then, before any other action, you MUST open every canonical or required
+reference listed there that is relevant to the task at hand. Do not proceed
+until those documents are loaded.
+
 ## Start Every Work Session: Create a Feature Branch
 
-**Critical first step**: before making any changes in a new session, you MUST:
+**Critical first step after mandatory standards intake**: before making any
+changes in a new session, you MUST:
 
 1. Check current branch: `git branch --show-current`
 2. If on an eternal branch (`develop`, `release`, `main`), create a feature
@@ -104,4 +118,3 @@ active.
 
 "Finalize" means: merge the PR, delete the remote branch, update the local
 copy of the target branch, and run final validation (skip for docs-only).
-
