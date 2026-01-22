@@ -21,7 +21,7 @@ This file must:
 - make the required canonical references discoverable via a direct list or an
   include chain
 - document project-specific information and deviations inline or via
-  `#include repository-standards.md`
+  `#include ./repository-standards.md`
 - include a complete repository profile with concrete values
 - avoid duplicating canonical standards verbatim
 
@@ -98,15 +98,7 @@ Record project-specific details here, such as:
 Project-specific content must be explicit and scoped. Do not restate canonical
 rules unless a deviation exists.
 
-- AI co-authors:
-  - Co-Authored-By: wphillipmoore-codex <255923655+wphillipmoore-codex@users.noreply.github.com>
-  - Co-Authored-By: wphillipmoore-claude <255925739+wphillipmoore-claude@users.noreply.github.com>
-- Repository profile:
-  - repository_type: documentation
-  - versioning_scheme: none
-  - branching_model: docs-single-branch
-  - release_model: none
-  - supported_release_lines: none
+#include ./repository-standards.md
 
 ## Template
 ```
@@ -126,7 +118,7 @@ rules unless a deviation exists.
 #include ../standards-and-conventions/docs/standards-and-conventions.md
 
 ## Project-specific overlay
-#include repository-standards.md
+#include ./repository-standards.md
 ```
 
 ```

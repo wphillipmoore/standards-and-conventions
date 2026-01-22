@@ -1,6 +1,7 @@
 # Standards and Conventions - Agent Instructions
 
-#include standards-and-conventions.md
+#include docs/standards-and-conventions.md
+#include docs/repository-standards.md
 
 ## User Overrides (Optional)
 
