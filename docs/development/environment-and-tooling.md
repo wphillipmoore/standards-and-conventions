@@ -47,6 +47,21 @@ Recommended categories:
 Document versions where compatibility matters. Avoid adding tools without a
 clear justification.
 
+### Baseline automation assumptions
+For AI-assisted workflows in this environment, assume the following are
+pre-installed and ready to use:
+- `git`
+- GitHub CLI (`gh`)
+
+Authentication for GitHub operations is assumed to be configured via
+environment (for example, `GH_TOKEN`) so `gh` commands can run non-interactive.
+
+Behavior rules:
+- Do not preflight-check `gh` availability or auth status on every session.
+- Run the intended `gh` command directly; if it fails, report the failure and
+  then run targeted diagnostics (`gh --version`, `gh auth status`) before
+  retrying.
+
 ## Maintenance
 Review tooling lists periodically and remove unused entries. Keep the list
 short and precise.
