@@ -25,6 +25,9 @@ Use when validating conformance to the interaction contract.
 ## Failure criteria
 Any hard failure indicates contract drift and requires correction.
 
+Hard failures include:
+- Proceeding without applying the repository profile when it materially affects workflow (for example, a documentation repository that still demands validation or uses the wrong branching model).
+
 ## Prompt shortcuts
 Use a standalone prompt that invokes the tests, such as:
 - `Run cognitive regression tests`
