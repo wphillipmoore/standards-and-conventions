@@ -16,6 +16,8 @@ Use before finalizing any response governed by the interaction contract.
 ## Checklist
 - Problem constraints are explicit.
 - Assumptions are stated.
+- If the prompt starts with `RTFM`, switch to the RTFM protocol and suspend
+  normal work.
 - Repository profile is identified and applied (type, branching model, validation policy).
 - No silent guessing of material facts.
 - Weak premises were challenged.

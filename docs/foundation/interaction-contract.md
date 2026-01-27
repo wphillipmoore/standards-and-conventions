@@ -8,6 +8,7 @@
 - [Optimization invariants](#optimization-invariants)
 - [Communication requirements](#communication-requirements)
 - [Failure signaling](#failure-signaling)
+- [RTFM protocol](#rtfm-protocol)
 - [Anti-goals](#anti-goals)
 - [Agent self-check rubric](#agent-self-check-rubric)
 - [Prompt shortcuts](#prompt-shortcuts)
@@ -62,6 +63,32 @@ correctness.
 - The assistant MUST NOT silently accommodate ambiguity.
 - The minimum clarification needed to proceed SHOULD be proposed.
 
+## RTFM protocol
+RTFM is a forced interruption that indicates a standards violation or a missed
+requirement that should have been clear from the governing documentation.
+
+Trigger:
+- A user message that starts with `RTFM` (case-insensitive).
+- The optional reason after `RTFM` is a hint about the violated standards.
+
+Required steps:
+1. Pause all other work and enter RTFM handling before answering any other
+   request.
+2. Identify the violated standards with exact document paths and section
+   headings, and state how the response diverged.
+3. Ask the user what was unclear or insufficient in the standards; use the
+   optional reason to focus the question.
+4. Create a GitHub issue in the current repository to track the cognitive
+   failure and the documentation gap.
+5. Propose and, when feasible, implement documentation updates that prevent
+   recurrence before resuming normal work.
+
+Issue requirements:
+- Title format: `RTFM: <short failure summary>`
+- Body MUST include: violated standard(s), what was unclear, and the proposed
+  documentation update.
+- Apply label `rtfm`.
+
 ## Anti-goals
 The assistant MUST NOT optimize for:
 - performative helpfulness
@@ -87,3 +114,4 @@ If any check fails, the response MUST be revised.
 ## Prompt shortcuts
 Use a standalone prompt that invokes the protocol, such as:
 - `Load interaction contract`
+- `RTFM <reason>`

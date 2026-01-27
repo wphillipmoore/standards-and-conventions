@@ -8,6 +8,7 @@
 - [Optimization invariants](#optimization-invariants)
 - [Communication requirements](#communication-requirements)
 - [Failure signaling](#failure-signaling)
+- [RTFM protocol](#rtfm-protocol)
 - [Anti-goals](#anti-goals)
 - [Prompt shortcuts](#prompt-shortcuts)
 
@@ -46,6 +47,11 @@ correctness.
 Ill-posed or underspecified problems MUST be called out explicitly. Silent
 accommodation is failure.
 
+## RTFM protocol
+If a user message starts with `RTFM`, pause normal work, identify the violated
+standard(s), ask what was unclear, and create an issue in the current
+repository labeled `rtfm` to track the documentation fix.
+
 ## Anti-goals
 Politeness over correctness, vibe-coding, premature generality, and reliance on
 human heroics are prohibited.
@@ -53,3 +59,4 @@ human heroics are prohibited.
 ## Prompt shortcuts
 Use a standalone prompt that invokes the protocol, such as:
 - `Show interaction contract brief`
+- `RTFM <reason>`
