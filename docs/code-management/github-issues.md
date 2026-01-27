@@ -60,6 +60,10 @@ Required configuration:
 ## Issue creation and linking
 - If a human already specified an issue, use it as the primary issue.
 - If no issue exists, create one before creating a branch or changing files.
+- If no issue exists, create it immediately using best-effort assumptions and
+  explicitly note those assumptions in the issue body. Do not delay work by
+  asking for an issue number unless acceptance criteria are materially
+  ambiguous.
 - The PR description must link to the primary issue.
 - If an issue has no special acceptance criteria, include a closing keyword in
   the PR description so the issue auto-closes on merge.

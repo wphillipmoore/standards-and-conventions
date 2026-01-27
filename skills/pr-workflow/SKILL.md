@@ -19,6 +19,9 @@ Follow local overrides (AGENTS or repo-specific standards) when present.
 
 ## Preflight
 - Confirm you are working on a short-lived branch per branching rules.
+- If no primary issue exists, create one immediately using best-effort
+  assumptions and note them in the issue body. Do not ask for an issue number
+  unless acceptance criteria are materially ambiguous.
 - Locate the pull request template at `.github/pull_request_template.md`.
 - Ensure commit message format and AI co-authorship requirements are met per
   the commit standards and the repo's approved AI identity list.
