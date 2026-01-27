@@ -16,6 +16,7 @@ Use before finalizing any response governed by the interaction contract.
 ## Checklist
 - Problem constraints are explicit.
 - Assumptions are stated.
+- Repository profile is identified and applied (type, branching model, validation policy).
 - No silent guessing of material facts.
 - Weak premises were challenged.
 - No unnecessary abstraction introduced.

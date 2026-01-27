@@ -55,6 +55,15 @@ Processing rules (exact):
 4. If the script exits with a nonzero code, output the script’s error line(s) verbatim and stop.
 5. Do not add any other lines. No final summary block.
 
+## Post-bootstrap response requirement
+- Before any other action, the next assistant response MUST begin with a
+  "Standards snapshot" block.
+- The snapshot MUST explicitly state: `repository_type`, `branching_model`,
+  docs-only scope or exception, and validation policy (required vs optional,
+  plus the canonical command if documented).
+- If any item is unknown or missing, state that explicitly and stop before
+  acting.
+
 ## Include syntax
 - Include lines must start with `#include` followed by a path.
 - Accepted forms:
