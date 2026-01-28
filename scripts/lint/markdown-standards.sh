@@ -19,6 +19,25 @@ if [[ ${#files[@]} -eq 0 ]]; then
   exit 2
 fi
 
+markdownlint_config=()
+if [[ -f ".markdownlint.yaml" ]]; then
+  markdownlint_config=(--config ".markdownlint.yaml")
+fi
+
+if command -v markdownlint >/dev/null 2>&1; then
+  markdownlint_cmd=(markdownlint)
+elif command -v npx >/dev/null 2>&1; then
+  markdownlint_cmd=(npx --yes markdownlint-cli)
+else
+  echo "ERROR: markdownlint not found. Install markdownlint-cli or ensure npx is available." >&2
+  exit 2
+fi
+
+markdownlint_failed=0
+if ! "${markdownlint_cmd[@]}" "${markdownlint_config[@]}" "${files[@]}"; then
+  markdownlint_failed=1
+fi
+
 failed=0
 
 for file in "${files[@]}"; do
@@ -75,4 +94,4 @@ for file in "${files[@]}"; do
 
 done
 
-exit $failed
+exit $((failed || markdownlint_failed))
