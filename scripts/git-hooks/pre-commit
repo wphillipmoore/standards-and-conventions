@@ -10,3 +10,18 @@ case "$branch" in
     exit 1
     ;;
 esac
+
+case "$branch" in
+  feature/*|bugfix/*)
+    ;;
+  HEAD)
+    echo "ERROR: detached HEAD is not allowed for commits." >&2
+    echo "Create a short-lived branch (feature/* or bugfix/*) and open a PR." >&2
+    exit 1
+    ;;
+  *)
+    echo "ERROR: branch name must use feature/* or bugfix/* for documentation repositories ($branch)." >&2
+    echo "Rename the branch before committing." >&2
+    exit 1
+    ;;
+esac

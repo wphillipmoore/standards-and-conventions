@@ -1,0 +1,30 @@
+name: Standards Gates
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
+
+jobs:
+  standards-gates:
+    name: Standards compliance
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate repository profile
+        run: scripts/lint/repo-profile.sh
+
+      - name: Lint markdown standards
+        run: scripts/lint/markdown-standards.sh
+
+      - name: Lint commit messages
+        run: |
+          base_sha=$(jq -r '.pull_request.base.sha' "$GITHUB_EVENT_PATH")
+          head_sha=$(jq -r '.pull_request.head.sha' "$GITHUB_EVENT_PATH")
+          scripts/lint/commit-messages.sh "$base_sha" "$head_sha"
+
+      - name: Validate issue linkage
+        run: scripts/lint/pr-issue-linkage.sh

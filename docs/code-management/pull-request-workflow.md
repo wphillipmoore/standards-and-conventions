@@ -7,6 +7,7 @@
 - [Pull request template](#pull-request-template)
 - [Pre-Submission Requirements](#pre-submission-requirements)
 - [Pre-Submission Checklist](#pre-submission-checklist)
+- [Pull request submission](#pull-request-submission)
 - [What to Do When Checks Fail](#what-to-do-when-checks-fail)
 - [Auto-merge policy](#auto-merge-policy)
 - [Async finalization guardrail](#async-finalization-guardrail)
@@ -102,6 +103,24 @@ If no single command exists, run:
 
 Do not run only a subset of tests. Local validation should mirror CI hard
 gates. Run soft-gate checks when documented.
+
+## Pull request submission
+Use the GitHub CLI for PR creation unless a repository documents an alternative.
+
+Required sequence:
+1. Ensure the feature branch exists locally and all commits are present.
+2. Push the branch to the remote before creating the PR.
+3. Create the PR only after the remote branch exists.
+
+Recommended commands:
+```bash
+git status -sb
+git push -u origin <feature-branch>
+gh pr create --base <target-branch> --head <feature-branch>
+```
+
+Failure mode and fix:
+- If PR creation fails because the head or base SHA is blank or the head ref is not a branch, the branch is not pushed. Push the branch to the remote and retry the PR creation command.
 
 ## What to Do When Checks Fail
 If any hard-gate check fails:
