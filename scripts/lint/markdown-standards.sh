@@ -26,10 +26,8 @@ fi
 
 if command -v markdownlint >/dev/null 2>&1; then
   markdownlint_cmd=(markdownlint)
-elif command -v npx >/dev/null 2>&1; then
-  markdownlint_cmd=(npx --yes markdownlint-cli)
 else
-  echo "ERROR: markdownlint not found. Install markdownlint-cli or ensure npx is available." >&2
+  echo "ERROR: markdownlint not found. Install markdownlint-cli locally." >&2
   exit 2
 fi
 

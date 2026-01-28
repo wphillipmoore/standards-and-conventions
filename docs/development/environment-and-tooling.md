@@ -55,6 +55,12 @@ Recommended categories:
 Document versions where compatibility matters. Avoid adding tools without a
 clear justification.
 
+Tool installation is a human responsibility. Automation must not install or
+download external tooling on demand.
+
+Documentation repositories must include markdownlint in their external tooling
+list.
+
 ### Baseline automation assumptions
 
 For AI-assisted workflows in this environment, assume the following are
