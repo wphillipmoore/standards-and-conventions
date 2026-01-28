@@ -51,9 +51,9 @@ Every pull request must have a primary GitHub issue. If no issue exists,
 create one before creating a branch or changing files.
 
 If the issue has no special acceptance criteria, include a closing keyword in
-the PR description so the issue auto-closes on merge (for example, `Fixes
-#123`). If acceptance criteria exist, use a non-closing reference and close
-the issue only after the criteria are satisfied. See
+the PR description so the issue auto-closes on merge (for example,
+`Fixes #123`). If acceptance criteria exist, use a non-closing reference and
+close the issue only after the criteria are satisfied. See
 [GitHub Issue Standards](github-issues.md) for acceptance criteria rules and
 sub-issue guidance.
 

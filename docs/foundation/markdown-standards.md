@@ -71,8 +71,8 @@ explicitly state otherwise.
 - Markdownlint is the minimum baseline. Repositories may add additional checks.
 - Code repositories must document language-specific and repo-specific validation
   commands in their repository standards.
-- Markdownlint rule MD018 is disabled because standards entry points require
-  `#include` directives that are not valid ATX headings.
+- Include directives use HTML comments (`<!-- include: path -->`) so they do
+  not conflict with markdownlint.
 
 ## Maintenance
 

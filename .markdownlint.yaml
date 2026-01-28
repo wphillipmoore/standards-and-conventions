@@ -1,3 +1,1 @@
 default: true
-# MD018 is incompatible with required #include directives in standards entry points.
-MD018: false

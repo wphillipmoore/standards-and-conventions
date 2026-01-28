@@ -21,7 +21,8 @@ Every repository must include `docs/standards-and-conventions.md`.
 This file must:
 
 - reference the canonical standards in this repository using GitHub URLs or
-  by including the canonical standards entry point with `#include`
+  by including the canonical standards entry point with
+  `<!-- include: path -->`
 - make the required canonical references discoverable via a direct list or an
   include chain
 - document project-specific information and deviations inline or via
@@ -41,57 +42,57 @@ fatal exception and stop.
 
 This list is the authoritative include chain for the shared standards corpus.
 
-#include docs/foundation/overview.md
-#include docs/foundation/markdown-standards.md
-#include docs/foundation/architecture-standards.md
-#include docs/foundation/interaction-contract.md
-#include docs/foundation/interaction-contract-brief.md
-#include docs/foundation/ai-assisted-development-loop.md
-#include docs/foundation/ai-code-review-guidelines.md
-#include docs/foundation/agent-skills.md
-#include docs/foundation/agent-boot-banner.md
-#include docs/foundation/agent-pre-response-checklist.md
-#include docs/foundation/cognitive-drift-log.md
-#include docs/foundation/cognitive-regression-tests.md
-#include docs/foundation/summarize-decisions-protocol.md
-#include docs/foundation/summarize-operations-protocol.md
-#include docs/foundation/summarize-stream-of-consciousness-protocol.md
+<!-- include: docs/foundation/overview.md -->
+<!-- include: docs/foundation/markdown-standards.md -->
+<!-- include: docs/foundation/architecture-standards.md -->
+<!-- include: docs/foundation/interaction-contract.md -->
+<!-- include: docs/foundation/interaction-contract-brief.md -->
+<!-- include: docs/foundation/ai-assisted-development-loop.md -->
+<!-- include: docs/foundation/ai-code-review-guidelines.md -->
+<!-- include: docs/foundation/agent-skills.md -->
+<!-- include: docs/foundation/agent-boot-banner.md -->
+<!-- include: docs/foundation/agent-pre-response-checklist.md -->
+<!-- include: docs/foundation/cognitive-drift-log.md -->
+<!-- include: docs/foundation/cognitive-regression-tests.md -->
+<!-- include: docs/foundation/summarize-decisions-protocol.md -->
+<!-- include: docs/foundation/summarize-operations-protocol.md -->
+<!-- include: docs/foundation/summarize-stream-of-consciousness-protocol.md -->
 
-#include docs/code-management/overview.md
-#include docs/code-management/repository-types-and-attributes.md
-#include docs/code-management/commit-messages-and-authorship.md
-#include docs/code-management/github-issues.md
-#include docs/code-management/pull-request-workflow.md
-#include docs/code-management/source-control-guidelines.md
-#include docs/code-management/documentation-branching-model.md
-#include docs/code-management/branching-and-deployment.md
-#include docs/code-management/application-versioning-scheme.md
-#include docs/code-management/library-branching-and-release.md
-#include docs/code-management/library-versioning-scheme.md
-#include docs/code-management/release-versioning.md
-#include docs/code-management/hotfix-policy.md
-#include docs/code-management/shared-actions-library.md
+<!-- include: docs/code-management/overview.md -->
+<!-- include: docs/code-management/repository-types-and-attributes.md -->
+<!-- include: docs/code-management/commit-messages-and-authorship.md -->
+<!-- include: docs/code-management/github-issues.md -->
+<!-- include: docs/code-management/pull-request-workflow.md -->
+<!-- include: docs/code-management/source-control-guidelines.md -->
+<!-- include: docs/code-management/documentation-branching-model.md -->
+<!-- include: docs/code-management/branching-and-deployment.md -->
+<!-- include: docs/code-management/application-versioning-scheme.md -->
+<!-- include: docs/code-management/library-branching-and-release.md -->
+<!-- include: docs/code-management/library-versioning-scheme.md -->
+<!-- include: docs/code-management/release-versioning.md -->
+<!-- include: docs/code-management/hotfix-policy.md -->
+<!-- include: docs/code-management/shared-actions-library.md -->
 
-#include docs/repository/overview.md
-#include docs/repository/repository-structure.md
+<!-- include: docs/repository/overview.md -->
+<!-- include: docs/repository/repository-structure.md -->
 
-#include docs/dependencies/overview.md
-#include docs/dependencies/dependency-update-workflow.md
+<!-- include: docs/dependencies/overview.md -->
+<!-- include: docs/dependencies/dependency-update-workflow.md -->
 
-#include docs/development/overview.md
-#include docs/development/environment-and-tooling.md
-#include docs/development/deprecation-warnings.md
-#include docs/development/database/overview.md
-#include docs/development/database/conventions.md
-#include docs/development/python/overview.md
-#include docs/development/python/naming-conventions.md
-#include docs/development/python/type-hints.md
-#include docs/development/python/import-time-side-effects.md
-#include docs/development/python/testing-and-coverage.md
-#include docs/development/python/dependency-management.md
-#include docs/development/python/version-management.md
-#include docs/development/python/local-validation-scripts.md
-#include docs/development/python/ty-migration-plan.md
+<!-- include: docs/development/overview.md -->
+<!-- include: docs/development/environment-and-tooling.md -->
+<!-- include: docs/development/deprecation-warnings.md -->
+<!-- include: docs/development/database/overview.md -->
+<!-- include: docs/development/database/conventions.md -->
+<!-- include: docs/development/python/overview.md -->
+<!-- include: docs/development/python/naming-conventions.md -->
+<!-- include: docs/development/python/type-hints.md -->
+<!-- include: docs/development/python/import-time-side-effects.md -->
+<!-- include: docs/development/python/testing-and-coverage.md -->
+<!-- include: docs/development/python/dependency-management.md -->
+<!-- include: docs/development/python/version-management.md -->
+<!-- include: docs/development/python/local-validation-scripts.md -->
+<!-- include: docs/development/python/ty-migration-plan.md -->
 
 ## Project-specific overlay
 
@@ -113,7 +114,7 @@ included from `AGENTS.md` only. Do not include it here.
 ```text
 # <Repository> Standards Bootstrap
 
-  #include docs/standards-and-conventions.md
+  <!-- include: docs/standards-and-conventions.md -->
 ```
 
 ```text
@@ -124,7 +125,7 @@ included from `AGENTS.md` only. Do not include it here.
 - [Project-specific overlay](#project-specific-overlay)
 
 ## Canonical references
-  #include ../standards-and-conventions/docs/standards-and-conventions.md
+  <!-- include: ../standards-and-conventions/docs/standards-and-conventions.md -->
 
 ## Project-specific overlay
   See `docs/repository-standards.md` (included from `AGENTS.md`).
