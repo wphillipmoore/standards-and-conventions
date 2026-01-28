@@ -18,6 +18,7 @@ Date:
 Context:
 Prompt:
 Observed failure:
+State snapshot (branch, git status, files touched):
 Category (A–F):
 Severity (Soft / Hard):
 Correction applied:

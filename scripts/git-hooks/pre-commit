@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+case "$branch" in
+  develop|release|main|release/*)
+    echo "ERROR: direct commits to protected branches are forbidden ($branch)." >&2
+    echo "Create a short-lived branch (feature/* or bugfix/*) and open a PR." >&2
+    exit 1
+    ;;
+esac
