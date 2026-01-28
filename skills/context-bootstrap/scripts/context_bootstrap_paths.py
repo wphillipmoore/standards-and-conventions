@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import sys
 STANDARDS_PREFIX = "../standards-and-conventions/"
 
@@ -30,6 +31,20 @@ def strip_include(raw: str) -> str:
     if raw.startswith("<") and raw.endswith(">"):
         return raw[1:-1]
     return raw
+
+
+def parse_include_line(line: str) -> str | None:
+    stripped = line.strip()
+    if stripped.startswith("#include") and len(stripped) > len("#include"):
+        remainder = stripped[len("#include") :].strip()
+        return strip_include(remainder)
+
+    if stripped.startswith("<!--") and stripped.endswith("-->"):
+        inner = stripped[4:-3].strip()
+        match = re.match(r"^include\\s*:\\s*(.+)$", inner, flags=re.IGNORECASE)
+        if match:
+            return strip_include(match.group(1).strip())
+    return None
 
 
 def read_text(path: str) -> str:
@@ -65,8 +80,8 @@ def resolve_include(repo_root: str, include_path: str) -> str | None:
 def iter_includes(content: str) -> list[str]:
     includes: list[str] = []
     for line in content.splitlines():
-        if line.startswith("#include ") or line.startswith("#include\t"):
-            include_path = strip_include(line[len("#include") :])
+        include_path = parse_include_line(line)
+        if include_path:
             includes.append(include_path)
     return includes
 

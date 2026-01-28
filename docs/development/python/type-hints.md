@@ -1,24 +1,29 @@
 # Python Type Hints
 
 ## Table of Contents
+
 - [Rule](#rule)
 - [Rationale](#rationale)
 - [Type checker parity protocol](#type-checker-parity-protocol)
 - [Examples](#examples)
 
 ## Rule
+
 All public functions and methods must have complete type hints. Enforce this
 with static type checkers: mypy in strict mode and ty with default settings.
 
 ## Rationale
+
 Type hints are documentation, enable static analysis, and catch bugs during
 development.
 
 ## Type checker parity protocol
+
 Both `mypy` and `ty` are hard CI gates. Failing either one blocks the pull
 request.
 
 When the tools disagree, follow this protocol:
+
 1. Run both checkers locally with the canonical commands and capture the exact
    outputs.
 2. Confirm configuration parity (strictness, ignores, per-module overrides,
@@ -33,6 +38,7 @@ When the tools disagree, follow this protocol:
    the resolution path.
 
 ## Examples
+
 ```python
 # Correct
 def create_instrument(name: str, string_count: int) -> Instrument:

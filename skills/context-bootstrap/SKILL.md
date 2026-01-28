@@ -65,11 +65,13 @@ Processing rules (exact):
   acting.
 
 ## Include syntax
-- Include lines must start with `#include` followed by a path.
+- Include lines must use HTML comments with the `include:` directive.
 - Accepted forms:
-  - `#include path`
-  - `#include "path"`
-  - `#include <path>`
+  - `<!-- include: path -->`
+  - `<!-- include: "path" -->`
+  - `<!-- include: <path> -->`
+- Legacy `#include` lines are supported for transition but must not be used in
+  new files.
 - Paths are treated as literal strings after stripping optional quotes or angle brackets.
 
 ## Include resolution (no inference)
