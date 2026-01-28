@@ -17,6 +17,9 @@ jobs:
       - name: Validate repository profile
         run: scripts/lint/repo-profile.sh
 
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+
       - name: Lint markdown standards
         run: scripts/lint/markdown-standards.sh
 
