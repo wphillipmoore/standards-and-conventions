@@ -5,7 +5,7 @@
 - [Table Naming](#table-naming)
 - [Model File Organization](#model-file-organization)
   - [Rule 1: One File Per Table](#rule-1-one-file-per-table)
-  - [Rule 2: Tightly Coupled 1:1 Tables](#rule-2-tightly-coupled-11-tables)
+  - [Rule 2: Tightly Coupled One-to-One Tables](#rule-2-tightly-coupled-one-to-one-tables)
   - [Rule 3: Association Tables](#rule-3-association-tables)
   - [Rule 4: Gray Areas](#rule-4-gray-areas)
   - [Revisiting the Rules](#revisiting-the-rules)
@@ -42,7 +42,7 @@ models/exercise_instance.py
 models/technique.py
 ```
 
-### Rule 2: Tightly Coupled 1:1 Tables
+### Rule 2: Tightly Coupled One-to-One Tables
 Tables with enforced 1:1 relationships that are always used together may be
 bundled in the same file.
 

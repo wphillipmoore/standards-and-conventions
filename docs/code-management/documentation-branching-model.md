@@ -64,8 +64,9 @@ Rules:
 - deleted after merge
 
 ## 6. Validation expectations
-Documentation repositories do not require automated test or release validation.
-Keep validation optional unless a specific repository documents a requirement.
+Documentation repositories must run markdownlint for documentation validation.
+Automated test or release validation is not required. Additional validation is
+optional unless a specific repository documents a requirement.
 
 ## 7. Forbidden operations
 - direct commits to `develop`

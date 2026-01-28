@@ -33,14 +33,14 @@ When using this exception, explicitly state `Docs-only: tests skipped` in the
 PR description and list the files changed.
 
 Documentation repositories may define "docs-only" as the entire repository and
-keep validation optional unless the repository documents a required check.
-For documentation repositories with no documented validation command, do not
-ask for validation; state that validation is optional and proceed with PR
-submission.
+require markdownlint. Additional validation is optional unless the repository
+documents a requirement. For documentation repositories with only markdownlint
+required, do not ask for additional validation; proceed with PR submission.
 
 CI workflows must implement the docs-only skip policy in
 [source-control-guidelines.md](source-control-guidelines.md#docs-only-ci-skip-policy).
-If a docs-only validation command exists, run it even when tests are skipped.
+Markdownlint and any docs-only validation commands must still run even when
+tests are skipped.
 
 ## Issue linkage
 Every pull request must have a primary GitHub issue. If no issue exists,
@@ -72,14 +72,16 @@ Minimum required template:
 - If no issue exists, open one before any work begins.
 
 ## Testing
-- <canonical validation command>
+- markdownlint
+- <language-specific validation command, if applicable>
+- <repo-specific validation command, if applicable>
 
 ## Notes
 - 
 ```
 
-If the repository defines a canonical local validation command, the template
-must list it in the Testing section.
+The template must list markdownlint and any additional required validation
+commands in the Testing section.
 
 ## Pre-Submission Requirements
 Before creating a pull request, all of the following must be met unless the
@@ -89,13 +91,15 @@ docs-only exception applies:
 3. All hard-gate code quality checks must pass
 4. Soft-gate failures must be disclosed and tracked
 
-Each repository must document its canonical local validation command. If one
-exists, it is the required pre-submission run.
+Each repository must document its canonical local validation command(s).
+Markdownlint is required for all repositories and must be part of the
+pre-submission run. Additional commands are required when documented.
 
 ## Pre-Submission Checklist
-Use the repository's canonical validation command when available.
+Use the repository's canonical validation command(s) when available.
 
 If no single command exists, run:
+- markdownlint
 - full test suite
 - linting
 - type checking

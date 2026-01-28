@@ -4,7 +4,6 @@
 - [Purpose](#purpose)
 - [Scope](#scope)
 - [Definitions](#definitions)
-- [Development cycle timing](#development-cycle-timing)
 - [Triage workflow](#triage-workflow)
 - [Dependency upgrade handling](#dependency-upgrade-handling)
 - [Warning suppression policy](#warning-suppression-policy)
@@ -53,7 +52,6 @@ After the upgrade process:
 
 New warnings may not surface during the upgrade test run, which is why the
 mid-cycle warning policy exists.
-
 
 ## Warning suppression policy
 - AI tooling must not suppress warnings by default.

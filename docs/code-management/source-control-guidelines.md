@@ -158,7 +158,7 @@ When `docs_only` is `true`, skip test and version-validation jobs by gating
 them with the docs-only output. Dependency audits should still run by default;
 if a repository chooses to skip them, it must document the exception.
 
-Docs-only validation commands, when defined, must still run.
+Markdownlint and any docs-only validation commands must still run.
 
 ### Local enforcement hooks
 Use local Git hooks to fail closed on branch protection rules that should

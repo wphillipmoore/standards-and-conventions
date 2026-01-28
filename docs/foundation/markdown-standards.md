@@ -9,6 +9,7 @@
 - [Formatting Conventions](#formatting-conventions)
 - [Links and References](#links-and-references)
 - [Code Blocks](#code-blocks)
+- [Validation](#validation)
 - [Maintenance](#maintenance)
 
 ## Purpose
@@ -54,6 +55,12 @@ explicitly state otherwise.
 - Use fenced code blocks with a language tag when possible.
 - Keep code examples minimal and focused on the rule being explained.
 - Do not include output that is environment-specific unless required.
+
+## Validation
+- All repositories must run markdownlint for documentation validation.
+- Markdownlint is the minimum baseline. Repositories may add additional checks.
+- Code repositories must document language-specific and repo-specific validation
+  commands in their repository standards.
 
 ## Maintenance
 - Update the Table of Contents when headings change.

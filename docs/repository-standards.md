@@ -3,6 +3,7 @@
 ## Table of Contents
 - [AI co-authors](#ai-co-authors)
 - [Repository profile](#repository-profile)
+- [Validation policy](#validation-policy)
 - [CI gates](#ci-gates)
 - [Local deviations](#local-deviations)
 
@@ -17,11 +18,15 @@
 - release_model: none
 - supported_release_lines: none
 
+## Validation policy
+- canonical_local_validation_command: scripts/lint/markdown-standards.sh
+- validation_required: yes (markdownlint required)
+
 ## CI gates
 Hard gates (required status checks on `develop`):
 - Standards compliance (`.github/workflows/standards-gates.yml`):
   - Repository profile validation (`scripts/lint/repo-profile.sh`)
-  - Markdown standards lint (`scripts/lint/markdown-standards.sh`)
+  - Markdownlint (`scripts/lint/markdown-standards.sh`)
   - Commit message lint (`scripts/lint/commit-messages.sh`)
   - Issue linkage validation (`scripts/lint/pr-issue-linkage.sh`)
 
