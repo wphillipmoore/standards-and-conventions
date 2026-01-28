@@ -5,6 +5,7 @@
 - [AI co-authors](#ai-co-authors)
 - [Repository profile](#repository-profile)
 - [Validation policy](#validation-policy)
+- [External tooling dependencies](#external-tooling-dependencies)
 - [CI gates](#ci-gates)
 - [Local deviations](#local-deviations)
 
@@ -25,6 +26,10 @@
 
 - canonical_local_validation_command: scripts/lint/markdown-standards.sh
 - validation_required: yes (markdownlint required)
+
+## External tooling dependencies
+
+- markdownlint (markdownlint-cli)
 
 ## CI gates
 

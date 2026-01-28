@@ -55,6 +55,13 @@ Recommended categories:
 Document versions where compatibility matters. Avoid adding tools without a
 clear justification.
 
+Tool installation for local workflows is a human responsibility. Agents must
+not install or download external tooling on demand. CI workflows may provision
+required tools explicitly.
+
+Documentation repositories must include markdownlint in their external tooling
+list.
+
 ### Baseline automation assumptions
 
 For AI-assisted workflows in this environment, assume the following are

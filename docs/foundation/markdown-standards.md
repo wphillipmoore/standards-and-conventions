@@ -69,6 +69,8 @@ explicitly state otherwise.
 
 - All repositories must run markdownlint for documentation validation.
 - Markdownlint is the minimum baseline. Repositories may add additional checks.
+- Markdownlint must be installed locally by humans; agents must not download or
+  install it on demand. CI workflows may provision it explicitly.
 - Code repositories must document language-specific and repo-specific validation
   commands in their repository standards.
 - Include directives use HTML comments (`<!-- include: path -->`) so they do
