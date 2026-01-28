@@ -6,23 +6,27 @@ documentation, repository structure, code management, and development practices,
 with per-repository overrides captured locally when needed.
 
 ## Table of Contents
+
 - [Scope](#scope)
 - [How to use](#how-to-use)
 - [Key documents](#key-documents)
 - [Status](#status)
 
 ## Scope
+
 - README and agent guidance
 - Repository structure and documentation patterns
 - Code management (Git) standards
 - Development standards by language/tooling
 
 ## How to use
+
 - Treat these documents as the default for new and existing repos.
 - Prefer linking to these standards from local repositories.
 - Capture exceptions locally with clear rationale.
 
 ## Key documents
+
 - Agent guidance: `AGENTS.md`
 - Markdown standards: `docs/foundation/markdown-standards.md`
 - Architecture standards: `docs/foundation/architecture-standards.md`
@@ -37,4 +41,5 @@ with per-repository overrides captured locally when needed.
 - Python standards overview: `docs/development/python/overview.md`
 
 ## Status
+
 Bootstrapping in progress; content will be layered in the order listed above.

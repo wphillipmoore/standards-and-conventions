@@ -1,6 +1,7 @@
 # Python Dependency Management
 
 ## Table of Contents
+
 - [Purpose](#purpose)
 - [Scope](#scope)
 - [Sources of truth](#sources-of-truth)
@@ -19,10 +20,12 @@
 - [Related documents](#related-documents)
 
 ## Purpose
+
 Define strict, repeatable rules for Python dependency management to reduce
 upgrade risk while keeping dependencies current.
 
 ## Scope
+
 These rules apply to Python library dependencies managed with `pyproject.toml`,
 `uv.lock`, and requirements exports derived from the lock file.
 
@@ -32,11 +35,13 @@ exception in their repository overlay and remove the legacy tooling once
 `uv.lock` is in use.
 
 ## Sources of truth
+
 - `pyproject.toml` declares allowed dependency ranges.
 - `uv.lock` pins exact versions compiled from those ranges.
 - Requirements files are exported from `uv.lock` and must never drift from it.
 
 ## Version specification rules
+
 - Default dependency specs in `pyproject.toml` use `*`.
 - Do not anchor to a major or minor series by default (including pre-1.0
   dependencies).
@@ -47,17 +52,19 @@ exception in their repository overlay and remove the legacy tooling once
 
 Example default specification:
 
-```
+```toml
 example-lib = "*"
 ```
 
 ## Upgrade workflow
 
 ### Patch-level
+
 The first action after incrementing the application `PATCH` version is to
 refresh dependencies.
 
 Workflow:
+
 1. Increment `PATCH` per the application versioning scheme.
 2. Run `uv lock --upgrade` to refresh `uv.lock` within the existing constraints.
 3. Export requirements files from `uv.lock` where required (for example,
@@ -71,11 +78,13 @@ Do not change explicit version constraints in `pyproject.toml` as part of this
 cycle-opening update.
 
 ### Minor- or major-level
+
 When incrementing the application `MINOR` or `MAJOR` version, perform the patch-level
 workflow and also attempt to move toward the latest available dependency
 releases when constraints have been tightened.
 
 Workflow:
+
 1. Identify dependencies pinned below the current minor series (for example,
    constrained to `1.1` when `1.2` exists).
 2. For each dependency, relax the constraint individually and run the full
@@ -98,24 +107,30 @@ major version (for example, pinning `pylint` to the latest `3.x` when `4.0.0`
 introduces a blocking bug).
 
 ## In-cycle exception rules
+
 Dependencies may change during a `PATCH` cycle only when necessary:
+
 - New functionality requires additional dependencies.
 - A dependency bug impacts the application and requires an upgrade or pin.
 
 Each exception must:
+
 - include a written rationale in the pull request
 - minimize the scope of the dependency change
 - update `uv.lock` and any exported requirements
 - complete the full validation and test suite
 
 ## Handling regressions and non-latest pins
+
 When a `uv lock --upgrade` introduces failures:
+
 - determine root cause before deciding to pin
 - do not assume the dependency is at fault
 - verify whether the application is compliant with the dependency's documented
   API and behavior
 
 Pinning to a non-latest version is acceptable only when:
+
 - a regression or compatibility break in the dependency is verified, and
   no fix is available within the current cycle, or
 - the application depends on behavior removed or corrected upstream and a
@@ -125,11 +140,13 @@ If the application is at fault, fix the application and re-run the update
 instead of pinning.
 
 Every pin must be accompanied by:
+
 - a written rationale and evidence
 - a clear exit condition and planned removal
 - a review at the next `PATCH` cycle
 
 ## Anchored dependency documentation
+
 When a dependency is anchored below the latest acceptable range, document it in
 two places:
 
@@ -144,12 +161,14 @@ delete prior failure evidence.
 
 Example `pyproject.toml` comment:
 
-```
-# Anchor: 1.2.5 fails full test suite; issue https://github.com/<org>/<repo>/issues/123; see docs/dependencies/example-lib.md
+```toml
+# Anchor: 1.2.5 fails full test suite; issue https://github.com/<org>/<repo>/issues/123;
+# see docs/dependencies/example-lib.md
 example-lib = ">=1.1,<2.0"
 ```
 
 Dependency record requirements:
+
 - One file per dependency: `docs/dependencies/<dependency-name>.md`.
 - Record the failing version and a concise description of the failure.
 - Capture failure evidence (test command, error excerpt, and context).
@@ -160,10 +179,12 @@ See [Dependency anchor records](../../dependencies/overview.md) for the
 required format.
 
 ## Pre-release dependencies
+
 Pre-release dependencies are allowed only as narrow, explicitly approved
 exceptions.
 
 Rules:
+
 - Pre-releases are allowed only in non-production environments.
 - Production use requires an explicit, documented override (mechanism TBD).
 - Pre-releases must be specified as exact versions only; no ranges or
@@ -179,26 +200,32 @@ During the start-of-cycle dependency update, always pause to confirm with a
 human owner that any pre-release dependency is still required.
 
 When removing a pre-release dependency:
+
 - If the issue was created solely to track the dependency, close it.
 - If the issue tracks broader work, add a comment noting the removal.
 
 ## Security-driven updates
+
 If a vulnerability scan fails during a development cycle, update dependencies
 immediately:
+
 - Update `pyproject.toml` as required.
 - Regenerate `uv.lock`.
 - Re-export any requirements files derived from the lockfile.
 - Run a dependency audit against the exported requirements before committing.
 
 ## Locked dependency review
+
 At the start of each upgrade cycle (`PATCH`, `MINOR`, or `MAJOR`), review any
 pinned or tightly constrained dependencies and confirm each pin is still
 required. Remove unnecessary pins before completing the cycle-opening update.
 
 ## Enforcement
+
 Violations are fatal exceptions that block merges, releases, and deployments.
 
 CI must fail when:
+
 - `uv.lock` is out of sync with `pyproject.toml`
 - a dependency spec is constrained without documented justification
 - a dependency anchor lacks the required `pyproject.toml` comment
@@ -212,12 +239,14 @@ CI must fail when:
 - dependency updates occur without the required validation run
 
 ## Examples (TODO)
+
 - Default `*` specifications and constrained exceptions.
 - Patch-cycle update checklist in practice.
 - Justified pinning due to upstream regression.
 - Dependency addition for new functionality.
 
 ## Related documents
+
 - Application versioning scheme: [application-versioning-scheme.md](../../code-management/application-versioning-scheme.md)
 - Dependency update workflow: [dependency-update-workflow.md](../../dependencies/dependency-update-workflow.md)
 - Pull request workflow: [pull-request-workflow.md](../../code-management/pull-request-workflow.md)

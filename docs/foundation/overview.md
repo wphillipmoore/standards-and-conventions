@@ -1,20 +1,24 @@
 # Foundation Standards Overview
 
 ## Table of Contents
+
 - [Purpose](#purpose)
 - [Scope](#scope)
 - [Document map](#document-map)
 - [When to use each summary protocol](#when-to-use-each-summary-protocol)
 
 ## Purpose
+
 Provide a single entry point for foundational standards that apply across
 documentation, architecture, and AI-assisted work.
 
 ## Scope
+
 These standards define baseline expectations and protocols that other domains
 build upon.
 
 ## Document map
+
 - Markdown standards: [markdown-standards.md](markdown-standards.md)
 - Architecture standards: [architecture-standards.md](architecture-standards.md)
 - AI-assisted development loop: [ai-assisted-development-loop.md](ai-assisted-development-loop.md)
@@ -30,6 +34,7 @@ build upon.
 - Summarize stream of consciousness protocol: [summarize-stream-of-consciousness-protocol.md](summarize-stream-of-consciousness-protocol.md)
 
 ## When to use each summary protocol
+
 - Summarize stream of consciousness protocol: Use when capturing raw ideas in a
   toggleable capture window, then organizing them after `End SOC`.
 - Summarize decisions protocol: Use for discussions where the primary outcome

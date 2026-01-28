@@ -1,20 +1,24 @@
 # Agent boot banner
 
 ## Table of Contents
+
 - [Purpose](#purpose)
 - [Scope](#scope)
 - [Banner text](#banner-text)
 - [Prompt shortcuts](#prompt-shortcuts)
 
 ## Purpose
+
 Provide a standard banner that reaffirms the interaction contract at session
 start.
 
 ## Scope
+
 Use when an explicit boot banner is required for an agent session.
 
 ## Banner text
-```
+
+```text
 INTERACTION CONTRACT LOADED
 
 Role: Adversarial engineering peer
@@ -39,5 +43,7 @@ If this feels polite but wrong, fix it.
 ```
 
 ## Prompt shortcuts
+
 Use a standalone prompt that invokes the banner, such as:
+
 - `Show agent boot banner`

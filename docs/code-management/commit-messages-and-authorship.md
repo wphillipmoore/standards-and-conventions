@@ -1,6 +1,7 @@
 # Commit Messages and Authorship
 
 ## Table of Contents
+
 - [Commit Message Format](#commit-message-format)
 - [Types](#types)
 - [Example](#example)
@@ -14,9 +15,10 @@
 - [Project-specific AI identities](#project-specific-ai-identities)
 
 ## Commit Message Format
+
 Follow Conventional Commits:
 
-```
+```text
 <type>: <short description>
 
 <optional detailed description>
@@ -25,6 +27,7 @@ Follow Conventional Commits:
 ```
 
 ## Types
+
 - feat
 - fix
 - docs
@@ -34,7 +37,8 @@ Follow Conventional Commits:
 - chore
 
 ## Example
-```
+
+```text
 fix: update API routers for renamed terminology
 
 Updated API routers and schemas to use the new naming convention.
@@ -44,21 +48,25 @@ Co-Authored-By: ai-tool <id+ai-tool@users.noreply.github.com>
 ```
 
 ## Commit Authorship
+
 All commits must be authored by a human. The human owns responsibility and
 accountability for the change.
 
 Do not set AI tooling as the author or committer.
 
 ## AI Co-Authorship
+
 If an AI tool materially contributed to the change, include a co-author trailer
 for that tool.
 
 If no AI tool contributed, omit AI co-authors.
 
 ## AI identity strategy
+
 AI service accounts represent tools, not humans.
 
 Default naming:
+
 - Personal scope: `<owner>-<tool>` (for example, `wphillipmoore-codex`)
 - Project scope: `<project>-<tool>` (for example, `mnemosys-codex`)
 - Shared or org scope: `<org>-<tool>` or `ai-<tool>` when multiple humans share
@@ -69,10 +77,12 @@ All repositories must list approved AI identities in
 commit trailers.
 
 ## Adding a New AI Service Account
+
 When onboarding a new AI tool, create a dedicated service account to preserve
 clear attribution.
 
 ### Step-by-step checklist
+
 1. Sign out of GitHub or use a private browsing session so the new account is
    created separately.
 2. Create a GitHub account with the chosen name (per AI identity strategy).
@@ -88,7 +98,9 @@ Then update the repository-specific AI co-author list in
 `docs/standards-and-conventions.md`.
 
 ### Practical example: wphillipmoore-codex
+
 Create the account:
+
 1. Username: `wphillipmoore-codex`
 2. Signup email: `w.phillip.moore+github-codex@gmail.com`
 3. Verify the email after signup.
@@ -98,7 +110,9 @@ Create the account:
    - `255923655+wphillipmoore-codex@users.noreply.github.com`
 
 ### Practical example: wphillipmoore-claude
+
 Create the account:
+
 1. Username: `wphillipmoore-claude`
 2. Signup email: `w.phillip.moore+github-claude@gmail.com`
 3. Verify the email after signup.
@@ -108,7 +122,9 @@ Create the account:
    - `255925739+wphillipmoore-claude@users.noreply.github.com`
 
 ## Scaling to shared ownership
+
 When multiple humans share responsibility:
+
 - Prefer shared tool identities (`<org>-<tool>` or `ai-<tool>`) over
   person-scoped accounts.
 - Keep the human as the commit author; add the AI tool as a co-author.
@@ -118,6 +134,7 @@ When multiple humans share responsibility:
   an organization.
 
 ## Project-specific AI identities
+
 Maintain approved AI co-author identities in
 `docs/standards-and-conventions.md` for each repository. Use only the identities
 listed there when adding co-author trailers.

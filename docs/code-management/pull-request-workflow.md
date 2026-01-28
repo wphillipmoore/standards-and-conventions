@@ -1,6 +1,7 @@
 # Pull Request Workflow
 
 ## Table of Contents
+
 - [Purpose](#purpose)
 - [Docs-Only Exception](#docs-only-exception)
 - [Issue linkage](#issue-linkage)
@@ -14,6 +15,7 @@
 - [Pull Request Finalization](#pull-request-finalization)
 
 ## Purpose
+
 Pull requests must pass all hard-gate automated checks before submission. CI
 is a backstop, not a substitute for developer diligence. See
 [CI gates](source-control-guidelines.md#ci-gates) for hard versus soft gate
@@ -23,6 +25,7 @@ Submitting failing PRs wastes reviewer time, pollutes history, and undermines
 confidence in the codebase.
 
 ## Docs-Only Exception
+
 Documentation-only changes may skip the unit test suite and coverage checks
 when the diff includes only documentation files.
 
@@ -43,6 +46,7 @@ Markdownlint and any docs-only validation commands must still run even when
 tests are skipped.
 
 ## Issue linkage
+
 Every pull request must have a primary GitHub issue. If no issue exists,
 create one before creating a branch or changing files.
 
@@ -54,12 +58,13 @@ the issue only after the criteria are satisfied. See
 sub-issue guidance.
 
 ## Pull request template
+
 Every repository must install a pull request template at
 `.github/pull_request_template.md` and keep it aligned with local workflow.
 
 Minimum required template:
 
-```
+```text
 # Pull Request
 
 ## Summary
@@ -84,8 +89,10 @@ The template must list markdownlint and any additional required validation
 commands in the Testing section.
 
 ## Pre-Submission Requirements
+
 Before creating a pull request, all of the following must be met unless the
 docs-only exception applies:
+
 1. 100 percent unit test success
 2. Coverage must not decline (lines and branches)
 3. All hard-gate code quality checks must pass
@@ -96,9 +103,11 @@ Markdownlint is required for all repositories and must be part of the
 pre-submission run. Additional commands are required when documented.
 
 ## Pre-Submission Checklist
+
 Use the repository's canonical validation command(s) when available.
 
 If no single command exists, run:
+
 - markdownlint
 - full test suite
 - linting
@@ -109,14 +118,17 @@ Do not run only a subset of tests. Local validation should mirror CI hard
 gates. Run soft-gate checks when documented.
 
 ## Pull request submission
+
 Use the GitHub CLI for PR creation unless a repository documents an alternative.
 
 Required sequence:
+
 1. Ensure the feature branch exists locally and all commits are present.
 2. Push the branch to the remote before creating the PR.
 3. Create the PR only after the remote branch exists.
 
 Recommended commands:
+
 ```bash
 git status -sb
 git push -u origin <feature-branch>
@@ -124,10 +136,15 @@ gh pr create --base <target-branch> --head <feature-branch>
 ```
 
 Failure mode and fix:
-- If PR creation fails because the head or base SHA is blank or the head ref is not a branch, the branch is not pushed. Push the branch to the remote and retry the PR creation command.
+
+- If PR creation fails because the head or base SHA is blank or the head ref is
+  not a branch, the branch is not pushed. Push the branch to the remote and
+  retry the PR creation command.
 
 ## What to Do When Checks Fail
+
 If any hard-gate check fails:
+
 1. do not create the PR
 2. fix the failing tests or checks
 3. re-run the full checklist
@@ -137,11 +154,13 @@ If a soft-gate check fails, either fix it immediately or document the failure
 with rationale and follow-up tracking before submission.
 
 Common mistakes to avoid:
+
 - "I only changed one area, so I only ran those tests"
 - "The test failures are pre-existing"
 - "I will fix it in a follow-up PR"
 
 ## Auto-merge policy
+
 Auto-merge is the default for all pull requests, including docs-only changes.
 
 Opt out when a merge must be scheduled or reviewed by adding the label
@@ -161,6 +180,7 @@ wait for required checks to complete. If any required check fails, fix the
 issue immediately and re-run the checks before merging.
 
 ## Async finalization guardrail
+
 Async submission requires a follow-up finalize step. To prevent "pending
 finalization" work from being forgotten, apply the following guardrail at the
 start of each work session or before declaring a development cycle complete:
@@ -174,12 +194,14 @@ Do not declare a development cycle complete while open PRs remain against
 `develop`.
 
 ## Pull Request Finalization
+
 Finalization begins only after all required CI gates have completed
 successfully and the PR is ready to merge (manually or via auto-merge). If a
 required check fails, resolve it immediately and re-run the checks before
 merging.
 
 Finalize the PR in this order:
+
 1. merge the PR and delete the remote branch (or wait for auto-merge to do so)
 2. update local copy of the target branch
 3. synchronize the local environment with dependency specifications

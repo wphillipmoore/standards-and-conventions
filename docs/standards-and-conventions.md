@@ -1,6 +1,7 @@
 # Standards and Conventions Reference
 
 ## Table of Contents
+
 - [Purpose](#purpose)
 - [Requirement](#requirement)
 - [Includes](#includes)
@@ -9,13 +10,16 @@
 - [Maintenance](#maintenance)
 
 ## Purpose
+
 Provide a required, repository-local entry point that references the canonical
 standards and documents project-specific details that do not belong upstream.
 
 ## Requirement
+
 Every repository must include `docs/standards-and-conventions.md`.
 
 This file must:
+
 - reference the canonical standards in this repository using GitHub URLs or
   by including the canonical standards entry point with `#include`
 - make the required canonical references discoverable via a direct list or an
@@ -34,6 +38,7 @@ If any required attribute is missing or left as a placeholder, treat it as a
 fatal exception and stop.
 
 ## Includes
+
 This list is the authoritative include chain for the shared standards corpus.
 
 #include docs/foundation/overview.md
@@ -89,7 +94,9 @@ This list is the authoritative include chain for the shared standards corpus.
 #include docs/development/python/ty-migration-plan.md
 
 ## Project-specific overlay
+
 Record project-specific details here, such as:
+
 - approved AI co-author identities for commit trailers
 - local terminology or naming conventions
 - approved deviations from canonical standards
@@ -102,13 +109,14 @@ Project-specific content must live in `docs/repository-standards.md` and be
 included from `AGENTS.md` only. Do not include it here.
 
 ## Template
-```
+
+```text
 # <Repository> Standards Bootstrap
 
   #include docs/standards-and-conventions.md
 ```
 
-```
+```text
 # <Repository> Standards and Conventions
 
 ## Table of Contents
@@ -122,7 +130,7 @@ included from `AGENTS.md` only. Do not include it here.
   See `docs/repository-standards.md` (included from `AGENTS.md`).
 ```
 
-```
+```text
 # <Repository> Repository Standards
 
 ## Table of Contents
@@ -145,5 +153,6 @@ included from `AGENTS.md` only. Do not include it here.
 ```
 
 ## Maintenance
+
 Keep this file short and current. Update it whenever a project-specific rule
 changes or a deviation is introduced or removed.

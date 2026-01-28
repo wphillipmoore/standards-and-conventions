@@ -1,6 +1,7 @@
 # Python Naming Conventions
 
 ## Table of Contents
+
 - [Purpose](#purpose)
 - [PEP 8 Baseline](#pep-8-baseline)
 - [Variable Naming Rules](#variable-naming-rules)
@@ -13,10 +14,13 @@
   - [7. Consistency Rules](#7-consistency-rules)
 
 ## Purpose
+
 Provide naming rules that optimize for clarity, consistency, and accessibility.
 
 ## PEP 8 Baseline
+
 Follow PEP 8 as the default:
+
 - Variables, functions, methods: `snake_case`
 - Classes: `PascalCase`
 - Constants: `UPPER_SNAKE_CASE`
@@ -24,10 +28,12 @@ Follow PEP 8 as the default:
 - Module-level dunder names: `__all__`, `__version__`, and similar
 
 ## Variable Naming Rules
+
 These rules are based on Damian Conway's "Perl Best Practices" (2005), adapted
 for Python and validated over long-term use.
 
 ### 1. Class-to-Variable Mapping
+
 Variables representing a class instance use the `snake_case` version of the
 class name.
 
@@ -44,6 +50,7 @@ block = PracticeBlock(...)
 ```
 
 ### 2. Minimum Length: 3+ Characters
+
 One- and two-character variable names are prohibited because they reduce
 readability and accessibility.
 
@@ -64,6 +71,7 @@ for i, x in enumerate(xs):
 ```
 
 Exceptions:
+
 - Well-established mathematical variables in limited scope (`x`, `y` for a
   five-line coordinate algorithm).
 - Common domain abbreviations used across a codebase may appear as tokens:
@@ -74,6 +82,7 @@ Exceptions:
   codes are established labels.
 
 ### 3. Complete English Words
+
 Use complete English words, not abbreviations.
 
 ```python
@@ -96,6 +105,7 @@ are official domain terms (for example, `UTC`) and should not be shortened
 further.
 
 ### 4. Namespace Collision Handling
+
 When multiple classes share a name, disambiguate with descriptive prefixes.
 
 ```python
@@ -115,7 +125,9 @@ sess = Session()
 Collision prefixes are chosen contextually (for example, `DB`, `REST`).
 
 ### 5. Boolean Variables
+
 Boolean variables should read like questions:
+
 - `is_*`: state or condition (`is_valid`, `is_empty`, `is_active`)
 - `has_*`: possession or presence (`has_permission`, `has_items`, `has_error`)
 - `can_*`: capability or permission (`can_delete`, `can_write`, `can_edit`)
@@ -136,9 +148,11 @@ deletable = ...
 ```
 
 ### 6. Collections: Plural vs. Singular
+
 Name collections based on how they are primarily used.
 
 Plural for collective processing:
+
 ```python
 instruments = query.all()
 for instrument in instruments:
@@ -148,6 +162,7 @@ exercise_ids = [ex.id for ex in exercises]
 ```
 
 Singular for individual access (lookup tables):
+
 ```python
 instrument_by_id = {inst.id: inst for inst in query.all()}
 instrument = instrument_by_id[42]
@@ -157,12 +172,14 @@ exercise = exercise_by_name["Chromatic Scale"]
 ```
 
 Singular for indexed access:
+
 ```python
 instrument_lookup = [...]
 instrument = instrument_lookup[index]
 ```
 
 ### 7. Consistency Rules
+
 - Syntactic consistency: if one variable uses `adjective_noun`, all similar
   variables use `adjective_noun`.
 - Semantic consistency: names convey what data represents, not just its type.
