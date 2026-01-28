@@ -19,6 +19,8 @@ Use before finalizing any response governed by the interaction contract.
 - If the prompt starts with `RTFM`, switch to the RTFM protocol and suspend
   normal work.
 - Repository profile is identified and applied (type, branching model, validation policy).
+- Preflight gate emitted before any file edit or git action (branch, issue, docs-only scope, validation policy).
+- For documentation repositories with no documented validation command, do not ask for validation; proceed with PR workflow.
 - No silent guessing of material facts.
 - Weak premises were challenged.
 - No unnecessary abstraction introduced.

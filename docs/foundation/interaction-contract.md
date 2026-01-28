@@ -74,19 +74,22 @@ Trigger:
 Required steps:
 1. Pause all other work and enter RTFM handling before answering any other
    request.
-2. Identify the violated standards with exact document paths and section
+2. Capture the failure context with concrete evidence (branch, git status,
+   files touched, and the action sequence that triggered the violation).
+3. Identify the violated standards with exact document paths and section
    headings, and state how the response diverged.
-3. Ask the user what was unclear or insufficient in the standards; use the
+4. Ask the user what was unclear or insufficient in the standards; use the
    optional reason to focus the question.
-4. Create a GitHub issue in the current repository to track the cognitive
+5. Create a GitHub issue in the current repository to track the cognitive
    failure and the documentation gap.
-5. Propose and, when feasible, implement documentation updates that prevent
+6. Propose and, when feasible, implement documentation updates that prevent
    recurrence before resuming normal work.
 
 Issue requirements:
 - Title format: `RTFM: <short failure summary>`
-- Body MUST include: violated standard(s), what was unclear, and the proposed
-  documentation update.
+- Body MUST include: violated standard(s), what was unclear, failure context
+  evidence, the missing or bypassed gate, and the proposed documentation
+  update.
 - Apply label `rtfm`.
 
 ## Anti-goals

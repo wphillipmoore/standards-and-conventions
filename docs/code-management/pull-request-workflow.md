@@ -33,6 +33,9 @@ PR description and list the files changed.
 
 Documentation repositories may define "docs-only" as the entire repository and
 keep validation optional unless the repository documents a required check.
+For documentation repositories with no documented validation command, do not
+ask for validation; state that validation is optional and proceed with PR
+submission.
 
 CI workflows must implement the docs-only skip policy in
 [source-control-guidelines.md](source-control-guidelines.md#docs-only-ci-skip-policy).

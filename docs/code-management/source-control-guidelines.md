@@ -16,6 +16,7 @@
 - [5. CI/CD Constraints](#5-cicd-constraints)
   - [CI gates](#ci-gates)
   - [Docs-only CI skip policy](#docs-only-ci-skip-policy)
+  - [Local enforcement hooks](#local-enforcement-hooks)
 - [6. Locked vs. Flexible Decisions](#6-locked-vs-flexible-decisions)
   - [Locked at v0.1](#locked-at-v01)
   - [Explicitly Flexible](#explicitly-flexible)
@@ -158,6 +159,33 @@ them with the docs-only output. Dependency audits should still run by default;
 if a repository chooses to skip them, it must document the exception.
 
 Docs-only validation commands, when defined, must still run.
+
+### Local enforcement hooks
+Use local Git hooks to fail closed on branch protection rules that should
+never be violated.
+
+Minimum requirement:
+- Install a `pre-commit` hook that blocks commits on protected branches
+  (`develop`, `release`, `main`, and `release/*`).
+- Store hooks in-repo (for example, `scripts/git-hooks/`) and set
+  `core.hooksPath` locally so the hooks are enabled.
+- Hooks must print a clear, actionable error and exit non-zero on violations.
+
+Example hook (store as `scripts/git-hooks/pre-commit` and mark executable):
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+case "$branch" in
+  develop|release|main|release/*)
+    echo "ERROR: direct commits to protected branches are forbidden ($branch)." >&2
+    echo "Create a short-lived branch (feature/* or bugfix/*) and open a PR." >&2
+    exit 1
+    ;;
+esac
+```
 
 ---
 
