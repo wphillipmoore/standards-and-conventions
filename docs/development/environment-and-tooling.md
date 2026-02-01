@@ -30,7 +30,7 @@ Rules:
 
 - Use `python3` for all Python invocations. `python` is forbidden.
 - If `uv.lock` exists, invoke Python only as `uv run python3 ...`.
-  Direct `python3 ...` is forbidden in that case.
+  Direct `python3 ...` is forbidden in that case, except to install `uv`.
 - Treat a repository as Python if it contains `pyproject.toml`,
   `requirements*.txt`, `setup.cfg`, `setup.py`, or documentation that declares
   Python usage.

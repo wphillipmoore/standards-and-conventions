@@ -19,8 +19,9 @@ these standards.
 
 ## Guardrails
 
-- If `uv.lock` exists, all Python commands MUST run as `uv run python3 ...`.
-  If `uv.lock` is missing, stop and treat the repository as misconfigured.
+- If `uv.lock` exists, all Python commands MUST run as `uv run python3 ...`
+  (except installing `uv`). If `uv.lock` is missing, stop and treat the
+  repository as misconfigured.
 - If a prompt starts with `RTFM`, enter the RTFM protocol immediately and
   suspend normal work.
 - If on an eternal branch (`develop`, `release`, `main`), create a feature
