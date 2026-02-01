@@ -51,9 +51,15 @@ Processing rules (exact):
    contents in order by printing the full file (use `cat` or an equivalent that emits
    the entire contents; do not probe, search, or suppress output).
    Use direct `cat <path>` commands; do not create wrapper scripts or loops.
-3. After reading each file, output `Loaded: <path>` on its own line in the same order.
-4. If the script exits with a nonzero code, output the script’s error line(s) verbatim and stop.
-5. Do not add any other lines. No final summary block.
+3. While reading each file, if you encounter include directives that do not appear
+   anywhere in the script output list, stop and report the missing include path(s).
+   This indicates the include chain was not expanded correctly.
+4. If the entry point `AGENTS.md` includes `docs/standards-and-conventions.md` or
+   `docs/repository-standards.md` and those paths are not present in the script output
+   list, stop and report the missing include(s) before proceeding.
+5. After reading each file, output `Loaded: <path>` on its own line in the same order.
+6. If the script exits with a nonzero code, output the script’s error line(s) verbatim and stop.
+7. Do not add any other lines. No final summary block.
 
 ## Post-bootstrap response requirement
 - Before any other action, the next assistant response MUST begin with a
