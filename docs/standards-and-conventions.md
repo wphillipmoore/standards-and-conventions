@@ -51,6 +51,7 @@ This list is the authoritative include chain for the shared standards corpus.
 <!-- include: docs/foundation/ai-code-review-guidelines.md -->
 <!-- include: docs/foundation/agent-skills.md -->
 <!-- include: docs/foundation/agent-boot-banner.md -->
+<!-- include: docs/foundation/agent-guardrails.md -->
 <!-- include: docs/foundation/agent-pre-response-checklist.md -->
 <!-- include: docs/foundation/cognitive-drift-log.md -->
 <!-- include: docs/foundation/cognitive-regression-tests.md -->

@@ -29,12 +29,16 @@ Rationale:
 Rules:
 
 - Use `python3` for all Python invocations. `python` is forbidden.
+- If `uv.lock` exists, invoke Python only as `uv run python3 ...`.
+  Direct `python3 ...` is forbidden in that case, except to install `uv`.
 - Treat a repository as Python if it contains `pyproject.toml`,
   `requirements*.txt`, `setup.cfg`, `setup.py`, or documentation that declares
   Python usage.
 - For Python repositories, activate the project-specific environment before
   running any Python command (application code, tests, utility scripts, or
   ad hoc invocations).
+- If `uv.lock` is missing in a Python repository, stop and treat the repository
+  as misconfigured before running Python commands.
 - If a Python repository does not define a project-specific environment, stop
   and establish one before running Python commands.
 - For non-Python repositories, do not assume Python is available. If Python is

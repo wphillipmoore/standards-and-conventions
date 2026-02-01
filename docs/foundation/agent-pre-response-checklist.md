@@ -26,6 +26,8 @@ Use before finalizing any response governed by the interaction contract.
   validation policy).
 - If context-bootstrap was run, the next response begins with the Standards
   Snapshot block.
+- Guardrails re-read before any command or edit
+  (`docs/foundation/agent-guardrails.md`).
 - Preflight gate emitted before any file edit or git action (branch, issue,
   docs-only scope, validation policy).
 - For documentation repositories, markdownlint is required. Do not ask for
