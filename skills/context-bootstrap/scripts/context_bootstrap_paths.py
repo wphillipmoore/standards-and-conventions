@@ -20,6 +20,20 @@ class MissingInclude(Exception):
         super().__init__(message)
 
 
+class IncludeNotExpanded(Exception):
+    def __init__(self, path: str, source: str | None = None) -> None:
+        self.path = path
+        self.source = source
+        message = f"Include not expanded: {path}"
+        if source:
+            message = f"{message} (referenced from: {source})"
+        super().__init__(message)
+
+
+INCLUDE_COMMENT_RE = re.compile(r"<!--\\s*include\\s*:\\s*(.+?)\\s*-->", flags=re.IGNORECASE)
+INCLUDE_HASH_RE = re.compile(r"^\\s*#include\\s+(.+)$")
+
+
 def is_absolute(path: str) -> bool:
     return path.startswith("/") or path.startswith("~")
 
@@ -31,20 +45,6 @@ def strip_include(raw: str) -> str:
     if raw.startswith("<") and raw.endswith(">"):
         return raw[1:-1]
     return raw
-
-
-def parse_include_line(line: str) -> str | None:
-    stripped = line.strip()
-    if stripped.startswith("#include") and len(stripped) > len("#include"):
-        remainder = stripped[len("#include") :].strip()
-        return strip_include(remainder)
-
-    if stripped.startswith("<!--") and stripped.endswith("-->"):
-        inner = stripped[4:-3].strip()
-        match = re.match(r"^include\\s*:\\s*(.+)$", inner, flags=re.IGNORECASE)
-        if match:
-            return strip_include(match.group(1).strip())
-    return None
 
 
 def read_text(path: str) -> str:
@@ -80,9 +80,11 @@ def resolve_include(repo_root: str, include_path: str) -> str | None:
 def iter_includes(content: str) -> list[str]:
     includes: list[str] = []
     for line in content.splitlines():
-        include_path = parse_include_line(line)
-        if include_path:
-            includes.append(include_path)
+        hash_match = INCLUDE_HASH_RE.match(line)
+        if hash_match:
+            includes.append(strip_include(hash_match.group(1).strip()))
+        for match in INCLUDE_COMMENT_RE.finditer(line):
+            includes.append(strip_include(match.group(1).strip()))
     return includes
 
 
@@ -118,6 +120,15 @@ def resolve_chain(repo_root: str) -> list[tuple[str, str]]:
     if os.path.isfile(repo_agents):
         process(repo_agents)
 
+    resolved_paths = {path for path, _content in ordered}
+    for path, content in ordered:
+        for include_path in iter_includes(content):
+            resolved = resolve_include(repo_root, include_path)
+            if resolved is None:
+                raise MissingInclude(include_path, source=path)
+            if resolved not in resolved_paths:
+                raise IncludeNotExpanded(resolved, source=path)
+
     return ordered
 
 
@@ -136,7 +147,7 @@ def main() -> int:
 
     try:
         ordered = resolve_chain(repo_root)
-    except MissingInclude as exc:
+    except (MissingInclude, IncludeNotExpanded) as exc:
         raise SystemExit(str(exc))
 
     for path, _content in ordered:
