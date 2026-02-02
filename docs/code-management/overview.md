@@ -29,4 +29,5 @@ tool-specific requirements belong in development standards.
 - Application versioning scheme: [application-versioning-scheme.md](application-versioning-scheme.md)
 - Library versioning scheme: [library-versioning-scheme.md](library-versioning-scheme.md)
 - Pull request workflow: [pull-request-workflow.md](pull-request-workflow.md)
+- Workflow runbooks: [workflow-runbooks.md](workflow-runbooks.md)
 - Commit messages and authorship: [commit-messages-and-authorship.md](commit-messages-and-authorship.md)

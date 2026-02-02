@@ -53,6 +53,7 @@ This list is the authoritative include chain for the shared standards corpus.
 <!-- include: docs/foundation/agent-boot-banner.md -->
 <!-- include: docs/foundation/agent-guardrails.md -->
 <!-- include: docs/foundation/agent-pre-response-checklist.md -->
+<!-- include: docs/foundation/standards-bootstrap-protocol.md -->
 <!-- include: docs/foundation/cognitive-drift-log.md -->
 <!-- include: docs/foundation/cognitive-regression-tests.md -->
 <!-- include: docs/foundation/summarize-decisions-protocol.md -->
@@ -64,6 +65,7 @@ This list is the authoritative include chain for the shared standards corpus.
 <!-- include: docs/code-management/commit-messages-and-authorship.md -->
 <!-- include: docs/code-management/github-issues.md -->
 <!-- include: docs/code-management/pull-request-workflow.md -->
+<!-- include: docs/code-management/workflow-runbooks.md -->
 <!-- include: docs/code-management/source-control-guidelines.md -->
 <!-- include: docs/code-management/documentation-branching-model.md -->
 <!-- include: docs/code-management/branching-and-deployment.md -->
