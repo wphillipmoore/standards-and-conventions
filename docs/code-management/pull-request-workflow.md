@@ -202,10 +202,11 @@ merging.
 
 Finalize the PR in this order:
 
-1. merge the PR and delete the remote branch (or wait for auto-merge to do so)
-2. update local copy of the target branch
-3. synchronize the local environment with dependency specifications
-4. delete the local feature branch and prune stale remotes
-5. run final validation (skip for docs-only PRs)
+1. wait for all required checks to complete and pass
+2. merge the PR and delete the remote branch (or wait for auto-merge to do so)
+3. update local copy of the target branch
+4. synchronize the local environment with dependency specifications
+5. delete the local feature branch and prune stale remotes
+6. run final validation (skip for docs-only PRs)
 
 Do not reuse old branch names.
