@@ -31,8 +31,8 @@ automation.
   `skills/` as a reference library.
 - To avoid external dependencies, copy shared skills into the target
   repository’s `skills/` directory before use.
-- `context-bootstrap` is a startup bootstrap skill; install it in
-  `~/.codex/skills/` and do not vendor it into downstream repositories.
+- Standards bootstrap must use `AGENTS.md` and its include chain only. Do not
+  rely on skills or scripts to resolve includes or load standards.
 - Do not rely on symlinks or external paths for required skills.
 
 ## Registration and loading

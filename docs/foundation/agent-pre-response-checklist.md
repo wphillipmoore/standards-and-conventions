@@ -24,8 +24,8 @@ Use before finalizing any response governed by the interaction contract.
   normal work.
 - Repository profile is identified and applied (type, branching model,
   validation policy).
-- If context-bootstrap was run, the next response begins with the Standards
-  Snapshot block.
+- `AGENTS.md` and all referenced standards files are loaded (no bootstrap
+  scripts).
 - Guardrails re-read before any command or edit
   (`docs/foundation/agent-guardrails.md`).
 - Preflight gate emitted before any file edit or git action (branch, issue,

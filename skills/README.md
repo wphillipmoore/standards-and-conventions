@@ -4,7 +4,6 @@
 - [Purpose](#purpose)
 - [Scope](#scope)
 - [Skill list](#skill-list)
-- [Special skills](#special-skills)
 - [Usage conventions](#usage-conventions)
 - [Dependency policy](#dependency-policy)
 - [Downstream references](#downstream-references)
@@ -26,21 +25,12 @@ Skill bodies must remain aligned with the canonical documents they reference.
   operations summaries (autocomplete-friendly).
 - `summarize-soc` (`skills/summarize-soc/SKILL.md`): wrapper for SOC capture
   summaries (autocomplete-friendly).
-- `context-bootstrap` (`skills/context-bootstrap/SKILL.md`): startup bootstrap
-  skill that reports the ordered list of files read (special).
 - `pr-workflow` (`skills/pr-workflow/SKILL.md`): pull request workflow with
   docs-only exception handling.
 - `dependency-update` (`skills/dependency-update/SKILL.md`): dependency update
   workflow with failure handling and anchor rules.
 - `deprecation-triage` (`skills/deprecation-triage/SKILL.md`): deprecation
   warning triage workflow and issue template.
-
-## Special skills
-- `context-bootstrap` must be copied into the user's `~/.codex/skills/`
-  directory to be reliably available at session startup. This avoids a
-  bootstrap problem where the skill cannot be discovered before it is needed.
-- Do not vendor `context-bootstrap` into downstream repositories; keep it in
-  the standards repository and user skill directories only.
 
 ## Usage conventions
 - Keep skills minimal and procedural; defer rationale to the standards.
@@ -52,7 +42,7 @@ Skill bodies must remain aligned with the canonical documents they reference.
 ## Dependency policy
 - Treat this directory as a reference library.
 - Copy shared skills into the target repository's `skills/` directory before
-  using them, except `context-bootstrap` (install only in `~/.codex/skills/`).
+  using them.
 - Do not rely on symlinks or external paths for required skills.
 - Skills are not auto-registered; restart the agent session after adding them.
 
