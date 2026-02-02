@@ -26,6 +26,7 @@ build upon.
 - Interaction contract: [interaction-contract.md](interaction-contract.md)
 - Interaction contract (brief): [interaction-contract-brief.md](interaction-contract-brief.md)
 - Agent pre-response checklist: [agent-pre-response-checklist.md](agent-pre-response-checklist.md)
+- Standards bootstrap protocol: [standards-bootstrap-protocol.md](standards-bootstrap-protocol.md)
 - Agent boot banner: [agent-boot-banner.md](agent-boot-banner.md)
 - Cognitive drift log: [cognitive-drift-log.md](cognitive-drift-log.md)
 - Cognitive regression tests: [cognitive-regression-tests.md](cognitive-regression-tests.md)

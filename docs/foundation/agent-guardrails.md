@@ -24,6 +24,8 @@ these standards.
   repository as misconfigured.
 - If a prompt starts with `RTFM`, enter the RTFM protocol immediately and
   suspend normal work.
+- Standards bootstrap is `AGENTS.md` only; do not run include-resolution
+  scripts or use bootstrap skills.
 - If on an eternal branch (`develop`, `release`, `main`), create a feature
   branch before any edits or commits.
 
