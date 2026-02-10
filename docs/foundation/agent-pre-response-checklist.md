@@ -20,7 +20,7 @@ Use before finalizing any response governed by the interaction contract.
 
 - Problem constraints are explicit.
 - Assumptions are stated.
-- If the prompt starts with `RTFM`, switch to the RTFM protocol and suspend
+- If the prompt starts with `RTFM`, invoke the `rtfm` skill and suspend
   normal work.
 - Repository profile is identified and applied (type, branching model,
   validation policy).

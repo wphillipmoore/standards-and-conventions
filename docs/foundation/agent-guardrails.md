@@ -22,7 +22,7 @@ these standards.
 - If `uv.lock` exists, all Python commands MUST run as `uv run python3 ...`
   (except installing `uv`). If `uv.lock` is missing, stop and treat the
   repository as misconfigured.
-- If a prompt starts with `RTFM`, enter the RTFM protocol immediately and
+- If a prompt starts with `RTFM`, invoke the `rtfm` skill immediately and
   suspend normal work.
 - Standards bootstrap is `AGENTS.md` only; do not run include-resolution
   scripts or use bootstrap skills.
