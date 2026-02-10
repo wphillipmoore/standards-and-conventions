@@ -31,6 +31,8 @@ Skill bodies must remain aligned with the canonical documents they reference.
   workflow with failure handling and anchor rules.
 - `deprecation-triage` (`skills/deprecation-triage/SKILL.md`): deprecation
   warning triage workflow and issue template.
+- `rtfm` (`skills/rtfm/SKILL.md`): RTFM forced interruption handling with
+  failure context capture and issue tracking.
 
 ## Usage conventions
 - Keep skills minimal and procedural; defer rationale to the standards.

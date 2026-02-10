@@ -29,7 +29,7 @@ Applies to all repositories governed by these standards.
 2. Record the standards snapshot before any action.
 3. Check for open pull requests targeting the primary integration branch. If
    any are merged but not finalized, finalize them before starting new work.
-4. If a prompt starts with `RTFM`, enter the RTFM protocol and suspend normal
+4. If a prompt starts with `RTFM`, invoke the `rtfm` skill and suspend normal
    work.
 
 ## Issue creation runbook
