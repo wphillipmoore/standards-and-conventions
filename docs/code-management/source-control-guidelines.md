@@ -183,35 +183,51 @@ Markdownlint and any docs-only validation commands must still run.
 
 ### Local enforcement hooks
 
-Use local Git hooks to fail closed on branch protection rules that should
-never be violated.
+Use local Git hooks to fail closed on branch protection and naming rules that
+should never be violated.
 
-Minimum requirement:
-
-- Install a `pre-commit` hook that blocks commits on protected branches
-  (`develop`, `release`, `main`, and `release/*`).
-- Store hooks in-repo (for example, `scripts/git-hooks/`) and set
-  `core.hooksPath` locally so the hooks are enabled.
-- Hooks must print a clear, actionable error and exit non-zero on violations.
-
-Example hook (store as `scripts/git-hooks/pre-commit` and mark executable):
+Store hooks in-repo at `scripts/git-hooks/` and set `core.hooksPath` locally:
 
 ```bash
-#!/usr/bin/env bash
-set -euo pipefail
-
-branch="$(git rev-parse --abbrev-ref HEAD)"
-
-case "$branch" in
-  develop|release|main|release/*)
-    echo "ERROR: direct commits to protected branches are forbidden." >&2
-    echo "Branch: $branch" >&2
-    echo "Create a short-lived branch (feature/* or bugfix/*)" >&2
-    echo "and open a PR." >&2
-    exit 1
-    ;;
-esac
+git config core.hooksPath scripts/git-hooks
 ```
+
+Hooks must print a clear, actionable error and exit non-zero on violations.
+
+#### pre-commit hook
+
+The `pre-commit` hook enforces two rules in order:
+
+1. **Protected branch block** — commits to `develop`, `release`, `main`, and
+   `release/*` are rejected unconditionally (detached HEAD is also blocked).
+2. **Branch prefix validation** — the hook reads `branching_model` from
+   `docs/repository-standards.md` and allows only the prefixes defined for
+   that model:
+
+| `branching_model` | Allowed prefixes |
+| --- | --- |
+| `docs-single-branch` | `feature/*`, `bugfix/*` |
+| `application-promotion` | `feature/*`, `bugfix/*`, `hotfix/*`, `promotion/*` |
+| `library-release` | `feature/*`, `bugfix/*`, `hotfix/*` |
+
+If `branching_model` is missing, the hook warns and falls back to the most
+restrictive set (`feature/*`, `bugfix/*`). If `branching_model` is
+unrecognized, the hook exits with a hard error.
+
+The canonical implementation is `scripts/git-hooks/pre-commit`.
+
+#### commit-msg hook
+
+The `commit-msg` hook runs two validations:
+
+1. **Commit message lint** (`scripts/lint/commit-message.sh`) — enforces
+   Conventional Commits format.
+2. **Co-author trailer validation** (`scripts/lint/co-author.sh`) — if any
+   `Co-Authored-By:` trailers are present, each must match an approved
+   identity listed in `docs/repository-standards.md`. Human-only commits
+   (no trailers) pass unconditionally.
+
+The canonical implementation is `scripts/git-hooks/commit-msg`.
 
 ---
 
