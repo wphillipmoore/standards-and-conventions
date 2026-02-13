@@ -141,15 +141,16 @@ Collision prefixes are chosen contextually (for example, `db`, `http`, `rest`).
 
 ### 5. Boolean Variables
 
-Boolean variables should read like questions. This aligns naturally with
-JavaBeans conventions for boolean property accessors.
+Prefer `is*`, `has*`, or `can*` prefixes when they make the name read more
+naturally as a true/false condition. This aligns with JavaBeans conventions
+for boolean property accessors.
 
 - `is*`: state or condition (`isValid`, `isEmpty`, `isActive`)
 - `has*`: possession or presence (`hasPermission`, `hasItems`, `hasError`)
 - `can*`: capability or permission (`canDelete`, `canWrite`, `canEdit`)
 
 ```java
-// Correct
+// Prefixes improve clarity — use them
 boolean isValid = validate(instrument);
 boolean hasPermission = checkAccess(user);
 boolean canDelete = user.isAdmin() || resource.getOwner().equals(user);
@@ -157,11 +158,27 @@ boolean canDelete = user.isAdmin() || resource.getOwner().equals(user);
 if (isValid && hasPermission && canDelete) {
     delete(resource);
 }
+```
 
-// Wrong
-boolean valid = validate(instrument);
-boolean permission = checkAccess(user);
-boolean deletable = user.isAdmin();
+Omit the prefix when the name already reads unambiguously as a boolean
+without it. Names that are verbs, verb phrases, or adjective phrases often
+convey boolean intent on their own:
+
+```java
+// Already clear without a prefix
+boolean verifyTls = true;
+boolean mapAttributes = true;
+boolean strict = true;
+```
+
+Avoid bare nouns or adjectives that could be mistaken for the thing itself
+rather than a condition about it:
+
+```java
+// Ambiguous without a prefix
+boolean valid = validate(instrument);       // Use isValid
+boolean permission = checkAccess(user);     // Use hasPermission
+boolean deletable = user.isAdmin();         // Use canDelete
 ```
 
 ### 6. Collections: Plural vs. Singular

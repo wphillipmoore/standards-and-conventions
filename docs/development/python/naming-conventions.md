@@ -126,25 +126,42 @@ Collision prefixes are chosen contextually (for example, `DB`, `REST`).
 
 ### 5. Boolean Variables
 
-Boolean variables should read like questions:
+Prefer `is_*`, `has_*`, or `can_*` prefixes when they make the name read more
+naturally as a true/false condition:
 
 - `is_*`: state or condition (`is_valid`, `is_empty`, `is_active`)
 - `has_*`: possession or presence (`has_permission`, `has_items`, `has_error`)
 - `can_*`: capability or permission (`can_delete`, `can_write`, `can_edit`)
 
 ```python
-# Correct
+# Prefixes improve clarity — use them
 is_valid = validate(instrument)
 has_permission = check_access(user)
 can_delete = user.is_admin or resource.owner == user
 
 if is_valid and has_permission and can_delete:
     delete(resource)
+```
 
-# Wrong
-valid = validate(instrument)
-permission = check_access(user)
-deletable = ...
+Omit the prefix when the name already reads unambiguously as a boolean without
+it. Names that are verbs, verb phrases, or adjective phrases often convey
+boolean intent on their own:
+
+```python
+# Already clear without a prefix
+verify_tls = True
+map_attributes = True
+strict = True
+```
+
+Avoid bare nouns or adjectives that could be mistaken for the thing itself
+rather than a condition about it:
+
+```python
+# Ambiguous without a prefix
+valid = validate(instrument)       # Use is_valid
+permission = check_access(user)    # Use has_permission
+deletable = ...                    # Use can_delete
 ```
 
 ### 6. Collections: Plural vs. Singular
