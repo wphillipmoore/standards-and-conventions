@@ -7,28 +7,31 @@
 - [2. Scope](#2-scope)
 - [3. Core invariants](#3-core-invariants)
 - [4. Branch roles](#4-branch-roles)
+  - [main](#main)
   - [develop](#develop)
   - [release branches](#release-branches)
 - [5. Short-lived branches](#5-short-lived-branches)
   - [feature/*](#feature)
   - [bugfix/*](#bugfix)
   - [hotfix/*](#hotfix)
+  - [chore/*](#chore)
 - [6. Release workflow](#6-release-workflow)
-- [7. Pre-release policy](#7-pre-release-policy)
-- [8. Backporting policy](#8-backporting-policy)
-- [9. Forbidden operations](#9-forbidden-operations)
-- [10. Related documents](#10-related-documents)
+- [7. Post-publish automation](#7-post-publish-automation)
+- [8. Pre-release policy](#8-pre-release-policy)
+- [9. Backporting policy](#9-backporting-policy)
+- [10. Forbidden operations](#10-forbidden-operations)
+- [11. Related documents](#11-related-documents)
 
 ## Status
 
-Active v0.2
+Active v0.3
 
 ---
 
 ## 1. Purpose
 
-Define a branching model for libraries that supports multiple concurrent
-release lines and predictable publishing.
+Define a branching model for libraries that supports predictable publishing
+through a stable release branch with automated version bumping.
 
 ## 2. Scope
 
@@ -38,44 +41,48 @@ infrastructure.
 
 ## 3. Core invariants
 
-- `develop` is the integration branch.
-- `main` is not used for library repositories.
-- Stable releases are tagged and published from release branches.
-- Release branches represent supported `MAJOR.MINOR` release lines.
-- Changes land in `develop` first; promotions and backports are explicit.
+- `develop` is the integration branch and the default branch.
+- `main` is the stable release branch; pushes to `main` trigger publishing.
+- `develop` always has a version one patch ahead of `main`.
+- Release branches are short-lived; they exist only to create a PR to `main`.
+- Changes land in `develop` first; promotions are explicit via release branches.
 - Released artifacts are immutable and reproducible from source.
 
 ## 4. Branch roles
+
+### main
+
+- stable release branch
+- pushes to `main` trigger the publish workflow (tag, publish, release)
+- protected: changes arrive only via merged PRs from release branches
+- after publish, `main` is merged back into `develop` via an automated version
+  bump PR
 
 ### develop
 
 - default branch for active development
 - entry point for all code changes
+- version is always one patch ahead of `main` (e.g., if `main` is `0.2.0`,
+  `develop` is `0.2.1`)
 
 ### release branches
 
-Long-lived branches for supported release lines.
+Short-lived branches for promoting a version from `develop` to `main`.
 
 Naming:
 
-- `release/<major>.<minor>.x`
+- `release/<version>` (e.g., `release/0.2.0`)
 
 Rules:
 
-- patch-only changes
-- no new features
-- no merges from `develop`
-- no merges from other release branches
-
-Support policy:
-
-- default target is the current and previous `MAJOR.MINOR` lines
-- repositories may expand or contract support by updating the repository profile
+- branched from `develop`
+- merged into `main` via PR (regular merge, not squash)
+- deleted after merge
+- no new features; release preparation only (changelog, version finalization)
 
 ## 5. Short-lived branches
 
-All work occurs in short-lived branches that merge into `develop` or a release
-branch.
+All work occurs in short-lived branches that merge into `develop`.
 
 ### feature/*
 
@@ -96,57 +103,90 @@ Rules:
 Use for:
 
 - non-urgent defect fixes for current development
-- patch releases on a release branch
 
 Rules:
 
-- branched from `develop` or the target release branch
-- merged into the branch it was created from
+- branched from `develop`
+- merged into `develop`
 - deleted after merge
 
 ### hotfix/*
 
 Use for:
 
-- urgent defects affecting released versions
+- urgent defects affecting the released version on `main`
 
 Rules:
 
-- branched from the affected release branch
-- merged into that release branch
-- backported to `develop`
+- branched from `main`
+- merged into `main` via PR
+- the subsequent publish and version bump PR propagates the fix to `develop`
+- deleted after merge
+
+### chore/*
+
+Use for:
+
+- automated or manual maintenance tasks (version bumps, dependency updates)
+
+Rules:
+
+- branched from `develop` (or from the automation target)
+- merged into the originating branch
 - deleted after merge
 
 ## 6. Release workflow
 
-- `MAJOR` and `MINOR` releases are cut from a new release branch created from
-  `develop`.
-- Tag releases on the relevant release branch.
-- `PATCH` releases are cut from the relevant release branch.
-- Every release is tagged and published as an immutable artifact.
+1. **Prepare**: Run the `prepare_release` script on `develop`. This creates a
+   `release/<version>` branch, generates the changelog (if configured), pushes
+   the branch, creates a PR to `main`, and enables auto-merge.
+2. **Review**: CI validates the release branch. Branch protection rules on
+   `main` must pass before merge.
+3. **Merge**: The PR merges into `main` (regular merge commit, not squash).
+4. **Publish**: The publish workflow triggers on push to `main`:
+   - Extracts the version from the project manifest.
+   - Checks for duplicate tags (skips if already tagged).
+   - Builds and publishes the artifact to the package registry.
+   - Creates a git tag `v<version>` on `main`.
+   - Tags `develop` with `develop-v<version>` for changelog boundaries.
+   - Creates a GitHub Release.
+5. **Bump**: The publish workflow computes the next patch version, creates a
+   `chore/bump-version-<next>` branch from `develop`, merges `main` into it,
+   updates the version, and creates an auto-merge PR to `develop`.
 
-## 7. Pre-release policy
+## 7. Post-publish automation
 
-- Pre-releases are allowed for validation and early adopters.
-- Pre-releases are tagged and published with pre-release identifiers defined by
-  the library versioning scheme or the target ecosystem.
+After a successful publish, the workflow maintains the version invariant:
+
+- Merges `main` back into `develop` (via the bump branch) so that `develop`
+  picks up the release tag, changelog, and any release-branch artifacts.
+- Bumps the patch version (e.g., `0.2.0` → `0.2.1`) so `develop` is always
+  ahead of `main`.
+- The bump PR auto-merges. If the next release should be a minor or major bump,
+  the team can adjust the version before the PR merges or in a follow-up commit.
+
+## 8. Pre-release policy
+
+- Pre-releases are not published unless there is an exceptional need.
+- If published, pre-releases use identifiers defined by the target ecosystem.
 - Pre-releases never replace or mutate stable releases.
 
-## 8. Backporting policy
+## 9. Backporting policy
 
 - Backports are explicit and documented in the pull request.
 - Use cherry-picks or equivalent to avoid feature drift.
 - If a change cannot be safely backported, document the rationale.
 
-## 9. Forbidden operations
+## 10. Forbidden operations
 
 - direct commits to `develop`
-- direct commits to release branches
-- merging `develop` into release branches
+- direct commits to `main`
+- force-pushing to `main` or `develop`
+- squash-merging release branches into `main` (use regular merge)
 - releasing from untagged or dirty source
 - publishing artifacts without a matching source tag
 
-## 10. Related documents
+## 11. Related documents
 
 - Repository types and attributes: [repository-types-and-attributes.md](repository-types-and-attributes.md)
 - Release and versioning policy: [release-versioning.md](release-versioning.md)
