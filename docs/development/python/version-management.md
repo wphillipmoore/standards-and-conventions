@@ -76,27 +76,29 @@ When the next Python minor series transitions from pre-release to bugfix
 
 1. At the start of the next development cycle, add the next minor version to
    the CI matrix.
-2. Label CI jobs by role: `current`, `next`, and (when applicable) `previous`.
-3. Keep the `current` minor version as the only hard gate. The `next` minor
-   check is advisory and must not block merges.
-4. Record any failures in the next minor check and track them as issues, but
-   do not block PRs unless the current minor fails.
+2. Label CI jobs using the runtime version support policy convention:
+   `bugfix-<version>`, `preview-<version>`, and (when applicable)
+   `security-<version>`.
+3. Keep `bugfix-<version>` jobs as the only hard gate. The
+   `preview-<version>` check is advisory and must not block merges.
+4. Record any failures in the preview check and track them as issues, but do
+   not block PRs unless a bugfix-tier job fails.
 
 ### Cutover criteria
 
-Promote the next minor version to current only after it has been stable in CI
-for at least two full development cycles.
+Promote the preview version to bugfix tier only after it has been stable in
+CI for at least two full development cycles.
 
 At the start of the next development cycle after meeting the stability
 threshold:
 
 1. Update the canonical Python version to the new minor series.
-2. Make the new minor the required (hard-gate) CI runtime and label it as
-   `current`.
-3. Demote the prior `current` minor to `previous` and keep it advisory to
-   preserve rollback capability.
-4. Keep `previous` advisory until humans explicitly decide to drop it. Do not
-   auto-remove `previous` based on elapsed cycles alone.
+2. Make the new minor the required (hard-gate) CI runtime and relabel it as
+   `bugfix-<version>`.
+3. Relabel the prior bugfix minor as `security-<version>` and keep it
+   advisory to preserve rollback capability.
+4. Keep `security-<version>` advisory until humans explicitly decide to drop
+   it. Do not auto-remove based on elapsed cycles alone.
 
 ### Stability tracking
 
@@ -104,9 +106,9 @@ Once dual-CI begins, record stability status at the start of each development
 cycle. Capture:
 
 - cycle start date
-- current minor version
-- candidate minor version (`next`)
-- prior minor version (`previous`, if retained)
+- bugfix-tier minor version
+- preview-tier minor version (candidate for promotion)
+- security-tier minor version (if retained)
 - CI status summary and any open issues blocking promotion
 
 Store the stability log in a repository-local doc (for example,
@@ -153,5 +155,7 @@ CI must fail when:
 
 ## Related documents
 
+- Runtime version support policy:
+  [runtime-version-support-policy.md](../runtime-version-support-policy.md)
 - Python dependency management: [dependency-management.md](dependency-management.md)
 - Dependency anchor records: [dependency anchor records](../../dependencies/overview.md)
