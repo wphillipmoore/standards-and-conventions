@@ -44,6 +44,9 @@ explicitly state otherwise.
 - List all `##` and `###` headings in order, excluding the Table of Contents.
 - Use a bullet list with two-space indentation for `###` entries.
 - Use GitHub-style anchor links.
+- **Exception**: Pages built by documentation site generators (Sphinx, MkDocs,
+  etc.) are exempt from the Table of Contents requirement because those tools
+  provide integrated navigation.
 
 ## Formatting Conventions
 
