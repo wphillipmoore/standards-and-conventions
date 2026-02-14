@@ -16,10 +16,12 @@
   - [CI gates](#ci-gates)
   - [Docs-only CI skip policy](#docs-only-ci-skip-policy)
   - [Local enforcement hooks](#local-enforcement-hooks)
-- [6. Locked vs. Flexible Decisions](#6-locked-vs-flexible-decisions)
+- [6. GitHub Repository Settings](#6-github-repository-settings)
+  - [Automatically delete head branches](#automatically-delete-head-branches)
+- [7. Locked vs. Flexible Decisions](#7-locked-vs-flexible-decisions)
   - [Locked at v0.1](#locked-at-v01)
   - [Explicitly Flexible](#explicitly-flexible)
-- [7. Guiding Principle](#7-guiding-principle)
+- [8. Guiding Principle](#8-guiding-principle)
 
 ## Status
 
@@ -223,7 +225,30 @@ The canonical implementation is `scripts/git-hooks/commit-msg`.
 
 ---
 
-## 6. Locked vs. Flexible Decisions
+## 6. GitHub Repository Settings
+
+The following settings are required defaults for all repositories hosted on
+GitHub.
+
+### Automatically delete head branches
+
+**Setting**: Enabled
+
+Under **Settings → General → Pull Requests**, enable **Automatically delete
+head branches**.
+
+This ensures merged branches are removed immediately after merge across all
+merge paths — web UI, API, and CLI — providing a safety net that complements
+the `--delete-branch` flag used during CLI-based PR submission and the manual
+cleanup performed during PR finalization.
+
+PR finalization steps and CLI commands should still request branch deletion
+explicitly. The repository-level setting acts as defense in depth, not a
+replacement for explicit cleanup.
+
+---
+
+## 7. Locked vs. Flexible Decisions
 
 ### Locked at v0.1
 
@@ -241,7 +266,7 @@ The canonical implementation is `scripts/git-hooks/commit-msg`.
 
 ---
 
-## 7. Guiding Principle
+## 8. Guiding Principle
 
 All source code management decisions are evaluated against a single overriding
 criterion:
