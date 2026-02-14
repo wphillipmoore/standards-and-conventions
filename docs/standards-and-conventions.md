@@ -84,6 +84,7 @@ This list is the authoritative include chain for the shared standards corpus.
 
 <!-- include: docs/development/overview.md -->
 <!-- include: docs/development/environment-and-tooling.md -->
+<!-- include: docs/development/runtime-version-support-policy.md -->
 <!-- include: docs/development/deprecation-warnings.md -->
 <!-- include: docs/development/database/overview.md -->
 <!-- include: docs/development/database/conventions.md -->

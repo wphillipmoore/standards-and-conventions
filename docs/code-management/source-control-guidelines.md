@@ -11,8 +11,6 @@
   - [Boundary Rule](#boundary-rule)
   - [Explicit Non-Decision](#explicit-non-decision)
 - [4. Runtime Version Policy](#4-runtime-version-policy)
-  - [Supported Versions](#supported-versions)
-  - [CI Requirements](#ci-requirements)
   - [Deployment Rule](#deployment-rule)
 - [5. CI/CD Constraints](#5-cicd-constraints)
   - [CI gates](#ci-gates)
@@ -106,14 +104,8 @@ This decision may be revisited once:
 
 ## 4. Runtime Version Policy
 
-### Supported Versions
-
-- The current stable language runtime version is the default target.
-- Additional versions must be explicitly listed and justified.
-
-### CI Requirements
-
-CI pipelines must validate against the current stable runtime version.
+For tier definitions, CI matrix classification, and drop criteria, see the
+[Runtime Version Support Policy](../development/runtime-version-support-policy.md).
 
 ### Deployment Rule
 
