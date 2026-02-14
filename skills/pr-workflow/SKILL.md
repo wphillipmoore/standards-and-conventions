@@ -38,7 +38,10 @@ Follow local overrides (AGENTS or repo-specific standards) when present.
 2. If no canonical command exists, ask for the required validation steps.
 3. If any check fails, do not submit the PR; fix and rerun the full checks.
 4. Populate the pull request template fields.
-5. Include issue linkage when required.
+5. Include issue linkage using `Fixes #N` (default; auto-closes issue on
+   merge) or `Ref #N` (non-closing; use when acceptance criteria exist).
+   These are the only accepted keywords — `Closes`, `Resolves`, and other
+   GitHub keywords are rejected by CI.
 
 ## Submission and finalization
 - Submit the PR only after all required checks pass (unless docs-only
