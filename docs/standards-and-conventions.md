@@ -88,6 +88,8 @@ This list is the authoritative include chain for the shared standards corpus.
 <!-- include: docs/development/deprecation-warnings.md -->
 <!-- include: docs/development/database/overview.md -->
 <!-- include: docs/development/database/conventions.md -->
+<!-- include: docs/development/go/overview.md -->
+<!-- include: docs/development/go/naming-conventions.md -->
 <!-- include: docs/development/python/overview.md -->
 <!-- include: docs/development/python/naming-conventions.md -->
 <!-- include: docs/development/python/type-hints.md -->
