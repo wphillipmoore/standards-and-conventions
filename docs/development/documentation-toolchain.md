@@ -1,5 +1,15 @@
 # Documentation Toolchain
 
+## Table of Contents
+
+- [Decision](#decision)
+- [Status](#status)
+- [Context](#context)
+- [Comparison](#comparison)
+- [Rationale](#rationale)
+- [Required Configuration](#required-configuration)
+- [Shared Fragment Architecture](#shared-fragment-architecture)
+
 ## Decision
 
 All library repositories in the mq-rest-admin family use **MkDocs Material** as
