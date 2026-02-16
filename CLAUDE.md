@@ -103,7 +103,7 @@ The include directives above load the full repository standards. Key highlights 
 
 **Branching**: `develop` is the single eternal branch. All work happens on `feature/*` or `bugfix/*` branches merged back via PR.
 
-**Docs-only exception**: Since this is a documentation-only repository, the docs-only exception applies to all PRs. Local validation is optional per the docs-only rule, and confirmation checkpoints can be skipped.
+**Docs-only exception**: Since this is a documentation-only repository, the docs-only exception applies to all PRs. Local validation is optional per the docs-only rule.
 
 **Validation**: markdownlint is the canonical local validation tool. It must be on PATH (`markdownlint-cli`).
 
