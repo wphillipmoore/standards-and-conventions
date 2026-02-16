@@ -4,6 +4,15 @@ repo_url: https://github.com/wphillipmoore/standards-and-conventions
 repo_name: wphillipmoore/standards-and-conventions
 
 docs_dir: docs
+strict: true
+edit_uri: ""
+
+extra:
+  version:
+    provider: mike
+
+plugins:
+  - search
 
 theme:
   name: material
