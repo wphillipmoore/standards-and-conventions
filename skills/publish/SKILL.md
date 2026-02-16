@@ -10,6 +10,7 @@ description: Drive the end-to-end publish workflow for library and documentation
 - [Overview](#overview)
 - [Preflight](#preflight)
 - [Version override](#version-override)
+- [Failure handling](#failure-handling)
 - [Library-release mode](#library-release-mode)
   - [Phase 1 — Prepare release](#phase-1--prepare-release)
   - [Phase 2 — Review and merge](#phase-2--review-and-merge)
@@ -79,6 +80,24 @@ prepared.
 4. Commit the version bump to `develop` with a message following the
    commit standards (e.g., `chore: bump version to <target>`).
 5. Proceed to Phase 1 with the updated version.
+
+## Failure handling
+
+**Do not work around failures.** When any step in any phase fails — a script
+error, a merge conflict, a CI failure, a missing artifact, a permissions error —
+the agent must:
+
+1. **Stop immediately.** Do not attempt to fix, retry, or work around the
+   failure.
+2. **Comment on the tracking issue** with full diagnostics: the exact error
+   message, the command that failed, the phase and step number, and any
+   relevant context (branch name, PR number, CI run URL).
+3. **Inform the user** and wait for instructions.
+
+The purpose of this skill is to execute a documented, repeatable process.
+Manual workarounds mask tooling defects and prevent them from being fixed at
+the source. Every failure is a signal that the tooling or documentation needs
+improvement — surfacing failures is more valuable than completing the release.
 
 ## Library-release mode
 
