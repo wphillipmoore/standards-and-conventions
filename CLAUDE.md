@@ -130,6 +130,7 @@ This repository hosts shared skills that downstream repositories load:
 - `skills/summarize-decisions/` - Decision summarization
 - `skills/summarize-operations/` - Operations summarization
 - `skills/summarize-soc/` - Stream-of-consciousness capture
+- `skills/publish/` - Library and documentation publish workflow
 - `skills/pr-workflow/` - Pull request workflow
 - `skills/rtfm/` - RTFM forced interruption handling
 
