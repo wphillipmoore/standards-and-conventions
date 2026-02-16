@@ -31,6 +31,8 @@ Skill bodies must remain aligned with the canonical documents they reference.
   workflow with failure handling and anchor rules.
 - `deprecation-triage` (`skills/deprecation-triage/SKILL.md`): deprecation
   warning triage workflow and issue template.
+- `publish` (`skills/publish/SKILL.md`): library and documentation publish
+  workflow with post-publish dependency updates.
 - `rtfm` (`skills/rtfm/SKILL.md`): RTFM forced interruption handling with
   failure context capture and issue tracking.
 
