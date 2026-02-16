@@ -137,6 +137,9 @@ confirmed).
 5. Comment on the tracking issue with Phase 5 results (dependency update PR
    number, categories updated).
 6. Close the tracking issue with a final summary comment covering all phases.
+7. Return to a clean `develop` branch: update local `develop` to incorporate
+   the merged dependency update, delete the local feature branch, and prune
+   stale remotes. Run final validation to confirm a clean state.
 
 ## Docs-only mode
 
@@ -152,6 +155,9 @@ confirmed).
    [Dependency update categories](#dependency-update-categories)).
 3. Run full validation.
 4. Submit via `pr-workflow`.
+5. Return to a clean `develop` branch: update local `develop` to incorporate
+   the merged dependency update, delete the local feature branch, and prune
+   stale remotes. Run final validation to confirm a clean state.
 
 ## Dependency update categories
 
