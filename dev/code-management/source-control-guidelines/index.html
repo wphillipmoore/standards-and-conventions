@@ -1362,6 +1362,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#github-repository-rulesets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub repository rulesets
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3373,6 +3384,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#github-repository-rulesets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub repository rulesets
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3464,6 +3486,7 @@
 <li><a href="#local-enforcement-hooks">Local enforcement hooks</a></li>
 <li><a href="#6-github-repository-settings">6. GitHub Repository Settings</a></li>
 <li><a href="#automatically-delete-head-branches">Automatically delete head branches</a></li>
+<li><a href="#github-repository-rulesets">GitHub repository rulesets</a></li>
 <li><a href="#7-locked-vs-flexible-decisions">7. Locked vs. Flexible Decisions</a></li>
 <li><a href="#locked-at-v01">Locked at v0.1</a></li>
 <li><a href="#explicitly-flexible">Explicitly Flexible</a></li>
@@ -3590,8 +3613,8 @@ should never be violated.</p>
 <h4 id="pre-commit-hook">pre-commit hook<a class="headerlink" href="#pre-commit-hook" title="Permanent link">&para;</a></h4>
 <p>The <code>pre-commit</code> hook enforces two rules in order:</p>
 <ol>
-<li><strong>Protected branch block</strong> — commits to <code>develop</code>, <code>release</code>, <code>main</code>, and
-   <code>release/*</code> are rejected unconditionally (detached HEAD is also blocked).</li>
+<li><strong>Protected branch block</strong> — commits to <code>develop</code>, <code>release</code>, and <code>main</code>
+   are rejected unconditionally (detached HEAD is also blocked).</li>
 <li><strong>Branch prefix validation</strong> — the hook reads <code>branching_model</code> from
    <code>docs/repository-standards.md</code> and allows only the prefixes defined for
    that model:</li>
@@ -3614,7 +3637,7 @@ should never be violated.</p>
 </tr>
 <tr>
 <td><code>library-release</code></td>
-<td><code>feature/*</code>, <code>bugfix/*</code>, <code>hotfix/*</code></td>
+<td><code>feature/*</code>, <code>bugfix/*</code>, <code>hotfix/*</code>, <code>release/*</code></td>
 </tr>
 </tbody>
 </table>
@@ -3648,6 +3671,51 @@ cleanup performed during PR finalization.</p>
 <p>PR finalization steps and CLI commands should still request branch deletion
 explicitly. The repository-level setting acts as defense in depth, not a
 replacement for explicit cleanup.</p>
+<h3 id="github-repository-rulesets">GitHub repository rulesets<a class="headerlink" href="#github-repository-rulesets" title="Permanent link">&para;</a></h3>
+<p>All repositories must use GitHub rulesets for branch and tag protection.
+Rulesets replace legacy branch protection rules. Legacy branch protection must
+not be used on any repository.</p>
+<p><strong>Enforce-admins-ON</strong>: Every ruleset must have an empty <code>bypass_actors</code> list.
+This means ruleset enforcement applies to all users including repository
+administrators. There is no escape hatch for admins.</p>
+<p><strong>Library repositories</strong> require three rulesets:</p>
+<ol>
+<li><strong>Branch protection</strong> (targets: <code>main</code>, <code>develop</code>)</li>
+<li>Prevent branch deletion</li>
+<li>Prevent force push</li>
+<li>
+<p>Require pull requests (0 approvals, dismiss stale reviews)</p>
+</li>
+<li>
+<p><strong>CI gates</strong> (targets: <code>main</code>, <code>develop</code>)</p>
+</li>
+<li>Require status checks to pass before merging (<code>strict</code> mode)</li>
+<li>
+<p>Required checks are repo-specific and must match the CI job names defined
+     in the repository's workflow files</p>
+</li>
+<li>
+<p><strong>Tag protection</strong> (targets: <code>v*</code>)</p>
+</li>
+<li>Prevent tag deletion</li>
+<li>Prevent force-updating tags</li>
+<li>Prevent modifying existing tags</li>
+<li>No creation restriction (the publish workflow creates tags)</li>
+</ol>
+<p><strong>Documentation repositories</strong> require two rulesets:</p>
+<ol>
+<li><strong>Branch protection</strong> (targets: eternal branches only)</li>
+<li>
+<p>Same rules as library repositories</p>
+</li>
+<li>
+<p><strong>CI gates</strong> (targets: eternal branches only)</p>
+</li>
+<li>Required checks are repo-specific</li>
+</ol>
+<p>Rulesets are managed via the GitHub API or the repository settings UI. When
+creating or updating rulesets, verify the configuration by checking an open PR
+on the target repository to confirm the expected required checks appear.</p>
 <hr />
 <h2 id="7-locked-vs-flexible-decisions">7. Locked vs. Flexible Decisions<a class="headerlink" href="#7-locked-vs-flexible-decisions" title="Permanent link">&para;</a></h2>
 <h3 id="locked-at-v01">Locked at v0.1<a class="headerlink" href="#locked-at-v01" title="Permanent link">&para;</a></h3>
