@@ -55,6 +55,12 @@ This skill is not applicable to application repositories.
   not apply.
 - Confirm you are on the `develop` branch with a clean working tree.
 - Identify the canonical validation command from the repository profile.
+- **Library-release only**: Verify `scripts/dev/prepare_release.py` exists. If
+  missing, **abort** — the repository is not configured for automated releases.
+- **Library-release only**: Read the current version from the project manifest
+  and compare it to the latest `v*` tag. If the version matches an existing
+  tag, **abort** — the post-publish version bump did not run and the release
+  tooling needs investigation. Do not attempt to fix this automatically.
 
 ## Version override
 
@@ -78,7 +84,7 @@ prepared.
 
 ### Phase 1 — Prepare release
 
-1. Run the `prepare_release` script on `develop`.
+1. Run `scripts/dev/prepare_release.py` from the repository root on `develop`.
 2. The script creates a `release/<version>` branch, generates the changelog,
    pushes the branch, creates a PR to `main`, and enables auto-merge.
 3. Confirm the release branch and PR were created successfully.
