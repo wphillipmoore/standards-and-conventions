@@ -90,34 +90,3 @@ shell escaping issues and preserves exact formatting.
 If you find yourself guessing at workflow rules, using trial-and-error, or
 backtracking due to errors, stop and read the relevant documentation before
 proceeding.
-
-## User Confirmation Checkpoints
-
-**Docs-only exception**: If the diff includes only documentation files (anything
-under `docs/` plus top-level `README.md` or `CHANGELOG.md`), skip both
-confirmation checkpoints and proceed directly through PR creation and
-finalization. Local validation is optional per the docs-only rule in
-`docs/code-management/pull-request-workflow.md`.
-
-**Finalize override**: If the user explicitly says "Finalize PR", treat that as
-approval to submit and finalize the PR for the current work without asking for
-"Submit PR?" or "Finalize PR?" again. This permission expires as soon as new
-work is performed (any new commit or file modification).
-
-### Checkpoint: Before Submitting Pull Request
-
-After completing work and committing to your feature branch:
-1. Run the repository's canonical validation command if it is documented.
-2. If no command is documented, ask the user for the required validation.
-3. Ask: "Submit PR?"
-
-Only proceed with PR submission after explicit user approval (or the Finalize
-override above).
-
-### Checkpoint: Before Finalizing Pull Request
-
-After submitting the PR, ask: "Finalize PR?" unless the Finalize override is
-active.
-
-"Finalize" means: merge the PR, delete the remote branch, update the local
-copy of the target branch, and run final validation (skip for docs-only).
