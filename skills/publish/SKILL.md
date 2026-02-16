@@ -87,19 +87,24 @@ prepared.
 1. Read the current version from the project manifest.
 2. Create a GitHub issue titled `release: <version>` with a body summarizing the
    release. This issue serves as the tracking issue for the release and provides
-   the issue linkage required by the standards-compliance gate.
+   the issue linkage required by the standards-compliance gate. Log all
+   subsequent phase completions, issues encountered, and resolutions as comments
+   on this issue to maintain a complete record of the publish operation.
 3. Run `scripts/dev/prepare_release.py --issue <N>` from the repository root on
    `develop`, passing the tracking issue number.
 4. The script creates a `release/<version>` branch, generates the changelog,
    pushes the branch, creates a PR to `main` (with `Ref #<N>` in the body),
    and enables auto-merge.
 5. Confirm the release branch and PR were created successfully.
+6. Comment on the tracking issue with Phase 1 results (branch name, PR number).
 
 ### Phase 2 — Review and merge
 
 1. Wait for CI to validate the release branch.
 2. Confirm the PR merges into `main` via regular merge (not squash).
 3. Confirm the release branch is deleted after merge.
+4. Comment on the tracking issue with Phase 2 results (CI outcome, merge
+   confirmation).
 
 ### Phase 3 — Confirm publish
 
@@ -111,11 +116,16 @@ Verify all publish artifacts are present:
 - Package artifact published to the registry.
 - GitHub Pages documentation deployed for the new version.
 
+Comment on the tracking issue with Phase 3 results (list of artifacts
+confirmed).
+
 ### Phase 4 — Confirm version bump
 
 1. Wait for the automated `chore/bump-version-<next>` PR to `develop`.
 2. Confirm the bump PR auto-merges.
 3. Update local `develop` to incorporate the merge.
+4. Comment on the tracking issue with Phase 4 results (bump PR number, next
+   version).
 
 ### Phase 5 — Next-cycle dependency updates
 
@@ -124,6 +134,9 @@ Verify all publish artifacts are present:
    [Dependency update categories](#dependency-update-categories)).
 3. Run full validation.
 4. Submit via `pr-workflow`.
+5. Comment on the tracking issue with Phase 5 results (dependency update PR
+   number, categories updated).
+6. Close the tracking issue with a final summary comment covering all phases.
 
 ## Docs-only mode
 
