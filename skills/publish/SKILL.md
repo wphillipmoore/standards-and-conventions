@@ -47,7 +47,8 @@ This skill is not applicable to application repositories.
 
 ## Preflight
 
-- Read the repository profile to determine `repository_type`.
+- Read `docs/repository-standards.md` and locate the repository profile section.
+- Read `repository_type` from the profile.
 - If the type is `library`, follow **library-release mode**.
 - If the type is `documentation`, follow **docs-only mode**.
 - If the type is anything else, stop and inform the user that this skill does
