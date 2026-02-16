@@ -10,11 +10,12 @@ Supported ecosystems:
   - Go:     reads version from **/version.go
 
 Usage:
-  scripts/dev/prepare_release.py
+  scripts/dev/prepare_release.py --issue 42
 """
 
 from __future__ import annotations
 
+import argparse
 import re
 import shutil
 import subprocess
@@ -174,11 +175,16 @@ def push_branch(branch: str) -> None:
     run_command(("git", "push", "-u", "origin", branch))
 
 
-def create_pr(version: str) -> str:
+def create_pr(version: str, issue: int) -> str:
     """Create a PR to main and return the PR URL."""
     print("Creating pull request to main...")
     title = f"release: {version}"
-    body = f"## Summary\n\nRelease {version}\n\nGenerated with `prepare_release.py`\n"
+    body = (
+        f"## Summary\n\n"
+        f"Release {version}\n\n"
+        f"Ref #{issue}\n\n"
+        f"Generated with `prepare_release.py`\n"
+    )
     result = subprocess.run(  # noqa: S603
         (
             "gh", "pr", "create",
@@ -192,19 +198,6 @@ def create_pr(version: str) -> str:
     )
     url = result.stdout.strip()
     print(f"PR created: {url}")
-
-    pr_number = url.rstrip("/").rsplit("/", 1)[-1]
-    body_with_linkage = (
-        f"## Summary\n\nRelease {version}\n\n"
-        f"Ref #{pr_number}\n\n"
-        f"Generated with `prepare_release.py`\n"
-    )
-    subprocess.run(  # noqa: S603
-        ("gh", "pr", "edit", url, "--body", body_with_linkage),
-        check=True,
-    )
-    print(f"PR body updated with issue linkage (Ref #{pr_number})")
-
     return url
 
 
@@ -217,7 +210,21 @@ def enable_auto_merge(url: str) -> None:
 # -- main --------------------------------------------------------------------
 
 
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(description="Prepare a release.")
+    parser.add_argument(
+        "--issue",
+        type=int,
+        required=True,
+        help="GitHub issue number for release tracking (used for PR linkage).",
+    )
+    return parser.parse_args()
+
+
 def main() -> int:
+    args = parse_args()
+
     ensure_on_develop()
     ensure_clean_tree()
     ensure_tool_available("gh")
@@ -230,7 +237,7 @@ def main() -> int:
     create_release_branch(branch)
     generate_changelog(version)
     push_branch(branch)
-    url = create_pr(version)
+    url = create_pr(version, args.issue)
     enable_auto_merge(url)
 
     run_command(("git", "checkout", "develop"))
