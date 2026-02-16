@@ -192,6 +192,19 @@ def create_pr(version: str) -> str:
     )
     url = result.stdout.strip()
     print(f"PR created: {url}")
+
+    pr_number = url.rstrip("/").rsplit("/", 1)[-1]
+    body_with_linkage = (
+        f"## Summary\n\nRelease {version}\n\n"
+        f"Ref #{pr_number}\n\n"
+        f"Generated with `prepare_release.py`\n"
+    )
+    subprocess.run(  # noqa: S603
+        ("gh", "pr", "edit", url, "--body", body_with_linkage),
+        check=True,
+    )
+    print(f"PR body updated with issue linkage (Ref #{pr_number})")
+
     return url
 
 
