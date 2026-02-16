@@ -5,7 +5,7 @@
 - [Scope](#scope)
 - [Skill list](#skill-list)
 - [Usage conventions](#usage-conventions)
-- [Dependency policy](#dependency-policy)
+- [Local installation](#local-installation)
 - [Downstream references](#downstream-references)
 
 ## Purpose
@@ -43,12 +43,19 @@ Skill bodies must remain aligned with the canonical documents they reference.
 - Autocomplete favors distinct skill names; summarize wrappers exist so teams
   can select a mode without typing additional arguments.
 
-## Dependency policy
-- Treat this directory as a reference library.
-- Copy shared skills into the target repository's `skills/` directory before
-  using them.
-- Do not rely on symlinks or external paths for required skills.
-- Skills are not auto-registered; restart the agent session after adding them.
+## Local installation
+
+Claude Code discovers slash commands by scanning `~/.claude/skills/` for
+directories containing a `SKILL.md` file. To make skills from this repository
+available as `/commands` in all projects, create symlinks:
+
+```bash
+ln -s /path/to/standards-and-conventions/skills/<skill-name> ~/.claude/skills/<skill-name>
+```
+
+**When adding a new skill**: always create the corresponding symlink in
+`~/.claude/skills/` after merging. The skill will not be available as a slash
+command until the symlink exists and the agent session is restarted.
 
 ## Downstream references
 Add a short reference to these skills in downstream `AGENTS.md` files using
