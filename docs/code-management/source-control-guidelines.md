@@ -18,6 +18,7 @@
   - [Local enforcement hooks](#local-enforcement-hooks)
 - [6. GitHub Repository Settings](#6-github-repository-settings)
   - [Automatically delete head branches](#automatically-delete-head-branches)
+  - [GitHub repository rulesets](#github-repository-rulesets)
 - [7. Locked vs. Flexible Decisions](#7-locked-vs-flexible-decisions)
   - [Locked at v0.1](#locked-at-v01)
   - [Explicitly Flexible](#explicitly-flexible)
@@ -192,8 +193,8 @@ Hooks must print a clear, actionable error and exit non-zero on violations.
 
 The `pre-commit` hook enforces two rules in order:
 
-1. **Protected branch block** — commits to `develop`, `release`, `main`, and
-   `release/*` are rejected unconditionally (detached HEAD is also blocked).
+1. **Protected branch block** — commits to `develop`, `release`, and `main`
+   are rejected unconditionally (detached HEAD is also blocked).
 2. **Branch prefix validation** — the hook reads `branching_model` from
    `docs/repository-standards.md` and allows only the prefixes defined for
    that model:
@@ -202,7 +203,7 @@ The `pre-commit` hook enforces two rules in order:
 | --- | --- |
 | `docs-single-branch` | `feature/*`, `bugfix/*` |
 | `application-promotion` | `feature/*`, `bugfix/*`, `hotfix/*`, `promotion/*` |
-| `library-release` | `feature/*`, `bugfix/*`, `hotfix/*` |
+| `library-release` | `feature/*`, `bugfix/*`, `hotfix/*`, `release/*` |
 
 If `branching_model` is missing, the hook warns and falls back to the most
 restrictive set (`feature/*`, `bugfix/*`). If `branching_model` is
@@ -245,6 +246,46 @@ cleanup performed during PR finalization.
 PR finalization steps and CLI commands should still request branch deletion
 explicitly. The repository-level setting acts as defense in depth, not a
 replacement for explicit cleanup.
+
+### GitHub repository rulesets
+
+All repositories must use GitHub rulesets for branch and tag protection.
+Rulesets replace legacy branch protection rules. Legacy branch protection must
+not be used on any repository.
+
+**Enforce-admins-ON**: Every ruleset must have an empty `bypass_actors` list.
+This means ruleset enforcement applies to all users including repository
+administrators. There is no escape hatch for admins.
+
+**Library repositories** require three rulesets:
+
+1. **Branch protection** (targets: `main`, `develop`)
+   - Prevent branch deletion
+   - Prevent force push
+   - Require pull requests (0 approvals, dismiss stale reviews)
+
+2. **CI gates** (targets: `main`, `develop`)
+   - Require status checks to pass before merging (`strict` mode)
+   - Required checks are repo-specific and must match the CI job names defined
+     in the repository's workflow files
+
+3. **Tag protection** (targets: `v*`)
+   - Prevent tag deletion
+   - Prevent force-updating tags
+   - Prevent modifying existing tags
+   - No creation restriction (the publish workflow creates tags)
+
+**Documentation repositories** require two rulesets:
+
+1. **Branch protection** (targets: eternal branches only)
+   - Same rules as library repositories
+
+2. **CI gates** (targets: eternal branches only)
+   - Required checks are repo-specific
+
+Rulesets are managed via the GitHub API or the repository settings UI. When
+creating or updating rulesets, verify the configuration by checking an open PR
+on the target repository to confirm the expected required checks appear.
 
 ---
 
