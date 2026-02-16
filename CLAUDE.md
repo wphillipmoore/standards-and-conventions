@@ -117,7 +117,8 @@ The include directives above load the full repository standards. Key highlights 
   - `docs/repository/` - Repository structure standards
   - `docs/research/` - Research reports
 - `skills/` - Shared agent skills loaded by downstream repositories
-- `scripts/` - Linting and git hook scripts
+- `scripts/` - Linting, git hook, and dev automation scripts
+  - `scripts/dev/` - Shared development scripts (prepare_release)
 - `drafts/` - Work-in-progress content
 
 ## Skills
