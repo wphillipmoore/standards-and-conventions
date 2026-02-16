@@ -84,10 +84,16 @@ prepared.
 
 ### Phase 1 — Prepare release
 
-1. Run `scripts/dev/prepare_release.py` from the repository root on `develop`.
-2. The script creates a `release/<version>` branch, generates the changelog,
-   pushes the branch, creates a PR to `main`, and enables auto-merge.
-3. Confirm the release branch and PR were created successfully.
+1. Read the current version from the project manifest.
+2. Create a GitHub issue titled `release: <version>` with a body summarizing the
+   release. This issue serves as the tracking issue for the release and provides
+   the issue linkage required by the standards-compliance gate.
+3. Run `scripts/dev/prepare_release.py --issue <N>` from the repository root on
+   `develop`, passing the tracking issue number.
+4. The script creates a `release/<version>` branch, generates the changelog,
+   pushes the branch, creates a PR to `main` (with `Ref #<N>` in the body),
+   and enables auto-merge.
+5. Confirm the release branch and PR were created successfully.
 
 ### Phase 2 — Review and merge
 
