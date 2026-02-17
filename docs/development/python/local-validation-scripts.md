@@ -1,57 +1,50 @@
-# Local validation scripts
+# Local Validation Scripts (Python)
 
 ## Table of Contents
 
 - [Purpose](#purpose)
 - [Scope](#scope)
-- [Requirements](#requirements)
+- [General standard](#general-standard)
+- [Python-specific requirements](#python-specific-requirements)
 - [CI parity](#ci-parity)
 - [Version validation](#version-validation)
-- [Failure behavior and output](#failure-behavior-and-output)
 
 ## Purpose
 
-Define the required behavior for repository-local validation scripts (for
-example, `scripts/dev/validate_local.py`) so local checks reliably match CI
-hard gates.
+Specialize the
+[ecosystem-agnostic local validation scripts standard](../../repository/local-validation-scripts.md)
+for Python repositories.
 
 ## Scope
 
 Applies to Python repositories that define a canonical local validation
-command. Repositories that do not define such a command must document their
-alternative process in the pull request workflow.
+command. All requirements from the
+[general standard](../../repository/local-validation-scripts.md) apply in
+addition to the Python-specific requirements below.
 
-## Requirements
+## General standard
+
+This document extends the
+[Local Validation Scripts](../../repository/local-validation-scripts.md)
+standard. Refer to that document for shared requirements including fail-fast
+behavior, prerequisite checks, non-zero exit codes, CI parity basics, and
+no-side-effects rules.
+
+## Python-specific requirements
 
 - Provide a canonical local validation command at `scripts/dev/validate_local.py`.
-- Run from the repository root and fail fast if executed elsewhere.
 - Invoke Python as `python3` and use the project environment.
-- Execute all CI hard-gate checks locally with the same tools and flags.
-- Permit additional local-only checks when documented, but never omit CI hard
-  gates.
-- Avoid side effects beyond validation (no automatic fixes or rewrites).
-- Return a non-zero exit code on failure.
 
 ## CI parity
 
-The local validation script must mirror CI hard gates, including:
+In addition to the general CI parity requirements, Python validation scripts
+must include:
 
-- dependency and lockfile validation
-- linting and type checking (run all required checkers, including mypy and ty)
-- tests with the same marker selection and coverage thresholds
-- security or dependency audits required by CI
-
-If CI separates unit and integration jobs, the local script must run both sets
-of tests to keep coverage and integration behavior aligned.
+- linting and type checking with all required checkers (including mypy and ty
+  when configured)
 
 ## Version validation
 
 If CI enforces version comparison against a base branch, the local script must
 support passing a base reference (for example, `--base-ref develop`) and must
 document the default behavior (for example, resolving `origin/HEAD`).
-
-## Failure behavior and output
-
-- Print the command being executed before each step.
-- Stop at the first failing command and return that exit code.
-- Surface missing prerequisites with actionable error messages.
