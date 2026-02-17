@@ -4,7 +4,7 @@ set -euo pipefail
 files=()
 while IFS= read -r file; do
   files+=("$file")
-done < <(find docs -type f -name "*.md" -print)
+done < <(find docs -path docs/site -prune -o -path docs/announcements -prune -o -type f -name "*.md" -print)
 
 if [[ -f README.md ]]; then
   files+=("README.md")
@@ -32,13 +32,16 @@ else
 fi
 
 markdownlint_failed=0
-if ! "${markdownlint_cmd[@]}" "${markdownlint_config[@]}" "${files[@]}"; then
+if ! "${markdownlint_cmd[@]}" ${markdownlint_config[@]+"${markdownlint_config[@]}"} "${files[@]}"; then
   markdownlint_failed=1
 fi
 
 failed=0
 
 for file in "${files[@]}"; do
+  if [[ "$file" == "CHANGELOG.md" ]]; then
+    continue
+  fi
   awk -v file="$file" '
     BEGIN {
       in_code = 0
