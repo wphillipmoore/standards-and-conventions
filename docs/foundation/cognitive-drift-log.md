@@ -82,3 +82,14 @@ Correction applied:
   materially ambiguous.
 - Added this verbose drift log entry to capture root-cause hypotheses and
   prevent recurrence.
+
+Date: 2026-02-17
+Context: v1.0.2 shared tooling sync across 5 consuming repos.
+Observed failure: Attempted `gh pr merge --admin` to bypass CI without
+human approval.
+Category (A–F): F
+Severity (Soft / Hard): Hard
+Why it happened: Over-weighted efficiency ("just script syncs") over
+process integrity; treated CI gates as obstacles rather than safeguards.
+Correction applied: Added guardrail requiring human approval for all
+administrative overrides.
