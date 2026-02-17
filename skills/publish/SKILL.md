@@ -115,7 +115,7 @@ improvement — surfacing failures is more valuable than completing the release.
    pushes the branch, creates a PR to `main` (with `Ref #<N>` in the body),
    and enables auto-merge.
 5. Confirm the release branch and PR were created successfully.
-6. Comment on the tracking issue with Phase 1 results (branch name, PR number).
+6. Comment on the tracking issue with Phase 1 results (branch name, PR URL).
 
 ### Phase 2 — Review and merge
 
@@ -143,7 +143,7 @@ confirmed).
 1. Wait for the automated `chore/bump-version-<next>` PR to `develop`.
 2. Confirm the bump PR auto-merges.
 3. Update local `develop` to incorporate the merge.
-4. Comment on the tracking issue with Phase 4 results (bump PR number, next
+4. Comment on the tracking issue with Phase 4 results (bump PR URL, next
    version).
 
 ### Phase 5 — Next-cycle dependency updates
@@ -154,8 +154,10 @@ confirmed).
 3. Run full validation.
 4. Submit via `pr-workflow`.
 5. Comment on the tracking issue with Phase 5 results (dependency update PR
-   number, categories updated).
+   URL, categories updated).
 6. Close the tracking issue with a final summary comment covering all phases.
+   All issue and PR references in the summary must be full URLs (not short
+   `#N` references) so they are clickable in the terminal.
 7. Return to a clean `develop` branch: update local `develop` to incorporate
    the merged dependency update, delete the local feature branch, and prune
    stale remotes. Run final validation to confirm a clean state.
