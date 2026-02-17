@@ -58,13 +58,16 @@ always enabled; CI gates are the sole merge authority.
 
 ## Finalization
 
-After the PR merges, finalize in order:
+After the PR merges, run `scripts/dev/finalize_repo.sh` from the repository
+root. The script switches to the target branch, fast-forward pulls from origin,
+deletes merged local branches, and prunes stale remotes. If the script is not
+available, perform the steps manually:
 
-1. Update the local copy of the target branch.
+1. Switch to the target branch and pull latest from origin.
 2. Delete the local feature branch.
 3. Prune stale remote-tracking references.
-4. Synchronize the local environment with dependency specifications.
-5. Run final validation (skip for docs-only PRs).
+
+Then run final validation (skip for docs-only PRs).
 
 Finalization is mandatory. Do not stop after submission or ask for permission
 to finalize.

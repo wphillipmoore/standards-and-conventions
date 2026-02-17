@@ -126,6 +126,20 @@ def ensure_clean_tree() -> None:
         raise SystemExit(message)
 
 
+def ensure_develop_up_to_date() -> None:
+    """Fail if local develop is behind origin/develop."""
+    run_command(("git", "fetch", "origin", "develop"))
+    local_sha = read_command_output(("git", "rev-parse", "HEAD"))
+    remote_sha = read_command_output(("git", "rev-parse", "origin/develop"))
+    if local_sha != remote_sha:
+        message = (
+            f"Local develop ({local_sha[:8]}) does not match "
+            f"origin/develop ({remote_sha[:8]}). "
+            f"Pull latest changes before preparing a release."
+        )
+        raise SystemExit(message)
+
+
 def branch_exists(name: str) -> bool:
     """Return True if a branch exists locally or on origin."""
     for ref in (name, f"origin/{name}"):
@@ -258,6 +272,7 @@ def main() -> int:
 
     ensure_on_develop()
     ensure_clean_tree()
+    ensure_develop_up_to_date()
     ensure_tool_available("gh")
 
     ecosystem, version = detect_ecosystem()

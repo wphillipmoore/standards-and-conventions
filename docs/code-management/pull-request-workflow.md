@@ -204,6 +204,9 @@ successfully and the PR is ready to merge (manually or via auto-merge). If a
 required check fails, resolve it immediately and re-run the checks before
 merging.
 
+When `scripts/dev/finalize_repo.sh` is available, run it after the merge
+completes to automate steps 3-5 below.
+
 Finalize the PR in this order:
 
 1. wait for all required checks to complete and pass
