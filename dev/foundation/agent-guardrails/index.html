@@ -3018,6 +3018,11 @@ these standards.</p>
   scripts or use bootstrap skills.</li>
 <li>If on an eternal branch (<code>develop</code>, <code>release</code>, <code>main</code>), create a feature
   branch before any edits or commits.</li>
+<li>Never use administrative overrides or privilege escalation to bypass CI
+  gates, branch protection, or hook enforcement (e.g. <code>--admin</code>, <code>--force</code>
+  to protected branches, <code>--no-verify</code>) without explicit human approval.
+  The perceived simplicity of a change does not justify bypassing
+  safeguards. When CI is pending, use <code>--auto</code> and wait.</li>
 </ul>
 <h2 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">&para;</a></h2>
 <p>Keep this list short. Add items only when repeated failures show a hard

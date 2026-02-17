@@ -3047,6 +3047,9 @@ non-adversarial behavior.</p>
   demands validation or uses the wrong branching model).</li>
 <li>Performing a file edit or git action without emitting the required preflight
   gate.</li>
+<li>Using administrative overrides or privilege escalation (e.g. <code>--admin</code>,
+  <code>--force</code> to protected branches, <code>--no-verify</code>) without explicit human
+  approval.</li>
 </ul>
 <h2 id="prompt-shortcuts">Prompt shortcuts<a class="headerlink" href="#prompt-shortcuts" title="Permanent link">&para;</a></h2>
 <p>Use a standalone prompt that invokes the tests, such as:</p>
