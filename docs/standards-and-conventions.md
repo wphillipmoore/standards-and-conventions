@@ -78,6 +78,7 @@ This list is the authoritative include chain for the shared standards corpus.
 
 <!-- include: docs/repository/overview.md -->
 <!-- include: docs/repository/repository-structure.md -->
+<!-- include: docs/repository/local-validation-scripts.md -->
 
 <!-- include: docs/dependencies/overview.md -->
 <!-- include: docs/dependencies/dependency-update-workflow.md -->

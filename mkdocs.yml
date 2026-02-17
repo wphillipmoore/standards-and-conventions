@@ -94,6 +94,7 @@ nav:
   - Repository:
       - Overview: repository/overview.md
       - Repository Structure: repository/repository-structure.md
+      - Local Validation Scripts: repository/local-validation-scripts.md
   - Dependencies:
       - Overview: dependencies/overview.md
       - Dependency Update Workflow: dependencies/dependency-update-workflow.md
