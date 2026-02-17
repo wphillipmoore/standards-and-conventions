@@ -45,10 +45,9 @@ always enabled; CI gates are the sole merge authority.
 2. If no canonical command exists, ask for the required validation steps.
 3. If any check fails, do not submit the PR; fix and rerun the full checks.
 4. Populate the pull request template fields.
-5. Include issue linkage using `Fixes #N` (default; auto-closes issue on
-   merge) or `Ref #N` (non-closing; use when acceptance criteria exist).
-   These are the only accepted keywords — `Closes`, `Resolves`, and other
-   GitHub keywords are rejected by CI.
+5. Include issue linkage using any standard GitHub closing keyword —
+   `Fixes #N`, `Closes #N`, or `Resolves #N` (all auto-close on merge) —
+   or `Ref #N` (non-closing; use when acceptance criteria exist).
 
 ## Submission
 
