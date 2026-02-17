@@ -77,7 +77,9 @@ Applies to all repositories governed by these standards.
 1. Wait for all required checks to complete and pass.
 2. If auto-merge is enabled, wait for the merge to complete before cleanup.
 3. Merge the pull request (if not already merged) and delete the remote branch.
-4. Update the local target branch.
+4. Run `scripts/dev/finalize_repo.sh` to update the local target branch, delete
+   merged branches, and prune remotes. If the script is not available, perform
+   steps 5-6 manually.
 5. Delete the local feature branch and prune remotes.
 6. Run final validation unless the docs-only exception applies.
 

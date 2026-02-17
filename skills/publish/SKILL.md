@@ -158,8 +158,8 @@ confirmed).
 6. Close the tracking issue with a final summary comment covering all phases.
    All issue and PR references in the summary must be full URLs (not short
    `#N` references) so they are clickable in the terminal.
-7. Return to a clean `develop` branch: update local `develop` to incorporate
-   the merged dependency update, delete the local feature branch, and prune
+7. Run `scripts/dev/finalize_repo.sh` to return to a clean `develop` branch.
+   The script updates local `develop`, deletes merged branches, and prunes
    stale remotes. Run final validation to confirm a clean state.
 
 ## Docs-only mode
@@ -176,8 +176,8 @@ confirmed).
    [Dependency update categories](#dependency-update-categories)).
 3. Run full validation.
 4. Submit via `pr-workflow`.
-5. Return to a clean `develop` branch: update local `develop` to incorporate
-   the merged dependency update, delete the local feature branch, and prune
+5. Run `scripts/dev/finalize_repo.sh` to return to a clean `develop` branch.
+   The script updates local `develop`, deletes merged branches, and prunes
    stale remotes. Run final validation to confirm a clean state.
 
 ## Dependency update categories
