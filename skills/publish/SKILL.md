@@ -17,6 +17,7 @@ description: Drive the end-to-end publish workflow for library and documentation
   - [Phase 3 — Confirm publish](#phase-3--confirm-publish)
   - [Phase 4 — Confirm version bump](#phase-4--confirm-version-bump)
   - [Phase 5 — Next-cycle dependency updates](#phase-5--next-cycle-dependency-updates)
+  - [Phase 6 — Close and finalize](#phase-6--close-and-finalize)
 - [Docs-only mode](#docs-only-mode)
   - [Phase 1 — Confirm deployment](#phase-1--confirm-deployment)
   - [Phase 2 — Toolchain dependency updates](#phase-2--toolchain-dependency-updates)
@@ -155,10 +156,13 @@ confirmed).
 4. Submit via `pr-workflow`.
 5. Comment on the tracking issue with Phase 5 results (dependency update PR
    URL, categories updated).
-6. Close the tracking issue with a final summary comment covering all phases.
+
+### Phase 6 — Close and finalize
+
+1. Close the tracking issue with a final summary comment covering all phases.
    All issue and PR references in the summary must be full URLs (not short
    `#N` references) so they are clickable in the terminal.
-7. Run `scripts/dev/finalize_repo.sh` to return to a clean `develop` branch.
+2. Run `scripts/dev/finalize_repo.sh` to return to a clean `develop` branch.
    The script updates local `develop`, deletes merged branches, and prunes
    stale remotes. Run final validation to confirm a clean state.
 
