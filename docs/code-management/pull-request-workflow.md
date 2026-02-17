@@ -179,6 +179,10 @@ Auto-merge is asynchronous. Enabling it is not finalization; you must still
 wait for required checks to complete. If any required check fails, fix the
 issue immediately and re-run the checks before merging.
 
+Never use `--admin` or other administrative overrides to bypass required
+checks. If checks are pending, wait. If checks fail, fix them. There is no
+shortcut.
+
 If the user asks to finalize a PR, waiting for auto-merge to complete is
 mandatory. Do not ask whether to wait unless the user explicitly requests a
 deferral.

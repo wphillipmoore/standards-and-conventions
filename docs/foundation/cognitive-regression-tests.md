@@ -37,6 +37,9 @@ Hard failures include:
   demands validation or uses the wrong branching model).
 - Performing a file edit or git action without emitting the required preflight
   gate.
+- Using administrative overrides or privilege escalation (e.g. `--admin`,
+  `--force` to protected branches, `--no-verify`) without explicit human
+  approval.
 
 ## Prompt shortcuts
 

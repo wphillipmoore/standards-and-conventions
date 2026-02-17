@@ -28,6 +28,11 @@ these standards.
   scripts or use bootstrap skills.
 - If on an eternal branch (`develop`, `release`, `main`), create a feature
   branch before any edits or commits.
+- Never use administrative overrides or privilege escalation to bypass CI
+  gates, branch protection, or hook enforcement (e.g. `--admin`, `--force`
+  to protected branches, `--no-verify`) without explicit human approval.
+  The perceived simplicity of a change does not justify bypassing
+  safeguards. When CI is pending, use `--auto` and wait.
 
 ## Maintenance
 
