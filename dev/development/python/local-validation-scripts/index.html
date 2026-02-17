@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#local-validation-scripts" class="md-skip">
+        <a href="#local-validation-scripts-python" class="md-skip">
           Skip to content
         </a>
       
@@ -1562,6 +1562,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../repository/local-validation-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local Validation Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2208,10 +2236,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#general-standard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
+        General standard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-specific-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python-specific requirements
       
     </span>
   </a>
@@ -2234,17 +2273,6 @@
     <span class="md-ellipsis">
       
         Version validation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#failure-behavior-and-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Failure behavior and output
       
     </span>
   </a>
@@ -2964,10 +2992,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#general-standard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
+        General standard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-specific-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python-specific requirements
       
     </span>
   </a>
@@ -2996,17 +3035,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#failure-behavior-and-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Failure behavior and output
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3024,55 +3052,47 @@
 
 
 
-<h1 id="local-validation-scripts">Local validation scripts<a class="headerlink" href="#local-validation-scripts" title="Permanent link">&para;</a></h1>
+<h1 id="local-validation-scripts-python">Local Validation Scripts (Python)<a class="headerlink" href="#local-validation-scripts-python" title="Permanent link">&para;</a></h1>
 <h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="#purpose">Purpose</a></li>
 <li><a href="#scope">Scope</a></li>
-<li><a href="#requirements">Requirements</a></li>
+<li><a href="#general-standard">General standard</a></li>
+<li><a href="#python-specific-requirements">Python-specific requirements</a></li>
 <li><a href="#ci-parity">CI parity</a></li>
 <li><a href="#version-validation">Version validation</a></li>
-<li><a href="#failure-behavior-and-output">Failure behavior and output</a></li>
 </ul>
 <h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
-<p>Define the required behavior for repository-local validation scripts (for
-example, <code>scripts/dev/validate_local.py</code>) so local checks reliably match CI
-hard gates.</p>
+<p>Specialize the
+<a href="../../../repository/local-validation-scripts/">ecosystem-agnostic local validation scripts standard</a>
+for Python repositories.</p>
 <h2 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link">&para;</a></h2>
 <p>Applies to Python repositories that define a canonical local validation
-command. Repositories that do not define such a command must document their
-alternative process in the pull request workflow.</p>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+command. All requirements from the
+<a href="../../../repository/local-validation-scripts/">general standard</a> apply in
+addition to the Python-specific requirements below.</p>
+<h2 id="general-standard">General standard<a class="headerlink" href="#general-standard" title="Permanent link">&para;</a></h2>
+<p>This document extends the
+<a href="../../../repository/local-validation-scripts/">Local Validation Scripts</a>
+standard. Refer to that document for shared requirements including fail-fast
+behavior, prerequisite checks, non-zero exit codes, CI parity basics, and
+no-side-effects rules.</p>
+<h2 id="python-specific-requirements">Python-specific requirements<a class="headerlink" href="#python-specific-requirements" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Provide a canonical local validation command at <code>scripts/dev/validate_local.py</code>.</li>
-<li>Run from the repository root and fail fast if executed elsewhere.</li>
 <li>Invoke Python as <code>python3</code> and use the project environment.</li>
-<li>Execute all CI hard-gate checks locally with the same tools and flags.</li>
-<li>Permit additional local-only checks when documented, but never omit CI hard
-  gates.</li>
-<li>Avoid side effects beyond validation (no automatic fixes or rewrites).</li>
-<li>Return a non-zero exit code on failure.</li>
 </ul>
 <h2 id="ci-parity">CI parity<a class="headerlink" href="#ci-parity" title="Permanent link">&para;</a></h2>
-<p>The local validation script must mirror CI hard gates, including:</p>
+<p>In addition to the general CI parity requirements, Python validation scripts
+must include:</p>
 <ul>
-<li>dependency and lockfile validation</li>
-<li>linting and type checking (run all required checkers, including mypy and ty)</li>
-<li>tests with the same marker selection and coverage thresholds</li>
-<li>security or dependency audits required by CI</li>
+<li>linting and type checking with all required checkers (including mypy and ty
+  when configured)</li>
 </ul>
-<p>If CI separates unit and integration jobs, the local script must run both sets
-of tests to keep coverage and integration behavior aligned.</p>
 <h2 id="version-validation">Version validation<a class="headerlink" href="#version-validation" title="Permanent link">&para;</a></h2>
 <p>If CI enforces version comparison against a base branch, the local script must
 support passing a base reference (for example, <code>--base-ref develop</code>) and must
 document the default behavior (for example, resolving <code>origin/HEAD</code>).</p>
-<h2 id="failure-behavior-and-output">Failure behavior and output<a class="headerlink" href="#failure-behavior-and-output" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Print the command being executed before each step.</li>
-<li>Stop at the first failing command and return that exit code.</li>
-<li>Surface missing prerequisites with actionable error messages.</li>
-</ul>
 
 
 
