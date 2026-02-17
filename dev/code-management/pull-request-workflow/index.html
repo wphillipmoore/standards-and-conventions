@@ -3283,6 +3283,8 @@ start of each work session or before declaring a development cycle complete:</p>
 successfully and the PR is ready to merge (manually or via auto-merge). If a
 required check fails, resolve it immediately and re-run the checks before
 merging.</p>
+<p>When <code>scripts/dev/finalize_repo.sh</code> is available, run it after the merge
+completes to automate steps 3-5 below.</p>
 <p>Finalize the PR in this order:</p>
 <ol>
 <li>wait for all required checks to complete and pass</li>

@@ -3193,7 +3193,9 @@ operations.</p>
 <li>Wait for all required checks to complete and pass.</li>
 <li>If auto-merge is enabled, wait for the merge to complete before cleanup.</li>
 <li>Merge the pull request (if not already merged) and delete the remote branch.</li>
-<li>Update the local target branch.</li>
+<li>Run <code>scripts/dev/finalize_repo.sh</code> to update the local target branch, delete
+   merged branches, and prune remotes. If the script is not available, perform
+   steps 5-6 manually.</li>
 <li>Delete the local feature branch and prune remotes.</li>
 <li>Run final validation unless the docs-only exception applies.</li>
 </ol>
