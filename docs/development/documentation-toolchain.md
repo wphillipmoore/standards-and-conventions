@@ -241,26 +241,36 @@ Key requirements:
 
 ### Version determination by branching model
 
-#### docs-single-branch
+#### docs-promotion
 
-Documentation-only repositories use `develop` as the single eternal branch.
-Since there is no `main` branch, `develop` represents the canonical state:
+Documentation-only repositories use `develop` for staging and `main` for
+the live site:
 
 ```yaml
 - name: Determine version
   id: version
   run: |
-    echo "version=dev" >> "$GITHUB_OUTPUT"
-    echo "alias=latest" >> "$GITHUB_OUTPUT"
+    if [ "${{ github.ref_name }}" = "main" ]; then
+      echo "version=latest" >> "$GITHUB_OUTPUT"
+      echo "alias=" >> "$GITHUB_OUTPUT"
+    else
+      echo "version=dev" >> "$GITHUB_OUTPUT"
+      echo "alias=" >> "$GITHUB_OUTPUT"
+    fi
 ```
 
-The workflow triggers only on `develop` pushes. The `dev` version always
-receives the `latest` alias since it is the only published version.
+- `main` branch: version `latest`, set as the default.
+- `develop` branch: version `dev`, no alias.
+
+Documentation repositories do not have a `VERSION` file, so `main` deploys
+directly as `latest` rather than a semver version aliased as `latest`.
+
+The workflow triggers on both `develop` and `main` pushes.
 
 #### application-promotion and library-release
 
 Repositories with both `develop` and `main` branches determine the version
-from the branch:
+from the branch and a `VERSION` file:
 
 ```yaml
 - name: Determine version

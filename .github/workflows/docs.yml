@@ -2,7 +2,7 @@ name: Documentation
 
 on:
   push:
-    branches: [develop]
+    branches: [develop, main]
   workflow_dispatch:
 
 permissions:
@@ -30,13 +30,21 @@ jobs:
       - name: Determine version
         id: version
         run: |
-          echo "version=dev" >> "$GITHUB_OUTPUT"
-          echo "alias=latest" >> "$GITHUB_OUTPUT"
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            echo "version=latest" >> "$GITHUB_OUTPUT"
+            echo "alias=" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=dev" >> "$GITHUB_OUTPUT"
+            echo "alias=" >> "$GITHUB_OUTPUT"
+          fi
       - name: Deploy with mike
         env:
           VERSION: ${{ steps.version.outputs.version }}
           ALIAS: ${{ steps.version.outputs.alias }}
         run: |
-          mike deploy --push --update-aliases \
-            "$VERSION" "$ALIAS"
+          if [ -n "$ALIAS" ]; then
+            mike deploy --push --update-aliases "$VERSION" "$ALIAS"
+          else
+            mike deploy --push "$VERSION"
+          fi
           mike set-default --push latest

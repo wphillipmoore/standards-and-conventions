@@ -8,23 +8,25 @@
 - [3. Core invariants](#3-core-invariants)
 - [4. Branch roles](#4-branch-roles)
   - [develop](#develop)
-- [5. Short-lived branches](#5-short-lived-branches)
+  - [main](#main)
+- [5. Promotion flow](#5-promotion-flow)
+- [6. Short-lived branches](#6-short-lived-branches)
   - [feature/*](#feature)
   - [bugfix/*](#bugfix)
-- [6. Validation expectations](#6-validation-expectations)
-- [7. Forbidden operations](#7-forbidden-operations)
-- [8. Related documents](#8-related-documents)
+- [7. Validation expectations](#7-validation-expectations)
+- [8. Forbidden operations](#8-forbidden-operations)
+- [9. Related documents](#9-related-documents)
 
 ## Status
 
-Active v0.2
+Active v0.3
 
 ---
 
 ## 1. Purpose
 
-Define a minimal branching model for documentation repositories that keeps the
-workflow simple and durable.
+Define the branching model for documentation repositories that supports a
+staging preview on `develop` and a live published site on `main`.
 
 ## 2. Scope
 
@@ -33,10 +35,11 @@ snippets only and do not publish deployable artifacts.
 
 ## 3. Core invariants
 
-- `develop` is the single eternal branch.
-- `main` is not used for documentation repositories.
-- All changes arrive via short-lived branches.
-- There are no release branches or promotion flows.
+- `develop` and `main` are the two eternal branches.
+- `develop` is the default branch and staging target.
+- `main` is the promotion target for live/published documentation.
+- All changes arrive via short-lived branches merged to `develop`.
+- Changes reach `main` only via promotion PR from `develop`.
 - Versioning is optional and not required for publication.
 
 ## 4. Branch roles
@@ -44,10 +47,25 @@ snippets only and do not publish deployable artifacts.
 ### develop
 
 - default branch for documentation
-- source of published GitHub content
-- integration and release branch when a single branch is used
+- integration branch for all changes
+- source of the staging/preview documentation site (`dev` version)
 
-## 5. Short-lived branches
+### main
+
+- promotion target for reviewed, publish-ready content
+- source of the live documentation site (`latest` version)
+- receives changes only from `develop` via PR
+
+## 5. Promotion flow
+
+To publish documentation changes to the live site:
+
+1. Merge feature/bugfix branches to `develop` via PR.
+2. Verify the staging site (`dev` version) renders correctly.
+3. Open a PR from `develop` to `main`.
+4. Merge the promotion PR to update the live site.
+
+## 6. Short-lived branches
 
 Use short-lived branches for all changes.
 
@@ -76,19 +94,21 @@ Rules:
 - merged into `develop`
 - deleted after merge
 
-## 6. Validation expectations
+## 7. Validation expectations
 
 Documentation repositories must run markdownlint for documentation validation.
 Automated test or release validation is not required. Additional validation is
 optional unless a specific repository documents a requirement.
 
-## 7. Forbidden operations
+## 8. Forbidden operations
 
-- direct commits to `develop`
-- long-lived branches other than `develop`
-- adding release branches or promotion flows without updating standards
+- direct commits to `develop` or `main`
+- long-lived branches other than `develop` and `main`
+- merging to `main` from any branch other than `develop`
+- force-pushing to `develop` or `main`
 
-## 8. Related documents
+## 9. Related documents
 
 - Repository types and attributes: [repository-types-and-attributes.md](repository-types-and-attributes.md)
 - Pull request workflow: [pull-request-workflow.md](pull-request-workflow.md)
+- Documentation toolchain: [../development/documentation-toolchain.md](../development/documentation-toolchain.md)
