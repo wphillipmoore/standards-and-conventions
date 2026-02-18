@@ -2,7 +2,7 @@ name: Standards Gates
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize, edited]
+    types: [opened, reopened, synchronize]
 
 jobs:
   standards-gates:
