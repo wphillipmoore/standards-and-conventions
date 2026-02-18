@@ -35,6 +35,8 @@ Skill bodies must remain aligned with the canonical documents they reference.
   workflow with post-publish dependency updates.
 - `rtfm` (`skills/rtfm/SKILL.md`): RTFM forced interruption handling with
   failure context capture and issue tracking.
+- `new-issue` (`skills/new-issue/SKILL.md`): guided issue creation with
+  required attribute collection and project assignment.
 
 ## Usage conventions
 - Keep skills minimal and procedural; defer rationale to the standards.
