@@ -42,9 +42,6 @@ jobs:
           VERSION: ${{ steps.version.outputs.version }}
           ALIAS: ${{ steps.version.outputs.alias }}
         run: |
-          if [ -n "$ALIAS" ]; then
-            mike deploy --push --update-aliases "$VERSION" "$ALIAS"
-          else
-            mike deploy --push "$VERSION"
-          fi
+          mike deploy --push --update-aliases \
+            "$VERSION" $ALIAS
           mike set-default --push latest
