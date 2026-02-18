@@ -134,6 +134,7 @@ This repository hosts shared skills that downstream repositories load:
 - `skills/publish/` - Library and documentation publish workflow
 - `skills/pr-workflow/` - Pull request workflow
 - `skills/rtfm/` - RTFM forced interruption handling
+- `skills/new-issue/` - Guided issue creation with required attribute collection
 
 ## Working Rules
 
