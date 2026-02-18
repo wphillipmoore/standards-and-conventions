@@ -59,6 +59,12 @@ Both files share the same underlying standards via include directives, ensuring 
 <!-- include: docs/standards-and-conventions.md -->
 <!-- include: docs/repository-standards.md -->
 
+## Always-Loaded Skills
+
+These skills are loaded at session start so they're immediately available without explicit invocation. When a user provides skill attributes inline (e.g., "create a P0 enhancement for X"), skip the corresponding interactive questions and go straight to confirm-and-create.
+
+<!-- include: skills/new-issue/SKILL.md -->
+
 ## Project Overview
 
 This is the **canonical standards and conventions repository**. All other repositories reference it as their baseline for development standards, workflows, and AI agent guidance.
@@ -98,10 +104,10 @@ The include directives above load the full repository standards. Key highlights 
 **Repository Profile**:
 - repository_type: documentation
 - versioning_scheme: none
-- branching_model: docs-single-branch
+- branching_model: docs-promotion
 - release_model: none
 
-**Branching**: `develop` is the single eternal branch. All work happens on `feature/*` or `bugfix/*` branches merged back via PR.
+**Branching**: `develop` is the default branch (staging). `main` is the promotion target (live site). All work happens on `feature/*` or `bugfix/*` branches merged to `develop` via PR. Changes reach `main` via promotion PR from `develop`.
 
 **Docs-only exception**: Since this is a documentation-only repository, the docs-only exception applies to all PRs. Local validation is optional per the docs-only rule.
 
