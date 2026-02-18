@@ -1,23 +1,5 @@
 # EU and Canada alternatives to GitHub and AWS (non-US ownership)
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope and constraints](#scope-and-constraints)
-- [Evaluation criteria](#evaluation-criteria)
-- [Findings](#findings)
-  - [Sovereignty drivers and policy signal](#sovereignty-drivers-and-policy-signal)
-  - [US jurisdiction exposure and transfer risk](#us-jurisdiction-exposure-and-transfer-risk)
-  - [Git hosting](#git-hosting)
-  - [CI and CD](#ci-and-cd)
-  - [Managed PostgreSQL and API hosting](#managed-postgresql-and-api-hosting)
-- [Recommendations](#recommendations)
-  - [EU-based recommendation](#eu-based-recommendation)
-  - [Canada-based recommendation](#canada-based-recommendation)
-- [Migration path (next 12 months)](#migration-path-next-12-months)
-- [Risks and open questions](#risks-and-open-questions)
-- [References](#references)
-
 ## Purpose
 
 Provide a concise, decision-ready report on non-US-owned alternatives to

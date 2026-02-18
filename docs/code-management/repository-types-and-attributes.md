@@ -1,19 +1,5 @@
 # Repository Types and Attributes
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Core concepts](#core-concepts)
-- [Repository types](#repository-types)
-  - [Application repositories](#application-repositories)
-  - [Library repositories](#library-repositories)
-  - [Documentation repositories](#documentation-repositories)
-- [Required repository attributes](#required-repository-attributes)
-- [Declaration requirement](#declaration-requirement)
-- [Change control](#change-control)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Define the repository classifications and metadata needed to select the correct

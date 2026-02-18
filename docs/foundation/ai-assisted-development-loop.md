@@ -1,17 +1,5 @@
 # AI-Assisted Development Loop
 
-## Table of Contents
-
-- [Status](#status)
-- [1. Purpose](#1-purpose)
-- [2. Initial Conditions](#2-initial-conditions)
-- [3. Core Insight](#3-core-insight)
-- [4. The Loop](#4-the-loop)
-- [5. What the AI Is Not Doing](#5-what-the-ai-is-not-doing)
-- [6. Velocity and Control](#6-velocity-and-control)
-- [7. Intended Use](#7-intended-use)
-- [Closing Note](#closing-note)
-
 ## Status
 
 Frozen v0.1 snapshot

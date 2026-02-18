@@ -1,29 +1,5 @@
 # Source Code Management Guidelines
 
-## Table of Contents
-
-- [Status](#status)
-- [1. AI Assistance (Explicitly Bounded)](#1-ai-assistance-explicitly-bounded)
-- [2. Version Control Platform](#2-version-control-platform)
-  - [Lock-In Awareness](#lock-in-awareness)
-- [3. Repository Strategy](#3-repository-strategy)
-  - [Core Philosophy](#core-philosophy)
-  - [Boundary Rule](#boundary-rule)
-  - [Explicit Non-Decision](#explicit-non-decision)
-- [4. Runtime Version Policy](#4-runtime-version-policy)
-  - [Deployment Rule](#deployment-rule)
-- [5. CI/CD Constraints](#5-cicd-constraints)
-  - [CI gates](#ci-gates)
-  - [Docs-only CI skip policy](#docs-only-ci-skip-policy)
-  - [Local enforcement hooks](#local-enforcement-hooks)
-- [6. GitHub Repository Settings](#6-github-repository-settings)
-  - [Automatically delete head branches](#automatically-delete-head-branches)
-  - [GitHub repository rulesets](#github-repository-rulesets)
-- [7. Locked vs. Flexible Decisions](#7-locked-vs-flexible-decisions)
-  - [Locked at v0.1](#locked-at-v01)
-  - [Explicitly Flexible](#explicitly-flexible)
-- [8. Guiding Principle](#8-guiding-principle)
-
 ## Status
 
 Active v0.2

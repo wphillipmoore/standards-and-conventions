@@ -1,24 +1,5 @@
 # Python Dependency Management
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Sources of truth](#sources-of-truth)
-- [Version specification rules](#version-specification-rules)
-- [Upgrade workflow](#upgrade-workflow)
-  - [Patch-level](#patch-level)
-  - [Minor- or major-level](#minor--or-major-level)
-- [In-cycle exception rules](#in-cycle-exception-rules)
-- [Handling regressions and non-latest pins](#handling-regressions-and-non-latest-pins)
-- [Anchored dependency documentation](#anchored-dependency-documentation)
-- [Pre-release dependencies](#pre-release-dependencies)
-- [Security-driven updates](#security-driven-updates)
-- [Locked dependency review](#locked-dependency-review)
-- [Enforcement](#enforcement)
-- [Examples (TODO)](#examples-todo)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Define strict, repeatable rules for Python dependency management to reduce

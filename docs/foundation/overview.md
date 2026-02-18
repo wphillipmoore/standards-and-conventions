@@ -1,12 +1,5 @@
 # Foundation Standards Overview
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Document map](#document-map)
-- [When to use each summary protocol](#when-to-use-each-summary-protocol)
-
 ## Purpose
 
 Provide a single entry point for foundational standards that apply across

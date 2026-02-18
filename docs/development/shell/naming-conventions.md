@@ -1,17 +1,5 @@
 # Shell Naming Conventions
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Baseline Conventions](#baseline-conventions)
-- [Variable Naming Rules](#variable-naming-rules)
-  - [1. Minimum Length: 3+ Characters](#1-minimum-length-3-characters)
-  - [2. Complete English Words](#2-complete-english-words)
-  - [3. Namespace Collision Handling](#3-namespace-collision-handling)
-  - [4. Boolean Variables](#4-boolean-variables)
-  - [5. Collections: Plural vs. Singular](#5-collections-plural-vs-singular)
-  - [6. Consistency Rules](#6-consistency-rules)
-
 ## Purpose
 
 Provide naming rules that optimize for clarity, consistency, and accessibility.

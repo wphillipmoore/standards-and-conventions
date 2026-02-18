@@ -1,14 +1,5 @@
 # Agent skills
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Repository-local skills](#repository-local-skills)
-- [Shared skills library](#shared-skills-library)
-- [Registration and loading](#registration-and-loading)
-- [Startup reporting](#startup-reporting)
-
 ## Purpose
 
 Define how skills are stored, imported, and referenced so repositories avoid

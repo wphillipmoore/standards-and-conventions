@@ -1,13 +1,5 @@
 # Cognitive regression tests
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Categories](#categories)
-- [Failure criteria](#failure-criteria)
-- [Prompt shortcuts](#prompt-shortcuts)
-
 ## Purpose
 
 Define regression tests that detect drift toward polite, assumption-light, or

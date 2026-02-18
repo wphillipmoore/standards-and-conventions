@@ -1,11 +1,5 @@
 # Development Standards Overview
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Document Map](#document-map)
-
 ## Purpose
 
 Define reusable development standards that apply across languages and tooling.

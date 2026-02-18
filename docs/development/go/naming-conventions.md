@@ -1,19 +1,5 @@
 # Go Naming Conventions
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Effective Go Baseline](#effective-go-baseline)
-- [Casing Convention Note](#casing-convention-note)
-- [Variable Naming Rules](#variable-naming-rules)
-  - [1. Struct-to-Variable Mapping](#1-struct-to-variable-mapping)
-  - [2. Minimum Length: 3+ Characters](#2-minimum-length-3-characters)
-  - [3. Complete English Words](#3-complete-english-words)
-  - [4. Namespace Collision Handling](#4-namespace-collision-handling)
-  - [5. Boolean Variables](#5-boolean-variables)
-  - [6. Collections: Plural vs. Singular](#6-collections-plural-vs-singular)
-  - [7. Consistency Rules](#7-consistency-rules)
-
 ## Purpose
 
 Provide naming rules that optimize for clarity, consistency, and accessibility.

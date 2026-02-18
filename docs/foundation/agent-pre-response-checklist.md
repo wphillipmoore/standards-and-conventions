@@ -1,12 +1,5 @@
 # Agent pre-response checklist
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Checklist](#checklist)
-- [Prompt shortcuts](#prompt-shortcuts)
-
 ## Purpose
 
 Provide a minimal checklist to detect drift toward assumption-light or

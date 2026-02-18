@@ -1,19 +1,5 @@
 # Summarize decisions protocol
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Definitions](#definitions)
-- [Prompt shortcuts](#prompt-shortcuts)
-- [Input rules](#input-rules)
-- [Output structure](#output-structure)
-- [Section requirements](#section-requirements)
-- [Implicitly converged decisions](#implicitly-converged-decisions)
-- [Optional sections](#optional-sections)
-- [Style and fidelity rules](#style-and-fidelity-rules)
-- [Failure modes](#failure-modes)
-
 ## Purpose
 
 Define how to summarize a discussion into durable documentation that preserves

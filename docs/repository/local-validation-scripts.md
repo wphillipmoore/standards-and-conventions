@@ -1,14 +1,5 @@
 # Local Validation Scripts
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Requirements](#requirements)
-- [CI parity](#ci-parity)
-- [Per-ecosystem examples](#per-ecosystem-examples)
-- [Ecosystem-specific standards](#ecosystem-specific-standards)
-
 ## Purpose
 
 Define the required behavior for a canonical validation script that runs all

@@ -1,19 +1,5 @@
 # Commit Messages and Authorship
 
-## Table of Contents
-
-- [Commit Message Format](#commit-message-format)
-- [Types](#types)
-- [Example](#example)
-- [Commit Authorship](#commit-authorship)
-- [AI Co-Authorship](#ai-co-authorship)
-- [AI identity strategy](#ai-identity-strategy)
-- [Adding a New AI Service Account](#adding-a-new-ai-service-account)
-  - [Step-by-step checklist](#step-by-step-checklist)
-  - [Practical example: wphillipmoore-codex](#practical-example-wphillipmoore-codex)
-- [Scaling to shared ownership](#scaling-to-shared-ownership)
-- [Project-specific AI identities](#project-specific-ai-identities)
-
 ## Commit Message Format
 
 Follow Conventional Commits:

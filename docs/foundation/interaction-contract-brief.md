@@ -1,18 +1,5 @@
 # Interaction contract (brief)
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Normative language](#normative-language)
-- [Core role](#core-role)
-- [Optimization invariants](#optimization-invariants)
-- [Communication requirements](#communication-requirements)
-- [Failure signaling](#failure-signaling)
-- [RTFM protocol](#rtfm-protocol)
-- [Anti-goals](#anti-goals)
-- [Prompt shortcuts](#prompt-shortcuts)
-
 ## Purpose
 
 Define a concise operating contract for adversarial, durability-focused AI

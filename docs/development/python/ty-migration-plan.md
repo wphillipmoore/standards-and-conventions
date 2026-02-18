@@ -1,23 +1,5 @@
 # Ty adoption migration plan
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Non-goals](#non-goals)
-- [Assumptions](#assumptions)
-- [Plan](#plan)
-  - [Phase 0: Baseline decisions](#phase-0-baseline-decisions)
-  - [Phase 1: Standards updates](#phase-1-standards-updates)
-  - [Phase 2: Repository enablement](#phase-2-repository-enablement)
-  - [Phase 3: Side-by-side evaluation](#phase-3-side-by-side-evaluation)
-  - [Phase 4: Remediation and alignment](#phase-4-remediation-and-alignment)
-  - [Phase 5: Cutover and cleanup](#phase-5-cutover-and-cleanup)
-- [Acceptance criteria](#acceptance-criteria)
-- [Risks and mitigations](#risks-and-mitigations)
-- [Rollback strategy](#rollback-strategy)
-- [Open questions](#open-questions)
-
 ## Purpose
 
 Adopt `ty` as a peer type checker alongside `mypy`, run both in parallel long

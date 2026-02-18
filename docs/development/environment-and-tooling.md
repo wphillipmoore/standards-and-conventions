@@ -1,13 +1,5 @@
 # Development Environment and Tooling
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Virtual Environment Requirement](#virtual-environment-requirement)
-- [Python invocation and venv activation](#python-invocation-and-venv-activation)
-- [External Tooling Dependencies](#external-tooling-dependencies)
-- [Maintenance](#maintenance)
-
 ## Purpose
 
 Define baseline expectations for development environments and external tooling.

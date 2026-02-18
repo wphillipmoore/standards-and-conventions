@@ -1,21 +1,5 @@
 # Release and Versioning Policy
 
-## Table of Contents
-
-- [Status](#status)
-- [1. Purpose](#1-purpose)
-- [2. Release Definition](#2-release-definition)
-  - [Application repositories](#application-repositories)
-  - [Library repositories](#library-repositories)
-  - [Documentation repositories](#documentation-repositories)
-- [3. Versioning](#3-versioning)
-- [4. Pre-release policy](#4-pre-release-policy)
-- [5. Artifact Properties](#5-artifact-properties)
-- [6. Relationship to Branches](#6-relationship-to-branches)
-- [7. Rollback Strategy](#7-rollback-strategy)
-- [8. Forbidden Practices](#8-forbidden-practices)
-- [9. Guiding Principle](#9-guiding-principle)
-
 ## Status
 
 Active v0.2

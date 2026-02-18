@@ -1,18 +1,5 @@
 # Library Versioning Scheme
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Invariants](#invariants)
-- [Version format](#version-format)
-- [Source of truth](#source-of-truth)
-- [Increment rules](#increment-rules)
-- [Release workflow](#release-workflow)
-- [Dependency management](#dependency-management)
-- [Validation and failure modes](#validation-and-failure-modes)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Define how supporting libraries are versioned, released, and consumed.

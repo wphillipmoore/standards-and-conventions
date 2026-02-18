@@ -1,18 +1,5 @@
 # Runtime Version Support Policy
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Definitions](#definitions)
-- [Support tiers](#support-tiers)
-- [CI matrix mapping](#ci-matrix-mapping)
-- [Application versus library scope](#application-versus-library-scope)
-- [Drop criteria](#drop-criteria)
-- [Drop procedure](#drop-procedure)
-- [Language lifecycle references](#language-lifecycle-references)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Define a tiered runtime version support policy that balances forward progress

@@ -1,19 +1,5 @@
 # Workflow runbooks
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Session startup runbook](#session-startup-runbook)
-- [Issue creation runbook](#issue-creation-runbook)
-- [Branching runbook](#branching-runbook)
-- [Change execution runbook](#change-execution-runbook)
-- [Validation runbook](#validation-runbook)
-- [Pull request submission runbook](#pull-request-submission-runbook)
-- [Pull request finalization runbook](#pull-request-finalization-runbook)
-- [Docs-only exception runbook](#docs-only-exception-runbook)
-- [Maintenance](#maintenance)
-
 ## Purpose
 
 Provide deterministic, step-by-step workflows that remove ambiguity in common

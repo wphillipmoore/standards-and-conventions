@@ -1,19 +1,5 @@
 # GitHub Projects
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Definitions](#definitions)
-- [Project structure](#project-structure)
-- [Custom fields](#custom-fields)
-- [Views](#views)
-- [Workflows and automations](#workflows-and-automations)
-- [Integration with development workflow](#integration-with-development-workflow)
-- [User guide](#user-guide)
-- [Known limitations](#known-limitations)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Define how GitHub Projects is used to plan, prioritize, and track work across

@@ -1,19 +1,5 @@
 # Application Versioning Scheme
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Operating model](#operating-model)
-- [Invariants](#invariants)
-- [Version format](#version-format)
-- [Source of truth](#source-of-truth)
-- [Increment rules](#increment-rules)
-- [Build derivation](#build-derivation)
-- [Promotion workflow](#promotion-workflow)
-- [Validation and failure modes](#validation-and-failure-modes)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Ensure every deployed application artifact has a unique, human-readable version

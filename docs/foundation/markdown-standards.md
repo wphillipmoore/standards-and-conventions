@@ -1,18 +1,5 @@
 # Markdown Standards
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [File Naming and Placement](#file-naming-and-placement)
-- [Structure and Headings](#structure-and-headings)
-- [Table of Contents Rules](#table-of-contents-rules)
-- [Formatting Conventions](#formatting-conventions)
-- [Links and References](#links-and-references)
-- [Code Blocks](#code-blocks)
-- [Validation](#validation)
-- [Maintenance](#maintenance)
-
 ## Purpose
 
 Define consistent Markdown conventions for clarity, durability, and easy
@@ -46,7 +33,8 @@ explicitly state otherwise.
 - Use GitHub-style anchor links.
 - **Exception**: Pages built by documentation site generators (Sphinx, MkDocs,
   etc.) are exempt from the Table of Contents requirement because those tools
-  provide integrated navigation.
+  provide integrated navigation. The lint script detects MkDocs doc trees
+  automatically when `mkdocs.yml` exists at the repository root.
 
 ## Formatting Conventions
 
@@ -81,5 +69,5 @@ explicitly state otherwise.
 
 ## Maintenance
 
-- Update the Table of Contents when headings change.
+- Update the Table of Contents when headings change (non-docsite files only).
 - Keep documents current; stale guidance should be revised or removed.

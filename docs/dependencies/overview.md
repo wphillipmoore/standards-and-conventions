@@ -1,14 +1,5 @@
 # Dependency Anchor Records
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Required layout](#required-layout)
-- [Record format](#record-format)
-- [Maintenance](#maintenance)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Provide a durable record of why a dependency is anchored below the latest

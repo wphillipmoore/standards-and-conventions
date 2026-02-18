@@ -1,18 +1,5 @@
 # Python Naming Conventions
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [PEP 8 Baseline](#pep-8-baseline)
-- [Variable Naming Rules](#variable-naming-rules)
-  - [1. Class-to-Variable Mapping](#1-class-to-variable-mapping)
-  - [2. Minimum Length: 3+ Characters](#2-minimum-length-3-characters)
-  - [3. Complete English Words](#3-complete-english-words)
-  - [4. Namespace Collision Handling](#4-namespace-collision-handling)
-  - [5. Boolean Variables](#5-boolean-variables)
-  - [6. Collections: Plural vs. Singular](#6-collections-plural-vs-singular)
-  - [7. Consistency Rules](#7-consistency-rules)
-
 ## Purpose
 
 Provide naming rules that optimize for clarity, consistency, and accessibility.
