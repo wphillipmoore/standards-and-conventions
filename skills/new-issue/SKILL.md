@@ -29,9 +29,22 @@ questions that collect all fields required by the GitHub issue standards.
 The skill enforces the minimum required structure (Summary, Problem/Goal,
 Acceptance Criteria, Validation) and assigns the issue to a GitHub Project.
 
+### Interaction modes
+
+Each collection step uses one of two interaction modes:
+
+- **Selection** — Use `AskUserQuestion` when the user picks from a fixed
+  set of options (project, repository, issue type, priority, work type).
+- **Free-text** — Ask via a plain conversational message and wait for the
+  user's reply. Do NOT use `AskUserQuestion` for open-ended input such as
+  the issue title, problem description, or acceptance criteria details.
+  Simply prompt the user in your message and let them respond naturally.
+
 ## Workflow
 
 ### Select project
+
+> Interaction mode: **selection**
 
 List available GitHub Projects with `gh project list` and ask the user to
 select one. Default to the project associated with the current repository
@@ -39,6 +52,8 @@ select one. Default to the project associated with the current repository
 it automatically and confirm.
 
 ### Select target repository
+
+> Interaction mode: **selection**
 
 List the repositories linked to the selected project and ask the user which
 repository the issue should be created in. Default to the current repository
@@ -48,6 +63,8 @@ Resolve the local path for `gh` commands. If the repository is not
 available locally, stop and inform the user.
 
 ### Collect issue type
+
+> Interaction mode: **selection**
 
 Ask the user for the issue type:
 
@@ -64,6 +81,8 @@ with `gh label create`.
 
 ### Collect priority
 
+> Interaction mode: **selection**
+
 Ask the user for the priority:
 
 | Priority | Meaning                        |
@@ -75,6 +94,8 @@ Ask the user for the priority:
 This is set as a project field after the issue is added to the project.
 
 ### Collect work type
+
+> Interaction mode: **selection**
 
 Ask the user for the work type:
 
@@ -91,6 +112,8 @@ This is set as a project field after the issue is added to the project.
 
 ### Collect summary
 
+> Interaction mode: **free-text**
+
 Ask the user for a short title describing the issue. Prefix the title
 with the conventional type from the table above.
 
@@ -98,10 +121,15 @@ Example: `feat: add retry configuration to REST client`
 
 ### Collect problem or goal
 
+> Interaction mode: **free-text**
+
 Ask the user to describe the problem being solved or the goal being
 achieved. This becomes the **Problem / Goal** section of the issue body.
 
 ### Collect acceptance criteria
+
+> Interaction mode: **selection** for the initial question, then
+> **free-text** if the user needs to provide explicit criteria.
 
 Ask whether acceptance criteria are obvious from the summary.
 
@@ -111,14 +139,17 @@ Ask whether acceptance criteria are obvious from the summary.
 
 ### Collect validation
 
-Ask how completion will be verified. Common options include:
+> Interaction mode: **selection** (multi-select)
+
+Ask how completion will be verified. Present the common options as a
+multi-select list:
 
 - CI passes
 - Tests added
 - Documentation updated
 - Manual verification
-- Combination of the above
 
+The user may also provide a custom response via the "Other" option.
 Record the response as the **Validation** section of the issue body.
 
 ### Confirm and create
