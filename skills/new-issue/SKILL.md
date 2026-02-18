@@ -29,25 +29,79 @@ questions that collect all fields required by the GitHub issue standards.
 The skill enforces the minimum required structure (Summary, Problem/Goal,
 Acceptance Criteria, Validation) and assigns the issue to a GitHub Project.
 
+### Tooling
+
+Helper scripts live in the `standard-tooling` sibling repository. Resolve
+the path once at the start of the workflow:
+
+```bash
+TOOLING="$HOME/dev/github/standard-tooling"
+```
+
+If the directory does not exist, stop and inform the user.
+
+### Interaction modes
+
+Each collection step uses one of two interaction modes:
+
+- **Selection** — Use `AskUserQuestion` when the user picks from a fixed
+  set of options (project, repository, issue type, priority, work type).
+- **Free-text** — Ask via a plain conversational message and wait for the
+  user's reply. Do NOT use `AskUserQuestion` for open-ended input such as
+  the issue title, problem description, or acceptance criteria details.
+  Simply prompt the user in your message and let them respond naturally.
+
+### Ad-hoc code prohibition
+
+Do NOT write ad-hoc code (inline Python, jq pipelines, etc.) to query
+GitHub during this workflow. Every GitHub data lookup is handled by either
+a pinned `gh` command documented in this skill or a helper script in
+`$TOOLING/scripts/gh/`. If a command is not documented here, it is not
+needed.
+
 ## Workflow
 
 ### Select project
 
-List available GitHub Projects with `gh project list` and ask the user to
-select one. Default to the project associated with the current repository
-(determined from the working directory). If only one project exists, select
-it automatically and confirm.
+> Interaction mode: **selection**
+
+Determine the repository owner from the working directory:
+
+```bash
+gh repo view --json owner --jq '.owner.login'
+```
+
+List available GitHub Projects:
+
+```bash
+gh project list --owner <owner> --format json --jq '.projects[] | [.number, .title] | @tsv'
+```
+
+Ask the user to select one. Default to the project associated with the
+current repository if identifiable. If only one project exists, select it
+automatically and confirm.
+
+**Captures**: `owner`, `project_number`, `project_name`.
 
 ### Select target repository
 
-List the repositories linked to the selected project and ask the user which
-repository the issue should be created in. Default to the current repository
-(determined from the working directory) if it belongs to the project.
+> Interaction mode: **selection**
 
-Resolve the local path for `gh` commands. If the repository is not
-available locally, stop and inform the user.
+List the repositories linked to the selected project:
+
+```bash
+"$TOOLING/scripts/gh/list-project-repos.sh" --owner <owner> --project <project_number>
+```
+
+Output is one `owner/repo` per line. Ask the user which repository the
+issue should be created in. Default to the current repository (determined
+from the working directory) if it appears in the list.
+
+**Captures**: `target_repo` (as `owner/repo`).
 
 ### Collect issue type
+
+> Interaction mode: **selection**
 
 Ask the user for the issue type:
 
@@ -59,10 +113,17 @@ Ask the user for the issue type:
 | Chore        | chore         | chore:       |
 | Docs         | documentation | docs:        |
 
-If the selected label does not exist in the target repository, create it
-with `gh label create`.
+After the user selects, ensure the label exists:
+
+```bash
+"$TOOLING/scripts/gh/ensure-label.sh" --repo <target_repo> --label <label>
+```
+
+**Captures**: `label`, `title_prefix`.
 
 ### Collect priority
+
+> Interaction mode: **selection**
 
 Ask the user for the priority:
 
@@ -74,7 +135,11 @@ Ask the user for the priority:
 
 This is set as a project field after the issue is added to the project.
 
+**Captures**: `priority` (e.g. `P0`).
+
 ### Collect work type
+
+> Interaction mode: **selection**
 
 Ask the user for the work type:
 
@@ -89,19 +154,32 @@ Ask the user for the work type:
 
 This is set as a project field after the issue is added to the project.
 
+**Captures**: `work_type`.
+
 ### Collect summary
+
+> Interaction mode: **free-text**
 
 Ask the user for a short title describing the issue. Prefix the title
 with the conventional type from the table above.
 
 Example: `feat: add retry configuration to REST client`
 
+**Captures**: `title`.
+
 ### Collect problem or goal
+
+> Interaction mode: **free-text**
 
 Ask the user to describe the problem being solved or the goal being
 achieved. This becomes the **Problem / Goal** section of the issue body.
 
+**Captures**: `problem_or_goal`.
+
 ### Collect acceptance criteria
+
+> Interaction mode: **selection** for the initial question, then
+> **free-text** if the user needs to provide explicit criteria.
 
 Ask whether acceptance criteria are obvious from the summary.
 
@@ -109,55 +187,75 @@ Ask whether acceptance criteria are obvious from the summary.
 - If not obvious: collect explicit criteria as a checklist (one item per
   line, each prefixed with `- [ ]`).
 
+**Captures**: `acceptance_criteria`.
+
 ### Collect validation
 
-Ask how completion will be verified. Common options include:
+> Interaction mode: **selection** (multi-select)
+
+Ask how completion will be verified. Present the common options as a
+multi-select list:
 
 - CI passes
 - Tests added
 - Documentation updated
 - Manual verification
-- Combination of the above
 
-Record the response as the **Validation** section of the issue body.
+The user may also provide a custom response via the "Other" option.
+
+**Captures**: `validation`.
 
 ### Confirm and create
 
 Assemble the issue and present it to the user for review:
 
 ```
-Project: <project-name>
-Repository: <owner>/<repo>
-Title: <type-prefix> <summary>
+Project: <project_name>
+Repository: <target_repo>
+Title: <title>
 Labels: <label>
-Priority: <P0|P1|P2>
-Work Type: <work-type>
+Priority: <priority>
+Work Type: <work_type>
 
 ## Problem / Goal
 
-<problem-or-goal text>
+<problem_or_goal>
 
 ## Acceptance Criteria
 
-<criteria or "Acceptance criteria are implicit from the summary.">
+<acceptance_criteria>
 
 ## Validation
 
-<validation text>
+<validation>
 ```
 
-After user approval, create the issue:
+After user approval, execute the following steps in order.
+
+**Step 1 — Create the issue.** Write the body to a temp file and create:
 
 ```bash
-gh issue create --repo <owner>/<repo> --title "<title>" --label "<label>" --body-file <tempfile>
+gh issue create --repo <target_repo> --title "<title>" --label "<label>" --body-file <tempfile>
 ```
 
-Then add the issue to the selected project and set project fields:
+Capture the issue URL from stdout.
+
+**Step 2 — Add to project.** Add the issue and capture the item ID:
 
 ```bash
-gh project item-add <project-number> --owner <owner> --url <issue-url>
-gh project item-edit --project-id <project-id> --id <item-id> --field-id <priority-field-id> --single-select-option-id <option-id>
-gh project item-edit --project-id <project-id> --id <item-id> --field-id <work-type-field-id> --single-select-option-id <option-id>
+gh project item-add <project_number> --owner <owner> --url <issue_url> --format json --jq '.id'
+```
+
+**Step 3 — Set priority:**
+
+```bash
+"$TOOLING/scripts/gh/set-project-field.sh" --owner <owner> --project <project_number> --item <item_id> --field Priority --value <priority>
+```
+
+**Step 4 — Set work type:**
+
+```bash
+"$TOOLING/scripts/gh/set-project-field.sh" --owner <owner> --project <project_number> --item <item_id> --field "Work Type" --value <work_type>
 ```
 
 ### Report
