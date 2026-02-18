@@ -31,3 +31,5 @@ tool-specific requirements belong in development standards.
 - Pull request workflow: [pull-request-workflow.md](pull-request-workflow.md)
 - Workflow runbooks: [workflow-runbooks.md](workflow-runbooks.md)
 - Commit messages and authorship: [commit-messages-and-authorship.md](commit-messages-and-authorship.md)
+- GitHub issues: [github-issues.md](github-issues.md)
+- GitHub Projects: [github-projects.md](github-projects.md)
