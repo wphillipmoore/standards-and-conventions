@@ -1,24 +1,5 @@
 # Python Version Management
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Core principles](#core-principles)
-- [Sources of truth](#sources-of-truth)
-- [Upgrade workflow](#upgrade-workflow)
-  - [Patch-level](#patch-level)
-  - [Minor- or major-level](#minor--or-major-level)
-  - [Minor release preview (dual-CI)](#minor-release-preview-dual-ci)
-  - [Cutover criteria](#cutover-criteria)
-  - [Stability tracking](#stability-tracking)
-- [Host decoupling and parity](#host-decoupling-and-parity)
-  - [Parity requirements](#parity-requirements)
-  - [Decoupling strategies](#decoupling-strategies)
-- [Enforcement](#enforcement)
-- [Examples (TODO)](#examples-todo)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Define a repeatable Python version strategy that keeps runtime behavior stable

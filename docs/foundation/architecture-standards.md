@@ -1,15 +1,5 @@
 # Architecture Standards and Conventions
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Canonical vs. Derivative Artifacts](#canonical-vs-derivative-artifacts)
-- [Proprietary Tools and Formats](#proprietary-tools-and-formats)
-- [File Format Standards](#file-format-standards)
-- [Tool and Domain Independence](#tool-and-domain-independence)
-- [Versioning and Stability](#versioning-and-stability)
-- [Scope Notes](#scope-notes)
-
 ## Purpose
 
 Define architectural standards and constraints that govern design and

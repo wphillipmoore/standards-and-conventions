@@ -1,18 +1,5 @@
 # Shared Actions Library
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Design principles](#design-principles)
-- [Repository structure](#repository-structure)
-- [Action design rules](#action-design-rules)
-- [Versioning and pinning](#versioning-and-pinning)
-- [Security and permissions](#security-and-permissions)
-- [Adoption workflow](#adoption-workflow)
-- [Implementation plan](#implementation-plan)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Define standards for a shared GitHub Actions library that provides reusable,

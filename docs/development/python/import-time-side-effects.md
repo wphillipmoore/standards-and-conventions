@@ -1,11 +1,5 @@
 # Python Import-Time Side Effects
 
-## Table of Contents
-
-- [Rule](#rule)
-- [Allowed Exceptions](#allowed-exceptions)
-- [Forbidden Examples](#forbidden-examples)
-
 ## Rule
 
 No implicit state or side effects at import time.

@@ -1,16 +1,5 @@
 # Deprecation Warning Policy
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Definitions](#definitions)
-- [Triage workflow](#triage-workflow)
-- [Dependency upgrade handling](#dependency-upgrade-handling)
-- [Warning suppression policy](#warning-suppression-policy)
-- [Issue template](#issue-template)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Define a consistent policy for triaging and resolving deprecation warnings so

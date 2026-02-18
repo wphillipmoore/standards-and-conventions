@@ -1,19 +1,5 @@
 # Pull Request Workflow
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Docs-Only Exception](#docs-only-exception)
-- [Issue linkage](#issue-linkage)
-- [Pull request template](#pull-request-template)
-- [Pre-Submission Requirements](#pre-submission-requirements)
-- [Pre-Submission Checklist](#pre-submission-checklist)
-- [Pull request submission](#pull-request-submission)
-- [What to Do When Checks Fail](#what-to-do-when-checks-fail)
-- [Auto-merge policy](#auto-merge-policy)
-- [Async finalization guardrail](#async-finalization-guardrail)
-- [Pull Request Finalization](#pull-request-finalization)
-
 ## Purpose
 
 Pull requests must pass all hard-gate automated checks before submission. CI

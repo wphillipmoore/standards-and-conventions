@@ -1,12 +1,5 @@
 # Cognitive drift log
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Template](#template)
-- [Prompt shortcuts](#prompt-shortcuts)
-
 ## Purpose
 
 Provide a minimal log template for recording concerning or hard failures.

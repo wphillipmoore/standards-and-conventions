@@ -1,16 +1,5 @@
 # Summarize stream of consciousness protocol
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Definitions](#definitions)
-- [Prompt shortcuts](#prompt-shortcuts)
-- [Protocol states](#protocol-states)
-- [Capture rules](#capture-rules)
-- [Post-processing output](#post-processing-output)
-- [Failure modes](#failure-modes)
-
 ## Purpose
 
 Define a toggleable protocol for capturing unfiltered, unstructured thoughts

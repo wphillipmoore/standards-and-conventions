@@ -1,11 +1,5 @@
 # Code Management Standards Overview
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Document Map](#document-map)
-
 ## Purpose
 
 Define reusable standards for source control, branching, releases, and pull

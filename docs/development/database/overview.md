@@ -1,11 +1,5 @@
 # Database Standards Overview
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Document Map](#document-map)
-
 ## Purpose
 
 Define reusable database conventions that keep schemas and models consistent

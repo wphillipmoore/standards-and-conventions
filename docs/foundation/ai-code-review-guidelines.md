@@ -1,26 +1,5 @@
 # AI Code Review Guidelines
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Core Philosophy](#core-philosophy)
-  - [1. Design First, Tests Second](#1-design-first-tests-second)
-  - [2. Passing Tests Are Necessary, Not Sufficient](#2-passing-tests-are-necessary-not-sufficient)
-- [Reviewer Role Definition](#reviewer-role-definition)
-- [Review Focus Areas](#review-focus-areas)
-  - [1. Namespace Integrity](#1-namespace-integrity)
-  - [2. Contract Alignment Across Layers](#2-contract-alignment-across-layers)
-  - [3. Architectural Coherence](#3-architectural-coherence)
-  - [4. Tooling Integration as Architecture](#4-tooling-integration-as-architecture)
-  - [5. Survivability Without Original Author](#5-survivability-without-original-author)
-- [Explicit Non-Goals](#explicit-non-goals)
-- [Review Output Expectations](#review-output-expectations)
-- [Guiding Principle](#guiding-principle)
-- [Appendix A: Common Failure Modes](#appendix-a-common-failure-modes)
-  - [A.1 Test-Driven Namespace Drift](#a1-test-driven-namespace-drift)
-  - [A.2 Tests as Architectural Camouflage](#a2-tests-as-architectural-camouflage)
-- [Status](#status)
-
 ## Purpose
 
 Define how AI-assisted code reviews are performed.

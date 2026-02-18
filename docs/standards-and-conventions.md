@@ -1,14 +1,5 @@
 # Standards and Conventions Reference
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Requirement](#requirement)
-- [Includes](#includes)
-- [Project-specific overlay](#project-specific-overlay)
-- [Template](#template)
-- [Maintenance](#maintenance)
-
 ## Purpose
 
 Provide a required, repository-local entry point that references the canonical

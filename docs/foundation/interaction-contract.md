@@ -1,19 +1,5 @@
 # Interaction contract
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Normative language](#normative-language)
-- [Core role](#core-role)
-- [Optimization invariants](#optimization-invariants)
-- [Communication requirements](#communication-requirements)
-- [Failure signaling](#failure-signaling)
-- [RTFM protocol](#rtfm-protocol)
-- [Anti-goals](#anti-goals)
-- [Agent self-check rubric](#agent-self-check-rubric)
-- [Prompt shortcuts](#prompt-shortcuts)
-
 ## Purpose
 
 Define the operating contract between a user and an AI assistant acting as an

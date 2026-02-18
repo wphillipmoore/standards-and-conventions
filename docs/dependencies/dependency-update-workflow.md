@@ -1,15 +1,5 @@
 # Dependency update workflow
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Sources of truth](#sources-of-truth)
-- [Workflow](#workflow)
-- [Failure handling](#failure-handling)
-- [Release-cycle review](#release-cycle-review)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Define a repeatable, cross-ecosystem workflow for dependency updates that

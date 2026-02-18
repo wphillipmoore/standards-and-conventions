@@ -1,12 +1,5 @@
 # Agent guardrails
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Guardrails](#guardrails)
-- [Maintenance](#maintenance)
-
 ## Purpose
 
 Provide a short, high-signal list of non-negotiable agent constraints that must

@@ -1,14 +1,5 @@
 # Local Validation Scripts (Python)
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [General standard](#general-standard)
-- [Python-specific requirements](#python-specific-requirements)
-- [CI parity](#ci-parity)
-- [Version validation](#version-validation)
-
 ## Purpose
 
 Specialize the

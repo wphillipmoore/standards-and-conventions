@@ -1,14 +1,5 @@
 # Standards and Conventions Repository Standards
 
-## Table of Contents
-
-- [AI co-authors](#ai-co-authors)
-- [Repository profile](#repository-profile)
-- [Validation policy](#validation-policy)
-- [External tooling dependencies](#external-tooling-dependencies)
-- [CI gates](#ci-gates)
-- [Local deviations](#local-deviations)
-
 ## AI co-authors
 
 - Co-Authored-By: wphillipmoore-codex <255923655+wphillipmoore-codex@users.noreply.github.com>

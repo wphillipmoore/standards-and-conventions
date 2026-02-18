@@ -1,24 +1,5 @@
 # Branching and Deployment Model
 
-## Table of Contents
-
-- [Status](#status)
-- [1. Purpose](#1-purpose)
-- [2. Scope](#2-scope)
-- [3. Core Invariants](#3-core-invariants)
-- [4. Deployment Environments](#4-deployment-environments)
-- [5. Eternal Branches](#5-eternal-branches)
-  - [Pull Request Requirement](#pull-request-requirement)
-- [6. Short-Lived Branches](#6-short-lived-branches)
-  - [Branch Naming Conventions](#branch-naming-conventions)
-  - [feature/*](#feature)
-  - [bugfix/*](#bugfix)
-  - [hotfix/*](#hotfix)
-  - [promotion/*](#promotion)
-- [7. Promotion Flow](#7-promotion-flow)
-- [8. Forbidden Operations](#8-forbidden-operations)
-- [9. Guiding Principle](#9-guiding-principle)
-
 ## Status
 
 Active v0.2

@@ -1,16 +1,5 @@
 # Documentation Toolchain
 
-## Table of Contents
-
-- [Decision](#decision)
-- [Status](#status)
-- [Context](#context)
-- [Comparison](#comparison)
-- [Rationale](#rationale)
-- [Required Configuration](#required-configuration)
-- [CI Workflow Pattern](#ci-workflow-pattern)
-- [Shared Fragment Architecture](#shared-fragment-architecture)
-
 ## Decision
 
 All repositories use **MkDocs Material** with **mike** versioning as the

@@ -1,15 +1,5 @@
 # Repository Structure Standards
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Core Principles](#core-principles)
-- [Top-Level Layout](#top-level-layout)
-- [Tests](#tests)
-- [Documentation and Decision Records](#documentation-and-decision-records)
-- [Examples](#examples)
-- [Revisiting the Structure](#revisiting-the-structure)
-
 ## Purpose
 
 Provide a default repository layout that is explicit, discoverable, and easy to

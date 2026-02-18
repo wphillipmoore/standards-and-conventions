@@ -1,13 +1,5 @@
 # Python Coding Standards Overview
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Core Principles](#core-principles)
-- [Tooling Expectations](#tooling-expectations)
-- [CI Gates](#ci-gates)
-- [Document Map](#document-map)
-
 ## Purpose
 
 Define consistent Python standards that emphasize readability, maintainability,

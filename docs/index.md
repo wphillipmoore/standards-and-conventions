@@ -1,9 +1,5 @@
 # Standards and Conventions
 
-## Table of Contents
-
-- [Sections](#sections)
-
 ## Sections
 
 This site is the canonical reference for development standards,

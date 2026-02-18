@@ -1,21 +1,5 @@
 # Summarize operations protocol
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Definitions](#definitions)
-- [Prompt shortcuts](#prompt-shortcuts)
-- [Input rules](#input-rules)
-- [Output location and naming](#output-location-and-naming)
-- [Output structure](#output-structure)
-- [Section requirements](#section-requirements)
-- [Evidence capture rules](#evidence-capture-rules)
-- [Timestamp requirements](#timestamp-requirements)
-- [Optional sections](#optional-sections)
-- [Style and fidelity rules](#style-and-fidelity-rules)
-- [Failure modes](#failure-modes)
-
 ## Purpose
 
 Define how to summarize operational work into durable documentation that

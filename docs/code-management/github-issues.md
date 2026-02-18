@@ -1,18 +1,5 @@
 # GitHub Issue Standards
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Definitions](#definitions)
-- [Core rules](#core-rules)
-- [Acceptance criteria](#acceptance-criteria)
-- [Issue templates](#issue-templates)
-- [Issue creation and linking](#issue-creation-and-linking)
-- [Sub-issues](#sub-issues)
-- [Closing behavior](#closing-behavior)
-- [Related documents](#related-documents)
-
 ## Purpose
 
 Define a consistent, enforced workflow for GitHub issues so all changes are

@@ -1,27 +1,5 @@
 # Library Branching and Release Model
 
-## Table of Contents
-
-- [Status](#status)
-- [1. Purpose](#1-purpose)
-- [2. Scope](#2-scope)
-- [3. Core invariants](#3-core-invariants)
-- [4. Branch roles](#4-branch-roles)
-  - [main](#main)
-  - [develop](#develop)
-  - [release branches](#release-branches)
-- [5. Short-lived branches](#5-short-lived-branches)
-  - [feature/*](#feature)
-  - [bugfix/*](#bugfix)
-  - [hotfix/*](#hotfix)
-  - [chore/*](#chore)
-- [6. Release workflow](#6-release-workflow)
-- [7. Post-publish automation](#7-post-publish-automation)
-- [8. Pre-release policy](#8-pre-release-policy)
-- [9. Backporting policy](#9-backporting-policy)
-- [10. Forbidden operations](#10-forbidden-operations)
-- [11. Related documents](#11-related-documents)
-
 ## Status
 
 Active v0.3

@@ -1,16 +1,5 @@
 # Database Conventions
 
-## Table of Contents
-
-- [Schema design](#schema-design)
-- [Table Naming](#table-naming)
-- [Model File Organization](#model-file-organization)
-  - [Rule 1: One File Per Table](#rule-1-one-file-per-table)
-  - [Rule 2: Tightly Coupled One-to-One Tables](#rule-2-tightly-coupled-one-to-one-tables)
-  - [Rule 3: Association Tables](#rule-3-association-tables)
-  - [Rule 4: Gray Areas](#rule-4-gray-areas)
-  - [Revisiting the Rules](#revisiting-the-rules)
-
 ## Schema design
 
 - Prefer fully normalized schemas with first-class tables and typed columns.

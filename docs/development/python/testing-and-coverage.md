@@ -1,16 +1,5 @@
 # Python Testing and Coverage
 
-## Table of Contents
-
-- [Core Principle](#core-principle)
-- [Default Assumption](#default-assumption)
-- [Exceptions](#exceptions)
-- [Coverage Target](#coverage-target)
-- [Untestable Code Documentation](#untestable-code-documentation)
-- [Coverage Reporting](#coverage-reporting)
-- [Coverage Expectations](#coverage-expectations)
-- [Rationale](#rationale)
-
 ## Core Principle
 
 Maintain code coverage as close to 100 percent as reasonably possible.

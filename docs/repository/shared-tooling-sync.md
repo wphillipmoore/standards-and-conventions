@@ -1,17 +1,5 @@
 # Shared Tooling Sync
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Architecture](#architecture)
-- [Managed scripts](#managed-scripts)
-- [Sync mechanism](#sync-mechanism)
-- [Staleness gate](#staleness-gate)
-- [Handling staleness gate failures](#handling-staleness-gate-failures)
-- [Updating the canonical source](#updating-the-canonical-source)
-- [Adding a new managed script](#adding-a-new-managed-script)
-- [Bootstrapping a new repository](#bootstrapping-a-new-repository)
-
 ## Purpose
 
 Shared scripts (lint, git hooks, dev tooling) are copied across all

@@ -3,19 +3,29 @@ set -euo pipefail
 
 # Collect standard docs (structural checks + markdownlint).
 files=()
-while IFS= read -r file; do
-  files+=("$file")
-done < <(find docs -path docs/sphinx -prune -o -path docs/site -prune -o -path docs/announcements -prune -o -type f -name "*.md" -print)
+
+# Doc-site directories whose files get markdownlint only — structural checks
+# like Table of Contents and single-H1 do not apply to pages built by
+# documentation site generators such as Sphinx, MkDocs, etc.
+docsite_dirs=(docs/sphinx docs/site)
+
+# When mkdocs.yml exists at repo root, docs/ is the MkDocs content directory.
+# All files under docs/ are doc-site pages and skip structural checks.
+if [[ -f mkdocs.yml ]]; then
+  docsite_dirs+=("docs")
+else
+  while IFS= read -r file; do
+    files+=("$file")
+  done < <(find docs -path docs/sphinx -prune -o -path docs/site -prune -o -path docs/announcements -prune -o -type f -name "*.md" -print)
+fi
 
 if [[ -f README.md ]]; then
   files+=("README.md")
 fi
 
-# Collect doc-site files (markdownlint only — structural checks like
-# Table of Contents and single-H1 do not apply to pages built by
-# documentation site generators such as Sphinx, MkDocs, etc.).
+# Collect doc-site files (markdownlint only).
 docsite_files=()
-for docsite_dir in docs/sphinx docs/site; do
+for docsite_dir in "${docsite_dirs[@]}"; do
   if [[ -d "$docsite_dir" ]]; then
     while IFS= read -r file; do
       docsite_files+=("$file")

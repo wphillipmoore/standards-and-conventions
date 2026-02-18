@@ -1,12 +1,5 @@
 # Python Type Hints
 
-## Table of Contents
-
-- [Rule](#rule)
-- [Rationale](#rationale)
-- [Type checker parity protocol](#type-checker-parity-protocol)
-- [Examples](#examples)
-
 ## Rule
 
 All public functions and methods must have complete type hints. Enforce this

@@ -1,22 +1,5 @@
 # Documentation Branching Model
 
-## Table of Contents
-
-- [Status](#status)
-- [1. Purpose](#1-purpose)
-- [2. Scope](#2-scope)
-- [3. Core invariants](#3-core-invariants)
-- [4. Branch roles](#4-branch-roles)
-  - [develop](#develop)
-  - [main](#main)
-- [5. Promotion flow](#5-promotion-flow)
-- [6. Short-lived branches](#6-short-lived-branches)
-  - [feature/*](#feature)
-  - [bugfix/*](#bugfix)
-- [7. Validation expectations](#7-validation-expectations)
-- [8. Forbidden operations](#8-forbidden-operations)
-- [9. Related documents](#9-related-documents)
-
 ## Status
 
 Active v0.3

@@ -1,15 +1,5 @@
 # Standards bootstrap protocol
 
-## Table of Contents
-
-- [Purpose](#purpose)
-- [Scope](#scope)
-- [Inputs](#inputs)
-- [Protocol](#protocol)
-- [Required output](#required-output)
-- [Failure modes](#failure-modes)
-- [Maintenance](#maintenance)
-
 ## Purpose
 
 Provide a deterministic, AGENTS-only startup procedure for loading standards
