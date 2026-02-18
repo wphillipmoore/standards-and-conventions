@@ -201,7 +201,7 @@ The `pre-commit` hook enforces two rules in order:
 
 | `branching_model` | Allowed prefixes |
 | --- | --- |
-| `docs-single-branch` | `feature/*`, `bugfix/*` |
+| `docs-promotion` | `feature/*`, `bugfix/*` |
 | `application-promotion` | `feature/*`, `bugfix/*`, `hotfix/*`, `promotion/*` |
 | `library-release` | `feature/*`, `bugfix/*`, `hotfix/*`, `release/*` |
 

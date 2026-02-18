@@ -77,7 +77,7 @@ Each repository must declare, at minimum:
 
 - `repository_type`: `application`, `library`, or `documentation`
 - `versioning_scheme`: `application`, `library`, `ecosystem-specific`, or `none`
-- `branching_model`: `application-promotion`, `library-release`, or `docs-single-branch`
+- `branching_model`: `application-promotion`, `library-release`, or `docs-promotion`
 - `release_model`: `environment-promotion`, `artifact-publishing`, or `none`
 - `supported_release_lines`: a single active line for applications; one or more
   `MAJOR.MINOR` lines for libraries; `none` for documentation

@@ -34,19 +34,13 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
-    - navigation.expand
-    - search.suggest
-    - search.highlight
+    - navigation.top
     - content.code.copy
+    - search.highlight
+    - search.suggest
 
 markdown_extensions:
   - admonition
-  - attr_list
-  - def_list
-  - md_in_html
-  - tables
-  - toc:
-      permalink: true
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
@@ -54,6 +48,9 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.snippets
+  - tables
+  - toc:
+      permalink: true
 
 nav:
   - Home: index.md
@@ -61,14 +58,14 @@ nav:
       - Overview: foundation/overview.md
       - Markdown Standards: foundation/markdown-standards.md
       - Architecture Standards: foundation/architecture-standards.md
-      - Interaction Contract: foundation/interaction-contract.md
-      - Interaction Contract (Brief): foundation/interaction-contract-brief.md
       - AI-Assisted Development Loop: foundation/ai-assisted-development-loop.md
       - AI Code Review Guidelines: foundation/ai-code-review-guidelines.md
-      - Agent Boot Banner: foundation/agent-boot-banner.md
-      - Agent Guardrails: foundation/agent-guardrails.md
+      - Interaction Contract: foundation/interaction-contract.md
+      - Interaction Contract Brief: foundation/interaction-contract-brief.md
       - Agent Pre-Response Checklist: foundation/agent-pre-response-checklist.md
+      - Agent Guardrails: foundation/agent-guardrails.md
       - Agent Skills: foundation/agent-skills.md
+      - Agent Boot Banner: foundation/agent-boot-banner.md
       - Standards Bootstrap Protocol: foundation/standards-bootstrap-protocol.md
       - Cognitive Drift Log: foundation/cognitive-drift-log.md
       - Cognitive Regression Tests: foundation/cognitive-regression-tests.md
@@ -78,23 +75,25 @@ nav:
   - Code Management:
       - Overview: code-management/overview.md
       - Source Control Guidelines: code-management/source-control-guidelines.md
+      - Repository Types and Attributes: code-management/repository-types-and-attributes.md
       - Branching and Deployment: code-management/branching-and-deployment.md
-      - Documentation Branching Model: code-management/documentation-branching-model.md
       - Library Branching and Release: code-management/library-branching-and-release.md
-      - Commit Messages and Authorship: code-management/commit-messages-and-authorship.md
-      - Pull Request Workflow: code-management/pull-request-workflow.md
-      - GitHub Issues: code-management/github-issues.md
+      - Documentation Branching Model: code-management/documentation-branching-model.md
+      - Shared Actions Library: code-management/shared-actions-library.md
       - Hotfix Policy: code-management/hotfix-policy.md
+      - Release and Versioning: code-management/release-versioning.md
       - Application Versioning Scheme: code-management/application-versioning-scheme.md
       - Library Versioning Scheme: code-management/library-versioning-scheme.md
-      - Release and Versioning Policy: code-management/release-versioning.md
-      - Repository Types and Attributes: code-management/repository-types-and-attributes.md
-      - Shared Actions Library: code-management/shared-actions-library.md
+      - Pull Request Workflow: code-management/pull-request-workflow.md
       - Workflow Runbooks: code-management/workflow-runbooks.md
+      - Commit Messages and Authorship: code-management/commit-messages-and-authorship.md
+      - GitHub Issues: code-management/github-issues.md
+      - GitHub Projects: code-management/github-projects.md
   - Repository:
       - Overview: repository/overview.md
       - Repository Structure: repository/repository-structure.md
       - Local Validation Scripts: repository/local-validation-scripts.md
+      - Shared Tooling Sync: repository/shared-tooling-sync.md
   - Dependencies:
       - Overview: dependencies/overview.md
       - Dependency Update Workflow: dependencies/dependency-update-workflow.md
@@ -102,18 +101,18 @@ nav:
       - Overview: development/overview.md
       - Environment and Tooling: development/environment-and-tooling.md
       - Documentation Toolchain: development/documentation-toolchain.md
-      - Deprecation Warnings: development/deprecation-warnings.md
       - Runtime Version Support Policy: development/runtime-version-support-policy.md
+      - Deprecation Warnings: development/deprecation-warnings.md
       - Python:
           - Overview: development/python/overview.md
-          - Naming Conventions: development/python/naming-conventions.md
-          - Type Hints: development/python/type-hints.md
           - Dependency Management: development/python/dependency-management.md
-          - Testing and Coverage: development/python/testing-and-coverage.md
           - Import-Time Side Effects: development/python/import-time-side-effects.md
-          - Local Validation Scripts: development/python/local-validation-scripts.md
+          - Testing and Coverage: development/python/testing-and-coverage.md
+          - Type Hints: development/python/type-hints.md
+          - Naming Conventions: development/python/naming-conventions.md
           - Version Management: development/python/version-management.md
-          - Ty Migration Plan: development/python/ty-migration-plan.md
+          - ty Migration Plan: development/python/ty-migration-plan.md
+          - Local Validation Scripts: development/python/local-validation-scripts.md
       - Go:
           - Overview: development/go/overview.md
           - Naming Conventions: development/go/naming-conventions.md

@@ -18,7 +18,7 @@
 
 - repository_type: documentation
 - versioning_scheme: none
-- branching_model: docs-single-branch
+- branching_model: docs-promotion
 - release_model: none
 - supported_release_lines: none
 

@@ -152,7 +152,7 @@ included from `AGENTS.md` only. Do not include it here.
 ## Repository profile
 - repository_type: <application|library|documentation>
 - versioning_scheme: <application|library|ecosystem-specific|none>
-- branching_model: <application-promotion|library-release|docs-single-branch>
+- branching_model: <application-promotion|library-release|docs-promotion>
 - release_model: <environment-promotion|artifact-publishing|none>
 - supported_release_lines: <single|list of MAJOR.MINOR lines|none>
 
