@@ -12,6 +12,8 @@ description: Create a well-structured GitHub issue by collecting required attrib
   - [Select project](#select-project)
   - [Select target repository](#select-target-repository)
   - [Collect issue type](#collect-issue-type)
+  - [Collect priority](#collect-priority)
+  - [Collect work type](#collect-work-type)
   - [Collect summary](#collect-summary)
   - [Collect problem or goal](#collect-problem-or-goal)
   - [Collect acceptance criteria](#collect-acceptance-criteria)
@@ -60,6 +62,33 @@ Ask the user for the issue type:
 If the selected label does not exist in the target repository, create it
 with `gh label create`.
 
+### Collect priority
+
+Ask the user for the priority:
+
+| Priority | Meaning                        |
+| -------- | ------------------------------ |
+| P0       | Now — immediate work           |
+| P1       | Next — next up after current   |
+| P2       | Later — backlog                |
+
+This is set as a project field after the issue is added to the project.
+
+### Collect work type
+
+Ask the user for the work type:
+
+| Work Type         | When to use                                  |
+| ----------------- | -------------------------------------------- |
+| feature           | New functionality                            |
+| bugfix            | Fixing broken behavior                       |
+| docs              | Documentation-only changes                   |
+| research          | Investigation or spike                       |
+| sync              | Cross-repo propagation                       |
+| dependency-update | Dependency version bump                      |
+
+This is set as a project field after the issue is added to the project.
+
 ### Collect summary
 
 Ask the user for a short title describing the issue. Prefix the title
@@ -101,6 +130,8 @@ Project: <project-name>
 Repository: <owner>/<repo>
 Title: <type-prefix> <summary>
 Labels: <label>
+Priority: <P0|P1|P2>
+Work Type: <work-type>
 
 ## Problem / Goal
 
@@ -121,10 +152,12 @@ After user approval, create the issue:
 gh issue create --repo <owner>/<repo> --title "<title>" --label "<label>" --body-file <tempfile>
 ```
 
-Then add the issue to the selected project:
+Then add the issue to the selected project and set project fields:
 
 ```bash
 gh project item-add <project-number> --owner <owner> --url <issue-url>
+gh project item-edit --project-id <project-id> --id <item-id> --field-id <priority-field-id> --single-select-option-id <option-id>
+gh project item-edit --project-id <project-id> --id <item-id> --field-id <work-type-field-id> --single-select-option-id <option-id>
 ```
 
 ### Report
