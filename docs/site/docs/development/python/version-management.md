@@ -139,4 +139,4 @@ CI must fail when:
 - Runtime version support policy:
   [runtime-version-support-policy.md](../runtime-version-support-policy.md)
 - Python dependency management: [dependency-management.md](dependency-management.md)
-- Dependency anchor records: [dependency anchor records](../../dependencies/overview.md)
+- Dependency anchor records: [dependency anchor records](../../repository/overview.md#dependency-anchor-records)

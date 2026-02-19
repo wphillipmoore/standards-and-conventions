@@ -74,6 +74,6 @@ to finalize.
 ## Resources
 
 - `docs/code-management/pull-request-workflow.md`
-- `docs/code-management/branching-and-deployment.md`
+- `docs/code-management/branching/branching-and-deployment.md`
 - `docs/code-management/commit-messages-and-authorship.md`
 - `docs/standards-and-conventions.md`

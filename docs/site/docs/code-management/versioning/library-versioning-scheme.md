@@ -81,7 +81,7 @@ Violations are fatal exceptions that block publishing and consumption.
 
 ## Related documents
 
-- Repository types and attributes: [repository-types-and-attributes.md](repository-types-and-attributes.md)
-- Library branching and release model: [library-branching-and-release.md](library-branching-and-release.md)
+- Repository types and attributes: [repository-types-and-attributes.md](../../repository/repository-types-and-attributes.md)
+- Library branching and release model: [library-branching-and-release.md](../branching/library-branching-and-release.md)
 - Release and versioning policy: [release-versioning.md](release-versioning.md)
 - Application versioning scheme: [application-versioning-scheme.md](application-versioning-scheme.md)

@@ -104,6 +104,6 @@ Phase 6: rollout
 
 ## Related documents
 
-- Library branching and release model: [library-branching-and-release.md](library-branching-and-release.md)
+- Library branching and release model: [library-branching-and-release.md](branching/library-branching-and-release.md)
 - Source control guidelines: [source-control-guidelines.md](source-control-guidelines.md)
 - Pull request workflow: [pull-request-workflow.md](pull-request-workflow.md)

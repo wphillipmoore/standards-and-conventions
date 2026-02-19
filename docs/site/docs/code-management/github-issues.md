@@ -96,4 +96,4 @@ Sub-issue rules:
 ## Related documents
 
 - Pull request workflow: [pull-request-workflow.md](pull-request-workflow.md)
-- Branching and deployment model: [branching-and-deployment.md](branching-and-deployment.md)
+- Branching and deployment model: [branching-and-deployment.md](branching/branching-and-deployment.md)

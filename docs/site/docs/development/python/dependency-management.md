@@ -156,8 +156,9 @@ Dependency record requirements:
 - Append a new entry for each failed re-test.
 - Keep the latest attempted version in the `pyproject.toml` comment.
 
-See [Dependency anchor records](../../dependencies/overview.md) for the
-required format.
+See [Dependency anchor records][anchor-records] for the required format.
+
+[anchor-records]: ../../repository/overview.md#dependency-anchor-records
 
 ## Pre-release dependencies
 
@@ -228,6 +229,6 @@ CI must fail when:
 
 ## Related documents
 
-- Application versioning scheme: [application-versioning-scheme.md](../../code-management/application-versioning-scheme.md)
-- Dependency update workflow: [dependency-update-workflow.md](../../dependencies/dependency-update-workflow.md)
+- Application versioning scheme: [application-versioning-scheme.md](../../code-management/versioning/application-versioning-scheme.md)
+- Dependency update workflow: [dependency-update-workflow.md](../../repository/dependency-update-workflow.md)
 - Pull request workflow: [pull-request-workflow.md](../../code-management/pull-request-workflow.md)

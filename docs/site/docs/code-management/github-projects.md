@@ -336,4 +336,4 @@ When all sub-issues are complete, close the parent issue.
 - Pull request workflow:
   [pull-request-workflow.md](pull-request-workflow.md)
 - Branching and deployment model:
-  [branching-and-deployment.md](branching-and-deployment.md)
+  [branching-and-deployment.md](branching/branching-and-deployment.md)

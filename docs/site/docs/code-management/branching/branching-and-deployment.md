@@ -33,7 +33,7 @@ governed by this document. See
 [documentation-branching-model.md](documentation-branching-model.md).
 
 Repository type definitions live in
-[repository-types-and-attributes.md](repository-types-and-attributes.md).
+[repository-types-and-attributes.md](../../repository/repository-types-and-attributes.md).
 
 ## 3. Core Invariants
 
@@ -93,7 +93,7 @@ develop, release, or main are forbidden.
 - Changes to release: create a PR from a promotion branch to release.
 - Changes to main: create a PR from a promotion branch to main.
 - Exception: hotfix/* branches follow special forward-merge rules (see
-  docs/code-management/hotfix-policy.md).
+  docs/code-management/branching/hotfix-policy.md).
 
 Each merge into these branches triggers automatic deployment to the
 corresponding environment where automation exists.

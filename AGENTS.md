@@ -42,7 +42,7 @@ changes in a new session, you MUST:
 **Guardrail**: re-check the branch before any edit or commit. If you are on an
 eternal branch, stop and create a feature branch before touching files.
 
-Branch naming and rules are defined in `docs/site/docs/code-management/branching-and-deployment.md`.
+Branch naming and rules are defined in `docs/site/docs/code-management/branching/branching-and-deployment.md`.
 
 ## Before You Act: Consult Documentation First
 
@@ -56,7 +56,7 @@ alternate sources.
 ### Required Reading Before Common Operations
 
 **Git Operations (commit, push, branch, merge)**
-- MUST READ: `docs/site/docs/code-management/branching-and-deployment.md`
+- MUST READ: `docs/site/docs/code-management/branching/branching-and-deployment.md`
 - MUST READ: `docs/site/docs/code-management/commit-messages-and-authorship.md`
 - MUST READ: `docs/site/docs/standards-and-conventions.md` for approved AI co-author IDs
 
@@ -64,7 +64,7 @@ alternate sources.
 - MUST READ: `docs/site/docs/code-management/pull-request-workflow.md`
 
 **Documentation Standards**
-- MUST READ: `docs/site/docs/foundation/markdown-standards.md`
+- MUST READ: `docs/site/docs/standards/markdown-standards.md`
 
 ## Working Rules
 - Read the relevant standards before editing or adding documentation.
@@ -79,7 +79,7 @@ explicitly required to explain a standard.
 
 ## File Layout
 - Core standards live under `docs/site/docs/`.
-- Follow `docs/site/docs/foundation/markdown-standards.md` when adding documentation.
+- Follow `docs/site/docs/standards/markdown-standards.md` when adding documentation.
 
 ## Multi-Line Messages
 When creating multi-line commit messages or pull request bodies, prefer using
