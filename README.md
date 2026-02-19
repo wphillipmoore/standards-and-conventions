@@ -28,17 +28,17 @@ with per-repository overrides captured locally when needed.
 ## Key documents
 
 - Agent guidance: `AGENTS.md`
-- Markdown standards: `docs/foundation/markdown-standards.md`
-- Architecture standards: `docs/foundation/architecture-standards.md`
-- AI code review guidelines: `docs/foundation/ai-code-review-guidelines.md`
-- Foundation overview: `docs/foundation/overview.md`
-- Summarize decisions protocol: `docs/foundation/summarize-decisions-protocol.md`
-- Summarize operations protocol: `docs/foundation/summarize-operations-protocol.md`
-- Summarize stream of consciousness protocol: `docs/foundation/summarize-stream-of-consciousness-protocol.md`
-- Code management overview: `docs/code-management/overview.md`
-- Repository standards overview: `docs/repository/overview.md`
-- Development standards overview: `docs/development/overview.md`
-- Python standards overview: `docs/development/python/overview.md`
+- Markdown standards: `docs/site/docs/foundation/markdown-standards.md`
+- Architecture standards: `docs/site/docs/foundation/architecture-standards.md`
+- AI code review guidelines: `docs/site/docs/foundation/ai-code-review-guidelines.md`
+- Foundation overview: `docs/site/docs/foundation/overview.md`
+- Summarize decisions protocol: `docs/site/docs/foundation/summarize-decisions-protocol.md`
+- Summarize operations protocol: `docs/site/docs/foundation/summarize-operations-protocol.md`
+- Summarize stream of consciousness protocol: `docs/site/docs/foundation/summarize-stream-of-consciousness-protocol.md`
+- Code management overview: `docs/site/docs/code-management/overview.md`
+- Repository standards overview: `docs/site/docs/repository/overview.md`
+- Development standards overview: `docs/site/docs/development/overview.md`
+- Python standards overview: `docs/site/docs/development/python/overview.md`
 
 ## Status
 

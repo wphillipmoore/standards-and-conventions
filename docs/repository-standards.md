@@ -8,10 +8,10 @@
 ## Repository profile
 
 - repository_type: documentation
-- versioning_scheme: none
+- versioning_scheme: library
 - branching_model: library-release
-- release_model: none
-- supported_release_lines: none
+- release_model: artifact-publishing
+- supported_release_lines: 1.1
 
 ## Validation policy
 

@@ -47,7 +47,7 @@ Both files share the same underlying standards via include directives, ensuring 
 
 **What goes in neither (use includes instead)**:
 - Repository standards (keep in `docs/repository-standards.md`)
-- Canonical standards (keep in `docs/standards-and-conventions.md`)
+- Canonical standards (keep in `docs/site/docs/standards-and-conventions.md`)
 - Project-specific conventions (keep in referenced docs)
 
 **Maintenance strategy**:
@@ -56,7 +56,7 @@ Both files share the same underlying standards via include directives, ensuring 
 - Keep AGENTS.md minimal and CLAUDE.md focused on Claude Code workflows
 - Test both entry points when updating documentation structure
 
-<!-- include: docs/standards-and-conventions.md -->
+<!-- include: docs/site/docs/standards-and-conventions.md -->
 <!-- include: docs/repository-standards.md -->
 
 ## Always-Loaded Skills
@@ -103,9 +103,9 @@ The include directives above load the full repository standards. Key highlights 
 
 **Repository Profile**:
 - repository_type: documentation
-- versioning_scheme: none
-- branching_model: docs-promotion
-- release_model: none
+- versioning_scheme: library
+- branching_model: library-release
+- release_model: artifact-publishing
 
 **Branching**: `develop` is the default branch (staging). `main` is the promotion target (live site). All work happens on `feature/*` or `bugfix/*` branches merged to `develop` via PR. Changes reach `main` via promotion PR from `develop`.
 
@@ -115,13 +115,13 @@ The include directives above load the full repository standards. Key highlights 
 
 ## File Layout
 
-- `docs/` - Core standards organized by domain
-  - `docs/foundation/` - Foundational standards (markdown, architecture, interaction contracts, agent guidelines)
-  - `docs/code-management/` - Branching, commits, PRs, versioning, releases
-  - `docs/dependencies/` - Dependency management standards
-  - `docs/development/` - Language-specific development standards (Python, database)
-  - `docs/repository/` - Repository structure standards
-  - `docs/research/` - Research reports
+- `docs/site/` - MkDocs documentation site
+  - `docs/site/docs/foundation/` - Foundational standards (markdown, architecture, interaction contracts, agent guidelines)
+  - `docs/site/docs/code-management/` - Branching, commits, PRs, versioning, releases
+  - `docs/site/docs/dependencies/` - Dependency management standards
+  - `docs/site/docs/development/` - Language-specific development standards (Python, database)
+  - `docs/site/docs/repository/` - Repository structure standards
+  - `docs/site/docs/research/` - Research reports
 - `skills/` - Shared agent skills loaded by downstream repositories
 - `scripts/` - Linting, git hook, and dev automation scripts
   - `scripts/dev/` - Shared development scripts (prepare_release, finalize_repo)

@@ -1,6 +1,6 @@
 # Standards and Conventions - Agent Instructions
 
-<!-- include: docs/standards-and-conventions.md -->
+<!-- include: docs/site/docs/standards-and-conventions.md -->
 <!-- include: ./docs/repository-standards.md -->
 
 ## User Overrides (Optional)
@@ -18,7 +18,7 @@ repositories, with local overrides captured elsewhere when needed.
 ## Mandatory standards intake (before any other action)
 
 After reading this file and any `~/AGENTS.md` overlay, you MUST load the
-repository-local `docs/standards-and-conventions.md`. Treat it as the required
+repository-local `docs/site/docs/standards-and-conventions.md`. Treat it as the required
 entry point for all other standards. If the file cannot be retrieved, stop and
 notify the user.
 
@@ -42,7 +42,7 @@ changes in a new session, you MUST:
 **Guardrail**: re-check the branch before any edit or commit. If you are on an
 eternal branch, stop and create a feature branch before touching files.
 
-Branch naming and rules are defined in `docs/code-management/branching-and-deployment.md`.
+Branch naming and rules are defined in `docs/site/docs/code-management/branching-and-deployment.md`.
 
 ## Before You Act: Consult Documentation First
 
@@ -56,15 +56,15 @@ alternate sources.
 ### Required Reading Before Common Operations
 
 **Git Operations (commit, push, branch, merge)**
-- MUST READ: `docs/code-management/branching-and-deployment.md`
-- MUST READ: `docs/code-management/commit-messages-and-authorship.md`
-- MUST READ: `docs/standards-and-conventions.md` for approved AI co-author IDs
+- MUST READ: `docs/site/docs/code-management/branching-and-deployment.md`
+- MUST READ: `docs/site/docs/code-management/commit-messages-and-authorship.md`
+- MUST READ: `docs/site/docs/standards-and-conventions.md` for approved AI co-author IDs
 
 **Pull Request Operations (create, submit, merge)**
-- MUST READ: `docs/code-management/pull-request-workflow.md`
+- MUST READ: `docs/site/docs/code-management/pull-request-workflow.md`
 
 **Documentation Standards**
-- MUST READ: `docs/foundation/markdown-standards.md`
+- MUST READ: `docs/site/docs/foundation/markdown-standards.md`
 
 ## Working Rules
 - Read the relevant standards before editing or adding documentation.
@@ -78,8 +78,8 @@ This repo is documentation-first. Do not add code unless it is an example
 explicitly required to explain a standard.
 
 ## File Layout
-- Core standards live under `docs/`.
-- Follow `docs/foundation/markdown-standards.md` when adding documentation.
+- Core standards live under `docs/site/docs/`.
+- Follow `docs/site/docs/foundation/markdown-standards.md` when adding documentation.
 
 ## Multi-Line Messages
 When creating multi-line commit messages or pull request bodies, prefer using
