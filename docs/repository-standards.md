@@ -9,7 +9,7 @@
 
 - repository_type: documentation
 - versioning_scheme: none
-- branching_model: docs-promotion
+- branching_model: library-release
 - release_model: none
 - supported_release_lines: none
 

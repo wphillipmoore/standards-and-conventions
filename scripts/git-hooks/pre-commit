@@ -35,7 +35,7 @@ fi
 
 # Set allowed branch prefixes based on branching model.
 case "$branching_model" in
-  docs-promotion)
+  docs-single-branch)
     allowed_regex='^(feature|bugfix)/'
     allowed_display="feature/* or bugfix/*"
     ;;
