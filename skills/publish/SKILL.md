@@ -210,12 +210,12 @@ regenerate derived artifacts, run full validation. Failures follow the
 
 ## Resources
 
-- `docs/code-management/library-branching-and-release.md`
-- `docs/code-management/documentation-branching-model.md`
-- `docs/code-management/release-versioning.md`
-- `docs/code-management/library-versioning-scheme.md`
-- `docs/dependencies/dependency-update-workflow.md`
-- `docs/dependencies/overview.md`
+- `docs/code-management/branching/library-branching-and-release.md`
+- `docs/code-management/branching/documentation-branching-model.md`
+- `docs/code-management/versioning/release-versioning.md`
+- `docs/code-management/versioning/library-versioning-scheme.md`
+- `docs/repository/dependency-update-workflow.md`
+- `docs/repository/overview.md`
 - `docs/development/runtime-version-support-policy.md`
 - `docs/development/documentation-toolchain.md`
 - `docs/development/python/dependency-management.md`

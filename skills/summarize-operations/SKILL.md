@@ -31,4 +31,4 @@ Required order:
 
 ## Resources
 - `skills/summarize/SKILL.md`
-- `docs/foundation/summarize-operations-protocol.md`
+- `docs/ai-agents/protocols/summarize-operations-protocol.md`

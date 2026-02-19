@@ -31,4 +31,4 @@ Include optional sections only when present in the input.
 
 ## Resources
 - `skills/summarize/SKILL.md`
-- `docs/foundation/summarize-stream-of-consciousness-protocol.md`
+- `docs/ai-agents/protocols/summarize-stream-of-consciousness-protocol.md`

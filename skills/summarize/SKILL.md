@@ -110,6 +110,6 @@ Open Questions
 ```
 
 ## Resources
-- `docs/foundation/summarize-decisions-protocol.md`
-- `docs/foundation/summarize-operations-protocol.md`
-- `docs/foundation/summarize-stream-of-consciousness-protocol.md`
+- `docs/ai-agents/protocols/summarize-decisions-protocol.md`
+- `docs/ai-agents/protocols/summarize-operations-protocol.md`
+- `docs/ai-agents/protocols/summarize-stream-of-consciousness-protocol.md`

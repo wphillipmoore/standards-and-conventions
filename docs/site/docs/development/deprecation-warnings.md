@@ -106,4 +106,4 @@ Suppression (if any):
 ## Related documents
 
 - Python dependency management: [dependency-management.md](python/dependency-management.md)
-- Application versioning scheme: [application-versioning-scheme.md](../code-management/application-versioning-scheme.md)
+- Application versioning scheme: [application-versioning-scheme.md](../code-management/versioning/application-versioning-scheme.md)

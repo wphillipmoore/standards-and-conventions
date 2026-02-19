@@ -62,6 +62,6 @@ Proposed documentation update:
 Label: `rtfm`
 
 ## Resources
-- `docs/foundation/interaction-contract.md` (RTFM protocol section)
-- `docs/foundation/agent-guardrails.md`
-- `docs/foundation/agent-pre-response-checklist.md`
+- `docs/ai-agents/workflows/interaction-contract.md` (RTFM protocol section)
+- `docs/ai-agents/behavior/agent-guardrails.md`
+- `docs/ai-agents/behavior/agent-pre-response-checklist.md`

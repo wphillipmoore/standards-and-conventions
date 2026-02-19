@@ -28,8 +28,8 @@ An application repository:
 
 Use:
 
-- Branching and deployment model: [branching-and-deployment.md](branching-and-deployment.md)
-- Application versioning scheme: [application-versioning-scheme.md](application-versioning-scheme.md)
+- Branching and deployment model: [branching-and-deployment.md](../code-management/branching/branching-and-deployment.md)
+- Application versioning scheme: [application-versioning-scheme.md](../code-management/versioning/application-versioning-scheme.md)
 
 ### Library repositories
 
@@ -42,8 +42,8 @@ A library repository:
 
 Use:
 
-- Library branching and release model: [library-branching-and-release.md](library-branching-and-release.md)
-- Library versioning scheme: [library-versioning-scheme.md](library-versioning-scheme.md)
+- Library branching and release model: [library-branching-and-release.md](../code-management/branching/library-branching-and-release.md)
+- Library versioning scheme: [library-versioning-scheme.md](../code-management/versioning/library-versioning-scheme.md)
 
 ### Documentation repositories
 
@@ -55,7 +55,7 @@ A documentation repository:
 
 Use:
 
-- Documentation branching model: [documentation-branching-model.md](documentation-branching-model.md)
+- Documentation branching model: [documentation-branching-model.md](../code-management/branching/documentation-branching-model.md)
 
 ## Required repository attributes
 
@@ -81,9 +81,9 @@ references.
 
 ## Related documents
 
-- Branching and deployment model: [branching-and-deployment.md](branching-and-deployment.md)
-- Library branching and release model: [library-branching-and-release.md](library-branching-and-release.md)
-- Documentation branching model: [documentation-branching-model.md](documentation-branching-model.md)
-- Release and versioning policy: [release-versioning.md](release-versioning.md)
-- Application versioning scheme: [application-versioning-scheme.md](application-versioning-scheme.md)
-- Library versioning scheme: [library-versioning-scheme.md](library-versioning-scheme.md)
+- Branching and deployment model: [branching-and-deployment.md](../code-management/branching/branching-and-deployment.md)
+- Library branching and release model: [library-branching-and-release.md](../code-management/branching/library-branching-and-release.md)
+- Documentation branching model: [documentation-branching-model.md](../code-management/branching/documentation-branching-model.md)
+- Release and versioning policy: [release-versioning.md](../code-management/versioning/release-versioning.md)
+- Application versioning scheme: [application-versioning-scheme.md](../code-management/versioning/application-versioning-scheme.md)
+- Library versioning scheme: [library-versioning-scheme.md](../code-management/versioning/library-versioning-scheme.md)

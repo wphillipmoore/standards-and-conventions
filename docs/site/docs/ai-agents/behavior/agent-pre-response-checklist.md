@@ -20,7 +20,7 @@ Use before finalizing any response governed by the interaction contract.
 - `AGENTS.md` and all referenced standards files are loaded (no bootstrap
   scripts).
 - Guardrails re-read before any command or edit
-  (`docs/foundation/agent-guardrails.md`).
+  (`docs/ai-agents/behavior/agent-guardrails.md`).
 - Preflight gate emitted before any file edit or git action (branch, issue,
   docs-only scope, validation policy).
 - For documentation repositories, markdownlint is required. Do not ask for

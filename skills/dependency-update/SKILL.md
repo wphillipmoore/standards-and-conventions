@@ -42,7 +42,7 @@ traceability. Use language-specific standards when present.
 - Record any new anchors, issues, or follow-up actions.
 
 ## Resources
-- `docs/dependencies/dependency-update-workflow.md`
-- `docs/dependencies/overview.md`
+- `docs/repository/dependency-update-workflow.md`
+- `docs/repository/overview.md`
 - `docs/development/python/dependency-management.md` (when applicable)
 - `docs/code-management/pull-request-workflow.md`

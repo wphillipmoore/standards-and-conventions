@@ -116,11 +116,11 @@ The include directives above load the full repository standards. Key highlights 
 ## File Layout
 
 - `docs/site/` - MkDocs documentation site
-  - `docs/site/docs/foundation/` - Foundational standards (markdown, architecture, interaction contracts, agent guidelines)
+  - `docs/site/docs/standards/` - Authoring standards (markdown, architecture)
+  - `docs/site/docs/ai-agents/` - AI agent behavior, workflows, quality, and protocols
   - `docs/site/docs/code-management/` - Branching, commits, PRs, versioning, releases
-  - `docs/site/docs/dependencies/` - Dependency management standards
+  - `docs/site/docs/repository/` - Repository structure, types, dependencies, and shared tooling
   - `docs/site/docs/development/` - Language-specific development standards (Python, database)
-  - `docs/site/docs/repository/` - Repository structure standards
   - `docs/site/docs/research/` - Research reports
 - `skills/` - Shared agent skills loaded by downstream repositories
 - `scripts/` - Linting, git hook, and dev automation scripts

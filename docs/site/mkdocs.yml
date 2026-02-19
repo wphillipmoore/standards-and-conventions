@@ -54,49 +54,55 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Foundation:
-      - Overview: foundation/overview.md
-      - Markdown Standards: foundation/markdown-standards.md
-      - Architecture Standards: foundation/architecture-standards.md
-      - AI-Assisted Development Loop: foundation/ai-assisted-development-loop.md
-      - AI Code Review Guidelines: foundation/ai-code-review-guidelines.md
-      - Interaction Contract: foundation/interaction-contract.md
-      - Interaction Contract Brief: foundation/interaction-contract-brief.md
-      - Agent Pre-Response Checklist: foundation/agent-pre-response-checklist.md
-      - Agent Guardrails: foundation/agent-guardrails.md
-      - Agent Skills: foundation/agent-skills.md
-      - Agent Boot Banner: foundation/agent-boot-banner.md
-      - Standards Bootstrap Protocol: foundation/standards-bootstrap-protocol.md
-      - Cognitive Drift Log: foundation/cognitive-drift-log.md
-      - Cognitive Regression Tests: foundation/cognitive-regression-tests.md
-      - Summarize Decisions Protocol: foundation/summarize-decisions-protocol.md
-      - Summarize Operations Protocol: foundation/summarize-operations-protocol.md
-      - Summarize SOC Protocol: foundation/summarize-stream-of-consciousness-protocol.md
+  - Standards:
+      - Overview: standards/overview.md
+      - Markdown Standards: standards/markdown-standards.md
+      - Architecture Standards: standards/architecture-standards.md
+  - AI Agents:
+      - Overview: ai-agents/overview.md
+      - Behavior:
+          - Agent Guardrails: ai-agents/behavior/agent-guardrails.md
+          - Agent Pre-Response Checklist: ai-agents/behavior/agent-pre-response-checklist.md
+          - Agent Boot Banner: ai-agents/behavior/agent-boot-banner.md
+          - Agent Skills: ai-agents/behavior/agent-skills.md
+      - Workflows:
+          - AI-Assisted Development Loop: ai-agents/workflows/ai-assisted-development-loop.md
+          - AI Code Review Guidelines: ai-agents/workflows/ai-code-review-guidelines.md
+          - Standards Bootstrap Protocol: ai-agents/workflows/standards-bootstrap-protocol.md
+          - Interaction Contract: ai-agents/workflows/interaction-contract.md
+      - Quality:
+          - Cognitive Drift Log: ai-agents/quality/cognitive-drift-log.md
+          - Cognitive Regression Tests: ai-agents/quality/cognitive-regression-tests.md
+          - Interaction Contract Brief: ai-agents/quality/interaction-contract-brief.md
+      - Protocols:
+          - Summarize Decisions Protocol: ai-agents/protocols/summarize-decisions-protocol.md
+          - Summarize Operations Protocol: ai-agents/protocols/summarize-operations-protocol.md
+          - Summarize SOC Protocol: ai-agents/protocols/summarize-stream-of-consciousness-protocol.md
   - Code Management:
       - Overview: code-management/overview.md
+      - Branching:
+          - Branching and Deployment: code-management/branching/branching-and-deployment.md
+          - Library Branching and Release: code-management/branching/library-branching-and-release.md
+          - Documentation Branching Model: code-management/branching/documentation-branching-model.md
+          - Hotfix Policy: code-management/branching/hotfix-policy.md
+      - Versioning:
+          - Release and Versioning: code-management/versioning/release-versioning.md
+          - Application Versioning Scheme: code-management/versioning/application-versioning-scheme.md
+          - Library Versioning Scheme: code-management/versioning/library-versioning-scheme.md
       - Source Control Guidelines: code-management/source-control-guidelines.md
-      - Repository Types and Attributes: code-management/repository-types-and-attributes.md
-      - Branching and Deployment: code-management/branching-and-deployment.md
-      - Library Branching and Release: code-management/library-branching-and-release.md
-      - Documentation Branching Model: code-management/documentation-branching-model.md
-      - Shared Actions Library: code-management/shared-actions-library.md
-      - Hotfix Policy: code-management/hotfix-policy.md
-      - Release and Versioning: code-management/release-versioning.md
-      - Application Versioning Scheme: code-management/application-versioning-scheme.md
-      - Library Versioning Scheme: code-management/library-versioning-scheme.md
-      - Pull Request Workflow: code-management/pull-request-workflow.md
-      - Workflow Runbooks: code-management/workflow-runbooks.md
       - Commit Messages and Authorship: code-management/commit-messages-and-authorship.md
+      - Pull Request Workflow: code-management/pull-request-workflow.md
       - GitHub Issues: code-management/github-issues.md
       - GitHub Projects: code-management/github-projects.md
+      - Shared Actions Library: code-management/shared-actions-library.md
+      - Workflow Runbooks: code-management/workflow-runbooks.md
   - Repository:
       - Overview: repository/overview.md
       - Repository Structure: repository/repository-structure.md
+      - Repository Types and Attributes: repository/repository-types-and-attributes.md
       - Local Validation Scripts: repository/local-validation-scripts.md
       - Shared Tooling Sync: repository/shared-tooling-sync.md
-  - Dependencies:
-      - Overview: dependencies/overview.md
-      - Dependency Update Workflow: dependencies/dependency-update-workflow.md
+      - Dependency Update Workflow: repository/dependency-update-workflow.md
   - Development:
       - Overview: development/overview.md
       - Environment and Tooling: development/environment-and-tooling.md

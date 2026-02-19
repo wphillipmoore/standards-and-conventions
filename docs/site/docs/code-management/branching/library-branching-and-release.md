@@ -166,6 +166,6 @@ After a successful publish, the workflow maintains the version invariant:
 
 ## 11. Related documents
 
-- Repository types and attributes: [repository-types-and-attributes.md](repository-types-and-attributes.md)
-- Release and versioning policy: [release-versioning.md](release-versioning.md)
-- Library versioning scheme: [library-versioning-scheme.md](library-versioning-scheme.md)
+- Repository types and attributes: [repository-types-and-attributes.md](../../repository/repository-types-and-attributes.md)
+- Release and versioning policy: [release-versioning.md](../versioning/release-versioning.md)
+- Library versioning scheme: [library-versioning-scheme.md](../versioning/library-versioning-scheme.md)

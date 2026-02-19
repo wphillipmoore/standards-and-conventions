@@ -33,49 +33,53 @@ fatal exception and stop.
 
 This list is the authoritative include chain for the shared standards corpus.
 
-<!-- include: docs/foundation/overview.md -->
-<!-- include: docs/foundation/markdown-standards.md -->
-<!-- include: docs/foundation/architecture-standards.md -->
-<!-- include: docs/foundation/interaction-contract.md -->
-<!-- include: docs/foundation/interaction-contract-brief.md -->
-<!-- include: docs/foundation/ai-assisted-development-loop.md -->
-<!-- include: docs/foundation/ai-code-review-guidelines.md -->
-<!-- include: docs/foundation/agent-skills.md -->
-<!-- include: docs/foundation/agent-boot-banner.md -->
-<!-- include: docs/foundation/agent-guardrails.md -->
-<!-- include: docs/foundation/agent-pre-response-checklist.md -->
-<!-- include: docs/foundation/standards-bootstrap-protocol.md -->
-<!-- include: docs/foundation/cognitive-drift-log.md -->
-<!-- include: docs/foundation/cognitive-regression-tests.md -->
-<!-- include: docs/foundation/summarize-decisions-protocol.md -->
-<!-- include: docs/foundation/summarize-operations-protocol.md -->
-<!-- include: docs/foundation/summarize-stream-of-consciousness-protocol.md -->
+<!-- include: docs/standards/overview.md -->
+<!-- include: docs/standards/markdown-standards.md -->
+<!-- include: docs/standards/architecture-standards.md -->
+
+<!-- include: docs/ai-agents/overview.md -->
+<!-- include: docs/ai-agents/behavior/agent-skills.md -->
+<!-- include: docs/ai-agents/behavior/agent-boot-banner.md -->
+<!-- include: docs/ai-agents/behavior/agent-guardrails.md -->
+<!-- include: docs/ai-agents/behavior/agent-pre-response-checklist.md -->
+<!-- include: docs/ai-agents/workflows/ai-assisted-development-loop.md -->
+<!-- include: docs/ai-agents/workflows/ai-code-review-guidelines.md -->
+<!-- include: docs/ai-agents/workflows/standards-bootstrap-protocol.md -->
+<!-- include: docs/ai-agents/workflows/interaction-contract.md -->
+<!-- include: docs/ai-agents/quality/cognitive-drift-log.md -->
+<!-- include: docs/ai-agents/quality/cognitive-regression-tests.md -->
+<!-- include: docs/ai-agents/quality/interaction-contract-brief.md -->
+<!-- include: docs/ai-agents/protocols/summarize-decisions-protocol.md -->
+<!-- include: docs/ai-agents/protocols/summarize-operations-protocol.md -->
+<!-- markdownlint-disable-next-line MD013 -->
+<!-- include: docs/ai-agents/protocols/summarize-stream-of-consciousness-protocol.md -->
 
 <!-- include: docs/code-management/overview.md -->
-<!-- include: docs/code-management/repository-types-and-attributes.md -->
 <!-- include: docs/code-management/commit-messages-and-authorship.md -->
 <!-- include: docs/code-management/github-issues.md -->
+<!-- include: docs/code-management/github-projects.md -->
 <!-- include: docs/code-management/pull-request-workflow.md -->
 <!-- include: docs/code-management/workflow-runbooks.md -->
 <!-- include: docs/code-management/source-control-guidelines.md -->
-<!-- include: docs/code-management/documentation-branching-model.md -->
-<!-- include: docs/code-management/branching-and-deployment.md -->
-<!-- include: docs/code-management/application-versioning-scheme.md -->
-<!-- include: docs/code-management/library-branching-and-release.md -->
-<!-- include: docs/code-management/library-versioning-scheme.md -->
-<!-- include: docs/code-management/release-versioning.md -->
-<!-- include: docs/code-management/hotfix-policy.md -->
+<!-- include: docs/code-management/branching/documentation-branching-model.md -->
+<!-- include: docs/code-management/branching/branching-and-deployment.md -->
+<!-- include: docs/code-management/branching/library-branching-and-release.md -->
+<!-- include: docs/code-management/branching/hotfix-policy.md -->
+<!-- include: docs/code-management/versioning/application-versioning-scheme.md -->
+<!-- include: docs/code-management/versioning/library-versioning-scheme.md -->
+<!-- include: docs/code-management/versioning/release-versioning.md -->
 <!-- include: docs/code-management/shared-actions-library.md -->
 
 <!-- include: docs/repository/overview.md -->
 <!-- include: docs/repository/repository-structure.md -->
+<!-- include: docs/repository/repository-types-and-attributes.md -->
 <!-- include: docs/repository/local-validation-scripts.md -->
-
-<!-- include: docs/dependencies/overview.md -->
-<!-- include: docs/dependencies/dependency-update-workflow.md -->
+<!-- include: docs/repository/shared-tooling-sync.md -->
+<!-- include: docs/repository/dependency-update-workflow.md -->
 
 <!-- include: docs/development/overview.md -->
 <!-- include: docs/development/environment-and-tooling.md -->
+<!-- include: docs/development/documentation-toolchain.md -->
 <!-- include: docs/development/runtime-version-support-policy.md -->
 <!-- include: docs/development/deprecation-warnings.md -->
 <!-- include: docs/development/database/overview.md -->
