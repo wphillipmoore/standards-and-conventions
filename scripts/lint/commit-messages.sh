@@ -17,7 +17,7 @@ if ! git rev-parse --verify --quiet "$base_ref" >/dev/null 2>&1; then
   fi
 fi
 
-conventional_regex='^(feat|fix|docs|style|refactor|test|chore)(\([^\)]+\))?: .+'
+conventional_regex='^(feat|fix|docs|style|refactor|test|chore|ci|build)(\([^\)]+\))?: .+'
 
 # Commits at or before the cutoff SHA predate the conventional commits
 # convention and are excluded from validation.  Consuming repos pass their
@@ -32,14 +32,10 @@ while IFS= read -r commit_sha; do
     continue
   fi
   subject_line="$(git log -n 1 --format=%s "$commit_sha")"
-  # Accept git-generated Revert "..." messages verbatim.
-  if [[ "$subject_line" =~ ^Revert\ \" ]]; then
-    continue
-  fi
   if [[ ! "$subject_line" =~ $conventional_regex ]]; then
     echo "ERROR: commit $commit_sha does not follow Conventional Commits." >&2
     echo "Expected: <type>(optional-scope): <description>" >&2
-    echo "Allowed types: feat, fix, docs, style, refactor, test, chore" >&2
+    echo "Allowed types: feat, fix, docs, style, refactor, test, chore, ci, build" >&2
     echo "Got: $subject_line" >&2
     failed=1
   fi

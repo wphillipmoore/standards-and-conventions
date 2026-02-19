@@ -65,8 +65,8 @@ fi
 eternal_branches=("gh-pages")
 
 case "$branching_model" in
-  docs-promotion)
-    eternal_branches+=("develop" "main")
+  docs-single-branch)
+    eternal_branches+=("develop")
     ;;
   library-release)
     eternal_branches+=("develop" "main")
