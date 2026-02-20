@@ -64,43 +64,19 @@ Rules:
 3. Pilot in one repository and validate parity.
 4. Roll out incrementally across repositories.
 
-## Implementation plan
+## Documentation
 
-Phase 0: decisions
+Full documentation for the shared actions library is published at
+<https://wphillipmoore.github.io/standard-actions/>.
 
-- Choose repository name, visibility, and default branch (`develop`).
-- Select the initial versioning/tagging policy.
+The documentation site includes:
 
-Phase 1: bootstrap
-
-- Add `README.md`, `LICENSE`, and `SECURITY.md`.
-- Define repository layout under `actions/`.
-
-Phase 2: core actions
-
-- Validation action (tests, lint, type checking, coverage).
-- Dependency audit action.
-- Auto-merge action with a label-based opt-out.
-
-Phase 3: repository CI
-
-- Lint action metadata and scripts.
-- Validate workflow syntax.
-
-Phase 4: standards integration
-
-- Reference the shared actions library in code management standards.
-- Document the manual-merge opt-out label.
-
-Phase 5: pilot adoption
-
-- Replace in-repo workflow logic with shared actions in one repository.
-- Validate parity with existing CI gates.
-
-Phase 6: rollout
-
-- Apply shared actions to the remaining repositories in waves.
-- Keep changes small and reversible.
+- **Action reference** — Detailed inputs, outputs, permissions, and usage
+  examples for all composite actions.
+- **CI gate requirements** — Target-state specification for required checks,
+  docs-only optimization, and security scanning.
+- **Development guides** — Environment setup, validation, and contributing
+  guidelines.
 
 ## Related documents
 
