@@ -170,9 +170,13 @@ This repository hosts shared skills that downstream repositories load:
 - Update or create Tables of Contents per the Markdown standards.
 - Prefer small, focused edits that keep documents easy to scan.
 
-## Multi-Line Messages
+## Shell command policy
 
-When creating multi-line commit messages or pull request bodies, prefer using temporary files instead of shell heredocs in command substitution. This avoids shell escaping issues and preserves exact formatting.
+**Do NOT use heredocs** (`<<EOF` / `<<'EOF'`) for multi-line arguments to CLI
+tools such as `gh`, `git commit`, or `curl`. Heredocs routinely fail due to
+shell escaping issues with apostrophes, backticks, and special characters.
+Always write multi-line content to a temporary file and pass it via `--body-file`
+or `--file` instead.
 
 ## Documentation Indexing Strategy
 

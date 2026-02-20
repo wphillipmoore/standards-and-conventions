@@ -81,10 +81,13 @@ explicitly required to explain a standard.
 - Core standards live under `docs/site/docs/`.
 - Follow `docs/site/docs/standards/markdown-standards.md` when adding documentation.
 
-## Multi-Line Messages
-When creating multi-line commit messages or pull request bodies, prefer using
-temporary files instead of shell heredocs in command substitution. This avoids
-shell escaping issues and preserves exact formatting.
+## Shell command policy
+
+**Do NOT use heredocs** (`<<EOF` / `<<'EOF'`) for multi-line arguments to CLI
+tools such as `gh`, `git commit`, or `curl`. Heredocs routinely fail due to
+shell escaping issues with apostrophes, backticks, and special characters.
+Always write multi-line content to a temporary file and pass it via `--body-file`
+or `--file` instead.
 
 ## The RTFM Principle
 If you find yourself guessing at workflow rules, using trial-and-error, or
