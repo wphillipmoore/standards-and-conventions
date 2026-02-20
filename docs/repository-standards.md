@@ -21,6 +21,7 @@
 - branching_model: library-release
 - release_model: artifact-publishing
 - supported_release_lines: 1.1
+- primary_language: none
 
 ## Validation policy
 
