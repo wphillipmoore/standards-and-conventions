@@ -296,7 +296,8 @@ Create a sub-issue in each mq-rest-admin repo:
 >
 > **Acceptance criteria**: shared-tooling updated, CI passing.
 
-Link each as a sub-issue of the parent.
+Link each as a sub-issue of the parent using the
+[sub-issues API](github-issues.md#linking-a-sub-issue-via-the-api).
 
 #### Step 3: Set fields on all issues
 
