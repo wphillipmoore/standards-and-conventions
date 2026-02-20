@@ -1939,6 +1939,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Sub-issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linking-a-sub-issue-via-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linking a sub-issue via the API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3464,6 +3481,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Sub-issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linking-a-sub-issue-via-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linking a sub-issue via the API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3575,10 +3609,26 @@ capture the required structure.</p>
 </ul>
 <p>Sub-issue rules:</p>
 <ul>
-<li>Link each sub-issue to its parent (task list or issue relationship).</li>
+<li>Link each sub-issue to its parent using the sub-issues API (see below).</li>
 <li>The PR should close the sub-issue, not the parent, unless the PR completes
   the parent’s full scope.</li>
 </ul>
+<h3 id="linking-a-sub-issue-via-the-api">Linking a sub-issue via the API<a class="headerlink" href="#linking-a-sub-issue-via-the-api" title="Permanent link">&para;</a></h3>
+<p>Creating a sub-issue relationship is a two-step process:</p>
+<ol>
+<li><strong>Get the child issue’s database ID</strong> (this is the numeric ID, not the
+   issue number):</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>gh<span class="w"> </span>api<span class="w"> </span>repos/<span class="o">{</span>owner<span class="o">}</span>/<span class="o">{</span>repo<span class="o">}</span>/issues/<span class="o">{</span>child_number<span class="o">}</span><span class="w"> </span>--jq<span class="w"> </span>‘.id’
+</code></pre></div>
+<ol>
+<li><strong>Link the child to the parent</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>gh<span class="w"> </span>api<span class="w"> </span>repos/<span class="o">{</span>owner<span class="o">}</span>/<span class="o">{</span>repo<span class="o">}</span>/issues/<span class="o">{</span>parent_number<span class="o">}</span>/sub_issues<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--method<span class="w"> </span>POST<span class="w"> </span>-F<span class="w"> </span><span class="nv">sub_issue_id</span><span class="o">={</span>database_id<span class="o">}</span>
+</code></pre></div>
+<p>Use <code>-F</code> (not <code>-f</code>) for <code>sub_issue_id</code> — the API requires an integer, and
+<code>-f</code> sends a string.</p>
 <h2 id="closing-behavior">Closing behavior<a class="headerlink" href="#closing-behavior" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Default: auto-close issues via PR closing keywords.</li>
