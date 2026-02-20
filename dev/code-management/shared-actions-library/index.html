@@ -1998,10 +1998,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation-plan" class="md-nav__link">
+  <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementation plan
+        Documentation
       
     </span>
   </a>
@@ -3467,10 +3467,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation-plan" class="md-nav__link">
+  <a href="#documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementation plan
+        Documentation
       
     </span>
   </a>
@@ -3562,42 +3562,17 @@ release, or pull request workflows.</p>
 <li>Pilot in one repository and validate parity.</li>
 <li>Roll out incrementally across repositories.</li>
 </ol>
-<h2 id="implementation-plan">Implementation plan<a class="headerlink" href="#implementation-plan" title="Permanent link">&para;</a></h2>
-<p>Phase 0: decisions</p>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<p>Full documentation for the shared actions library is published at
+<a href="https://wphillipmoore.github.io/standard-actions/">https://wphillipmoore.github.io/standard-actions/</a>.</p>
+<p>The documentation site includes:</p>
 <ul>
-<li>Choose repository name, visibility, and default branch (<code>develop</code>).</li>
-<li>Select the initial versioning/tagging policy.</li>
-</ul>
-<p>Phase 1: bootstrap</p>
-<ul>
-<li>Add <code>README.md</code>, <code>LICENSE</code>, and <code>SECURITY.md</code>.</li>
-<li>Define repository layout under <code>actions/</code>.</li>
-</ul>
-<p>Phase 2: core actions</p>
-<ul>
-<li>Validation action (tests, lint, type checking, coverage).</li>
-<li>Dependency audit action.</li>
-<li>Auto-merge action with a label-based opt-out.</li>
-</ul>
-<p>Phase 3: repository CI</p>
-<ul>
-<li>Lint action metadata and scripts.</li>
-<li>Validate workflow syntax.</li>
-</ul>
-<p>Phase 4: standards integration</p>
-<ul>
-<li>Reference the shared actions library in code management standards.</li>
-<li>Document the manual-merge opt-out label.</li>
-</ul>
-<p>Phase 5: pilot adoption</p>
-<ul>
-<li>Replace in-repo workflow logic with shared actions in one repository.</li>
-<li>Validate parity with existing CI gates.</li>
-</ul>
-<p>Phase 6: rollout</p>
-<ul>
-<li>Apply shared actions to the remaining repositories in waves.</li>
-<li>Keep changes small and reversible.</li>
+<li><strong>Action reference</strong> — Detailed inputs, outputs, permissions, and usage
+  examples for all composite actions.</li>
+<li><strong>CI gate requirements</strong> — Target-state specification for required checks,
+  docs-only optimization, and security scanning.</li>
+<li><strong>Development guides</strong> — Environment setup, validation, and contributing
+  guidelines.</li>
 </ul>
 <h2 id="related-documents">Related documents<a class="headerlink" href="#related-documents" title="Permanent link">&para;</a></h2>
 <ul>
