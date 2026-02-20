@@ -78,9 +78,30 @@ Create a sub-issue when:
 
 Sub-issue rules:
 
-- Link each sub-issue to its parent (task list or issue relationship).
+- Link each sub-issue to its parent using the sub-issues API (see below).
 - The PR should close the sub-issue, not the parent, unless the PR completes
   the parent’s full scope.
+
+### Linking a sub-issue via the API
+
+Creating a sub-issue relationship is a two-step process:
+
+1. **Get the child issue’s database ID** (this is the numeric ID, not the
+   issue number):
+
+   ```bash
+   gh api repos/{owner}/{repo}/issues/{child_number} --jq ‘.id’
+   ```
+
+2. **Link the child to the parent**:
+
+   ```bash
+   gh api repos/{owner}/{repo}/issues/{parent_number}/sub_issues \
+     --method POST -F sub_issue_id={database_id}
+   ```
+
+Use `-F` (not `-f`) for `sub_issue_id` — the API requires an integer, and
+`-f` sends a string.
 
 ## Closing behavior
 
