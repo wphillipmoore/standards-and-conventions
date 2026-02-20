@@ -55,6 +55,10 @@ always enabled; CI gates are the sole merge authority.
 2. Enable auto-merge immediately. Do not attempt manual merge.
 3. Wait for CI to pass and auto-merge to complete.
 
+If a CI check fails due to PR metadata (e.g., missing issue linkage), editing
+the PR body and re-running the workflow will not fix it — re-runs use the
+original event payload. Push a new commit to trigger a fresh workflow run.
+
 ## Finalization
 
 After the PR merges, run `scripts/dev/finalize_repo.sh` from the repository
