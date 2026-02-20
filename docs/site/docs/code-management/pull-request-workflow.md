@@ -139,6 +139,12 @@ If any hard-gate check fails:
 If a soft-gate check fails, either fix it immediately or document the failure
 with rationale and follow-up tracking before submission.
 
+**Event payload is fixed at push time.** Re-running a workflow does not refresh
+the pull request event payload. If a CI check fails because of PR metadata
+(e.g., missing issue linkage in the PR body), editing the PR body and re-running
+the workflow will not help — the re-run uses the original payload. Push a new
+commit to trigger a fresh workflow run with the updated event data.
+
 Common mistakes to avoid:
 
 - "I only changed one area, so I only ran those tests"
