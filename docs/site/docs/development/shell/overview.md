@@ -41,8 +41,8 @@ Soft gate definition:
 
 Hard gates (all are required status checks):
 
-- `test-and-validate (current)`
-- `dependency-audit`
+- `test: unit (current)`
+- `ci: dependency-audit`
 
 Soft gates:
 

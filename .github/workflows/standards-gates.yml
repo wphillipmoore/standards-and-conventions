@@ -6,7 +6,7 @@ on:
 
 jobs:
   standards-gates:
-    name: Standards compliance
+    name: "ci: standards-compliance"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
