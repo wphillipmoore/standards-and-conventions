@@ -1,6 +1,6 @@
 ---
-name: new-issue
-description: Create a well-structured GitHub issue by collecting required attributes through guided questions.
+name: project-issue
+description: Create a well-structured project issue by collecting required attributes through guided questions.
 ---
 
 # New issue
