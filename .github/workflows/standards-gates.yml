@@ -24,6 +24,8 @@ jobs:
         run: scripts/lint/markdown-standards.sh
 
       - name: Lint commit messages
+        env:
+          COMMIT_CUTOFF_SHA: 3a49262
         run: |
           base_sha=$(jq -r '.pull_request.base.sha' "$GITHUB_EVENT_PATH")
           head_sha=$(jq -r '.pull_request.head.sha' "$GITHUB_EVENT_PATH")
