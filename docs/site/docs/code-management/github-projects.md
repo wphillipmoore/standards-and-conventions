@@ -263,10 +263,10 @@ Queue view.
 #### Step 4: Work the issue
 
 ```bash
-git checkout -b bugfix/fix-retry-timeout
+git checkout -b bugfix/42-fix-retry-timeout
 # ... make changes, run tests ...
 git add -A && git commit -m "fix: respect retry count"
-git push -u origin bugfix/fix-retry-timeout
+git push -u origin bugfix/42-fix-retry-timeout
 ```
 
 Create a PR linked to the issue. The project's Active Work board shows
