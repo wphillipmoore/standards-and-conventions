@@ -84,6 +84,7 @@ Both files share the same underlying standards via include directives, ensuring 
 These skills are loaded at session start so they're immediately available without explicit invocation. When a user provides skill attributes inline (e.g., "create a P0 enhancement for X"), skip the corresponding interactive questions and go straight to confirm-and-create.
 
 <!-- include: skills/new-issue/SKILL.md -->
+<!-- include: skills/branch-workflow/SKILL.md -->
 
 ## Project Overview
 
@@ -161,6 +162,7 @@ This repository hosts shared skills that downstream repositories load:
 - `skills/pr-workflow/` - Pull request workflow
 - `skills/rtfm/` - RTFM forced interruption handling
 - `skills/new-issue/` - Guided issue creation with required attribute collection
+- `skills/branch-workflow/` - Issue-linked branch creation with existing branch detection
 
 ## Working Rules
 
