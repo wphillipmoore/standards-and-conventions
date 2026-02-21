@@ -117,6 +117,49 @@ Only the following branch prefixes are allowed:
 
 No other prefixes are permitted. When in doubt, use feature/*.
 
+### Issue-linked naming
+
+All feature, bugfix, and hotfix branches must include the repository issue
+number in the branch name. The format is:
+
+```text
+{type}/{issue}-{short-description}
+```
+
+- `{type}`: `feature`, `bugfix`, or `hotfix`
+- `{issue}`: repository issue number
+- `{short-description}`: kebab-case summary
+
+Examples:
+
+```text
+feature/42-add-caching
+bugfix/17-fix-retry-timeout
+hotfix/3-critical-auth-failure
+```
+
+Release branches are exempt from this requirement (automated by the publish
+workflow, no issue association).
+
+For cross-repo work driven by a project issue, create sub-issues in each
+affected repository and use each repo's issue number in its branch name. See
+[GitHub Projects — Cross-repo work pattern](../github-projects.md#cross-repo-work-pattern).
+
+### One branch per issue per repository
+
+At most one open branch may exist per issue per repository at any time.
+
+Before creating a branch, check for an existing branch for the same issue:
+
+```bash
+git fetch origin
+git branch -r | grep '/42-'
+```
+
+If a branch already exists, check it out and resume work on it. Do not create a
+second branch. This rule prevents orphaned branches from accumulating when work
+is restarted.
+
 ### feature/*
 
 Use for:
