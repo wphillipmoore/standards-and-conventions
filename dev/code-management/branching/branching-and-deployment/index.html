@@ -1611,6 +1611,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#issue-linked-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue-linked naming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-branch-per-issue-per-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One branch per issue per repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#feature" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3565,6 +3587,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#issue-linked-naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue-linked naming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-branch-per-issue-per-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One branch per issue per repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#feature" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3776,6 +3820,35 @@ corresponding environment where automation exists.</p>
 <li>promotion/*</li>
 </ul>
 <p>No other prefixes are permitted. When in doubt, use feature/*.</p>
+<h3 id="issue-linked-naming">Issue-linked naming<a class="headerlink" href="#issue-linked-naming" title="Permanent link">&para;</a></h3>
+<p>All feature, bugfix, and hotfix branches must include the repository issue
+number in the branch name. The format is:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{type}/{issue}-{short-description}
+</code></pre></div>
+<ul>
+<li><code>{type}</code>: <code>feature</code>, <code>bugfix</code>, or <code>hotfix</code></li>
+<li><code>{issue}</code>: repository issue number</li>
+<li><code>{short-description}</code>: kebab-case summary</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>feature/42-add-caching
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>bugfix/17-fix-retry-timeout
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>hotfix/3-critical-auth-failure
+</code></pre></div>
+<p>Release branches are exempt from this requirement (automated by the publish
+workflow, no issue association).</p>
+<p>For cross-repo work driven by a project issue, create sub-issues in each
+affected repository and use each repo's issue number in its branch name. See
+<a href="../../github-projects/#cross-repo-work-pattern">GitHub Projects — Cross-repo work pattern</a>.</p>
+<h3 id="one-branch-per-issue-per-repository">One branch per issue per repository<a class="headerlink" href="#one-branch-per-issue-per-repository" title="Permanent link">&para;</a></h3>
+<p>At most one open branch may exist per issue per repository at any time.</p>
+<p>Before creating a branch, check for an existing branch for the same issue:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>fetch<span class="w"> </span>origin
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>branch<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;/42-&#39;</span>
+</code></pre></div>
+<p>If a branch already exists, check it out and resume work on it. Do not create a
+second branch. This rule prevents orphaned branches from accumulating when work
+is restarted.</p>
 <h3 id="feature">feature/*<a class="headerlink" href="#feature" title="Permanent link">&para;</a></h3>
 <p>Use for:</p>
 <ul>
