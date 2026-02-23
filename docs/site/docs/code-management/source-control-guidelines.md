@@ -161,6 +161,32 @@ merges. The composite action is defined in the
 [standard-actions](https://github.com/wphillipmoore/standard-actions) shared
 actions library at `actions/quality/sonarcloud`.
 
+#### Qlty Cloud (soft gate, limited beta)
+
+Qlty Cloud (formerly Code Climate) provides coverage tracking, trend analysis,
+and PR coverage comments. It is currently deployed as an **optional, advisory
+soft gate** in limited beta on the mq-rest-admin language implementation repos
+(Python, Go, Java).
+
+Qlty Cloud's free tier provides 500 analysis minutes per month for open-source
+projects. Language-specific tooling remains the primary enforcement mechanism for
+coverage thresholds.
+
+Qlty Cloud runs in two patterns per repository:
+
+- **PR analysis** — a `codeclimate` job in `ci.yml` uploads coverage and posts a
+  coverage comment on each pull request.
+- **Post-merge baseline** — a dedicated `codeclimate.yml` workflow triggered on
+  `push` to `develop` keeps the Qlty Cloud dashboard current.
+
+Qlty Cloud uses OIDC authentication — no tokens or secrets are required. The
+calling workflow must include `id-token: write` in its permissions block.
+
+Qlty Cloud is not a required status check on any branch. It must not block PR
+merges. The composite action is defined in the
+[standard-actions](https://github.com/wphillipmoore/standard-actions) shared
+actions library at `actions/quality/codeclimate`.
+
 ### Docs-only CI skip policy
 
 Repositories must define a docs-only allowlist (for example, `docs/**`,
