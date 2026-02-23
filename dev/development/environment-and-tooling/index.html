@@ -2330,6 +2330,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#qlty-cloud-code-climate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qlty Cloud (Code Climate)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#baseline-automation-assumptions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3417,6 +3428,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#qlty-cloud-code-climate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qlty Cloud (Code Climate)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#baseline-automation-assumptions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3522,6 +3544,22 @@ language implementation repos (Python, Go, Java).</p>
 </ul>
 <p>SonarCloud is consumed via the <code>quality/sonarcloud</code> composite action in the
 shared actions library. No local installation is required — the scanner runs
+entirely in CI.</p>
+<h3 id="qlty-cloud-code-climate">Qlty Cloud (Code Climate)<a class="headerlink" href="#qlty-cloud-code-climate" title="Permanent link">&para;</a></h3>
+<p>Qlty Cloud (formerly Code Climate) is a cloud-hosted coverage tracking service
+used as an optional, advisory quality gate. It is currently in limited beta on
+the mq-rest-admin language implementation repos (Python, Go, Java).</p>
+<p>Qlty Cloud requires:</p>
+<ul>
+<li>The Qlty Cloud GitHub App installed on the GitHub account or organization.</li>
+<li>Each repository imported in Qlty Cloud at <a href="https://qlty.io">qlty.io</a>.</li>
+<li>Automatic analysis disabled per project if using CI-based coverage upload
+  exclusively.</li>
+</ul>
+<p>Qlty Cloud uses OIDC authentication — no tokens or secrets are required. The
+calling workflow must include <code>id-token: write</code> in its permissions block.</p>
+<p>Qlty Cloud is consumed via the <code>quality/codeclimate</code> composite action in the
+shared actions library. No local installation is required — coverage upload runs
 entirely in CI.</p>
 <h3 id="baseline-automation-assumptions">Baseline automation assumptions<a class="headerlink" href="#baseline-automation-assumptions" title="Permanent link">&para;</a></h3>
 <p>For AI-assisted workflows in this environment, assume the following are
