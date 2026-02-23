@@ -1918,6 +1918,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="CI gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sonarqube-cloud-soft-gate-limited-beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SonarQube Cloud (soft gate, limited beta)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3712,6 +3729,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="CI gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sonarqube-cloud-soft-gate-limited-beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SonarQube Cloud (soft gate, limited beta)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -3977,6 +4011,26 @@ check is not classified, treat it as a hard gate until documented.</p>
 so failing GitHub Actions block PR merges.</p>
 <p>Each repository must also document which hard gates apply per branch. Some
 hard gates may be develop-only, while others must run on all eternal branches.</p>
+<h4 id="sonarqube-cloud-soft-gate-limited-beta">SonarQube Cloud (soft gate, limited beta)<a class="headerlink" href="#sonarqube-cloud-soft-gate-limited-beta" title="Permanent link">&para;</a></h4>
+<p>SonarQube Cloud (SonarCloud) provides cross-language static analysis for code
+quality, security vulnerabilities, and maintainability. It is currently deployed
+as an <strong>optional, advisory soft gate</strong> in limited beta on the mq-rest-admin
+language implementation repos (Python, Go, Java).</p>
+<p>SonarCloud's free tier does not support custom quality gates, so the integration
+provides informational analysis rather than enforcement. Language-specific
+tooling (ruff, mypy, golangci-lint, spotbugs, etc.) remains the primary
+enforcement mechanism and the hard gate for code quality.</p>
+<p>SonarCloud runs in two patterns per repository:</p>
+<ul>
+<li><strong>PR analysis</strong> — a <code>sonarcloud</code> job in <code>ci.yml</code> posts a quality gate comment
+  on each pull request.</li>
+<li><strong>Post-merge baseline</strong> — a dedicated <code>sonarcloud.yml</code> workflow triggered on
+  <code>push</code> to <code>develop</code> keeps the SonarCloud project dashboard current.</li>
+</ul>
+<p>SonarCloud is not a required status check on any branch. It must not block PR
+merges. The composite action is defined in the
+<a href="https://github.com/wphillipmoore/standard-actions">standard-actions</a> shared
+actions library at <code>actions/quality/sonarcloud</code>.</p>
 <h3 id="docs-only-ci-skip-policy">Docs-only CI skip policy<a class="headerlink" href="#docs-only-ci-skip-policy" title="Permanent link">&para;</a></h3>
 <p>Repositories must define a docs-only allowlist (for example, <code>docs/**</code>,
 <code>README.md</code>, and <code>CHANGELOG.md</code>). <code>.github/**</code> is not docs-only.</p>

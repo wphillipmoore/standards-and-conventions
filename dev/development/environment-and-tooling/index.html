@@ -2319,6 +2319,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#sonarqube-cloud-sonarcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SonarQube Cloud (SonarCloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#baseline-automation-assumptions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3395,6 +3406,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#sonarqube-cloud-sonarcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SonarQube Cloud (SonarCloud)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#baseline-automation-assumptions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3487,6 +3509,20 @@ not install or download external tooling on demand. CI workflows may provision
 required tools explicitly.</p>
 <p>Documentation repositories must include markdownlint in their external tooling
 list.</p>
+<h3 id="sonarqube-cloud-sonarcloud">SonarQube Cloud (SonarCloud)<a class="headerlink" href="#sonarqube-cloud-sonarcloud" title="Permanent link">&para;</a></h3>
+<p>SonarCloud is a cloud-hosted static analysis service used as an optional,
+advisory quality gate. It is currently in limited beta on the mq-rest-admin
+language implementation repos (Python, Go, Java).</p>
+<p>SonarCloud requires:</p>
+<ul>
+<li>A SonarCloud account linked to the GitHub organization or personal account.</li>
+<li>A <code>SONAR_TOKEN</code> repository secret on each repo that uses the integration.</li>
+<li>Automatic analysis disabled per project in SonarCloud (CI-based analysis and
+  automatic analysis cannot run simultaneously).</li>
+</ul>
+<p>SonarCloud is consumed via the <code>quality/sonarcloud</code> composite action in the
+shared actions library. No local installation is required — the scanner runs
+entirely in CI.</p>
 <h3 id="baseline-automation-assumptions">Baseline automation assumptions<a class="headerlink" href="#baseline-automation-assumptions" title="Permanent link">&para;</a></h3>
 <p>For AI-assisted workflows in this environment, assume the following are
 pre-installed and ready to use:</p>
