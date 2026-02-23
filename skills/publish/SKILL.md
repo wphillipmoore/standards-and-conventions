@@ -1,6 +1,6 @@
 ---
 name: publish
-description: Drive the end-to-end publish workflow for library and documentation repositories, including post-publish dependency updates.
+description: Drive the end-to-end publish workflow for library, tooling, and documentation repositories, including post-publish dependency updates.
 ---
 
 # Publish
@@ -35,8 +35,8 @@ subsequent dependency refresh.
 Two modes are available, determined by `repository_type` in the repository
 profile:
 
-- **library-release** — For library repositories that publish versioned
-  artifacts.
+- **library-release** — For library and tooling repositories that publish
+  versioned artifacts.
 - **docs-only** — For documentation repositories that deploy via CI.
 
 This skill is not applicable to application repositories.
@@ -51,14 +51,14 @@ This skill is not applicable to application repositories.
 
 - Read `docs/repository-standards.md` and locate the repository profile section.
 - Read `repository_type` from the profile.
-- If the type is `library`, follow **library-release mode**.
+- If the type is `library` or `tooling`, follow **library-release mode**.
 - If the type is `documentation`, follow **docs-only mode**.
 - If the type is anything else, stop and inform the user that this skill does
   not apply.
 - Confirm you are on the `develop` branch with a clean working tree.
 - Identify the canonical validation command from the repository profile.
-- **Library-release only**: Verify `scripts/dev/prepare_release.py` exists. If
-  missing, **abort** — the repository is not configured for automated releases.
+- **Library-release only**: Verify `st-prepare-release` is available on PATH. If
+  missing, **abort** — standard-tooling is not configured on PATH.
 - **Library-release only**: Read the current version from the project manifest
   and compare it to the latest `v*` tag. If the version matches an existing
   tag, **abort** — the post-publish version bump did not run and the release
@@ -110,7 +110,7 @@ improvement — surfacing failures is more valuable than completing the release.
    the issue linkage required by the standards-compliance gate. Log all
    subsequent phase completions, issues encountered, and resolutions as comments
    on this issue to maintain a complete record of the publish operation.
-3. Run `scripts/dev/prepare_release.py --issue <N>` from the repository root on
+3. Run `st-prepare-release --issue <N>` from the repository root on
    `develop`, passing the tracking issue number.
 4. The script creates a `release/<version>` branch, generates the changelog,
    pushes the branch, creates a PR to `main` (with `Ref #<N>` in the body),
@@ -162,7 +162,7 @@ confirmed).
 1. Close the tracking issue with a final summary comment covering all phases.
    All issue and PR references in the summary must be full URLs (not short
    `#N` references) so they are clickable in the terminal.
-2. Run `scripts/dev/finalize_repo.sh` to return to a clean `develop` branch.
+2. Run `st-finalize-repo` to return to a clean `develop` branch.
    The script updates local `develop`, deletes merged branches, and prunes
    stale remotes. Run final validation to confirm a clean state.
 
@@ -180,7 +180,7 @@ confirmed).
    [Dependency update categories](#dependency-update-categories)).
 3. Run full validation.
 4. Submit via `pr-workflow`.
-5. Run `scripts/dev/finalize_repo.sh` to return to a clean `develop` branch.
+5. Run `st-finalize-repo` to return to a clean `develop` branch.
    The script updates local `develop`, deletes merged branches, and prunes
    stale remotes. Run final validation to confirm a clean state.
 
