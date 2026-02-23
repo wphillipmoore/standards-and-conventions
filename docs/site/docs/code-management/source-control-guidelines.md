@@ -137,6 +137,30 @@ so failing GitHub Actions block PR merges.
 Each repository must also document which hard gates apply per branch. Some
 hard gates may be develop-only, while others must run on all eternal branches.
 
+#### SonarQube Cloud (soft gate, limited beta)
+
+SonarQube Cloud (SonarCloud) provides cross-language static analysis for code
+quality, security vulnerabilities, and maintainability. It is currently deployed
+as an **optional, advisory soft gate** in limited beta on the mq-rest-admin
+language implementation repos (Python, Go, Java).
+
+SonarCloud's free tier does not support custom quality gates, so the integration
+provides informational analysis rather than enforcement. Language-specific
+tooling (ruff, mypy, golangci-lint, spotbugs, etc.) remains the primary
+enforcement mechanism and the hard gate for code quality.
+
+SonarCloud runs in two patterns per repository:
+
+- **PR analysis** — a `sonarcloud` job in `ci.yml` posts a quality gate comment
+  on each pull request.
+- **Post-merge baseline** — a dedicated `sonarcloud.yml` workflow triggered on
+  `push` to `develop` keeps the SonarCloud project dashboard current.
+
+SonarCloud is not a required status check on any branch. It must not block PR
+merges. The composite action is defined in the
+[standard-actions](https://github.com/wphillipmoore/standard-actions) shared
+actions library at `actions/quality/sonarcloud`.
+
 ### Docs-only CI skip policy
 
 Repositories must define a docs-only allowlist (for example, `docs/**`,

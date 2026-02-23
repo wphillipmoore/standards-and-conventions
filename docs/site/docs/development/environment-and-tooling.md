@@ -58,6 +58,23 @@ required tools explicitly.
 Documentation repositories must include markdownlint in their external tooling
 list.
 
+### SonarQube Cloud (SonarCloud)
+
+SonarCloud is a cloud-hosted static analysis service used as an optional,
+advisory quality gate. It is currently in limited beta on the mq-rest-admin
+language implementation repos (Python, Go, Java).
+
+SonarCloud requires:
+
+- A SonarCloud account linked to the GitHub organization or personal account.
+- A `SONAR_TOKEN` repository secret on each repo that uses the integration.
+- Automatic analysis disabled per project in SonarCloud (CI-based analysis and
+  automatic analysis cannot run simultaneously).
+
+SonarCloud is consumed via the `quality/sonarcloud` composite action in the
+shared actions library. No local installation is required — the scanner runs
+entirely in CI.
+
 ### Baseline automation assumptions
 
 For AI-assisted workflows in this environment, assume the following are
