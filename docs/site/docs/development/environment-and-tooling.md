@@ -58,43 +58,6 @@ required tools explicitly.
 Documentation repositories must include markdownlint in their external tooling
 list.
 
-### SonarQube Cloud (SonarCloud)
-
-SonarCloud is a cloud-hosted static analysis service used as an optional,
-advisory quality gate. It is currently in limited beta on the mq-rest-admin
-language implementation repos (Python, Go, Java).
-
-SonarCloud requires:
-
-- A SonarCloud account linked to the GitHub organization or personal account.
-- A `SONAR_TOKEN` repository secret on each repo that uses the integration.
-- Automatic analysis disabled per project in SonarCloud (CI-based analysis and
-  automatic analysis cannot run simultaneously).
-
-SonarCloud is consumed via the `quality/sonarcloud` composite action in the
-shared actions library. No local installation is required — the scanner runs
-entirely in CI.
-
-### Qlty Cloud (Code Climate)
-
-Qlty Cloud (formerly Code Climate) is a cloud-hosted coverage tracking service
-used as an optional, advisory quality gate. It is currently in limited beta on
-the mq-rest-admin language implementation repos (Python, Go, Java).
-
-Qlty Cloud requires:
-
-- The Qlty Cloud GitHub App installed on the GitHub account or organization.
-- Each repository imported in Qlty Cloud at [qlty.io](https://qlty.io).
-- Automatic analysis disabled per project if using CI-based coverage upload
-  exclusively.
-
-Qlty Cloud uses OIDC authentication — no tokens or secrets are required. The
-calling workflow must include `id-token: write` in its permissions block.
-
-Qlty Cloud is consumed via the `quality/codeclimate` composite action in the
-shared actions library. No local installation is required — coverage upload runs
-entirely in CI.
-
 ### Baseline automation assumptions
 
 For AI-assisted workflows in this environment, assume the following are
