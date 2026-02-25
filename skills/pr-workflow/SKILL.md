@@ -61,10 +61,10 @@ original event payload. Push a new commit to trigger a fresh workflow run.
 
 ## Finalization
 
-After the PR merges, run `scripts/dev/finalize_repo.sh` from the repository
-root. The script switches to the target branch, fast-forward pulls from origin,
-deletes merged local branches, and prunes stale remotes. If the script is not
-available, perform the steps manually:
+After the PR merges, run `st-finalize-repo` from the repository root. The tool
+switches to the target branch, fast-forward pulls from origin, deletes merged
+local branches, and prunes stale remotes. If the tool is not available, perform
+the steps manually:
 
 1. Switch to the target branch and pull latest from origin.
 2. Delete the local feature branch.
