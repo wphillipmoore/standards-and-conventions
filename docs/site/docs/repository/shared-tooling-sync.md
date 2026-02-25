@@ -60,9 +60,7 @@ self-containment on release branches.
 
 | Script | Purpose |
 | --- | --- |
-| `scripts/dev/sync-tooling.sh` | The sync mechanism itself |
 | `scripts/dev/prepare_release.py` | Automated release preparation |
-| `scripts/dev/finalize_repo.sh` | Post-merge cleanup |
 
 ## Sync mechanism
 

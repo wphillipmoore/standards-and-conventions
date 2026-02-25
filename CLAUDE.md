@@ -113,6 +113,20 @@ Git hooks enforce branch naming and commit message standards. Enable them:
 git config core.hooksPath scripts/git-hooks
 ```
 
+## Development Environment
+
+The `standard-tooling` package provides CLI tools (`st-commit`, `st-submit-pr`,
+`st-finalize-repo`, etc.) used for commits, PRs, and post-merge cleanup. These
+are installed in `../standard-tooling` relative to each repo root. Add both
+tool directories to PATH:
+
+```bash
+export PATH="../standard-tooling/.venv/bin:../standard-tooling/scripts/bin:$PATH"
+```
+
+CI configures this automatically. In local development, ensure both directories
+are on PATH before running any `st-*` commands.
+
 ## Repository Standards Quick Reference
 
 The include directives above load the full repository standards. Key highlights for quick reference:
@@ -121,6 +135,7 @@ The include directives above load the full repository standards. Key highlights 
 - Check current branch: `git status -sb`
 - If on `develop`, create `feature/*` branch before making changes
 - Enable git hooks: `git config core.hooksPath scripts/git-hooks`
+- Verify `st-*` tools are on PATH: `command -v st-commit`
 
 **Repository Profile**:
 - repository_type: documentation
@@ -145,7 +160,7 @@ The include directives above load the full repository standards. Key highlights 
   - `docs/site/docs/research/` - Research reports
 - `skills/` - Shared agent skills loaded by downstream repositories
 - `scripts/` - Linting, git hook, and dev automation scripts
-  - `scripts/dev/` - Shared development scripts (prepare_release, finalize_repo)
+  - `scripts/dev/` - Shared development and validation scripts
 - `drafts/` - Work-in-progress content
 
 ## Skills
@@ -191,17 +206,17 @@ This repository uses `<!-- include: path/to/file.md -->` directives to force doc
    - User overrides (`~/AGENTS.md` if present)
 3. **Load shared skills** from `skills/**/SKILL.md`
 
-## Commit and PR Scripts
+## Commit and PR Commands
 
-**NEVER use raw `git commit`** — always use `scripts/dev/commit.sh`.
-**NEVER use raw `gh pr create`** — always use `scripts/dev/submit-pr.sh`.
+**NEVER use raw `git commit`** — always use `st-commit`.
+**NEVER use raw `gh pr create`** — always use `st-submit-pr`.
 
 ### Committing
 
 ```bash
-scripts/dev/commit.sh --type docs --message "update branching standards" --agent claude
-scripts/dev/commit.sh --type feat --scope skills --message "add new triage skill" --agent claude
-scripts/dev/commit.sh --type fix --message "correct markdown lint config" --body "Aligned with upstream markdownlint-cli2 defaults" --agent claude
+st-commit --type docs --message "update branching standards" --agent claude
+st-commit --type feat --scope skills --message "add new triage skill" --agent claude
+st-commit --type fix --message "correct markdown lint config" --body "Aligned with upstream markdownlint-cli2 defaults" --agent claude
 ```
 
 - `--type` (required): `feat|fix|docs|style|refactor|test|chore|ci|build`
@@ -213,9 +228,9 @@ scripts/dev/commit.sh --type fix --message "correct markdown lint config" --body
 ### Submitting PRs
 
 ```bash
-scripts/dev/submit-pr.sh --issue 42 --summary "Update branching model standards"
-scripts/dev/submit-pr.sh --issue 42 --linkage Ref --summary "Clarify AI agent guidelines" --docs-only
-scripts/dev/submit-pr.sh --issue 42 --summary "Add deprecation triage skill" --notes "New skill loaded by downstream repos"
+st-submit-pr --issue 42 --summary "Update branching model standards"
+st-submit-pr --issue 42 --linkage Ref --summary "Clarify AI agent guidelines" --docs-only
+st-submit-pr --issue 42 --summary "Add deprecation triage skill" --notes "New skill loaded by downstream repos"
 ```
 
 - `--issue` (required): GitHub issue number (just the number, or cross-repo `owner/repo#42`)
@@ -225,6 +240,15 @@ scripts/dev/submit-pr.sh --issue 42 --summary "Add deprecation triage skill" --n
 - `--notes` (optional): additional notes
 - `--docs-only` (optional): applies docs-only testing exception
 - `--dry-run` (optional): print generated PR without executing
+
+### Post-merge cleanup
+
+```bash
+st-finalize-repo
+```
+
+Automates local cleanup after a PR merge: updates the target branch, deletes
+merged branches, and prunes stale remotes.
 
 ## Key References
 
