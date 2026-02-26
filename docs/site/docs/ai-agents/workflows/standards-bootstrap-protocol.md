@@ -42,7 +42,6 @@ Before any edits or commands, record a short "standards snapshot" that states:
 
 - repository_type
 - branching_model
-- docs-only scope or exception
 - validation policy (required vs optional, plus canonical command if defined)
 
 If any item is unknown or missing, stop and ask for clarification.
