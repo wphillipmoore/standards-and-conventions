@@ -54,6 +54,9 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Releases:
+      - Release Notes: releases/index.md
+      - Changelog: changelog.md
   - Standards:
       - Overview: standards/overview.md
       - Markdown Standards: standards/markdown-standards.md
@@ -133,6 +136,3 @@ nav:
           - Conventions: development/database/conventions.md
   - Research:
       - EU/Canada Alternatives: research/eu-canada-github-aws-alternatives.md
-  - Releases:
-      - Release Notes: releases/index.md
-      - Changelog: changelog.md
