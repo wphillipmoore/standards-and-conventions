@@ -42,6 +42,43 @@ The local validation script must mirror CI hard gates, including:
 If CI separates unit and integration jobs, the local script must run both sets
 of tests to keep coverage and integration behavior aligned.
 
+## Standard tier-1 script set
+
+Every repository must provide the following scripts in `scripts/dev/`:
+
+| Script | Purpose | Required in |
+| --- | --- | --- |
+| `lint.sh` | Linting and formatting checks | All repos |
+| `test.sh` | Test suite execution | All repos |
+| `audit.sh` | Dependency and security audit | All repos |
+| `typecheck.sh` | Static type checking | Language repos only |
+
+### Language repos
+
+Language repositories (Go, Java, Python, Ruby) use the docker-test pattern:
+each script sets `DOCKER_DEV_IMAGE` and `DOCKER_TEST_CMD`, then delegates to
+`docker-test` or falls back to running Docker directly.
+
+All four scripts (`lint.sh`, `test.sh`, `audit.sh`, `typecheck.sh`) are
+required.
+
+### Non-language repos
+
+Infrastructure and documentation repositories run tools directly on the host
+(no Docker pattern). If a repository has no applicable checks for a category,
+the script prints a message and exits 0:
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+# Tier 1 — Test
+
+echo "No test suite for this repository."
+```
+
+Non-language repos require `lint.sh`, `test.sh`, and `audit.sh`.
+`typecheck.sh` is not applicable and must not be created.
+
 ## Per-ecosystem examples
 
 ### Python
