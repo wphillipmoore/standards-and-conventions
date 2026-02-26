@@ -133,3 +133,6 @@ nav:
           - Conventions: development/database/conventions.md
   - Research:
       - EU/Canada Alternatives: research/eu-canada-github-aws-alternatives.md
+  - Releases:
+      - Release Notes: releases/index.md
+      - Changelog: changelog.md
