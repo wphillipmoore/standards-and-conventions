@@ -73,8 +73,8 @@ The documentation site includes:
 
 - **Action reference** — Detailed inputs, outputs, permissions, and usage
   examples for all composite actions.
-- **CI gate requirements** — Target-state specification for required checks,
-  docs-only optimization, and security scanning.
+- **CI gate requirements** — Target-state specification for required checks
+  and security scanning.
 - **Development guides** — Environment setup, validation, and contributing
   guidelines.
 

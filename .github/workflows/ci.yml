@@ -11,19 +11,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  docs-only:
-    name: "ci: docs-only"
-    runs-on: ubuntu-latest
-    outputs:
-      docs-only: ${{ steps.detect.outputs.docs-only }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-
-      - name: Detect docs-only changes
-        id: detect
-        uses: wphillipmoore/standard-actions/actions/docs-only-detect@develop
-
   standards-compliance:
     name: "ci: standards-compliance"
     runs-on: ubuntu-latest

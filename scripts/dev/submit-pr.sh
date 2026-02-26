@@ -14,7 +14,6 @@ linkage="Fixes"
 summary=""
 notes=""
 title=""
-docs_only=false
 dry_run=false
 
 # --- Argument parsing ---
@@ -32,7 +31,6 @@ Optional:
                     Allowed: Fixes, Closes, Resolves, Ref
   --notes TEXT      Additional notes for the PR
   --title TEXT      PR title (default: most recent commit subject)
-  --docs-only       Apply docs-only exception to testing section
   --dry-run         Print the PR body and command without executing
   -h, --help        Show this help
 EOF
@@ -46,7 +44,6 @@ while [[ $# -gt 0 ]]; do
     --summary)  summary="$2"; shift 2 ;;
     --notes)    notes="$2";   shift 2 ;;
     --title)    title="$2";   shift 2 ;;
-    --docs-only) docs_only=true; shift ;;
     --dry-run)  dry_run=true; shift ;;
     -h|--help)  usage ;;
     *)
@@ -128,20 +125,6 @@ if [[ -f "$template_file" ]]; then
   while [[ "$testing_section" == *$'\n' ]]; do
     testing_section="${testing_section%$'\n'}"
   done
-fi
-
-if [[ "$docs_only" == true ]]; then
-  changed_files="$(git diff --name-only "${target_branch}...HEAD" 2>/dev/null || git diff --name-only HEAD~1)"
-  prefixed_files=""
-  while IFS= read -r file; do
-    prefixed_files="${prefixed_files}- ${file}
-"
-  done <<< "$changed_files"
-  testing_section="Docs-only: tests skipped
-
-Changed files:
-${prefixed_files%
-}"
 fi
 
 # --- Build notes section ---
