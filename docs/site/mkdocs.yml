@@ -34,6 +34,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.indexes
     - navigation.top
     - content.code.copy
     - search.highlight
@@ -55,8 +56,9 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Releases:
-      - Release Notes: releases/index.md
       - Changelog: changelog.md
+      - Release Notes:
+          - releases/index.md
   - Standards:
       - Overview: standards/overview.md
       - Markdown Standards: standards/markdown-standards.md
