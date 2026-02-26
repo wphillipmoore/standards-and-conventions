@@ -10,27 +10,6 @@ definitions.
 Submitting failing PRs wastes reviewer time, pollutes history, and undermines
 confidence in the codebase.
 
-## Docs-Only Exception
-
-Documentation-only changes may skip the unit test suite and coverage checks
-when the diff includes only documentation files.
-
-Define "docs-only" for the repository (for example: files under `docs/` plus
-top-level `README.md` and `CHANGELOG.md`).
-
-When using this exception, explicitly state `Docs-only: tests skipped` in the
-PR description and list the files changed.
-
-Documentation repositories may define "docs-only" as the entire repository and
-require markdownlint. Additional validation is optional unless the repository
-documents a requirement. For documentation repositories with only markdownlint
-required, do not ask for additional validation; proceed with PR submission.
-
-CI workflows must implement the docs-only skip policy in
-[source-control-guidelines.md](source-control-guidelines.md#docs-only-ci-skip-policy).
-Markdownlint and any docs-only validation commands must still run even when
-tests are skipped.
-
 ## Issue linkage
 
 Every pull request must have a primary GitHub issue. If no issue exists,
@@ -76,8 +55,7 @@ commands in the Testing section.
 
 ## Pre-Submission Requirements
 
-Before creating a pull request, all of the following must be met unless the
-docs-only exception applies:
+Before creating a pull request, all of the following must be met:
 
 1. 100 percent unit test success
 2. Coverage must not decline (lines and branches)
@@ -153,7 +131,7 @@ Common mistakes to avoid:
 
 ## Auto-merge policy
 
-Auto-merge is the default for all pull requests, including docs-only changes.
+Auto-merge is the default for all pull requests.
 
 Opt out when a merge must be scheduled or reviewed by adding the label
 `manual-merge` to the pull request. Do not enable auto-merge while that label
@@ -210,6 +188,6 @@ Finalize the PR in this order:
 3. update local copy of the target branch
 4. synchronize the local environment with dependency specifications
 5. delete the local feature branch and prune stale remotes
-6. run final validation (skip for docs-only PRs)
+6. run final validation
 
 Do not reuse old branch names.

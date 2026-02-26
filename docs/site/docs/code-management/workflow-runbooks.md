@@ -54,9 +54,7 @@ Applies to all repositories governed by these standards.
 2. Push the branch to the remote.
 3. Create the pull request using the repository template.
 4. Link the primary issue in the PR description.
-5. If the work is docs-only, state "Docs-only: tests skipped" and list changed
-   files.
-6. Enable auto-merge unless the repository requires manual merge.
+5. Enable auto-merge unless the repository requires manual merge.
 
 ## Pull request finalization runbook
 
@@ -67,13 +65,7 @@ Applies to all repositories governed by these standards.
    branches, and prune remotes. If the command is not available, perform steps
    5-6 manually.
 5. Delete the local feature branch and prune remotes.
-6. Run final validation unless the docs-only exception applies.
-
-## Docs-only exception runbook
-
-1. Determine whether the diff qualifies as docs-only per repository standards.
-2. If docs-only, run markdownlint and skip other test or validation suites.
-3. If not docs-only, run the full required validation set.
+6. Run final validation.
 
 ## Maintenance
 

@@ -1,6 +1,6 @@
 ---
 name: pr-workflow
-description: Guide pull request creation, submission, and finalization using the canonical PR workflow, including the docs-only exception.
+description: Guide pull request creation, submission, and finalization using the canonical PR workflow.
 ---
 
 # PR workflow
@@ -9,7 +9,6 @@ description: Guide pull request creation, submission, and finalization using the
 
 - [Overview](#overview)
 - [Preflight](#preflight)
-- [Docs-only determination](#docs-only-determination)
 - [Pre-submission steps](#pre-submission-steps)
 - [Submission](#submission)
 - [Finalization](#finalization)
@@ -30,14 +29,6 @@ always enabled; CI gates are the sole merge authority.
 - Locate the pull request template at `.github/pull_request_template.md`.
 - Ensure commit message format and AI co-authorship requirements are met per
   the commit standards and the repo's approved AI identity list.
-
-## Docs-only determination
-
-- Identify whether the change set is "docs-only" as defined by the repository.
-- If the repository does not define a docs-only rule, ask for it before
-  applying the exception.
-- When using the docs-only exception, include `Docs-only: tests skipped` in the
-  PR description and list the files changed.
 
 ## Pre-submission steps
 
@@ -70,7 +61,7 @@ the steps manually:
 2. Delete the local feature branch.
 3. Prune stale remote-tracking references.
 
-Then run final validation (skip for docs-only PRs).
+Then run final validation.
 
 Finalization is mandatory. Do not stop after submission or ask for permission
 to finalize.

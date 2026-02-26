@@ -22,7 +22,7 @@ Use before finalizing any response governed by the interaction contract.
 - Guardrails re-read before any command or edit
   (`docs/ai-agents/behavior/agent-guardrails.md`).
 - Preflight gate emitted before any file edit or git action (branch, issue,
-  docs-only scope, validation policy).
+  validation policy).
 - For documentation repositories, markdownlint is required. Do not ask for
   additional validation unless the repository documents it.
 - No silent guessing of material facts.

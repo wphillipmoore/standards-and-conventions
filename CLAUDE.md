@@ -145,8 +145,6 @@ The include directives above load the full repository standards. Key highlights 
 
 **Branching**: `develop` is the default branch (staging). `main` is the promotion target (live site). All work happens on `feature/*` or `bugfix/*` branches merged to `develop` via PR. Changes reach `main` via promotion PR from `develop`.
 
-**Docs-only exception**: Since this is a documentation-only repository, the docs-only exception applies to all PRs. Local validation is optional per the docs-only rule.
-
 **Validation**: markdownlint is the canonical local validation tool. It must be on PATH (`markdownlint-cli`).
 
 ## File Layout
@@ -229,7 +227,7 @@ st-commit --type fix --message "correct markdown lint config" --body "Aligned wi
 
 ```bash
 st-submit-pr --issue 42 --summary "Update branching model standards"
-st-submit-pr --issue 42 --linkage Ref --summary "Clarify AI agent guidelines" --docs-only
+st-submit-pr --issue 42 --linkage Ref --summary "Clarify AI agent guidelines"
 st-submit-pr --issue 42 --summary "Add deprecation triage skill" --notes "New skill loaded by downstream repos"
 ```
 
@@ -238,7 +236,6 @@ st-submit-pr --issue 42 --summary "Add deprecation triage skill" --notes "New sk
 - `--linkage` (optional, default: `Fixes`): `Fixes|Closes|Resolves|Ref`
 - `--title` (optional): PR title (default: most recent commit subject)
 - `--notes` (optional): additional notes
-- `--docs-only` (optional): applies docs-only testing exception
 - `--dry-run` (optional): print generated PR without executing
 
 ### Post-merge cleanup

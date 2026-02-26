@@ -25,8 +25,7 @@ Skill bodies must remain aligned with the canonical documents they reference.
   operations summaries (autocomplete-friendly).
 - `summarize-soc` (`skills/summarize-soc/SKILL.md`): wrapper for SOC capture
   summaries (autocomplete-friendly).
-- `pr-workflow` (`skills/pr-workflow/SKILL.md`): pull request workflow with
-  docs-only exception handling.
+- `pr-workflow` (`skills/pr-workflow/SKILL.md`): pull request workflow.
 - `dependency-update` (`skills/dependency-update/SKILL.md`): dependency update
   workflow with failure handling and anchor rules.
 - `deprecation-triage` (`skills/deprecation-triage/SKILL.md`): deprecation

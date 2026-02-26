@@ -53,9 +53,6 @@ Branch applicability:
 - release: all hard gates required
 - main: all hard gates required
 
-Docs-only pull requests may skip these jobs when the repository implements the
-docs-only CI skip policy.
-
 ## Document Map
 
 - Naming conventions: [naming-conventions.md](naming-conventions.md)
