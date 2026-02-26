@@ -208,6 +208,10 @@ def merge_main(version: str) -> None:
     )
 
 
+RELEASE_NOTES_CONFIG = "cliff-release-notes.toml"
+RELEASE_NOTES_DIR = "releases"
+
+
 def generate_changelog(version: str) -> bool:
     """Generate changelog via git-cliff. Return True if generated."""
     for tool in ("git-cliff", "markdownlint"):
@@ -216,24 +220,10 @@ def generate_changelog(version: str) -> bool:
     tag = f"develop-v{version}"
     print(f"Generating changelog with boundary tag: {tag}")
     run_command(("git-cliff", "--tag", tag, "-o", "CHANGELOG.md"))
-    changelog = Path("CHANGELOG.md")
-    changelog.write_text(
-        changelog.read_text(encoding="utf-8").rstrip() + "\n",
-        encoding="utf-8",
-    )
-    result = subprocess.run(
-        ("markdownlint", "CHANGELOG.md"),
-        capture_output=True,
-        text=True,
-    )
-    if result.returncode != 0:
-        print(result.stdout)
-        print(result.stderr)
-        raise SystemExit(
-            "CHANGELOG.md failed markdownlint validation. "
-            "Fix cliff.toml template or CHANGELOG content before releasing."
-        )
+    normalize_trailing_newline(Path("CHANGELOG.md"))
+    validate_markdownlint(Path("CHANGELOG.md"))
     run_command(("git", "add", "CHANGELOG.md"))
+    generate_release_notes(version, tag)
     status = read_command_output(("git", "status", "--porcelain"))
     if not status:
         message = (
@@ -244,6 +234,41 @@ def generate_changelog(version: str) -> bool:
         raise SystemExit(message)
     run_command(("git", "commit", "-m", f"chore: prepare release {version}"))
     return True
+
+
+def generate_release_notes(version: str, tag: str) -> None:
+    """Generate per-release verbose notes if cliff-release-notes.toml exists."""
+    config = Path(RELEASE_NOTES_CONFIG)
+    if not config.is_file():
+        return
+    releases_dir = Path(RELEASE_NOTES_DIR)
+    releases_dir.mkdir(exist_ok=True)
+    output_file = releases_dir / f"v{version}.md"
+    print(f"Generating release notes: {output_file}")
+    run_command(
+        ("git-cliff", "--config", str(config), "--tag", tag, "--latest", "-o", str(output_file))
+    )
+    normalize_trailing_newline(output_file)
+    validate_markdownlint(output_file)
+    run_command(("git", "add", str(releases_dir)))
+
+
+def normalize_trailing_newline(path: Path) -> None:
+    """Ensure file ends with exactly one newline."""
+    path.write_text(path.read_text(encoding="utf-8").rstrip() + "\n", encoding="utf-8")
+
+
+def validate_markdownlint(path: Path) -> None:
+    """Run markdownlint on a file, raising SystemExit on failure."""
+    result = subprocess.run(
+        ("markdownlint", str(path)),
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        print(result.stdout)
+        print(result.stderr)
+        raise SystemExit(f"{path} failed markdownlint validation.")
 
 
 def push_branch(branch: str) -> None:
