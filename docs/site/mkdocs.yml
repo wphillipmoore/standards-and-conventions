@@ -130,6 +130,9 @@ nav:
       - Java:
           - Overview: development/java/overview.md
           - Naming Conventions: development/java/naming-conventions.md
+      - Rust:
+          - Overview: development/rust/overview.md
+          - Naming Conventions: development/rust/naming-conventions.md
       - Shell:
           - Overview: development/shell/overview.md
           - Naming Conventions: development/shell/naming-conventions.md

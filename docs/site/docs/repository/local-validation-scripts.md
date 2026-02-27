@@ -55,7 +55,7 @@ Every repository must provide the following scripts in `scripts/dev/`:
 
 ### Language repos
 
-Language repositories (Go, Java, Python, Ruby) use the docker-test pattern:
+Language repositories (Go, Java, Python, Ruby, Rust) use the docker-test pattern:
 each script sets `DOCKER_DEV_IMAGE` and `DOCKER_TEST_CMD`, then delegates to
 `docker-test` or falls back to running Docker directly.
 
@@ -110,6 +110,16 @@ mvn checkstyle:check
 mvn spotbugs:check
 mvn test
 mvn dependency-check:check
+```
+
+### Rust
+
+```bash
+# Typical checks in a Rust validation script
+cargo fmt --all -- --check
+cargo clippy -- -D warnings
+cargo test
+cargo deny check
 ```
 
 ## Ecosystem-specific standards

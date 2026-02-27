@@ -174,6 +174,20 @@ Go supports the two most recent major releases:
 
 Reference: Go Release Policy.
 
+### Rust
+
+Rust uses a six-week release cadence. Only the latest stable release receives
+patches; there is no extended security-fix window for prior releases.
+
+- **Current stable release**: maps to Tier 1.
+- **Previous two releases (N-1, N-2)**: maps to Tier 3. Rust does not patch
+  these, but they remain recent enough for library consumers. This project
+  uses an N-2 policy (~18 weeks of coverage), matching Go's two-release
+  approach.
+- **Older releases**: maps to Tier 4 (EOL).
+
+Reference: Rust Release Process (Rust Forge).
+
 ## Related documents
 
 - Python version management:
