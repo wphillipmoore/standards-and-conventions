@@ -22,41 +22,11 @@ and long-term survivability across repositories.
 
 ## CI Gates
 
-Every CI check is classified as a hard gate or soft gate.
+See [Source Control Guidelines](../../code-management/source-control-guidelines.md#ci-gates)
+for hard gate and soft gate definitions.
 
-Hard gate definition:
-
-- Merge-blocking. A required status check must be configured on the target
-  branch. Any failure blocks merge until a new commit passes.
-
-Soft gate definition:
-
-- Warning-only. The check can fail without blocking merge, but failures must be
-  surfaced with rationale and follow-up tracking when applicable.
-
-Hard gates (all are required status checks):
-
-- `test: unit (current)`
-- `test: integration`
-- `ci: dependency-audit`
-
-Soft gates:
-
-- None (default to hard gate until documented).
-
-Branch applicability:
-
-- develop: all hard gates required
-- release: all hard gates required
-- main: all hard gates required
-
-When dual-minor testing is active, label jobs by role:
-
-- `test-and-validate (current)` is required.
-- `test-and-validate (next)` is advisory.
-- `test-and-validate (previous)` is advisory when retained for rollback.
-
-Only the `current` minor blocks merges.
+Required checks for Python repositories are maintained in the
+[standard-actions CI gates documentation](https://wphillipmoore.github.io/standard-actions/ci-gates/required-checks/).
 
 ## Document Map
 
