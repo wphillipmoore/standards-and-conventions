@@ -25,7 +25,7 @@
 
 ## Validation policy
 
-- canonical_local_validation_command: scripts/lint/markdown-standards.sh
+- canonical_local_validation_command: markdown-standards
 - validation_required: yes (markdownlint required)
 
 ## External tooling dependencies
@@ -36,16 +36,14 @@
 
 Hard gates (required status checks on `develop`):
 
-- Standards compliance (`.github/workflows/standards-gates.yml`):
-  - Repository profile validation (`scripts/lint/repo-profile.sh`)
-  - Markdownlint (`scripts/lint/markdown-standards.sh`)
-  - Commit message lint (`scripts/lint/commit-messages.sh`)
-  - Issue linkage validation (`scripts/lint/pr-issue-linkage.sh`)
+- Standards compliance (`.github/workflows/ci.yml` via `standard-actions`):
+  - Repository profile validation (`repo-profile`)
+  - Markdownlint (`markdown-standards`)
+  - Issue linkage validation (`pr-issue-linkage`)
 
-Local hard gates (pre-commit hooks):
+Local hard gates (pre-commit hooks from `standard-tooling`):
 
-- Branch naming enforcement (`scripts/git-hooks/pre-commit`):
-  branching-model-aware prefix validation.
+- Branch naming enforcement: branching-model-aware prefix validation.
 
 ## Local deviations
 
