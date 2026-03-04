@@ -17,10 +17,10 @@ repositories, with local overrides captured elsewhere when needed.
 
 ## Mandatory standards intake (before any other action)
 
-After reading this file and any `~/AGENTS.md` overlay, you MUST load the
-repository-local `docs/site/docs/standards-and-conventions.md`. Treat it as the required
-entry point for all other standards. If the file cannot be retrieved, stop and
-notify the user.
+After reading this file and any `~/AGENTS.md` overlay, you MUST load
+the repository-local `docs/site/docs/standards-and-conventions.md`.
+Treat it as the required entry point for all other standards. If the
+file cannot be retrieved, stop and notify the user.
 
 Then, before any other action, you MUST open every canonical or required
 reference listed there that is relevant to the task at hand. Do not proceed
@@ -34,9 +34,11 @@ changes in a new session, you MUST:
 1. Check current branch: `git branch --show-current`
 2. If on an eternal branch (`develop`, `release`, `main`), create a feature
    branch immediately:
+
    ```bash
    git checkout -b feature/<descriptive-name>
    ```
+
 3. If already on a short-lived branch, continue work there.
 
 **Guardrail**: re-check the branch before any edit or commit. If you are on an
@@ -55,18 +57,23 @@ alternate sources.
 
 ### Required Reading Before Common Operations
 
-**Git Operations (commit, push, branch, merge)**
+#### Git Operations (commit, push, branch, merge)
+
 - MUST READ: `docs/site/docs/code-management/branching/branching-and-deployment.md`
 - MUST READ: `docs/site/docs/code-management/commit-messages-and-authorship.md`
-- MUST READ: `docs/site/docs/standards-and-conventions.md` for approved AI co-author IDs
+- MUST READ: `docs/site/docs/standards-and-conventions.md` for approved
+  AI co-author IDs
 
-**Pull Request Operations (create, submit, merge)**
+#### Pull Request Operations (create, submit, merge)
+
 - MUST READ: `docs/site/docs/code-management/pull-request-workflow.md`
 
-**Documentation Standards**
+#### Documentation Standards
+
 - MUST READ: `docs/site/docs/standards/markdown-standards.md`
 
 ## Working Rules
+
 - Read the relevant standards before editing or adding documentation.
 - Keep guidance generic; remove project-specific names, paths, or tooling.
 - Preserve intent and rationale when generalizing standards.
@@ -74,12 +81,15 @@ alternate sources.
 - Prefer small, focused edits that keep documents easy to scan.
 
 ## Documentation First
+
 This repo is documentation-first. Do not add code unless it is an example
 explicitly required to explain a standard.
 
 ## File Layout
+
 - Core standards live under `docs/site/docs/`.
-- Follow `docs/site/docs/standards/markdown-standards.md` when adding documentation.
+- Follow `docs/site/docs/standards/markdown-standards.md` when adding
+  documentation.
 
 ## Shell command policy
 
@@ -90,6 +100,7 @@ Always write multi-line content to a temporary file and pass it via `--body-file
 or `--file` instead.
 
 ## The RTFM Principle
+
 If you find yourself guessing at workflow rules, using trial-and-error, or
 backtracking due to errors, stop and read the relevant documentation before
 proceeding.
