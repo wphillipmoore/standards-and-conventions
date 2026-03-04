@@ -16,23 +16,19 @@ This is the **canonical standards and conventions repository**. All other reposi
 
 **Repository type**: Documentation-only. Do not add code unless it is an example explicitly required to explain a standard.
 
+## Environment Setup
+
+```bash
+cd ../standard-tooling && uv sync                                                # Install standard-tooling
+export PATH="../standard-tooling/.venv/bin:../standard-tooling/scripts/bin:$PATH" # Put tools on PATH
+git config core.hooksPath ../standard-tooling/scripts/lib/git-hooks               # Enable git hooks
+```
+
 ## Validation Commands
 
 ```bash
-# Markdown linting (canonical local validation command)
-scripts/lint/markdown-standards.sh
-
-# Repository profile validation
-scripts/lint/repo-profile.sh
-
-# Commit message validation
-scripts/lint/commit-messages.sh
-```
-
-Git hooks enforce branch naming and commit message standards. Enable them:
-
-```bash
-git config core.hooksPath scripts/git-hooks
+markdown-standards    # Markdown linting (canonical local validation command)
+repo-profile          # Repository profile validation
 ```
 
 ## Development Environment
@@ -56,7 +52,7 @@ The include directives above load the full repository standards. Key highlights 
 **Pre-flight Checklist**:
 - Check current branch: `git status -sb`
 - If on `develop`, create `feature/*` branch before making changes
-- Enable git hooks: `git config core.hooksPath scripts/git-hooks`
+- Enable git hooks: `git config core.hooksPath ../standard-tooling/scripts/lib/git-hooks`
 - Verify `st-*` tools are on PATH: `command -v st-commit`
 
 **Repository Profile**:
@@ -79,8 +75,7 @@ The include directives above load the full repository standards. Key highlights 
   - `docs/site/docs/development/` - Language-specific development standards (Python, database)
   - `docs/site/docs/research/` - Research reports
 - `skills/` - Shared agent skills loaded by downstream repositories
-- `scripts/` - Linting, git hook, and dev automation scripts
-  - `scripts/dev/` - Shared development and validation scripts
+- `scripts/dev/` - Development and validation scripts
 - `drafts/` - Work-in-progress content
 
 ## Skills

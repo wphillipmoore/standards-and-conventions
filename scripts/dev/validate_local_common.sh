@@ -16,6 +16,8 @@ run() {
 missing=()
 command -v shellcheck >/dev/null 2>&1 || missing+=("shellcheck")
 command -v markdownlint >/dev/null 2>&1 || missing+=("markdownlint")
+command -v repo-profile >/dev/null 2>&1 || missing+=("repo-profile (standard-tooling)")
+command -v markdown-standards >/dev/null 2>&1 || missing+=("markdown-standards (standard-tooling)")
 
 if [[ ${#missing[@]} -gt 0 ]]; then
   echo "ERROR: required tools not found: ${missing[*]}" >&2
@@ -24,25 +26,18 @@ fi
 
 # -- repo profile validation -------------------------------------------------
 
-if [[ -f "$repo_root/scripts/lint/repo-profile.sh" ]]; then
-  run "$repo_root/scripts/lint/repo-profile.sh"
-fi
+run repo-profile
 
 # -- markdown lint -----------------------------------------------------------
 
-if [[ -f "$repo_root/scripts/lint/markdown-standards.sh" ]]; then
-  run "$repo_root/scripts/lint/markdown-standards.sh"
-fi
+run markdown-standards
 
 # -- shellcheck on all shell scripts -----------------------------------------
 
 shell_files=()
 while IFS= read -r f; do
   shell_files+=("$f")
-done < <(
-  find "$repo_root/scripts" -type f -name '*.sh' 2>/dev/null
-  find "$repo_root/scripts/git-hooks" -type f 2>/dev/null
-)
+done < <(find "$repo_root/scripts" -type f -name '*.sh' 2>/dev/null)
 
 if [[ ${#shell_files[@]} -gt 0 ]]; then
   run shellcheck "${shell_files[@]}"
