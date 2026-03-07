@@ -19,10 +19,11 @@ This is the **canonical standards and conventions repository**. All other reposi
 ## Environment Setup
 
 ```bash
-cd ../standard-tooling && uv sync                                                # Install standard-tooling
-export PATH="../standard-tooling/.venv/bin:../standard-tooling/scripts/bin:$PATH" # Put tools on PATH
-git config core.hooksPath ../standard-tooling/scripts/lib/git-hooks               # Enable git hooks
+git config core.hooksPath ../standard-tooling/scripts/lib/git-hooks  # Enable git hooks
 ```
+
+Standard-tooling CLI tools (`st-commit`, `st-validate-local`, etc.) are
+pre-installed in the dev container images. No local setup required.
 
 ## Validation Commands
 
@@ -35,15 +36,8 @@ repo-profile          # Repository profile validation
 
 The `standard-tooling` package provides CLI tools (`st-commit`, `st-submit-pr`,
 `st-finalize-repo`, etc.) used for commits, PRs, and post-merge cleanup. These
-are installed in `../standard-tooling` relative to each repo root. Add both
-tool directories to PATH:
-
-```bash
-export PATH="../standard-tooling/.venv/bin:../standard-tooling/scripts/bin:$PATH"
-```
-
-CI configures this automatically. In local development, ensure both directories
-are on PATH before running any `st-*` commands.
+are pre-installed in all dev container images (`dev-python`, `dev-java`, etc.)
+and are available on PATH automatically.
 
 ## Repository Standards Quick Reference
 
