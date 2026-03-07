@@ -54,12 +54,11 @@ original event payload. Push a new commit to trigger a fresh workflow run.
 
 After the PR merges, run `st-finalize-repo` from the repository root. The tool
 switches to the target branch, fast-forward pulls from origin, deletes merged
-local branches, and prunes stale remotes. If the tool is not available, perform
-the steps manually:
+local branches, and prunes stale remotes.
 
-1. Switch to the target branch and pull latest from origin.
-2. Delete the local feature branch.
-3. Prune stale remote-tracking references.
+If `st-finalize-repo` is not available, stop and report the missing tool to the
+user. Do not attempt manual workarounds — required tools must be available in
+the environment.
 
 Then run final validation.
 
