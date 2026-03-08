@@ -16,8 +16,8 @@ run() {
 missing=()
 command -v shellcheck >/dev/null 2>&1 || missing+=("shellcheck")
 command -v markdownlint >/dev/null 2>&1 || missing+=("markdownlint")
-command -v repo-profile >/dev/null 2>&1 || missing+=("repo-profile (standard-tooling)")
-command -v markdown-standards >/dev/null 2>&1 || missing+=("markdown-standards (standard-tooling)")
+command -v st-repo-profile >/dev/null 2>&1 || missing+=("st-repo-profile (standard-tooling)")
+command -v st-markdown-standards >/dev/null 2>&1 || missing+=("st-markdown-standards (standard-tooling)")
 
 if [[ ${#missing[@]} -gt 0 ]]; then
   echo "ERROR: required tools not found: ${missing[*]}" >&2
@@ -26,11 +26,11 @@ fi
 
 # -- repo profile validation -------------------------------------------------
 
-run repo-profile
+run st-repo-profile
 
 # -- markdown lint -----------------------------------------------------------
 
-run markdown-standards
+run st-markdown-standards
 
 # -- shellcheck on all shell scripts -----------------------------------------
 
