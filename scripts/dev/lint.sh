@@ -2,4 +2,4 @@
 set -euo pipefail
 # Tier 1 — Lint
 
-markdown-standards
+st-markdown-standards
