@@ -1,8 +1,5 @@
 # Standards and Conventions - Agent Instructions
 
-<!-- include: docs/site/docs/standards-and-conventions.md -->
-<!-- include: ./docs/repository-standards.md -->
-
 ## User Overrides (Optional)
 
 Always apply this repository's `AGENTS.md` as the baseline. If

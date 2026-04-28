@@ -2,12 +2,6 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working in this repository.
 
-<!-- include: docs/site/docs/standards-and-conventions.md -->
-<!-- include: docs/repository-standards.md -->
-
-<!-- include: skills/project-issue/SKILL.md -->
-<!-- include: skills/branch-workflow/SKILL.md -->
-
 ## Auto-memory policy
 
 **Do NOT use MEMORY.md.** Never write to MEMORY.md or any file under the
@@ -94,7 +88,7 @@ This is the **canonical standards and conventions repository**. All other reposi
 ## Environment Setup
 
 ```bash
-git config core.hooksPath ../standard-tooling/scripts/lib/git-hooks  # Enable git hooks
+git config core.hooksPath .githooks  # Enable git hooks
 ```
 
 Standard-tooling CLI tools (`st-commit`, `st-validate-local`, etc.) are
@@ -116,12 +110,12 @@ and are available on PATH automatically.
 
 ## Repository Standards Quick Reference
 
-The include directives above load the full repository standards. Key highlights for quick reference:
+Key highlights for quick reference:
 
 **Pre-flight Checklist**:
 - Check current branch: `git status -sb`
 - If on `develop`, create `feature/*` branch before making changes
-- Enable git hooks: `git config core.hooksPath ../standard-tooling/scripts/lib/git-hooks`
+- Enable git hooks: `git config core.hooksPath .githooks`
 - Verify `st-*` tools are on PATH: `command -v st-commit`
 
 **Repository Profile**:
