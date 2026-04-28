@@ -22,6 +22,6 @@ jobs:
           fetch-depth: 0
 
       - name: Validate standards
-        uses: wphillipmoore/standard-actions/actions/standards-compliance@v1.3
+        uses: wphillipmoore/standard-actions/actions/standards-compliance@v1.4
         with:
           skip-sync-check: "true"
