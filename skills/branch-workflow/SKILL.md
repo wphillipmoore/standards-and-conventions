@@ -305,5 +305,4 @@ one-branch-per-issue invariant must hold everywhere.
 - `docs/code-management/github-issues.md`
 - `docs/code-management/github-projects.md`
 - `docs/code-management/branching/branching-and-deployment.md`
-- `docs/code-management/branching/library-branching-and-release.md`
 - `docs/code-management/branching/documentation-branching-model.md`

@@ -131,6 +131,4 @@ optional unless a specific repository documents a requirement.
 
 ## 9. Related documents
 
-- Repository types and attributes: [repository-types-and-attributes.md](../../repository/repository-types-and-attributes.md)
-- Pull request workflow: [pull-request-workflow.md](../pull-request-workflow.md)
-- Documentation toolchain: [documentation-toolchain.md](../../development/documentation-toolchain.md)
+- Branching and deployment model: [branching-and-deployment.md](branching-and-deployment.md)

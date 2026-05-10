@@ -111,5 +111,4 @@ Violations are fatal exceptions that block merges, releases, and deployments.
 
 ## Related documents
 
-- Release and versioning policy: [release-versioning.md](release-versioning.md)
-- Library versioning scheme: [library-versioning-scheme.md](library-versioning-scheme.md)
+- Branching and deployment: [branching-and-deployment.md](../branching/branching-and-deployment.md)

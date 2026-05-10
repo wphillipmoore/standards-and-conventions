@@ -25,15 +25,11 @@ Applies to application repositories with environment-based deployments and
 linear promotion.
 
 Library repositories follow the library branching model and are not governed by
-this document. See
-[library-branching-and-release.md](library-branching-and-release.md).
+this document.
 
 Documentation repositories follow the documentation branching model and are not
 governed by this document. See
 [documentation-branching-model.md](documentation-branching-model.md).
-
-Repository type definitions live in
-[repository-types-and-attributes.md](../../repository/repository-types-and-attributes.md).
 
 ## 3. Core Invariants
 

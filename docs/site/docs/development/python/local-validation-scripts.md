@@ -2,24 +2,12 @@
 
 ## Purpose
 
-Specialize the
-[ecosystem-agnostic local validation scripts standard](../../repository/local-validation-scripts.md)
-for Python repositories.
+Define local validation script requirements for Python repositories.
 
 ## Scope
 
 Applies to Python repositories that define a canonical local validation
-command. All requirements from the
-[general standard](../../repository/local-validation-scripts.md) apply in
-addition to the Python-specific requirements below.
-
-## General standard
-
-This document extends the
-[Local Validation Scripts](../../repository/local-validation-scripts.md)
-standard. Refer to that document for shared requirements including fail-fast
-behavior, prerequisite checks, non-zero exit codes, CI parity basics, and
-no-side-effects rules.
+command.
 
 ## Python-specific requirements
 
