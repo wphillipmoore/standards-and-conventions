@@ -14,10 +14,6 @@ practices.
 ## Document Map
 
 - Repository structure: [repository-structure.md](repository-structure.md)
-- Repository types and attributes: [repository-types-and-attributes.md](repository-types-and-attributes.md)
-- Local validation scripts: [local-validation-scripts.md](local-validation-scripts.md)
-- Shared tooling sync: [shared-tooling-sync.md](shared-tooling-sync.md)
-- Dependency update workflow: [dependency-update-workflow.md](dependency-update-workflow.md)
 
 ## Dependency Anchor Records
 

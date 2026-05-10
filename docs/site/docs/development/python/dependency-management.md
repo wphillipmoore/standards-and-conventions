@@ -230,5 +230,3 @@ CI must fail when:
 ## Related documents
 
 - Application versioning scheme: [application-versioning-scheme.md](../../code-management/versioning/application-versioning-scheme.md)
-- Dependency update workflow: [dependency-update-workflow.md](../../repository/dependency-update-workflow.md)
-- Pull request workflow: [pull-request-workflow.md](../../code-management/pull-request-workflow.md)

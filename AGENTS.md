@@ -12,17 +12,6 @@ This repository is the canonical source of development standards and
 conventions. Treat the documents here as the default baseline for other
 repositories, with local overrides captured elsewhere when needed.
 
-## Mandatory standards intake (before any other action)
-
-After reading this file and any `~/AGENTS.md` overlay, you MUST load
-the repository-local `docs/site/docs/standards-and-conventions.md`.
-Treat it as the required entry point for all other standards. If the
-file cannot be retrieved, stop and notify the user.
-
-Then, before any other action, you MUST open every canonical or required
-reference listed there that is relevant to the task at hand. Do not proceed
-until those documents are loaded.
-
 ## Start Every Work Session: Create a Feature Branch
 
 **Critical first step after mandatory standards intake**: before making any
@@ -57,13 +46,6 @@ alternate sources.
 #### Git Operations (commit, push, branch, merge)
 
 - MUST READ: `docs/site/docs/code-management/branching/branching-and-deployment.md`
-- MUST READ: `docs/site/docs/code-management/commit-messages-and-authorship.md`
-- MUST READ: `docs/site/docs/standards-and-conventions.md` for approved
-  AI co-author IDs
-
-#### Pull Request Operations (create, submit, merge)
-
-- MUST READ: `docs/site/docs/code-management/pull-request-workflow.md`
 
 #### Documentation Standards
 

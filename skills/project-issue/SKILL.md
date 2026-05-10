@@ -266,4 +266,3 @@ Display the issue URL and project assignment confirmation.
 
 - `docs/code-management/github-issues.md`
 - `docs/code-management/github-projects.md`
-- `docs/code-management/commit-messages-and-authorship.md`

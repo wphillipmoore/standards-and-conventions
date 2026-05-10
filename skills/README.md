@@ -17,25 +17,17 @@ These skills are shared across repositories that adopt the standards here.
 Skill bodies must remain aligned with the canonical documents they reference.
 
 ## Skill list
-- `summarize` (`skills/summarize/SKILL.md`): multi-mode summarization for
-  decisions, operations, and SOC capture.
-- `summarize-decisions` (`skills/summarize-decisions/SKILL.md`): wrapper for
-  decisions summaries (autocomplete-friendly).
-- `summarize-operations` (`skills/summarize-operations/SKILL.md`): wrapper for
-  operations summaries (autocomplete-friendly).
-- `summarize-soc` (`skills/summarize-soc/SKILL.md`): wrapper for SOC capture
-  summaries (autocomplete-friendly).
-- `pr-workflow` (`skills/pr-workflow/SKILL.md`): pull request workflow.
-- `dependency-update` (`skills/dependency-update/SKILL.md`): dependency update
-  workflow with failure handling and anchor rules.
-- `deprecation-triage` (`skills/deprecation-triage/SKILL.md`): deprecation
-  warning triage workflow and issue template.
-- `publish` (`skills/publish/SKILL.md`): library and documentation publish
-  workflow with post-publish dependency updates.
+
 - `rtfm` (`skills/rtfm/SKILL.md`): RTFM forced interruption handling with
   failure context capture and issue tracking.
 - `project-issue` (`skills/project-issue/SKILL.md`): guided project issue
   creation with required attribute collection and project assignment.
+- `branch-workflow` (`skills/branch-workflow/SKILL.md`): issue-linked branch
+  creation with existing branch detection.
+
+Skills previously hosted here (summarize, pr-workflow, dependency-update,
+deprecation-triage, publish) have been migrated to the standard-tooling
+plugin.
 
 ## Usage conventions
 - Keep skills minimal and procedural; defer rationale to the standards.

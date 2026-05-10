@@ -44,10 +44,10 @@ Use `docs/decisions/` for ADRs. Naming and structure:
 - Keep the decision record immutable once accepted; revisions require a new
   ADR that references the original
 
-Each repository must include `docs/standards-and-conventions.md` that:
+Each repository must include `docs/repository-standards.md` that:
 
-- links to the canonical standards in this repository
-- documents project-specific overlays and deviations
+- documents the repository profile attributes
+- documents project-specific overlays and deviations from shared standards
 
 ## Examples
 

@@ -116,5 +116,4 @@ Use `-F` (not `-f`) for `sub_issue_id` — the API requires an integer, and
 
 ## Related documents
 
-- Pull request workflow: [pull-request-workflow.md](pull-request-workflow.md)
 - Branching and deployment model: [branching-and-deployment.md](branching/branching-and-deployment.md)
