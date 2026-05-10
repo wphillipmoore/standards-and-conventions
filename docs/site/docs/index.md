@@ -1,20 +1,13 @@
-# Standards and Conventions
+# Standards and Conventions (archived)
 
-## Sections
+This repository has been decommissioned. All content has been migrated
+to its successor repositories:
 
-This site is the canonical reference for development standards,
-conventions, and workflows. All repositories reference these
-standards as their baseline.
-
-- **[Standards](standards/overview.md)** — Markdown standards and
-  architecture patterns
-- **[AI Agents](ai-agents/overview.md)** — Agent behavior,
-  workflows, quality controls, and summary protocols
-- **[Code Management](code-management/overview.md)** — Branching
-  models, commit messages, pull requests, versioning, and releases
-- **[Repository](repository/overview.md)** — Repository structure,
-  types, dependency management, and shared tooling
-- **[Development](development/overview.md)** — Language-specific
-  standards (Python, Go, Java, Shell) and cross-cutting concerns
-- **[Research](research/eu-canada-github-aws-alternatives.md)** —
-  Research reports and evaluations
+- **[standard-tooling](https://github.com/wphillipmoore/standard-tooling)** —
+  Standards, conventions, guides, CLI tools, and shared agent skills
+- **[standard-actions](https://github.com/wphillipmoore/standard-actions)** —
+  Reusable GitHub Actions workflows
+- **[standard-plugins](https://github.com/wphillipmoore/standard-plugins)** —
+  Agent plugins (superpowers, paad)
+- **[standard-docker](https://github.com/wphillipmoore/standard-docker)** —
+  Development container images
